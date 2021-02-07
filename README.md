@@ -1,5 +1,5 @@
-Create a feature branch locally and work on that branch.
+# UniversityBazaar
+Team Project for CSE 6324 Agile Software Development
 
-After work is done push local feature branch to github then create a pull request merge to be merged to developer branch.
+# Donot merge to master!!  Create a feature branch.
 
-After developer branch is tested then only merge to master.
