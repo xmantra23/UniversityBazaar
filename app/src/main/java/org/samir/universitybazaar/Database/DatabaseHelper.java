@@ -15,7 +15,7 @@ import org.samir.universitybazaar.Models.User;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG  = "DatabaseHelper"; //tag for debugging.
 
-    private static final String DB_NAME = "UniveristyBazaarDB"; // Database Name.
+    private static final String DB_NAME = "UniversityBazaarDB"; // Database Name.
     private static final int DB_VERSION = 1; //Database Version.
     private Context context;
 
