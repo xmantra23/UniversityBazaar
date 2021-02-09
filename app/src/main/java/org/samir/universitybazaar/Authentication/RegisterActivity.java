@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.AsyncTaskLoader;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.TestActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -137,6 +139,16 @@ public class RegisterActivity extends AppCompatActivity {
                         public void run() {
                             txtWarning.setVisibility(View.VISIBLE);
                             txtWarning.setText("Couldn't register. Please try again");
+                        }
+                    });
+                }else{
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                         }
                     });
                 }

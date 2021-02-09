@@ -1,5 +1,7 @@
 package org.samir.universitybazaar.Models;
 
+import androidx.annotation.NonNull;
+
 public class User {
     private int id;
     private String memberId;
@@ -76,5 +78,18 @@ public class User {
 
     public void setThirdSecurityQuestion(String thirdSecurityQuestion) {
         this.thirdSecurityQuestion = thirdSecurityQuestion;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", memberId='" + memberId + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstSecurityQuestion='" + firstSecurityQuestion + '\'' +
+                ", secondSecurityQuestion='" + secondSecurityQuestion + '\'' +
+                ", thirdSecurityQuestion='" + thirdSecurityQuestion + '\'' +
+                '}';
     }
 }
