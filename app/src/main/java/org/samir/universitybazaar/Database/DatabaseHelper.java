@@ -17,10 +17,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "UniveristyBazaarDB"; // Database Name.
     private static final int DB_VERSION = 1; //Database Version.
-
+    private Context context;
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -92,6 +93,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long userId = db.insert("users",null,values);
             return true;
         }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean loginUser(String memberId, String password){
+        try{
+            SQLiteDatabase db = getReadableDatabase();
+            String[] args = {memberId,password};
+            Cursor cursor = db.query("users",null,"member_id=? AND password=?",args,null,null,null);
+
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    User user = new User();
+                    user.setId(cursor.getInt(cursor.getColumnIndex("_id")));
+                    user.setMemberId(cursor.getString(cursor.getColumnIndex("member_id")));
+                    user.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+                    user.setPassword(cursor.getString(cursor.getColumnIndex("password")));
+                    cursor.close();
+                    db.close();
+                    UserSession loginSession = new UserSession(context);
+                    if(loginSession.createUserSession(user)){
+                        return true;
+                    }else {
+                        return false;
+                    }
+                }else{
+                    cursor.close();
+                    db.close();
+                    return false;
+                }
+            }else{
+                db.close();
+                return false;
+            }
+        }catch(SQLException e){
             e.printStackTrace();
             return false;
         }
