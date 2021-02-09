@@ -1,14 +1,22 @@
 package org.samir.universitybazaar.Authentication;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.AsyncTaskLoader;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.samir.universitybazaar.Database.DatabaseHelper;
+import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -18,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText edtTxtMemberId, edtTxtEmail, edtTxtPassword, edtTxtConfirmPassword, edtTxtFirstSecurity, edtTxtSecondSecurity,edtTxtThirdSecurity;
     private Button btnRegister;
     private TextView txtWarning, txtLogin;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +95,21 @@ public class RegisterActivity extends AppCompatActivity {
             txtWarning.setText("Please provide a valid email address");
         }else{
             txtWarning.setVisibility(View.GONE);
+            databaseHelper = new DatabaseHelper(this);
+
+            //create a new user will all the details.
+            User user = new User();
+            user.setMemberId(memberId);
+            user.setEmail(email);
+            user.setPassword(password);
+            user.setFirstSecurityQuestion(firstSecurityQuestion);
+            user.setSecondSecurityQuestion(secondSecurityQuestion);
+            user.setThirdSecurityQuestion(thirdSecurityQuestion);
+
+            //do registration activity in a background thread process.
+            RegisterUser newUser = new RegisterUser(user);
+            Thread thread = new Thread(newUser);
+            thread.start();
         }
     }
 
@@ -96,6 +120,38 @@ public class RegisterActivity extends AppCompatActivity {
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
     }
+
+    //handles background process to register the user
+    private class RegisterUser implements Runnable{
+        private User user;
+        public RegisterUser(User user){
+            this.user = user;
+        }
+
+        @Override
+        public void run() {
+            if(!databaseHelper.doesUserExist(user)){
+                if(!databaseHelper.registerUser(user)){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            txtWarning.setVisibility(View.VISIBLE);
+                            txtWarning.setText("Couldn't register. Please try again");
+                        }
+                    });
+                }
+            }else{
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        txtWarning.setVisibility(View.VISIBLE);
+                        txtWarning.setText("User already exists");
+                    }
+                });
+            }
+        }
+    }
+
 
 
 }
