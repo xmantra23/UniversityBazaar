@@ -27,10 +27,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initViews();
-        initBtnListeners();
+        initViews(); //initialize all the elements in layout file.
+        initBtnListeners(); //setup onclick listeners.
     }
 
+    //initializes all the elements in layout file.
     private void initViews() {
         edtTxtMemberId = findViewById(R.id.edtTxtMemberId);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
@@ -39,27 +40,30 @@ public class LoginActivity extends AppCompatActivity {
         txtForgotPassword = findViewById(R.id.txtForgotPassword);
     }
 
+    //sets up onclick listeners.
     private void initBtnListeners() {
         btnLogin.setOnClickListener(v->{handleLogin();});
         // TODO: 2/9/2021 link txtforgotpassword to forgotpassword activity.
         txtForgotPassword.setOnClickListener(v->{});
     }
 
+    //logs user into the system
     private void handleLogin(){
-        String memberID = edtTxtMemberId.getText().toString().trim();
-        String password = edtTxtPassword.getText().toString().trim();
+        String memberID = edtTxtMemberId.getText().toString().trim(); //get the member id
+        String password = edtTxtPassword.getText().toString().trim(); //get the password
 
-        if(memberID.equals("") || password.equals("")){
+        if(memberID.equals("") || password.equals("")){ //if user doesn't provide member id or password display warning.
             txtWarning.setVisibility(View.VISIBLE);
             txtWarning.setText("Please enter all fields");
-        }else{
-            databaseHelper = new DatabaseHelper(this);
-            LoginUser loginUser = new LoginUser(memberID,password);
+        }else{      //proceed to login
+            databaseHelper = new DatabaseHelper(this); //Opens connection to the database.
+            LoginUser loginUser = new LoginUser(memberID,password); // background interface class that will do the login task on a new thread.
             Thread loginUserTask= new Thread(loginUser);
-            loginUserTask.start();
+            loginUserTask.start(); //starts a new thread to login the user. see below for implementation of the interface.
         }
     }
 
+    //This class performs background task on a new thread to log user in.
     private class LoginUser implements Runnable{
         private String memberID;
         private String password;
@@ -73,12 +77,14 @@ public class LoginActivity extends AppCompatActivity {
             if(databaseHelper.loginUser(memberID,password)){
                 //user is logged in. Redirect to home page.
                 Intent intent = new Intent(LoginActivity.this, TestActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);  //clear the activity stack.
+                startActivity(intent); //start home page activity.
             }else{
+                //login failed.
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        //display warning to the user.
                         txtWarning.setVisibility(View.VISIBLE);
                         txtWarning.setText("Invalid member id or password");
                     }

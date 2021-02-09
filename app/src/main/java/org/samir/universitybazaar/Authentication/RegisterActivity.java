@@ -23,7 +23,7 @@ import org.samir.universitybazaar.TestActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private static final String TAG = "RegisterActivity";
+    private static final String TAG = "RegisterActivity"; //tag for logging. not important.
 
     private EditText edtTxtMemberId, edtTxtEmail, edtTxtPassword, edtTxtConfirmPassword, edtTxtFirstSecurity, edtTxtSecondSecurity,edtTxtThirdSecurity;
     private Button btnRegister;
@@ -61,12 +61,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void handleLoginText() {
-        //// TODO: 2/9/2021 redirect to login activity
+        //redirect user to the login page.
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 
     private void handleRegister(){
-        Log.d(TAG,"handleRegister: started");
-        //get the user input and trim all whitespaces.
+        Log.d(TAG,"handleRegister: started"); //logging.
+        //get the input from user and trim all whitespaces.
         String memberId = edtTxtMemberId.getText().toString().trim();
         String email = edtTxtEmail.getText().toString().trim();
         String password = edtTxtPassword.getText().toString().trim();
@@ -96,10 +98,11 @@ public class RegisterActivity extends AppCompatActivity {
             txtWarning.setVisibility(View.VISIBLE);
             txtWarning.setText("Please provide a valid email address");
         }else{
+            //All the inputs are valid. proceed to registration.
             txtWarning.setVisibility(View.GONE);
             databaseHelper = new DatabaseHelper(this);
 
-            //create a new user will all the details.
+            //create a new user with all the user provided details.
             User user = new User();
             user.setMemberId(memberId);
             user.setEmail(email);
@@ -108,10 +111,10 @@ public class RegisterActivity extends AppCompatActivity {
             user.setSecondSecurityQuestion(secondSecurityQuestion);
             user.setThirdSecurityQuestion(thirdSecurityQuestion);
 
-            //do registration activity in a background thread process.
+            //do registration activity in a background thread process. See Register User for details.
             RegisterUser newUser = new RegisterUser(user);
             Thread thread = new Thread(newUser);
-            thread.start();
+            thread.start(); //registration background task started.
         }
     }
 
@@ -133,7 +136,9 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         public void run() {
             if(!databaseHelper.doesUserExist(user)){
+                // User hasn't registered before. Member id and email are unique.
                 if(!databaseHelper.registerUser(user)){
+                    //Registration failed. Display Error to the user.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -142,6 +147,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
                 }else{
+                    //Registration successful. Display success message and redirect to the login page.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -153,6 +159,7 @@ public class RegisterActivity extends AppCompatActivity {
                     });
                 }
             }else{
+                // User with the provided member id and email already exists. Display error message to the user.
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -163,7 +170,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
 }
