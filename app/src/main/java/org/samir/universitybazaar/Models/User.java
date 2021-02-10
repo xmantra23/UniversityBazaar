@@ -1,7 +1,7 @@
 package org.samir.universitybazaar.Models;
 
-import androidx.annotation.NonNull;
 
+// A basic class to hold all the information about a particular user. Matches one to one with the "users" table in the database.
 public class User {
     private int id;
     private String memberId;
