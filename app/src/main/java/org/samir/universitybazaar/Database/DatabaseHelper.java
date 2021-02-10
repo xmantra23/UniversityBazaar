@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "UniversityBazaarDB"; // Database Name.
     private static final int DB_VERSION = 1; //Database Version.
-    private Context context;
+    private Context context; //application context used for identifying activities during program execution.
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG,"onCreate: started"); //just for logs.
-        createUserTable(db); //creates user table in the database.
+        createUserTable(db); //creates users table in the database.
 
     }
 
@@ -45,40 +45,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createUserTable);
     }
 
+    //checks if a user already exists in the database by looking at the member id and email.
     public boolean doesUserExist(User user){
         try{
             SQLiteDatabase db = this.getReadableDatabase();
-            String [] columns = {"member_id","email"};
-            String [] args = {user.getMemberId(),user.getEmail()};
+            String [] columns = {"member_id","email"};  // retrieve these columns
+            String [] args = {user.getMemberId(),user.getEmail()};  // get records matching the member id and email.
             Cursor cursor = db.query("users",columns,"member_id=? or email=?",args,null,null,null);
             if(cursor != null){
-                if(cursor.moveToFirst()){
+                if(cursor.moveToFirst()){ // move to the first result set in the table.
                     if(cursor.getString(cursor.getColumnIndex("email")).equals(user.getEmail()) ||
                     cursor.getString(cursor.getColumnIndex("member_id")).equals(user.getMemberId())){
+                        //user already exists in the database
                         cursor.close();
                         db.close();
                         return true;
                     }else{
+                        //user doesn't exist in the database
                         cursor.close();
                         db.close();
                         return false;
                     }
                 }else{
+                    //user doesn't exist in the database or there was an error querying the database.
                     cursor.close();
                     db.close();
                     return false;
                 }
             }else{
+                //no result set was obtained after performing the sql query. user doesn't exist in the database.
                 db.close();
                 return true;
             }
         }catch(SQLException e){
+            // couldn't execute the query properly. Return true as a default behaviour indicating user could not be found.
             e.printStackTrace();
             return true;
         }
 
     }
 
+    //Inserts a new user into the database.
     public boolean registerUser(User user){
         try {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -98,6 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //logs user into the system and sets up session data to be used throughout the login session.
     public boolean loginUser(String memberId, String password){
         try{
             SQLiteDatabase db = getReadableDatabase();
@@ -106,6 +114,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             if(cursor != null){
                 if(cursor.moveToFirst()){
+                    //found a user record with matching username and password.
+                    //constructing the found user from the database.
                     User user = new User();
                     user.setId(cursor.getInt(cursor.getColumnIndex("_id")));
                     user.setMemberId(cursor.getString(cursor.getColumnIndex("member_id")));
@@ -113,22 +123,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     user.setPassword(cursor.getString(cursor.getColumnIndex("password")));
                     cursor.close();
                     db.close();
+                    //Saving the data for creating a login session.
                     UserSession loginSession = new UserSession(context);
+                    //creates a new login session.
                     if(loginSession.createUserSession(user)){
                         return true;
                     }else {
+                        //user session could not be created.
                         return false;
                     }
                 }else{
+                    //user details could not be obtained from the database so return false.
                     cursor.close();
                     db.close();
                     return false;
                 }
             }else{
+                //no user record with the provided username or password was found so return false.
                 db.close();
                 return false;
             }
         }catch(SQLException e){
+            //encountered a fatal error while executing the database query. return false to indicate login failed.
             e.printStackTrace();
             return false;
         }

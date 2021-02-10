@@ -17,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.samir.universitybazaar.Database.DatabaseHelper;
+import org.samir.universitybazaar.EmailService.EmailHelper;
+import org.samir.universitybazaar.EmailService.GMailSender;
+import org.samir.universitybazaar.MainActivity;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.TestActivity;
@@ -147,7 +150,9 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
                 }else{
-                    //Registration successful. Display success message and redirect to the login page.
+                    //Registration successful.Send confirmation email, display success message and redirect to the login page.
+                    EmailHelper email = new EmailHelper(RegisterActivity.this);
+                    email.sendConfirmationEmail(user.getEmail(),user.getMemberId(),user.getPassword()); //send confirmation email.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -170,4 +175,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
 }
