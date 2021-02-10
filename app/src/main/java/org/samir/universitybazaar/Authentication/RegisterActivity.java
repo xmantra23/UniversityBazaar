@@ -152,7 +152,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }else{
                     //Registration successful.Send confirmation email, display success message and redirect to the login page.
                     EmailHelper email = new EmailHelper();
-                    Log.d("SendMail",user.getEmail() );
                     email.sendConfirmationEmail(user.getEmail(),user.getMemberId(),user.getPassword()); //send confirmation email.
                     runOnUiThread(new Runnable() {
                         @Override
