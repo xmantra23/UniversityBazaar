@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.samir.universitybazaar.Database.DatabaseHelper;
-import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.TestActivity;
 
@@ -63,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleResetPassword() {
-        Intent intent = new Intent(LoginActivity.this, Reset1Avtivity.class);
+        Intent intent = new Intent(LoginActivity.this, Reset1Activity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);  //clear the activity stack.
         startActivity(intent); //start home page activity.
     }

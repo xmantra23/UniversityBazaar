@@ -14,8 +14,8 @@
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".Authentication.LoginActivity" />
         <activity android:name=".Authentication.RegisterActivity" />
-        <activity android:name=".Authentication.Reset1Avtivity" />
-        <activity android:name=".Authentication.Reset2Avtivity" />
+        <activity android:name=".Authentication.Reset1Activity" />
+        <activity android:name=".Authentication.Reset2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

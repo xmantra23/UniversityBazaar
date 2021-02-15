@@ -16,7 +16,7 @@ import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 
-public class Reset2Avtivity extends AppCompatActivity {
+public class Reset2Activity extends AppCompatActivity {
     private static final String TAG = "Reset2Activity";
     public static final String MEMBER_ID = "member.id";
 
@@ -31,23 +31,23 @@ public class Reset2Avtivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset2);
         memberId = getIntent().getStringExtra(MEMBER_ID);
-        initViews();
-        initListeners();
+        initViews();//initialize all the elements in layout file.
+        initListeners();//setup onclick listeners.
     }
-
+    //initializes all the elements in layout file.
     private void initViews() {
         firstPasswordEditText = findViewById(R.id.resetNewPassword);
         secondPasswordEditText = findViewById(R.id.resetConfirmPassword);
         warningTextView = findViewById(R.id.reset2Warning);
         reset2NextButton = findViewById(R.id.reset2NextButton);
     }
-
+    //sets up onclick listeners.
     private void initListeners() {
         reset2NextButton.setOnClickListener((view) -> {
             validatePassword();
         });
     }
-
+    //input validation
     private void validatePassword() {
         Log.d(TAG, "handleReset2: started");
         new Thread(() -> {
@@ -81,8 +81,8 @@ public class Reset2Avtivity extends AppCompatActivity {
                 }
                 user.setPassword(firstPassword);
                 databaseHelper.updateUser(user);
-                runOnUiThread(() -> Toast.makeText(Reset2Avtivity.this, "Reset password Successful", Toast.LENGTH_SHORT).show());
-                Intent intent = new Intent(Reset2Avtivity.this, LoginActivity.class);
+                runOnUiThread(() -> Toast.makeText(Reset2Activity.this, "Reset password Successful", Toast.LENGTH_SHORT).show());//Reset password Successful
+                Intent intent = new Intent(Reset2Activity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

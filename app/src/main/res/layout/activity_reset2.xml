@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Authentication.Reset2Avtivity">
+    tools:context=".Authentication.Reset2Activity">
 
     <RelativeLayout
         android:id="@+id/reset2TopLayout"

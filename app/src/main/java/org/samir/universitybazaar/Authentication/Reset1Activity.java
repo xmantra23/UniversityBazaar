@@ -15,10 +15,10 @@ import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 
-import static org.samir.universitybazaar.Authentication.Reset2Avtivity.MEMBER_ID;
+import static org.samir.universitybazaar.Authentication.Reset2Activity.MEMBER_ID;
 
 
-public class Reset1Avtivity extends AppCompatActivity {
+public class Reset1Activity extends AppCompatActivity {
     private static final String TAG = "Reset1Activity";
 
     private EditText memberIdEditText, firstSecurityEditText, secondSecurityEditText, thirdSecurityEditText;
@@ -30,11 +30,11 @@ public class Reset1Avtivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset1);
-        initViews();
-        initListeners();
+        initViews();//initialize all the elements in layout file.
+        initListeners();//setup onclick listeners.
     }
 
-
+    //initializes all the elements in layout file.
     private void initViews() {
         memberIdEditText = findViewById(R.id.resetTxtMemberId);
         firstSecurityEditText = findViewById(R.id.resetFirstSecurity);
@@ -43,15 +43,16 @@ public class Reset1Avtivity extends AppCompatActivity {
         warningTextView = findViewById(R.id.reset1Warning);
         resetNextButton = findViewById(R.id.reset1NextButton);
     }
-
+    //sets up onclick listeners.
     private void initListeners() {
         resetNextButton.setOnClickListener((view) -> {
             validateSecurityQuestions();
         });
     }
-
+    //input validation
     private void validateSecurityQuestions() {
-        Log.d(TAG, "handleReset: started");
+        Log.d(TAG, "handleReset: started");//reset.
+        //get the input from user and trim all whitespaces.
         new Thread(() -> {
             String memberId = memberIdEditText.getText().toString().trim();
             String firstSecurityQuestion = firstSecurityEditText.getText().toString().trim();
@@ -85,11 +86,11 @@ public class Reset1Avtivity extends AppCompatActivity {
                 if (!firstSecurityQuestion.equals(user.getFirstSecurityQuestion()) || !secondSecurityQuestion.equals(user.getSecondSecurityQuestion()) || !thirdSecurityQuestion.equals(user.getThirdSecurityQuestion())) {
                     runOnUiThread(() -> {
                         warningTextView.setVisibility(View.VISIBLE);
-                        warningTextView.setText("Security question answered incorrectly.");
+                        warningTextView.setText("Incorrect member id or security questions.");
                     });
                     return;
                 }
-                Intent intent = new Intent(Reset1Avtivity.this, Reset2Avtivity.class);
+                Intent intent = new Intent(Reset1Activity.this, Reset2Activity.class);
                 intent.putExtra(MEMBER_ID, memberId);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
