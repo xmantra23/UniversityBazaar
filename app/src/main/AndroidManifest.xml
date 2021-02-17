@@ -12,6 +12,10 @@
         android:theme="@style/Theme.UniversityBazaar">
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".Authentication.LoginActivity" />
+        <activity android:name=".Profile.AvatarActivity" />
+        <activity android:name=".Profile.AvatarChangeActivity" />
+        <activity android:name=".Profile.ViewProfileActivity" />
+        <activity android:name=".Profile.EditProfileActivity" />
         <activity android:name=".Authentication.RegisterActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

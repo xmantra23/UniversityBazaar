@@ -11,6 +11,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import org.samir.universitybazaar.Models.User;
+import org.samir.universitybazaar.Database.ProfileDAO;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG  = "DatabaseHelper"; //tag for debugging.
@@ -28,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG,"onCreate: started"); //just for logs.
         createUserTable(db); //creates users table in the database.
-
+        createUserProfileTable(db); //creates user_profiles table in database.
     }
 
     //only need to use this when updating the database version.
@@ -43,6 +44,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 " ,email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, " +
                 "first_security TEXT NOT NULL, second_security TEXT NOT NULL, third_security TEXT NOT NULL)";
         db.execSQL(createUserTable);
+    }
+
+    //creates userprofile table in the database.
+    private static void createUserProfileTable(SQLiteDatabase db){
+        String createUserProfileTable = "CREATE TABLE user_profiles (_id INTEGER PRIMARY KEY AUTOINCREMENT, member_id TEXT NOT NULL UNIQUE" +
+                " ,email TEXT NOT NULL UNIQUE, full_name TXET, gender TEXT, address TEXT , phone TEXT , dob TEXT, avatar TEXT)";
+        db.execSQL(createUserProfileTable);
     }
 
     //checks if a user already exists in the database by looking at the member id and email.
@@ -98,6 +106,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put("third_security",user.getThirdSecurityQuestion());
 
             long userId = db.insert("users",null,values);
+
+            //create a user_profile with this user when register
+            ContentValues profile_values = new ContentValues();
+            profile_values.put("member_id",user.getMemberId());
+            profile_values.put("email",user.getEmail());
+
+            long profileId = db.insert("user_profiles",null,profile_values);
             return true;
         }catch(SQLException e) {
             e.printStackTrace();
@@ -149,4 +164,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+
 }
