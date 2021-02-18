@@ -9,7 +9,6 @@ import android.util.Log;
 import android.widget.Button;
 
 import org.samir.universitybazaar.Models.Profile;
-import org.samir.universitybazaar.Models.User;
 
 public class ProfileDAO {
     private DatabaseHelper dbHelper;

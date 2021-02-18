@@ -113,7 +113,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             profile_values.put("email",user.getEmail());
 
             long profileId = db.insert("user_profiles",null,profile_values);
-            long userId = db.insert("users", null, values);
+            userId = db.insert("users", null, values);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

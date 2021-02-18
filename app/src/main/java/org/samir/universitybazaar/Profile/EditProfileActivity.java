@@ -137,10 +137,16 @@ public class EditProfileActivity extends AppCompatActivity {
             if(fullName.equals("") || gender.equals("") || address.equals("") || phone.equals("") || dob.equals("")){
                 txtWarning.setVisibility(View.VISIBLE);
                 txtWarning.setText("Please enter all the fields");
-            }else if(address.length() < 10 || address.length() > 100){
+            }else if(fullName.length() > 50){
+                txtWarning.setVisibility(View.VISIBLE);
+                txtWarning.setText("Address must be at-most 50 chars long");
+            }else if(address.length() < 10 ){
                 txtWarning.setVisibility(View.VISIBLE);
                 txtWarning.setText("Address must be at-least 10 chars long");
-            }else if(phone.length() < 10 || phone.length() > 11){
+            }else if(address.length() > 100){
+                txtWarning.setVisibility(View.VISIBLE);
+                txtWarning.setText("Address must be at-most 10 chars long");
+            }else if(!(phone.length() == 10)){
                 txtWarning.setVisibility(View.VISIBLE);
                 txtWarning.setText("Phone numbers must be 10 chars long");
             }else if(!isValidDate(dob)){
@@ -203,33 +209,33 @@ public class EditProfileActivity extends AppCompatActivity {
 
         if(year%4==0 && year%100 !=0){
             if(month == 2){
-                if(day == 29){
+                if(day <= 29){
                     return true;
                 }
             }
             else if(month == 1||month == 3|| month == 5|| month==7||month==8||month==10||month==12){
-                if (day == 31){
+                if (day <= 31){
                     return true;
                 }
             }
             else if(month == 4||month==6||month==9||month==11){
-                if(day == 30){
+                if(day <= 30){
                     return true;
                 }
             }
         }else{
             if(month == 2){
-                if(day == 28){
+                if(day <= 28){
                     return true;
                 }
             }
             else if(month == 1||month == 3|| month == 5|| month==7||month==8||month==10||month==12){
-                if (day == 31){
+                if (day <= 31){
                     return true;
                 }
             }
             else if(month == 4||month==6||month==9||month==11){
-                if(day == 30){
+                if(day <= 30){
                     return true;
                 }
             }
