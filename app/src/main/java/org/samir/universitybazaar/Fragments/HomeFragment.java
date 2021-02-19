@@ -18,6 +18,12 @@ import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
 
+/**
+ * @author Samir Shrestha
+ * @Description This class is basically the main content of the HomeActivity. It has the main content in the middle and includes a bottom
+ * navigation bar in the bottom of the fragment. The main content in the middle navigates to other activities whereas the clicking on the
+ * bottom navigation views should make the page stay on HomeActivity but only refresh the middle fragment part with new data.
+ */
 public class HomeFragment extends Fragment {
     private BottomNavigationView bottomNavigationView;
     private ImageView manageClubArrow,manageSubArrow,managePostArrow,manageSaleArrow,managePurchaseArrow,manageLoanArrow;

@@ -62,6 +62,8 @@ public class HomeActivity extends AppCompatActivity {
         //getting the logged in user.
         session = new UserSession(this);
         User user = session.isUserLoggedIn();
+
+        //only update the toolbar header if the user is logged in.
         if(user != null){
             dao = new ProfileDAO(this);
             String userAvatar = dao.getAvatar(user.getMemberId());//getting avatar string from database.
@@ -121,10 +123,11 @@ public class HomeActivity extends AppCompatActivity {
     private void loadHomeFragment() {
         //loading main fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, new HomeFragment());
+        transaction.replace(R.id.container, new HomeFragment()); //container is defined as a fragment inside this activity.
         transaction.commit();
     }
 
+    //helper method for setting the image of the avatar. can move this to a utils class in the future.
     private void setImage(String avatar){
         switch (avatar){
             case "bear": headerImage.setImageResource(R.mipmap.bear);
