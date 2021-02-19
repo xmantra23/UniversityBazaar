@@ -101,7 +101,8 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.newPost:
-                        // TODO: 2/18/2021 Redirect to new post activity
+                        Intent intent = new Intent(HomeActivity.this,CreatePostActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.newClub:
                         // TODO: 2/18/2021 Redirect to new club activity
