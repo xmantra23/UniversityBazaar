@@ -1,13 +1,8 @@
 package org.samir.universitybazaar.Authentication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.AsyncTaskLoader;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,14 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.samir.universitybazaar.Database.DatabaseHelper;
-import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.EmailService.EmailHelper;
-import org.samir.universitybazaar.EmailService.GMailSender;
-import org.samir.universitybazaar.MainActivity;
-import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
-import org.samir.universitybazaar.TestActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 

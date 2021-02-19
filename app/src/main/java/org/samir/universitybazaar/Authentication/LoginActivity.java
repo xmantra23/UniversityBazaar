@@ -10,8 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.samir.universitybazaar.Database.DatabaseHelper;
+import org.samir.universitybazaar.HomeActivity;
 import org.samir.universitybazaar.R;
-import org.samir.universitybazaar.TestActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         public void run() {
             if (databaseHelper.loginUser(memberID, password)) {
                 //user is logged in. Redirect to home page.
-                Intent intent = new Intent(LoginActivity.this, TestActivity.class);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);  //clear the activity stack.
                 startActivity(intent); //start home page activity.
             } else {

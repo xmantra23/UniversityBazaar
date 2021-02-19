@@ -8,10 +8,12 @@
     android:paddingStart="10dp">
 
     <ImageView
+        android:id="@+id/headerImage"
         android:layout_width="110dp"
         android:layout_height="80dp"
         android:src="@mipmap/banner"/>
     <TextView
+        android:id="@+id/txtUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="University Bazaar"
@@ -27,5 +29,5 @@
         android:textColor="#FFF"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
-        android:id="@+id/txtWebsite"/>
+        android:id="@+id/txtEmail"/>
 </LinearLayout>

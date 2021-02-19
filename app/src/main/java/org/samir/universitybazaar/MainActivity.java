@@ -2,6 +2,7 @@ package org.samir.universitybazaar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(user != null){
             //user is logged int. navigate to the homepage.
-            Intent intent = new Intent(this,TestActivity.class);
+            Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
         }else{
             //user is not logged in. Initialize and display the landing page.

@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/clubRelLayout"
         android:layout_below="@+id/btnRelLayout"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="30dp">
 
         <View android:background="#1B1A1A"
             android:layout_width = "match_parent"
@@ -199,29 +199,18 @@
             android:layout_marginTop="5dp"/>
     </RelativeLayout>
 
-    <View android:background="#1B1A1A"
-        android:layout_width = "match_parent"
-        android:layout_height="1dp"
-        android:id="@+id/line7"
-        android:layout_below="@+id/loanedRelLayout"
-        android:layout_marginTop="5dp"/>
-
     <TextView
         android:id="@+id/txtAdvertise"
-        android:layout_below="@+id/line7"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/loanedRelLayout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:text="ADVERTISING SPACE"
+        android:layout_marginTop="10dp"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textAlignment="center"
-        android:background="@color/black"/>
-
-
-
-
-
+        android:gravity="center"
+        android:background="@color/teal_700"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -229,6 +218,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/bottomNavView"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"/>
 
 </RelativeLayout>

@@ -17,7 +17,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
-import org.samir.universitybazaar.TestActivity;
 
 public class HomeFragment extends Fragment {
     private BottomNavigationView bottomNavigationView;

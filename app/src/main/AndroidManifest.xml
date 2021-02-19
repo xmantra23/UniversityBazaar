@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
         <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".TestActivity" />
         <activity android:name=".Authentication.LoginActivity" />
         <activity android:name=".Profile.AvatarActivity" />
         <activity android:name=".Profile.AvatarChangeActivity" />

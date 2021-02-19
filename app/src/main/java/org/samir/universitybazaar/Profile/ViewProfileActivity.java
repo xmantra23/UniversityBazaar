@@ -1,13 +1,10 @@
 package org.samir.universitybazaar.Profile;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Database.ProfileDAO;
+import org.samir.universitybazaar.HomeActivity;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Models.Profile;
-import org.samir.universitybazaar.TestActivity;
 
 
 public class ViewProfileActivity extends AppCompatActivity {
@@ -103,7 +100,7 @@ public class ViewProfileActivity extends AppCompatActivity {
 
     private void handleProfile2Home() {
         //redirect user to the edit profile page.
-        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 
