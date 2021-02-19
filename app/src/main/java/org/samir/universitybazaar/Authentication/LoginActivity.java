@@ -13,6 +13,9 @@ import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.HomeActivity;
 import org.samir.universitybazaar.R;
 
+/**
+ * @author Samir Shrestha
+ */
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 

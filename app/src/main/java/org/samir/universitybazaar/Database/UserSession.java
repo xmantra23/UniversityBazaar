@@ -13,6 +13,9 @@ import org.samir.universitybazaar.Models.User;
 
 import java.lang.reflect.Type;
 
+/**
+ * @author Samir Shrestha
+ */
 public class UserSession {
     private static final String TAG = "UserSession"; //for debugging and logging.
     private static final String SESSION_DATA = "sessionData"; // Internal data store containing information about the current logged in user.

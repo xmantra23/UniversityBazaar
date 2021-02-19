@@ -12,7 +12,10 @@ import org.samir.universitybazaar.Authentication.RegisterActivity;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.User;
 
-//Application entry point.
+/**
+ * @author Samir Shrestha
+ * @description This class is the application entry point.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

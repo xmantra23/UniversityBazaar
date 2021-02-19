@@ -16,6 +16,9 @@ import org.samir.universitybazaar.EmailService.EmailHelper;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 
+/**
+ * @author Samir Shrestha
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity"; //tag for logging. not important.

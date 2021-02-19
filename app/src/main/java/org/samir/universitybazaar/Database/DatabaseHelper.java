@@ -12,6 +12,9 @@ import androidx.annotation.Nullable;
 
 import org.samir.universitybazaar.Models.User;
 
+/**
+ * @author Samir Shrestha
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper"; //tag for debugging.
 
