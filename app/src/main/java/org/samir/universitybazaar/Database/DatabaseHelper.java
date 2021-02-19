@@ -11,7 +11,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import org.samir.universitybazaar.Models.User;
-import org.samir.universitybazaar.Database.ProfileDAO;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper"; //tag for debugging.

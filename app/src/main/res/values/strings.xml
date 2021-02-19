@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">University Bazaar</string>
     <string name="password">ArlingtonTexas19</string>
+    <string name="open">drawer_open</string>
+    <string name="close">drawer_close</string>
 </resources>

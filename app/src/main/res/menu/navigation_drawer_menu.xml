@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Create New Post"
+        android:id="@+id/newPost"/>
+    <item
+        android:title="Create New Club"
+        android:id="@+id/newClub"/>
+    <item
+        android:title="Sell An Item"
+        android:id="@+id/sellItem"/>
+    <item
+        android:title="Loan An Item"
+        android:id="@+id/loanItem"/>
+</menu>

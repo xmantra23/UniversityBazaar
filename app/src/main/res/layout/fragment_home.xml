@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnRelLayout">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="profile"
+            android:id="@+id/btnProfile"
+            android:backgroundTint="#8BC34A"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:id="@+id/btnLogout"
+            android:layout_toEndOf="@+id/btnProfile"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#F80303"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clubRelLayout"
+        android:layout_below="@+id/btnRelLayout"
+        android:layout_marginTop="10dp">
+
+        <View android:background="#1B1A1A"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/line1"/>
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage Clubs"
+            android:textSize="18sp"
+            android:layout_below="@id/line1"/>
+        <ImageView
+            android:id="@+id/manageClubArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginTop="5dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subRelLayout"
+        android:layout_below="@+id/clubRelLayout"
+        android:layout_marginTop="10dp">
+
+        <View android:background="#1B1A1A"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/line2"/>
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Subscriptions"
+            android:textSize="18sp"
+            android:layout_below="@id/line2"/>
+        <ImageView
+            android:id="@+id/manageSubArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/postRelLayout"
+        android:layout_below="@+id/subRelLayout"
+        android:layout_marginTop="10dp">
+
+        <View android:background="#1B1A1A"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/line3"/>
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Posts"
+            android:textSize="18sp"
+            android:layout_below="@id/line3"/>
+        <ImageView
+            android:id="@+id/managePostArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/saleRelLayout"
+        android:layout_below="@+id/postRelLayout"
+        android:layout_marginTop="10dp">
+
+        <View android:background="#1B1A1A"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/line4"/>
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Sale Items"
+            android:textSize="18sp"
+            android:layout_below="@id/line4"/>
+        <ImageView
+            android:id="@+id/manageSaleArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/purchaseRelLayout"
+        android:layout_below="@+id/saleRelLayout"
+        android:layout_marginTop="10dp">
+
+        <View android:background="#1B1A1A"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/line5"/>
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Purchase History"
+            android:textSize="18sp"
+            android:layout_below="@id/line5"/>
+        <ImageView
+            android:id="@+id/managePurchaseArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loanedRelLayout"
+        android:layout_below="@+id/purchaseRelLayout"
+        android:layout_marginTop="10dp">
+
+        <View android:background="#1B1A1A"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/line6"/>
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Loaned Items"
+            android:textSize="18sp"
+            android:layout_below="@id/line6"/>
+        <ImageView
+            android:id="@+id/manageLoanArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+    <View android:background="#1B1A1A"
+        android:layout_width = "match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/line7"
+        android:layout_below="@+id/loanedRelLayout"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/txtAdvertise"
+        android:layout_below="@+id/line7"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="ADVERTISING SPACE"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        android:background="@color/black"/>
+
+
+
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNavView"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"/>
+
+</RelativeLayout>
