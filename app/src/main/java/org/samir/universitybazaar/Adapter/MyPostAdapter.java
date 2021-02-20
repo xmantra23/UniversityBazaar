@@ -1,6 +1,7 @@
 package org.samir.universitybazaar.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
+import org.samir.universitybazaar.Constants;
 import org.samir.universitybazaar.Models.Post;
+import org.samir.universitybazaar.PostActivity;
 import org.samir.universitybazaar.R;
 
 import java.util.ArrayList;
@@ -41,7 +44,9 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.ViewHolder
         holder.txtDate.setText(posts.get(position).getCreatedDate());
         
         holder.parent.setOnClickListener(v->{
-            // TODO: 2/19/2021 navigate to that specific post activity.
+            Intent intent = new Intent(context, PostActivity.class);
+            intent.putExtra(Constants.POST_ID,posts.get(position).getId());
+            context.startActivity(intent);
         });
     }
 

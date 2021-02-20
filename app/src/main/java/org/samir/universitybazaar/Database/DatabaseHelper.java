@@ -300,6 +300,64 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * @author Samir Shrestha
+     * @description This method returns a post objects for a given particular post id.
+     */
+    public Post getPostById(int postId){
+        SQLiteDatabase db = null;
+        try {
+            db = this.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "category",
+            };
+
+            String[] args = new String[]{
+                    postId + ""
+            };
+            Cursor cursor = db.query("posts", columns, "_id=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    Post post = new Post();
+                    String title = cursor.getString(cursor.getColumnIndex("title"));
+                    String description = cursor.getString(cursor.getColumnIndex("description"));
+                    String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                    String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                    String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                    String category = cursor.getString(cursor.getColumnIndex("category"));
+
+                    post.setId(postId);
+                    post.setTitle(title);
+                    post.setDescription(description);
+                    post.setCreatorId(creatorId);
+                    post.setCreatorName(creatorName);
+                    post.setCreatedDate(createdDate);
+                    post.setCategory(category);
+
+                    return post;
+                }
+                db.close();
+                cursor.close();
+                return null;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+
+    /**
+     * @author Samir Shrestha
      * @Description find a profile with provided memberId
      */
     public Profile getProfile(String member_id) {
