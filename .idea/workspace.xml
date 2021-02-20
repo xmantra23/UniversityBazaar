@@ -32,26 +32,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2ca2733-08bc-43f3-8097-117afc8c6aef" name="Default Changelist" comment="Create New Post complete. Post table created in the database.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/MyPostAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/MyPostsActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_posts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_post.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="e2ca2733-08bc-43f3-8097-117afc8c6aef" name="Default Changelist" comment="Completed my posts recycler view.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/PostActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_post.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,22 +101,28 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.1096860188">
-      <recent name="org.samir.universitybazaar" />
+    <key name="android.template.330708998">
+      <recent name="org.samir.universitybazaar.Profile" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\samir_000\Desktop\Android_Project\UniversityBazaar\app\src\main\res\mipmap-xxxhdpi" />
     </key>
     <key name="android.template.-916312773">
       <recent name="org.samir.universitybazaar" />
       <recent name="org.samir.universitybazaar.Authentication" />
     </key>
+    <key name="android.template.1096860188">
+      <recent name="org.samir.universitybazaar" />
+    </key>
     <key name="android.template.638563620">
       <recent name="org.samir.universitybazaar" />
       <recent name="org.samir.universitybazaar.Profile" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.samir.universitybazaar" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.samir.universitybazaar.EmailService" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\samir_000\Desktop\Android_Project\UniversityBazaar\app\src\main\res\mipmap-xxxhdpi" />
     </key>
   </component>
   <component name="RunManager">
@@ -357,8 +349,25 @@
       <option name="project" value="LOCAL" />
       <updated>1613793939795</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Completed my posts recycler view.">
+      <created>1613848119010</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1613848119010</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -394,7 +403,8 @@
     <MESSAGE value="Added some comments." />
     <MESSAGE value="completed create new post. need to add to database" />
     <MESSAGE value="Create New Post complete. Post table created in the database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create New Post complete. Post table created in the database." />
+    <MESSAGE value="Completed my posts recycler view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed my posts recycler view." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
@@ -407,6 +417,10 @@
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612883820550" />
     <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613796150903" />
+    <state x="2109" y="76" width="433" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1613851115929">
+      <screen x="1366" y="-312" width="1920" height="1040" />
+    </state>
+    <state x="2109" y="76" width="433" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613851115929" />
     <state x="2056" y="-46" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613701290490">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -420,6 +434,10 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613794765237" />
+    <state x="1458" y="-220" width="1736" height="856" key="DiffContextDialog" timestamp="1613848585655">
+      <screen x="1366" y="-312" width="1920" height="1040" />
+    </state>
+    <state x="1458" y="-220" width="1736" height="856" key="DiffContextDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848585655" />
     <state x="2006" y="-38" key="Downloadable.Font.Dialog.Size" timestamp="1612969925141">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -452,11 +470,23 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="1827" y="-148" key="SettingsEditor/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676152646" />
+    <state x="2165" y="122" key="VCS.EditChangelistDialog" timestamp="1613848466184">
+      <screen x="1366" y="-312" width="1920" height="1040" />
+    </state>
+    <state x="2165" y="122" key="VCS.EditChangelistDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848466184" />
     <state x="1753" y="-175" key="Vcs.Push.Dialog.v2" timestamp="1613678823358">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612881219136" />
     <state x="1753" y="-175" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613678823358" />
+    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1613848585655">
+      <screen x="1366" y="-312" width="1920" height="1040" />
+    </state>
+    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848585655" />
+    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1613848585655">
+      <screen x="1366" y="-312" width="1920" height="1040" />
+    </state>
+    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848585655" />
     <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613680176666">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
