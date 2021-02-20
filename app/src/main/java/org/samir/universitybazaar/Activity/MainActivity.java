@@ -1,8 +1,7 @@
-package org.samir.universitybazaar;
+package org.samir.universitybazaar.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,6 +10,7 @@ import org.samir.universitybazaar.Authentication.LoginActivity;
 import org.samir.universitybazaar.Authentication.RegisterActivity;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.User;
+import org.samir.universitybazaar.R;
 
 /**
  * @author Samir Shrestha

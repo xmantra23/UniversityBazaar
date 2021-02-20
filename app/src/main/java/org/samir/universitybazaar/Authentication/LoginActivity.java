@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.samir.universitybazaar.Database.DatabaseHelper;
-import org.samir.universitybazaar.HomeActivity;
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.R;
 
 /**

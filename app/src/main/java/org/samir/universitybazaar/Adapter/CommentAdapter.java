@@ -1,22 +1,15 @@
 package org.samir.universitybazaar.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.card.MaterialCardView;
-
-import org.samir.universitybazaar.Constants;
 import org.samir.universitybazaar.Models.Comment;
-import org.samir.universitybazaar.Models.Post;
-import org.samir.universitybazaar.PostActivity;
 import org.samir.universitybazaar.R;
 
 import java.util.ArrayList;

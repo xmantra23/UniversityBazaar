@@ -9,8 +9,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MyPost" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Home" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="BranchesTreeState">
@@ -32,11 +32,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2ca2733-08bc-43f3-8097-117afc8c6aef" name="Default Changelist" comment="Finished PostActivity Layout.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/CommentAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Models/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_comment.xml" afterDir="false" />
+    <list default="true" id="e2ca2733-08bc-43f3-8097-117afc8c6aef" name="Default Changelist" comment="All Post Fragment completed. Also disabled the edit and delete button if the user doesn't own the post.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/AllPostsFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_all_posts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -47,10 +45,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/CommentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/CommentAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/MyPostAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/MyPostAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Authentication/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Authentication/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Utility/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/CreatePostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/CreatePostActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/PostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/PostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/HomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/MyPostsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/MyPostsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/PostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/PostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Profile/ViewProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Profile/ViewProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_post.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_posts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_posts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_post.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,8 +94,8 @@
       <list>
         <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -116,6 +129,7 @@
   </component>
   <component name="RecentsManager">
     <key name="android.template.330708998">
+      <recent name="org.samir.universitybazaar.Activity" />
       <recent name="org.samir.universitybazaar.Profile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -377,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613851190524</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Finished Comment Recycler View.">
+      <created>1613855982467</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1613855982467</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -426,7 +447,9 @@
     <MESSAGE value="Create New Post complete. Post table created in the database." />
     <MESSAGE value="Completed my posts recycler view." />
     <MESSAGE value="Finished PostActivity Layout." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished PostActivity Layout." />
+    <MESSAGE value="Finished Comment Recycler View." />
+    <MESSAGE value="All Post Fragment completed. Also disabled the edit and delete button if the user doesn't own the post." />
+    <option name="LAST_COMMIT_MESSAGE" value="All Post Fragment completed. Also disabled the edit and delete button if the user doesn't own the post." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
@@ -443,19 +466,19 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="2109" y="76" width="433" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613851115929" />
-    <state x="2056" y="-46" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613701290490">
+    <state x="2056" y="-46" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613860100921">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
-    <state x="2056" y="-46" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613701290490" />
+    <state x="2056" y="-46" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860100921" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager" timestamp="1612983384788">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612969140283" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612983384788" />
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog" timestamp="1613853498824">
+    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog" timestamp="1613856203292">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613853498824" />
+    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613856203292" />
     <state x="1458" y="-220" width="1736" height="856" key="DiffContextDialog" timestamp="1613848585655">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -468,26 +491,26 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613800311670" />
-    <state width="1877" height="499" key="GridCell.Tab.0.bottom" timestamp="1613800866182">
+    <state width="1877" height="499" key="GridCell.Tab.0.bottom" timestamp="1613860055457">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774488" />
-    <state width="1877" height="499" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613800866182" />
-    <state width="1877" height="499" key="GridCell.Tab.0.center" timestamp="1613800866182">
+    <state width="1877" height="499" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
+    <state width="1877" height="499" key="GridCell.Tab.0.center" timestamp="1613860055457">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774487" />
-    <state width="1877" height="499" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613800866182" />
-    <state width="1877" height="499" key="GridCell.Tab.0.left" timestamp="1613800866180">
+    <state width="1877" height="499" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
+    <state width="1877" height="499" key="GridCell.Tab.0.left" timestamp="1613860055457">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774486" />
-    <state width="1877" height="499" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613800866180" />
-    <state width="1877" height="499" key="GridCell.Tab.0.right" timestamp="1613800866182">
+    <state width="1877" height="499" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
+    <state width="1877" height="499" key="GridCell.Tab.0.right" timestamp="1613860055457">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774488" />
-    <state width="1877" height="499" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613800866182" />
+    <state width="1877" height="499" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
     <state x="1827" y="-148" key="SettingsEditor" timestamp="1613676152646">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>

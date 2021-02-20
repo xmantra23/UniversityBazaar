@@ -1,18 +1,14 @@
-package org.samir.universitybazaar;
+package org.samir.universitybazaar.Activity;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,12 +17,14 @@ import android.widget.TextView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
-import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
+import org.samir.universitybazaar.Fragments.AllPostsFragment;
 import org.samir.universitybazaar.Fragments.HomeFragment;
 import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
+import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.Utility.Constants;
 
 /**
  * @author Samir Shrestha
@@ -124,9 +122,17 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void loadHomeFragment() {
-        //loading main fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, new HomeFragment()); //container is defined as a fragment inside this activity.
+        String activity_type = getIntent().getStringExtra(Constants.ACTIVITY_NAME);
+        if(activity_type == null){
+            transaction.replace(R.id.container, new HomeFragment()); //container is defined as a fragment inside this activity.
+        }else if(activity_type.equals("post")){
+            transaction.replace(R.id.container, new AllPostsFragment()); //load all posts fragment in home activity.
+        }else if(activity_type.equals("home")){
+            transaction.replace(R.id.container, new HomeFragment()); //load home fragment in home activity.
+        }
+
+
         transaction.commit();
     }
 

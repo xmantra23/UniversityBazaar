@@ -1,6 +1,5 @@
 package org.samir.universitybazaar.Profile;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Database.ProfileDAO;
-import org.samir.universitybazaar.HomeActivity;
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Models.Profile;

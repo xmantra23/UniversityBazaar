@@ -1,4 +1,4 @@
-package org.samir.universitybazaar;
+package org.samir.universitybazaar.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +12,7 @@ import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.User;
+import org.samir.universitybazaar.R;
 
 import java.util.ArrayList;
 

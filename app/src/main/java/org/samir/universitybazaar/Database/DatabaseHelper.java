@@ -413,6 +413,90 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+
+    /**
+     * @author Samir Shrestha
+     * @description This method returns all the posts from all users.
+     */
+    public ArrayList<Post> getAllPosts(){
+        ArrayList<Post> posts = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = this.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "category",
+            };
+
+            Cursor cursor = db.query("posts", columns, null, null, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){
+                        Post post = new Post();
+                        int postId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String category = cursor.getString(cursor.getColumnIndex("category"));
+
+                        post.setId(postId);
+                        post.setTitle(title);
+                        post.setDescription(description);
+                        post.setCreatorId(creatorId);
+                        post.setCreatorName(creatorName);
+                        post.setCreatedDate(createdDate);
+                        post.setCategory(category);
+
+                        posts.add(post);
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return posts;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Other team members please add your methods below this line. I want to organize all the methods that I wrote and the ones that you wrote
     //---------------------------------------------------------------------------------------------------------------------------------------
 

@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
-        <activity android:name=".PostActivity"></activity>
-        <activity android:name=".MyPostsActivity" />
-        <activity android:name=".CreatePostActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".Activity.PostActivity" />
+        <activity android:name=".Activity.MyPostsActivity" />
+        <activity android:name=".Activity.CreatePostActivity" />
+        <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Authentication.LoginActivity" />
         <activity android:name=".Profile.AvatarActivity" />
         <activity android:name=".Profile.AvatarChangeActivity" />
@@ -23,7 +23,7 @@
         <activity android:name=".Authentication.RegisterActivity" />
         <activity android:name=".Authentication.Reset1Activity" />
         <activity android:name=".Authentication.Reset2Activity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

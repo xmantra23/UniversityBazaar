@@ -14,10 +14,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.MyPostsActivity;
+import org.samir.universitybazaar.Activity.MyPostsActivity;
 import org.samir.universitybazaar.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.Utility.Constants;
 
 /**
  * @author Samir Shrestha
@@ -89,10 +91,12 @@ public class HomeFragment extends Fragment {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch(item.getItemId()){
                 case R.id.home:
-                    //default is homepage
+                    //In homepage. No action required.
                     break;
                 case R.id.post:
-                    // TODO: 2/18/2021 redirect to all posts activity
+                    Intent intent = new Intent(getActivity(), HomeActivity.class);
+                    intent.putExtra(Constants.ACTIVITY_NAME,"post");
+                    startActivity(intent);
                     break;
                 case R.id.group:
                     //TODO: 2/18/2021 redirect to all clubs activity
