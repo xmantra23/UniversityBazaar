@@ -15,6 +15,8 @@ import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
 
+import java.util.ArrayList;
+
 /**
  * @author Samir Shrestha
  * @description This is the main class responsible for all database operations.
@@ -225,6 +227,73 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }finally {
             db.close();
+        }
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description This method returns all the post objects for a given particular member id.
+     */
+    public ArrayList<Post> getPostByMemberId(String memberId){
+        ArrayList<Post> posts = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = this.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "category",
+            };
+
+            String[] args = new String[]{
+                    memberId
+            };
+            Cursor cursor = db.query("posts", columns, "creatorId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){
+                        Post post = new Post();
+                        int postId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String category = cursor.getString(cursor.getColumnIndex("category"));
+
+                        post.setId(postId);
+                        post.setTitle(title);
+                        post.setDescription(description);
+                        post.setCreatorId(creatorId);
+                        post.setCreatorName(creatorName);
+                        post.setCreatedDate(createdDate);
+                        post.setCategory(category);
+
+                        posts.add(post);
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return posts;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
         }
     }
 

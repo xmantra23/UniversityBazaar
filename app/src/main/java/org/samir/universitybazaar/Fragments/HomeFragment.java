@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.samir.universitybazaar.Database.UserSession;
+import org.samir.universitybazaar.MyPostsActivity;
 import org.samir.universitybazaar.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
 
@@ -47,7 +48,8 @@ public class HomeFragment extends Fragment {
             // TODO: 2/18/2021 handle subscription arrow pressed
         });
         managePostArrow.setOnClickListener(v->{
-            // TODO: 2/18/2021 handle post arrow pressed
+            Intent intent = new Intent(getActivity(), MyPostsActivity.class);
+            startActivity(intent);
         });
         manageSaleArrow.setOnClickListener(v->{
             // TODO: 2/18/2021 handle sale arrow pressed
