@@ -68,10 +68,12 @@ public class HomeActivity extends AppCompatActivity {
             dao = new ProfileDAO(this);
             String userAvatar = dao.getAvatar(user.getMemberId());//getting avatar string from database.
             Profile userProfile = dao.getProfile(user.getMemberId());
-            setImage(userAvatar);
-            if(!userProfile.getFullName().equals("") && !userProfile.getFullName().equals(null))
+            if(userAvatar != null){ //only set image if user Avatar has been set.
+                setImage(userAvatar);
+            }
+            if(userProfile.getFullName() != null) //user has set the full name.
                 userName.setText(userProfile.getFullName());
-            else
+            else //user hasn't provided the full name so use the member id instead.
                 userName.setText(userProfile.getMemberId());
             userEmail.setText(userProfile.getEmail());
         }

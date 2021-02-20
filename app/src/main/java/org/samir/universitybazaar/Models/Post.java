@@ -1,5 +1,9 @@
 package org.samir.universitybazaar.Models;
 
+/**
+ * @author Samir Shrestha
+ * @description This is just a dumbo class for holding information about the post.
+ */
 public class Post {
     private int id;
     private String title;
