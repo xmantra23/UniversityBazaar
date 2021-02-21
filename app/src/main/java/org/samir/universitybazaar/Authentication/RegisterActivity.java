@@ -18,6 +18,7 @@ import org.samir.universitybazaar.R;
 
 /**
  * @author Samir Shrestha
+ * @description Allows a new user to register. navigates to the login activity once the users successfully registers.
  */
 public class RegisterActivity extends AppCompatActivity {
 

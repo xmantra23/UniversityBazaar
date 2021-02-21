@@ -29,6 +29,7 @@ import org.samir.universitybazaar.Utility.Constants;
 /**
  * @author Samir Shrestha
  * @description This class displays the home activity page after the user logs in.
+ * The home activity page consists of a top collapsible menu, a fragment in the body and a bottom navigation bar.
  */
 
 public class HomeActivity extends AppCompatActivity {
@@ -49,9 +50,9 @@ public class HomeActivity extends AppCompatActivity {
         initViews(); //initialize all the views.
         createToggleMenu(); //create a toggle menu.
         handleMenuClicks(); //initialize onclick listeners for all the menu items.
-        loadHomeFragment(); //load the HomeFragment into HomeActivity.
+        loadHomeFragment(); //load the fragment into HomeActivity.
 
-        //populate collapsible toolbar header with user details.
+        //populate collapsible toolbar header with user details. This is the little image icon and user details at the top of the navigation drawer.
         View headerLayout = navigationView.getHeaderView(0);
         headerImage = headerLayout.findViewById(R.id.headerImage);
         userName = headerLayout.findViewById(R.id.txtUserName);
@@ -61,46 +62,50 @@ public class HomeActivity extends AppCompatActivity {
         session = new UserSession(this);
         User user = session.isUserLoggedIn();
 
-        //only update the toolbar header if the user is logged in.
+        //only update the toolbar header if the user is logged in. If the user is not logged in default values are set.
         if(user != null){
             dao = new ProfileDAO(this);
-            String userAvatar = dao.getAvatar(user.getMemberId());//getting avatar string from database.
-            Profile userProfile = dao.getProfile(user.getMemberId());
-            if(userAvatar != null){ //only set image if user Avatar has been set.
+            String userAvatar = dao.getAvatar(user.getMemberId());//getting avatar name from the database.
+            Profile userProfile = dao.getProfile(user.getMemberId()); //get the profile details for the current logged in user.
+            if(userAvatar != null){ //only set image if user Avatar has been set i.e. the user has updated their profile with all the details.
                 setImage(userAvatar);
             }
             if(userProfile.getFullName() != null) //user has set the full name.
                 userName.setText(userProfile.getFullName());
-            else //user hasn't provided the full name so use the member id instead.
+            else //user hasn't provided the full name so display the member id instead.
                 userName.setText(userProfile.getMemberId());
-            userEmail.setText(userProfile.getEmail());
+            userEmail.setText(userProfile.getEmail());//display the users email in the navigation drawer.
         }
 
     }
 
+    //initializes all the views in the layout file.
     private void initViews() {
-        drawer = findViewById(R.id.drawer);
+        drawer = findViewById(R.id.drawer); //this is the main layout of the HomeActivity. This kind of layout is needed for the toggle menu action.
+        //this is the toggle menu. it contains a header part(navigation_drawer_header.xml) and a menu part(navigation_drawer_menu.xml)
         navigationView = findViewById(R.id.navigationView);
+        //this toolbar replaces the default system provided toolbar. This toolbar will contain a hamburger icon, pressing which will release the above
+        //navigation view which contains the header and the menu.
         toolbar = findViewById(R.id.toolbar);
 
 
     }
 
     private void createToggleMenu(){
-        //creating menu toggle bar in the top part.
-        setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close);
+        setSupportActionBar(toolbar); //make the user provided toolbar the top toolbar.
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close); //this lets us toggle the menu.
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
 
     private void handleMenuClicks(){
-        //setting onclick listeners for menu items.
+        //setting onclick listeners for the menu items in the drawer toolbar.
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.newPost:
+                        //Redirect to the create a new post activity. This lets users create a new post.
                         Intent intent = new Intent(HomeActivity.this,CreatePostActivity.class);
                         startActivity(intent);
                         break;
@@ -122,9 +127,18 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void loadHomeFragment() {
+        //load a fragment in the HomePage body based on which button was pressed in the bottom navigation view.
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        //determine which icon was pressed in the bottom navigation bar.
         String activity_type = getIntent().getStringExtra(Constants.ACTIVITY_NAME);
-        if(activity_type == null){
+
+        /*
+        *load the correct fragment based on which icon was pressed. If the user has visited the homepage for the first time then
+        * this will be null so load a HomeFragment but if the user has pressed on any of the icons in the bottom navigation view then
+        * load the fragment corresponding to that icon in the body of the HomePage Activity.
+        */
+         if(activity_type == null){
             transaction.replace(R.id.container, new HomeFragment()); //container is defined as a fragment inside this activity.
         }else if(activity_type.equals("post")){
             transaction.replace(R.id.container, new AllPostsFragment()); //load all posts fragment in home activity.
@@ -132,8 +146,7 @@ public class HomeActivity extends AppCompatActivity {
             transaction.replace(R.id.container, new HomeFragment()); //load home fragment in home activity.
         }
 
-
-        transaction.commit();
+        transaction.commit();//finalizes loading the fragment.
     }
 
     //helper method for setting the image of the avatar. can move this to a utils class in the future.

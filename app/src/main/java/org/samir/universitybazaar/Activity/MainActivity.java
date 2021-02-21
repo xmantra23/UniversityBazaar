@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
         User user = userSession.isUserLoggedIn();
 
         if(user != null){
-            //user is logged int. navigate to the homepage.
+            //user is logged in. navigate to the homepage directly.
             Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
         }else{
-            //user is not logged in. Initialize and display the landing page.
+            //user is not logged in. Show the application entry page. Allow user to either register or login.
             register.setOnClickListener(v->{
                 Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);

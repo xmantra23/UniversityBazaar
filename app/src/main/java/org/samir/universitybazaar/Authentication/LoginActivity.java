@@ -15,6 +15,7 @@ import org.samir.universitybazaar.R;
 
 /**
  * @author Samir Shrestha
+ * @description allows user to login. creates a shared preference once the user logs in.
  */
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";

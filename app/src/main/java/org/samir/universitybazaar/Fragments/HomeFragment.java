@@ -24,8 +24,9 @@ import org.samir.universitybazaar.Utility.Constants;
 /**
  * @author Samir Shrestha
  * @Description This class is basically the main content of the HomeActivity. It has the main content in the middle and includes a bottom
- * navigation bar in the bottom of the fragment. The main content in the middle navigates to other activities whereas the clicking on the
- * bottom navigation views should make the page stay on HomeActivity but only refresh the middle fragment part with new data.
+ * navigation bar in the bottom of the fragment. The main content in the middle contains buttons to navigate to other activities,
+ * whereas clicking on the bottom navigation icon should make the page stay on HomeActivity but only reload the middle fragment part with the
+ * fragment corresponding to the bottom navigation icon that was pressed.
  */
 public class HomeFragment extends Fragment {
     private BottomNavigationView bottomNavigationView;
@@ -63,11 +64,13 @@ public class HomeFragment extends Fragment {
             // TODO: 2/18/2021 handle loan arrow pressed
         });
 
+        //profile button was pressed. navigate to ViewProfileActivity
         btnProfile.setOnClickListener(v->{
             Intent intent = new Intent(getActivity(), ViewProfileActivity.class);
             startActivity(intent);
         });
 
+        //logout button was pressed. Call the signOutUser() method in UserSession to destroy the session data about the current user.
         btnLogout.setOnClickListener(v->{
             UserSession userSession = new UserSession(getContext());
             userSession.signOutUser();
@@ -86,14 +89,21 @@ public class HomeFragment extends Fragment {
         btnLogout = view.findViewById(R.id.btnLogout);
     }
 
+    //handles the bottom navigation view icon presses.
     private void initBottomNavView(View view) {
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.home); //highlight the home icon in the bottom navigation view.
+
+        //all cases will redirect to home activity but we are providing information about which icon was pressed before starting the intent.
+        // for example if home icon is pressed navigate to home activity but also provide "home" as the activity name in the intent.
+        //if group icon is pressed then navigate to home activity but send "group" as the activity name.
+        //This will be used later in the HomeActivity to load the appropriate fragment in the body of the activity based on the activity name.
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch(item.getItemId()){
                 case R.id.home:
                     //In homepage. No action required.
                     break;
                 case R.id.post:
+                    //Navigate to HomeActivity but send "post" as the activity name so that AllPostsFragment can be loaded into the HomeActivity.
                     Intent intent = new Intent(getActivity(), HomeActivity.class);
                     intent.putExtra(Constants.ACTIVITY_NAME,"post");
                     startActivity(intent);

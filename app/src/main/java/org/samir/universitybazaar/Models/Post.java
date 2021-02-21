@@ -2,10 +2,10 @@ package org.samir.universitybazaar.Models;
 
 /**
  * @author Samir Shrestha
- * @description This is just a dumbo class for holding information about the post.
+ * @description This is just a DTO (Data Transfer Object) class for holding information about the post.
  */
 public class Post {
-    private int id;
+    private int _id;
     private String title;
     private String description;
     private String creatorId;
@@ -13,8 +13,8 @@ public class Post {
     private String createdDate;
     private String category;
 
-    public Post(int id, String title, String description, String creatorId, String creatorName, String createdDate, String category) {
-        this.id = id;
+    public Post(int _id, String title, String description, String creatorId, String creatorName, String createdDate, String category) {
+        this._id = _id;
         this.title = title;
         this.description = description;
         this.creatorId = creatorId;
@@ -27,11 +27,11 @@ public class Post {
     }
 
     public int getId() {
-        return id;
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int _id) {
+        this._id = _id;
     }
 
     public String getTitle() {
@@ -85,7 +85,7 @@ public class Post {
     @Override
     public String toString() {
         return "Post{" +
-                "id=" + id +
+                "_id=" + _id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", creatorId='" + creatorId + '\'' +

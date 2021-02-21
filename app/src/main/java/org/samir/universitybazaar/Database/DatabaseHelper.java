@@ -118,7 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * @author Samir Shrestha
-     * @description Inserts a new user into the database.
+     * @description Inserts a new user into the users table.
      */
     public boolean registerUser(User user) {
         SQLiteDatabase db = null;
@@ -200,7 +200,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * @author samir shrestha
-     * @description This method adds a new post to the database.
+     * @description This method adds a new post to the posts table.
      */
     public boolean addPost(Post post){
         SQLiteDatabase db = null;
@@ -232,7 +232,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * @author Samir Shrestha
-     * @description This method returns all the post objects for a given particular member id.
+     * @description This method returns all the post objects for a given memberId from the posts table.
      */
     public ArrayList<Post> getPostByMemberId(String memberId){
         ArrayList<Post> posts = new ArrayList<>();
@@ -252,11 +252,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String[] args = new String[]{
                     memberId
             };
+
+            //retrieve all the posts from the posts table where creatorId == memberId
             Cursor cursor = db.query("posts", columns, "creatorId=?", args, null, null, null);
             if(cursor != null){
                 if(cursor.moveToFirst()){
                     boolean isLast = false;
-                    while(!isLast){
+                    while(!isLast){ // continues until all the retrieved rows have been iterated.
                         Post post = new Post();
                         int postId = cursor.getInt(cursor.getColumnIndex("_id"));
                         String title = cursor.getString(cursor.getColumnIndex("title"));
@@ -274,17 +276,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         post.setCreatedDate(createdDate);
                         post.setCategory(category);
 
-                        posts.add(post);
-                        if(cursor.isLast()){
+                        posts.add(post); //add the post to the posts arraylist.
+
+                        if(cursor.isLast()){ // we are at the last row of the dataset. no need to continue anymore.
                             isLast = true;
                         }else{
-                            cursor.moveToNext();
+                            cursor.moveToNext(); //move to the next row in the dataset.
                         }
                     }
                 }
                 db.close();
                 cursor.close();
-                return posts;
+                return posts; //return all the posts we got for that memberId in the posts table.
             }else{
                 db.close();
                 cursor.close();
@@ -300,7 +303,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * @author Samir Shrestha
-     * @description This method returns a post objects for a given particular post id.
+     * @description This method returns a post object for a given postId
      */
     public Post getPostById(int postId){
         SQLiteDatabase db = null;
@@ -317,8 +320,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             };
 
             String[] args = new String[]{
-                    postId + ""
+                    postId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
             };
+
+            //retrieve the post from the posts table whose _id == postID
             Cursor cursor = db.query("posts", columns, "_id=?", args, null, null, null);
             if(cursor != null){
                 if(cursor.moveToFirst()){
@@ -433,11 +438,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "category",
             };
 
+            //retrieve all the post in the posts table.
             Cursor cursor = db.query("posts", columns, null, null, null, null, null);
             if(cursor != null){
                 if(cursor.moveToFirst()){
                     boolean isLast = false;
-                    while(!isLast){
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
                         Post post = new Post();
                         int postId = cursor.getInt(cursor.getColumnIndex("_id"));
                         String title = cursor.getString(cursor.getColumnIndex("title"));
@@ -484,29 +490,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+    //--------------------------------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Other team members please add your methods below this line.
+     * I want to separate all the database methods that I wrote and the ones that you wrote
+     * and also comment your name at the beginning of the method so that I know who wrote that method.
+     *
+     */
 
-
-
-
-
-
-
-
-
-
-
-
-    // Other team members please add your methods below this line. I want to organize all the methods that I wrote and the ones that you wrote
     //---------------------------------------------------------------------------------------------------------------------------------------
 
-    //creates userprofile table in the database.
+    /**
+     * @author Lu Yifei
+     * creates userprofile table in the database.
+     */
     private static void createUserProfileTable(SQLiteDatabase db){
         String createUserProfileTable = "CREATE TABLE user_profiles (_id INTEGER PRIMARY KEY AUTOINCREMENT, member_id TEXT NOT NULL UNIQUE" +
                 " ,email TEXT NOT NULL UNIQUE, full_name TXET, gender TEXT, address TEXT , phone TEXT , dob TEXT, avatar TEXT)";
         db.execSQL(createUserProfileTable);
     }
 
+    /**
+     * @author Lu Yifei
+     * @param memberId
+     * @return
+     */
     public User getUserByMemberId(String memberId) {
         try (SQLiteDatabase db = getReadableDatabase(); Cursor cursor = db.query("users", null, "member_id=?", new String[]{memberId}, null, null, null)) {
             if (cursor != null) {
@@ -528,6 +537,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    /**
+     * @author Lu Yifei
+     * @param user
+     */
     public void updateUser(User user) {
         try (SQLiteDatabase db = getReadableDatabase()) {
             ContentValues values = new ContentValues();

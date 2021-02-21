@@ -25,27 +25,33 @@ import java.util.Date;
 /**
  * @author Samir Shrestha
  * @description This class is responsible for getting the user input from the user, create a new post and then finally add it to the database.
+ * after that it redirects back to the HomePage activity.
  */
 public class CreatePostActivity extends AppCompatActivity {
 
     private EditText edtTxtTitle,edtTxtDescription;
     private RadioGroup categoryRadioGroup;
-    private RadioButton category;
+    private RadioButton category; // this will be the selected radiobutton in the radio group.
     private Button btnCancel,btnPost;
     private UserSession userSession;
     private DatabaseHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
+
         userSession = new UserSession(this);
         db = new DatabaseHelper(this);
+
         initViews();
         handleListeners();
     }
 
     //handles onclick listeners
     private void handleListeners() {
+
+        //get the current checked radiobutton anytime user clicks on a new radiobutton
         categoryRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -53,11 +59,13 @@ public class CreatePostActivity extends AppCompatActivity {
             }
         });
 
+        //redirect back to HomePage if user clicks on cancel button.
         btnCancel.setOnClickListener(v->{
             Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
         });
 
+        //create a new post and save it in the database once the user clicks on the post button.
         btnPost.setOnClickListener(v->{
             User user = userSession.isUserLoggedIn(); //get current logged in user from the session.
             if(user != null){ //if user is logged in.
@@ -75,12 +83,15 @@ public class CreatePostActivity extends AppCompatActivity {
                 if(creatorName.equals("") || creatorName == null){
                     creatorName = "User " + user.getMemberId().substring(6);
                 }
-                post.setCreatorName(creatorName);
-                post.setCreatorId(user.getMemberId());//this will be used to search for users posts in the future.
-                //Getting the current system date
+
+                post.setCreatorName(creatorName); //set the name of the user who created this post.
+                post.setCreatorId(user.getMemberId());//this will be used as the id to search for a given users posts in the database.
+
+                //Getting the current system date and formating it to mm/dd/yyyy format.
                 Date date = new Date();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String createdDate = df.format(date);
+
                 post.setCreatedDate(createdDate);//setting the current system date as the post created date.
 
                 //adding the new post in the database.
@@ -95,7 +106,7 @@ public class CreatePostActivity extends AppCompatActivity {
                     Intent intent = new Intent(CreatePostActivity.this,HomeActivity.class);
                     startActivity(intent);
                 }
-            }else{
+            }else{ //user is not logged in. Redirect to the login page.
                 Toast.makeText(this, "You are not logged in.", Toast.LENGTH_LONG).show();
                 //Redirect to LoginActivity
                 Intent intent = new Intent(CreatePostActivity.this, LoginActivity.class);
@@ -114,7 +125,7 @@ public class CreatePostActivity extends AppCompatActivity {
         category = findViewById(categoryRadioGroup.getCheckedRadioButtonId());//set category to the default selected radio button
     }
 
-    //if users selects back button navigate to the home activity.
+    //if users selects back button then navigate to the home activity.
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(CreatePostActivity.this,HomeActivity.class);
