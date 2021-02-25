@@ -139,13 +139,13 @@ public class EditProfileActivity extends AppCompatActivity {
                 txtWarning.setText("Please enter all the fields");
             }else if(fullName.length() > 50){
                 txtWarning.setVisibility(View.VISIBLE);
-                txtWarning.setText("Address must be at-most 50 chars long");
+                txtWarning.setText("FullName must be at-most 50 chars long");
             }else if(address.length() < 10 ){
                 txtWarning.setVisibility(View.VISIBLE);
                 txtWarning.setText("Address must be at-least 10 chars long");
             }else if(address.length() > 100){
                 txtWarning.setVisibility(View.VISIBLE);
-                txtWarning.setText("Address must be at-most 10 chars long");
+                txtWarning.setText("Address must be at-most 100 chars long");
             }else if(!(phone.length() == 10)){
                 txtWarning.setVisibility(View.VISIBLE);
                 txtWarning.setText("Phone numbers must be 10 chars long");
