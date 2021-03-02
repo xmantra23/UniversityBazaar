@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PostActivity"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPostTitle"
+            android:text="Free Pizza @ ERB 123"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPostCategory"
+            android:text="(News)"
+            android:layout_below="@+id/txtPostTitle"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPostDescription"
+            android:layout_below="@+id/txtPostCategory"
+            android:text="Hello everyone. Just wanted to let you all know that there is free pizza
+at the ERB from 11:00am to 12:00pm. Don't forget to come and oh they also have free drinks
+too.Make sure you tell all your friends too. It's going to be a lot of fun."
+            android:layout_marginTop="10dp"
+            android:lineSpacingExtra="4.5dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postModifyRelLayout"
+            android:layout_below="@+id/txtPostDescription"
+            android:layout_marginTop="10dp"
+            android:gravity="end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtEdit"
+                android:text="Edit"
+                android:textColor="#2196F3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtDelete"
+                android:layout_toEndOf="@+id/txtEdit"
+                android:layout_marginStart="15dp"
+                android:textColor="#FF5722"
+                android:text="Delete"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/footerRelLayout"
+            android:layout_below="@id/postModifyRelLayout"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCreatorName"
+                android:text="Posted by: Samir Shrestha"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCreatedDate"
+                android:layout_alignParentEnd="true"
+                android:text="02/19/2020"/>
+        </RelativeLayout>
+
+        <View android:background="#6E6666"
+            android:layout_width = "match_parent"
+            android:layout_height="0.5dp"
+            android:id="@+id/line1"
+            android:layout_below="@id/footerRelLayout"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtComment"
+            android:layout_below="@+id/line1"
+            android:text="Comments:"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/commentsRecView"
+            android:layout_below="@+id/txtComment"
+            android:layout_marginTop="16dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtAddComment"
+            android:layout_below="@+id/commentsRecView"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Add Comment"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+</ScrollView>
+

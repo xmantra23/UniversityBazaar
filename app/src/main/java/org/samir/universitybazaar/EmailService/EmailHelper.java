@@ -5,6 +5,9 @@ import android.util.Log;
 
 import org.samir.universitybazaar.R;
 
+/**
+ * @author Samir Shrestha
+ */
 public class EmailHelper {
     private static final String SENDER_EMAIL = "universitybazaar.team4@gmail.com";
     private String receiverEmail;

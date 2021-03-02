@@ -13,12 +13,19 @@ import org.samir.universitybazaar.Models.User;
 
 import java.lang.reflect.Type;
 
+/**
+ * @author Samir Shrestha
+ * @description This class is responsible for creating and maintaining a user session once the user logs in.
+ * It uses shared preference to create a sessionData. loggedUser resides inside sessionData. sessionData is like a database.
+ * if user is logged in the loggedUser will contain data about that user if not then loggedUser will be null.
+ * We can use this to figure out if the user is logged in or not.
+ */
 public class UserSession {
     private static final String TAG = "UserSession"; //for debugging and logging.
     private static final String SESSION_DATA = "sessionData"; // Internal data store containing information about the current logged in user.
     private static final String LOGGED_USER = "loggedUser"; // Refers to the current logged in user.
 
-    private Context context; //application context
+    private Context context; //application context refers to the calling activity.
 
     public UserSession(Context context){
         this.context = context;
@@ -40,7 +47,7 @@ public class UserSession {
         return true;
     }
 
-    //Check if there is a user logged in. If yes then return that user as a User object to the caller.
+    //Check if there is a user logged in. If yes then return that user as a User object to the caller. If no then return null.
     public User isUserLoggedIn(){
         SharedPreferences sharedPreferences = context.getSharedPreferences(SESSION_DATA,Context.MODE_PRIVATE);
         Gson gson = new Gson();

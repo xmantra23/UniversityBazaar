@@ -1,9 +1,11 @@
 package org.samir.universitybazaar.Models;
 
-
-// A basic class to hold all the information about a particular user. Matches one to one with the "users" table in the database.
+/**
+ * @author Samir Shrestha
+ * @description A basic class to hold all the information about a particular user. Matches one to one with the "users" table in the database.
+ */
 public class User {
-    private int id;
+    private int _id;
     private String memberId;
     private String email;
     private String password;
@@ -11,8 +13,8 @@ public class User {
     private String secondSecurityQuestion;
     private String thirdSecurityQuestion;
 
-    public User(int id, String memberId, String email, String password, String firstSecurityQuestion, String secondSecurityQuestion, String thirdSecurityQuestion) {
-        this.id = id;
+    public User(int _id, String memberId, String email, String password, String firstSecurityQuestion, String secondSecurityQuestion, String thirdSecurityQuestion) {
+        this._id = _id;
         this.memberId = memberId;
         this.email = email;
         this.password = password;
@@ -25,11 +27,11 @@ public class User {
     }
 
     public int getId() {
-        return id;
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int _id) {
+        this._id = _id;
     }
 
     public String getMemberId() {
@@ -83,7 +85,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "_id=" + _id +
                 ", memberId='" + memberId + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
