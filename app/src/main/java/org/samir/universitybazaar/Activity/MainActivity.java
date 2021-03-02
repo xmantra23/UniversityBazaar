@@ -1,4 +1,4 @@
-package org.samir.universitybazaar;
+package org.samir.universitybazaar.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,12 @@ import org.samir.universitybazaar.Authentication.LoginActivity;
 import org.samir.universitybazaar.Authentication.RegisterActivity;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.User;
+import org.samir.universitybazaar.R;
 
-//Application entry point.
+/**
+ * @author Samir Shrestha
+ * @description This class is the application entry point.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
         User user = userSession.isUserLoggedIn();
 
         if(user != null){
-            //user is logged int. navigate to the homepage.
-            Intent intent = new Intent(this,TestActivity.class);
+            //user is logged in. navigate to the homepage directly.
+            Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
         }else{
-            //user is not logged in. Initialize and display the landing page.
+            //user is not logged in. Show the application entry page. Allow user to either register or login.
             register.setOnClickListener(v->{
                 Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
