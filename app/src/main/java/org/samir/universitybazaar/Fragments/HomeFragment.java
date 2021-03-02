@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,7 +32,7 @@ import org.samir.universitybazaar.Utility.Constants;
 public class HomeFragment extends Fragment {
     private BottomNavigationView bottomNavigationView;
     private ImageView manageClubArrow,manageSubArrow,managePostArrow,manageSaleArrow,managePurchaseArrow,manageLoanArrow;
-    private Button btnProfile,btnLogout;
+    private TextView txtProfile,txtLogout;
 
     @Nullable
     @Override
@@ -65,13 +66,13 @@ public class HomeFragment extends Fragment {
         });
 
         //profile button was pressed. navigate to ViewProfileActivity
-        btnProfile.setOnClickListener(v->{
+        txtProfile.setOnClickListener(v->{
             Intent intent = new Intent(getActivity(), ViewProfileActivity.class);
             startActivity(intent);
         });
 
         //logout button was pressed. Call the signOutUser() method in UserSession to destroy the session data about the current user.
-        btnLogout.setOnClickListener(v->{
+        txtLogout.setOnClickListener(v->{
             UserSession userSession = new UserSession(getContext());
             userSession.signOutUser();
         });
@@ -85,8 +86,8 @@ public class HomeFragment extends Fragment {
         manageSaleArrow = view.findViewById(R.id.manageSaleArrow);
         managePurchaseArrow = view.findViewById(R.id.managePurchaseArrow);
         manageLoanArrow = view.findViewById(R.id.manageLoanArrow);
-        btnProfile = view.findViewById(R.id.btnProfile);
-        btnLogout = view.findViewById(R.id.btnLogout);
+        txtProfile = view.findViewById(R.id.txtProfile);
+        txtLogout = view.findViewById(R.id.txtLogout);
     }
 
     //handles the bottom navigation view icon presses.

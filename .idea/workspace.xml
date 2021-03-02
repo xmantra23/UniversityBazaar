@@ -9,7 +9,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Home" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -32,13 +31,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2ca2733-08bc-43f3-8097-117afc8c6aef" name="Default Changelist" comment="Added comments to all the files." />
+    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="Fixed UI issues in activity_view_profile.xml layout page. Fixed some alignment issues.">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/CreatePostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/CreatePostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[8XV7N16401000010]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -59,10 +74,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile_vertical" />
-        <option value="resourceFile" />
         <option value="Class" />
-        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -84,40 +96,26 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="8XV7N16401000010" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-02T18:14:32.766Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../../Applications/Android-SDK" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.330708998">
-      <recent name="org.samir.universitybazaar.Activity" />
-      <recent name="org.samir.universitybazaar.Profile" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\samir_000\Desktop\Android_Project\UniversityBazaar\app\src\main\res\mipmap-xxxhdpi" />
-    </key>
     <key name="android.template.-916312773">
       <recent name="org.samir.universitybazaar" />
       <recent name="org.samir.universitybazaar.Authentication" />
     </key>
-    <key name="android.template.1096860188">
-      <recent name="org.samir.universitybazaar" />
-    </key>
-    <key name="android.template.638563620">
-      <recent name="org.samir.universitybazaar" />
-      <recent name="org.samir.universitybazaar.Profile" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="org.samir.universitybazaar" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.samir.universitybazaar.EmailService" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\samir_000\Desktop\Android_Project\UniversityBazaar\app\src\main\res\mipmap-xxxhdpi" />
     </key>
   </component>
   <component name="RunManager">
@@ -191,7 +189,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e2ca2733-08bc-43f3-8097-117afc8c6aef" name="Default Changelist" comment="updated project" />
+      <changelist id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="" />
       <created>1612715361635</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -302,95 +300,8 @@
       <option name="project" value="LOCAL" />
       <updated>1613678635775</updated>
     </task>
-    <task id="LOCAL-00016" summary="created HomeActivity and related fragments.">
-      <created>1613700166779</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1613700166779</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Finished HomePage Activity.">
-      <created>1613706318074</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1613706318074</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added some comments.">
-      <created>1613706779850</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1613706779850</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Added some comments.">
-      <created>1613706973517</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1613706973517</updated>
-    </task>
-    <task id="LOCAL-00020" summary="completed create new post. need to add to database">
-      <created>1613776286625</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1613776286625</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Create New Post complete. Post table created in the database.">
-      <created>1613793939795</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1613793939795</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Completed my posts recycler view.">
-      <created>1613848119010</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1613848119010</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Finished PostActivity Layout.">
-      <created>1613851190524</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1613851190524</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Finished Comment Recycler View.">
-      <created>1613855982467</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1613855982467</updated>
-    </task>
-    <task id="LOCAL-00025" summary="All Post Fragment completed. Also disabled the edit and delete button if the user doesn't own the post.">
-      <created>1613861125440</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1613861125440</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Added comments to all the files.">
-      <created>1613880640697</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1613880640697</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="16" />
     <servers />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -421,17 +332,7 @@
     <MESSAGE value="updated project" />
     <MESSAGE value="Removed max length 20 words restriction in activity_reset1.xml security questions field. Fixed indentation issue in the UI." />
     <MESSAGE value="Fixed UI issues in activity_view_profile.xml layout page. Fixed some alignment issues." />
-    <MESSAGE value="created HomeActivity and related fragments." />
-    <MESSAGE value="Finished HomePage Activity." />
-    <MESSAGE value="Added some comments." />
-    <MESSAGE value="completed create new post. need to add to database" />
-    <MESSAGE value="Create New Post complete. Post table created in the database." />
-    <MESSAGE value="Completed my posts recycler view." />
-    <MESSAGE value="Finished PostActivity Layout." />
-    <MESSAGE value="Finished Comment Recycler View." />
-    <MESSAGE value="All Post Fragment completed. Also disabled the edit and delete button if the user doesn't own the post." />
-    <MESSAGE value="Added comments to all the files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comments to all the files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed UI issues in activity_view_profile.xml layout page. Fixed some alignment issues." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
@@ -439,86 +340,54 @@
     </state>
     <state x="200" y="110" key="#PSD/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612968874586" />
     <state x="1647" y="-155" key="#PSD/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676393981" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1613854562635">
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1612902655178">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612883820550" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613854562635" />
-    <state x="2109" y="76" width="433" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1613851115929">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="2109" y="76" width="433" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613851115929" />
-    <state x="2056" y="-46" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613860100921">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="2056" y="-46" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860100921" />
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612902655178" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager" timestamp="1612983384788">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612969140283" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612983384788" />
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog" timestamp="1613856203292">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613856203292" />
-    <state x="1458" y="-220" width="1736" height="856" key="DiffContextDialog" timestamp="1613848585655">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="1458" y="-220" width="1736" height="856" key="DiffContextDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848585655" />
     <state x="2006" y="-38" key="Downloadable.Font.Dialog.Size" timestamp="1612969925141">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="2006" y="-38" key="Downloadable.Font.Dialog.Size/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612969925141" />
-    <state x="2106" y="-53" key="FileChooserDialogImpl" timestamp="1613800311670">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613800311670" />
-    <state width="1877" height="499" key="GridCell.Tab.0.bottom" timestamp="1613860055457">
+    <state width="1877" height="499" key="GridCell.Tab.0.bottom" timestamp="1614709313796">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774488" />
-    <state width="1877" height="499" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
-    <state width="1877" height="499" key="GridCell.Tab.0.center" timestamp="1613860055457">
+    <state width="1877" height="499" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1614709313796" />
+    <state width="1877" height="499" key="GridCell.Tab.0.center" timestamp="1614709313795">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774487" />
-    <state width="1877" height="499" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
-    <state width="1877" height="499" key="GridCell.Tab.0.left" timestamp="1613860055457">
+    <state width="1877" height="499" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1614709313795" />
+    <state width="1877" height="499" key="GridCell.Tab.0.left" timestamp="1614709313794">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774486" />
-    <state width="1877" height="499" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
-    <state width="1877" height="499" key="GridCell.Tab.0.right" timestamp="1613860055457">
+    <state width="1877" height="499" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1614709313794" />
+    <state width="1877" height="499" key="GridCell.Tab.0.right" timestamp="1614709313796">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774488" />
-    <state width="1877" height="499" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613860055457" />
+    <state width="1877" height="499" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1614709313796" />
     <state x="1827" y="-148" key="SettingsEditor" timestamp="1613676152646">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="1827" y="-148" key="SettingsEditor/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676152646" />
-    <state x="2165" y="122" key="VCS.EditChangelistDialog" timestamp="1613848466184">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="2165" y="122" key="VCS.EditChangelistDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848466184" />
     <state x="1753" y="-175" key="Vcs.Push.Dialog.v2" timestamp="1613678823358">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612881219136" />
     <state x="1753" y="-175" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613678823358" />
-    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1613848585655">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848585655" />
-    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1613848585655">
-      <screen x="1366" y="-312" width="1920" height="1040" />
-    </state>
-    <state x="1458" y="-220" width="1736" height="856" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613848585655" />
-    <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613680176666">
+    <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613675884178">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="547" y="303" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613405818199" />
-    <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613680176666" />
+    <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613675884178" />
     <state x="2029" y="-80" key="git4idea.branch.GitSmartOperationDialog" timestamp="1612982684489">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -528,11 +397,10 @@
     </state>
     <state x="419" y="152" key="git4idea.merge.GitMergeDialog/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612880713183" />
     <state x="1955" y="-95" key="git4idea.merge.GitMergeDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612974890155" />
-    <state x="1906" y="-95" key="git4idea.merge.GitPullDialog" timestamp="1613680004421">
-      <screen x="1366" y="-312" width="1920" height="1040" />
+    <state x="384" y="152" key="git4idea.merge.GitPullDialog" timestamp="1613405843257">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="384" y="152" key="git4idea.merge.GitPullDialog/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613405843257" />
-    <state x="1906" y="-95" key="git4idea.merge.GitPullDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613680004421" />
     <state x="1953" y="-4" key="psd.add.jar.dependency.panel.dimension" timestamp="1612975355477">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>

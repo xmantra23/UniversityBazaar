@@ -8,24 +8,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd = "10dp"
         android:id="@+id/btnRelLayout">
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="profile"
-            android:id="@+id/btnProfile"
-            android:backgroundTint="#8BC34A"/>
-        <Button
+            android:text="PROFILE"
+            android:layout_alignParentStart="true"
+            android:id="@+id/txtProfile"
+            android:textColor="#3F51B5"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:id="@+id/btnLogout"
-            android:layout_toEndOf="@+id/btnProfile"
+            android:text="LOGOUT"
+            android:id="@+id/txtLogout"
+            android:layout_alignParentEnd="true"
             android:layout_marginLeft="20dp"
-            android:backgroundTint="#F80303"/>
+            android:textColor="#F80303"/>
     </RelativeLayout>
 
 

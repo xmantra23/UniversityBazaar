@@ -80,8 +80,8 @@ public class CreatePostActivity extends AppCompatActivity {
                 String creatorName = profile.getFullName();
 
                 //if the user doesn't have a full name then construct a username as: User + last four of the member id.
-                if(creatorName.equals("") || creatorName == null){
-                    creatorName = "User " + user.getMemberId().substring(6);
+                if(creatorName == null){
+                        creatorName = "User " + user.getMemberId().substring(6);
                 }
 
                 post.setCreatorName(creatorName); //set the name of the user who created this post.
