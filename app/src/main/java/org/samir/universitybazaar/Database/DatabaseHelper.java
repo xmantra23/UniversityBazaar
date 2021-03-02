@@ -39,6 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createUserTable(db); //creates users table in the database.
         createUserProfileTable(db); //creates user_profiles table in database.
         createPostTable(db);//create a post table in the database;
+        createCommentsTable(db); //create a comments table for user posts in the database.
     }
 
     //only need to use this when updating the database version.
@@ -69,6 +70,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 " ,email TEXT NOT NULL UNIQUE, password TEXT NOT NULL, " +
                 "first_security TEXT NOT NULL, second_security TEXT NOT NULL, third_security TEXT NOT NULL)";
         db.execSQL(createUserTable);
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description this creates comments table for user posts in the database.
+     */
+    private static void createCommentsTable(SQLiteDatabase db) {
+        String createCommentsTable = "CREATE TABLE comments (_id INTEGER PRIMARY KEY AUTOINCREMENT,postId INTEGER NOT NULL" +
+                " ,commentText TEXT NOT NULL, commentOwnerName TEXT NOT NULL, " +
+                "commentOwnerId TEXT NOT NULL, commentDate TEXT NOT NULL)";
+        db.execSQL(createCommentsTable);
     }
 
 
