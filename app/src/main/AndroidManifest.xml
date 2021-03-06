@@ -15,6 +15,7 @@
         <activity android:name=".Activity.MyPostsActivity" />
         <activity android:name=".Activity.CreatePostActivity" />
         <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".Activity.CommentActivity" />
         <activity android:name=".Authentication.LoginActivity" />
         <activity android:name=".Profile.AvatarActivity" />
         <activity android:name=".Profile.AvatarChangeActivity" />
