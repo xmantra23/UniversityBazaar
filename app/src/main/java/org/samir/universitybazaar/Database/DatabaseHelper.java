@@ -33,6 +33,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.context = context;
     }
 
+    //only need to use this when updating the database version.
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "onCreate: started"); //just for logs.
@@ -40,13 +46,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createUserProfileTable(db); //creates user_profiles table in database.
         createPostTable(db);//create a post table in the database;
         createCommentsTable(db); //create a comments table for user posts in the database.
+        createClubsTable(db); //create a clubs table in the database;
     }
 
-    //only need to use this when updating the database version.
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    /**
+     * @author samir shrestha
+     * @description this method creates a clubs table in the database
+     */
+    private void createClubsTable(SQLiteDatabase db) {
+        String createClubsTable = "CREATE TABLE clubs (_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL" +
+                " ,shortDescription TEXT NOT NULL, longDescription TEXT NOT NULL, " +
+                "ownerName TEXT NOT NULL, ownerId TEXT NOT NULL,createdDate TEXT NOT NULL,memberCount INTEGER NOT NULL)";
+        db.execSQL(createClubsTable);
     }
+
+
 
     /**
      * @author samir shrestha

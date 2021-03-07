@@ -50,7 +50,13 @@ public class Profile {
     }
 
     public String getFullName() {
-        return fullName;
+        if(fullName != null){
+            return fullName;
+        }else{
+            String fullName = "User" + memberId.substring(6);
+            return  fullName;
+        }
+
     }
 
     public void setFullName(String fullName) {
