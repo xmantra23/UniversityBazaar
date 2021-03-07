@@ -110,7 +110,9 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.newClub:
-                        // TODO: 2/18/2021 Redirect to new club activity
+                        // Redirect to the create a new club activity. This lets users create a new club.
+                        Intent intent2 = new Intent(HomeActivity.this,CreateClubActivity.class);
+                        startActivity(intent2);
                         break;
                     case R.id.sellItem:
                         // TODO: 2/18/2021 Redirect to sell item activity

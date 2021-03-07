@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    tools:context=".Activity.CreateClubActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCreateClub"
+        android:text="Create Club"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleRelLayout"
+        android:layout_below="@+id/txtCreateClub"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title: "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignBaseline="@id/edtTxtTitle"
+            android:id="@+id/txtTitle"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtTxtTitle"
+            android:hint="Please enter a title for the club."
+            android:maxLength="25"
+            android:layout_toEndOf="@+id/txtTitle"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shortDescRelLayout"
+        android:layout_below="@+id/titleRelLayout"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtShortDesc"
+            android:textStyle="bold"
+            android:text="Short Description: "
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:hint="Please enter a short description."
+            android:id="@+id/edtTxtShortDesc"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/longDescRelLayout"
+        android:layout_below="@+id/shortDescRelLayout"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLongDesc"
+            android:textStyle="bold"
+            android:text="Long Description: "
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:minLines="5"
+            android:gravity="top"
+            android:hint="Please enter a long description."
+            android:id="@+id/edtTxtLongDesc"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRelLayout"
+        android:layout_below="@+id/longDescRelLayout"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/btnCancel"
+            android:backgroundTint="#F44336"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:id="@+id/btnCreate"
+            android:layout_toEndOf="@+id/btnCancel"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginStart="15dp"/>
+    </RelativeLayout>
+</RelativeLayout>
