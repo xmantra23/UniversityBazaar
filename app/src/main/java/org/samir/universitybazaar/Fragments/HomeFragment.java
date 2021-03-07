@@ -99,18 +99,20 @@ public class HomeFragment extends Fragment {
         //if group icon is pressed then navigate to home activity but send "group" as the activity name.
         //This will be used later in the HomeActivity to load the appropriate fragment in the body of the activity based on the activity name.
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
             switch(item.getItemId()){
                 case R.id.home:
                     //In homepage. No action required.
                     break;
                 case R.id.post:
                     //Navigate to HomeActivity but send "post" as the activity name so that AllPostsFragment can be loaded into the HomeActivity.
-                    Intent intent = new Intent(getActivity(), HomeActivity.class);
                     intent.putExtra(Constants.ACTIVITY_NAME,"post");
                     startActivity(intent);
                     break;
                 case R.id.group:
-                    //TODO: 2/18/2021 redirect to all clubs activity
+                    //Navigate to HomeActivity but send "group" as the activity name so that AllClubsFragment can be loaded into the HomeActivity.
+                    intent.putExtra(Constants.ACTIVITY_NAME,"group");
+                    startActivity(intent);
                     break;
                 case R.id.market:
                     // TODO: 2/18/2021 redirect to the markeplace activity

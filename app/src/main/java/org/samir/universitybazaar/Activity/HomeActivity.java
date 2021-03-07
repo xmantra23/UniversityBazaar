@@ -19,6 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
+import org.samir.universitybazaar.Fragments.AllClubsFragment;
 import org.samir.universitybazaar.Fragments.AllPostsFragment;
 import org.samir.universitybazaar.Fragments.HomeFragment;
 import org.samir.universitybazaar.Models.Profile;
@@ -146,7 +147,9 @@ public class HomeActivity extends AppCompatActivity {
             transaction.replace(R.id.container, new AllPostsFragment()); //load all posts fragment in home activity.
         }else if(activity_type.equals("home")){
             transaction.replace(R.id.container, new HomeFragment()); //load home fragment in home activity.
-        }
+        }else if(activity_type.equals("group")){
+             transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs fragment in home activity.
+         }
 
         transaction.commit();//finalizes loading the fragment.
     }

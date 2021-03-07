@@ -15,7 +15,7 @@ public class Utils {
      * @return returns the current system date in mm/dd/yyyy format as a string.
      */
     public static String getCurrentDate(){
-        //Getting the current system date and formating it to mm/dd/yyyy format.
+        //Getting the current system date and formatting it to mm/dd/yyyy format.
         Date date = new Date();
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         return df.format(date);
