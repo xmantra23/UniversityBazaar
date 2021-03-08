@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
+import org.samir.universitybazaar.Activity.ClubActivity;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.PostActivity;
 import org.samir.universitybazaar.Database.ClubDAO;
@@ -109,7 +110,10 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
             //already subscribed to the club or not. If the user is not subscribed then we cannot let the user visit that club.
             holder.parent.setOnClickListener(v->{
                 if(isOwner || isMember){
-                    // TODO: 3/8/2021 navigate to the clubs activity page.
+                    //start a new ClubActivity and pass the club id with the intent.
+                    Intent intent = new Intent(context, ClubActivity.class);
+                    intent.putExtra(Constants.CLUB_ID,clubs.get(position).get_id());
+                    context.startActivity(intent);
                 }else{
                     Toast.makeText(context, "You are not subscribed to this club.", Toast.LENGTH_LONG).show();
                 }

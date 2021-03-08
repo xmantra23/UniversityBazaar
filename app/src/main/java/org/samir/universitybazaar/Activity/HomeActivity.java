@@ -151,6 +151,7 @@ public class HomeActivity extends AppCompatActivity {
              transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs fragment in home activity.
          }
 
+
         transaction.commit();//finalizes loading the fragment.
     }
 

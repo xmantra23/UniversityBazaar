@@ -321,22 +321,17 @@ public class ClubDAO {
 
 
     //get a club with the corresponding clubId in the club_members table.
-    public Club getClubByClubId(int clubId){
+    public Club getClubById(int clubId){
         SQLiteDatabase db = null;
         try {
             db = databaseHelper.getReadableDatabase();
-            String[] columns = new String[]{
-                    "_id",
-                    "clubId",
-                    "memberId",
-            };
 
             String[] args = new String[]{
                     clubId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
             };
 
             //retrieve the club from the clubs table whose _id == clubId
-            Cursor cursor = db.query("clubs", columns, "clubId=?", args, null, null, null);
+            Cursor cursor = db.query("clubs", null, "_id=?", args, null, null, null);
             if(cursor != null){
                 if(cursor.moveToFirst()){
                     int _id = cursor.getInt(cursor.getColumnIndex("_id"));

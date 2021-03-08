@@ -60,7 +60,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         private TextView txtComment,txtUserName,txtCommentDate;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtComment = itemView.findViewById(R.id.txtComment);
+            txtComment = itemView.findViewById(R.id.txtAnnouncement);
             txtUserName = itemView.findViewById(R.id.txtUserName);
             txtCommentDate = itemView.findViewById(R.id.txtCommentDate);
         }

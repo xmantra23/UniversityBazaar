@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtPostTitle"
+            android:id="@+id/txtClubTitle"
             android:text="Free Pizza @ ERB 123"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -24,13 +24,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/txtPostCategory"
             android:text="(News)"
-            android:layout_below="@+id/txtPostTitle"
+            android:layout_below="@+id/txtClubTitle"
             android:textAlignment="center"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtPostDescription"
+            android:id="@+id/txtClubDescription"
             android:layout_below="@+id/txtPostCategory"
             android:text="Hello everyone. Just wanted to let you all know that there is free pizza
 at the ERB from 11:00am to 12:00pm. Don't forget to come and oh they also have free drinks
@@ -41,8 +41,8 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun."
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/postModifyRelLayout"
-            android:layout_below="@+id/txtPostDescription"
+            android:id="@+id/clubModifyRelLayout"
+            android:layout_below="@+id/txtClubDescription"
             android:layout_marginTop="10dp"
             android:gravity="end">
 
@@ -66,8 +66,8 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun."
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/footerRelLayout"
-            android:layout_below="@id/postModifyRelLayout"
+            android:id="@+id/infoRelLayout"
+            android:layout_below="@id/clubModifyRelLayout"
             android:layout_marginTop="15dp">
 
             <TextView
@@ -87,13 +87,13 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun."
             android:layout_width = "match_parent"
             android:layout_height="0.5dp"
             android:id="@+id/line1"
-            android:layout_below="@id/footerRelLayout"
+            android:layout_below="@id/infoRelLayout"
             android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtComment"
+            android:id="@+id/txtAnnouncement"
             android:layout_below="@+id/line1"
             android:text="Comments:"
             android:layout_marginTop="5dp"
@@ -103,7 +103,7 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/commentsRecView"
-            android:layout_below="@+id/txtComment"
+            android:layout_below="@+id/txtAnnouncement"
             android:layout_marginTop="16dp"
             />
 

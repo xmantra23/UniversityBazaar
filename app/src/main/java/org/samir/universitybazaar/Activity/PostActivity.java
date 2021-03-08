@@ -110,9 +110,9 @@ public class PostActivity extends AppCompatActivity {
 
     //initialize all the views in the activity_post.xml layout file.
     private void initViews() {
-        txtPostTitle = findViewById(R.id.txtPostTitle);
+        txtPostTitle = findViewById(R.id.txtClubTitle);
         txtPostCategory = findViewById(R.id.txtPostCategory);
-        txtPostDescription = findViewById(R.id.txtPostDescription);
+        txtPostDescription = findViewById(R.id.txtClubDescription);
         txtEdit = findViewById(R.id.txtEdit);
         txtDelete = findViewById(R.id.txtDelete);
         txtCreatorName = findViewById(R.id.txtCreatorName);

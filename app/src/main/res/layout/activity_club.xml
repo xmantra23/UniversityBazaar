@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ClubActivity"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtClubTitle"
+            android:text="Chess Club"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtClubDescription"
+            android:layout_below="@+id/txtClubTitle"
+            android:text="This club was created as a way to help and progress towards the foundation of a great club. The best chest club in UTA.
+            We do various competitions through the semester and also participate in national competitions."
+            android:layout_marginTop="10dp"
+            android:lineSpacingExtra="4.5dp"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/infoRelLayout"
+            android:layout_below="@id/txtClubDescription"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCreatorName"
+                android:text="Admin: Samir Shrestha"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCreatedDate"
+                android:layout_alignParentEnd="true"
+                android:text="Formed: 02/19/2020"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/clubModifyRelLayout"
+            android:layout_below="@+id/infoRelLayout"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPost"
+                android:text="Post"
+                android:layout_alignParentStart="true"
+                android:textColor="#8BC34A"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtEdit"
+                    android:text="Edit"
+                    android:textColor="#2196F3"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtDelete"
+                    android:layout_toEndOf="@+id/txtEdit"
+                    android:layout_marginStart="15dp"
+                    android:textColor="#FF5722"
+                    android:text="Delete"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <View android:background="#6E6666"
+            android:layout_width = "match_parent"
+            android:layout_height="0.5dp"
+            android:id="@+id/line1"
+            android:layout_below="@id/clubModifyRelLayout"
+            android:layout_marginTop="20dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/noticeRelLayout"
+            android:layout_below="@+id/line1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtAnnouncement"
+                android:text="Announcements:"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View All"
+                android:id="@+id/txtViewAllNotice"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="#8BC34A"
+                />
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/noticeRecView"
+            android:layout_below="@+id/noticeRelLayout"
+            android:layout_marginTop="16dp"
+            />
+
+        <View android:background="#6E6666"
+            android:layout_width = "match_parent"
+            android:layout_height="0.5dp"
+            android:id="@+id/line2"
+            android:layout_below="@id/noticeRecView"
+            android:layout_marginTop="20dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/postRelLayout"
+            android:layout_below="@+id/line2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtMemberPosts"
+                android:text="Member Posts:"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtViewAllPosts"
+                android:text="View All"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="#8BC34A"
+                />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postsRecView"
+            android:layout_below="@+id/postRelLayout"
+            android:layout_marginTop="16dp"
+            />
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

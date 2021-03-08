@@ -20,4 +20,9 @@ public class Utils {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         return df.format(date);
     }
+
+    //check if a user owns a club
+    public static boolean isOwner(String creatorId,String memberId){
+        return creatorId.equals(memberId);
+    }
 }
