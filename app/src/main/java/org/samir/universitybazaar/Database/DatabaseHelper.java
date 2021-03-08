@@ -47,7 +47,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createPostTable(db);//create a post table in the database;
         createCommentsTable(db); //create a comments table for user posts in the database.
         createClubsTable(db); //create a clubs table in the database;
+        createMembershipTable(db); //create club_members table in the database.
     }
+
+
+    /**
+     * @author Samir Shrestha
+     * @description this method creates club_members table. This table is used to keep track of membership.
+     */
+    private void createMembershipTable(SQLiteDatabase db){
+        String createClubsTable = "CREATE TABLE club_members (_id INTEGER PRIMARY KEY AUTOINCREMENT,clubId INTEGER NOT NULL," +
+                "memberID TEXT NOT NULL)";
+        db.execSQL(createClubsTable);
+    }
+
 
     /**
      * @author samir shrestha
@@ -166,10 +179,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             profile_values.put("email",user.getEmail());
 
             long profileId = db.insert("user_profiles",null,profile_values);
-            userId = db.insert("users", null, values);
             db.close();
-            return true;
-        } catch (SQLException e) {
+            if(userId != -1)
+                //insert was successful.
+                return true;
+            else
+                //insert failed.
+                return false;
+        }catch (SQLException e) {
             e.printStackTrace();
             db.close();
             return false;

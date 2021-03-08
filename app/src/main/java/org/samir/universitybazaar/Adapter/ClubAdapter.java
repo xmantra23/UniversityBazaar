@@ -6,13 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.PostActivity;
+import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.Models.User;
@@ -45,18 +48,57 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
         holder.txtTotalMembers.setText("Total Members: " + clubs.get(position).getMemberCount());
 
         UserSession session = new UserSession(context);
+        ClubDAO cb = new ClubDAO(context);
         User user = session.isUserLoggedIn();
         if(user != null){
             String userId = user.getMemberId();
+            boolean isMember = cb.verifyMembership(clubs.get(position).get_id(),userId); //check if the user is a member of this club.
             if(userId.equals(clubs.get(position).getOwnerId())){
                 //user owns this club. hide join button.
                 holder.txtJoin.setVisibility(View.GONE);
             }else{
-                //user is a regular user. show join button.
-                holder.txtJoin.setVisibility(View.VISIBLE);
-                holder.txtJoin.setOnClickListener(v->{
-                    // TODO: 3/7/2021 add code for joining user.
-                });
+                //user is a regular user.
+                if(isMember){
+                    //user is already a member so display LEAVE instead of JOIN text.
+                    holder.txtJoin.setText("LEAVE");
+                    holder.txtJoin.setTextColor(context.getResources().getColor(R.color.red));
+                    holder.txtJoin.setVisibility(View.VISIBLE);
+                    holder.txtJoin.setOnClickListener(v->{
+                        if(cb.removeMemberFromClub(clubs.get(position).get_id(),userId)){
+                            //successfully removed member from club.
+                            //now decrement member count by 1.
+                            cb.decrementMemberCount(clubs.get(position));
+                            Toast.makeText(context, "Unsubscribed Successfully", Toast.LENGTH_LONG).show();
+
+                            //update UI after pressing JOIN
+                            notifyDataSetChanged();
+                        }else{
+                            //couldn't remove member from club.
+                            Toast.makeText(context, "Error. Couldn't Unsubscribe", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    //add new member to club.
+                    holder.txtJoin.setText("JOIN");
+                    holder.txtJoin.setTextColor(context.getResources().getColor(R.color.blue));
+                    holder.txtJoin.setVisibility(View.VISIBLE);
+                    holder.txtJoin.setOnClickListener(v->{
+                        if(cb.addMemberToClub(clubs.get(position).get_id(),userId)){
+                            //successfully added member to a club.
+                            //now increment member count by 1.
+                            cb.incrementMemberCount(clubs.get(position));
+                            Toast.makeText(context, "Subscribed Successfully", Toast.LENGTH_LONG).show();
+
+                            //update UI after pressing leave.
+                            notifyDataSetChanged();
+
+                        }else{
+                            //couldn't add member to a club.
+                            Toast.makeText(context, "Error. Couldn't Subscribe", Toast.LENGTH_SHORT).show();
+                        }
+
+                    });
+                }
             }
         }
 

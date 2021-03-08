@@ -31,11 +31,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="added code to add clubs to database.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/AllClubsFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_all_clubs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_club.xml" afterDir="false" />
+    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="completed display all clubs.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-night/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -46,11 +43,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/HomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/AllPostsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/AllPostsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Utility/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Utility/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +77,8 @@
       <list>
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -321,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615151212597</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="completed display all clubs.">
+      <created>1615158271001</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1615158271001</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -355,7 +361,8 @@
     <MESSAGE value="Fixed UI issues in activity_view_profile.xml layout page. Fixed some alignment issues." />
     <MESSAGE value="created createclub activity and layout file." />
     <MESSAGE value="added code to add clubs to database." />
-    <option name="LAST_COMMIT_MESSAGE" value="added code to add clubs to database." />
+    <MESSAGE value="completed display all clubs." />
+    <option name="LAST_COMMIT_MESSAGE" value="completed display all clubs." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
@@ -373,10 +380,14 @@
     </state>
     <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612969140283" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612983384788" />
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog" timestamp="1615153297073">
+    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog" timestamp="1615172235796">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615153297073" />
+    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615172235796" />
+    <state x="2170" y="-7" key="AndroidCreateXmlResourceDialog" timestamp="1615182930671">
+      <screen x="1366" y="-312" width="1920" height="1040" />
+    </state>
+    <state x="2170" y="-7" key="AndroidCreateXmlResourceDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615182930671" />
     <state x="188" y="109" key="DiffContextDialog" timestamp="1615142333017">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -385,30 +396,30 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="2006" y="-38" key="Downloadable.Font.Dialog.Size/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612969925141" />
-    <state x="2106" y="-53" key="FileChooserDialogImpl" timestamp="1615150707505">
+    <state x="2106" y="-53" key="FileChooserDialogImpl" timestamp="1615178014139">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
-    <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615150707505" />
-    <state width="1877" height="497" key="GridCell.Tab.0.bottom" timestamp="1615158150933">
+    <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615178014139" />
+    <state width="1877" height="497" key="GridCell.Tab.0.bottom" timestamp="1615182999525">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399097" />
-    <state width="1877" height="497" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615158150933" />
-    <state width="1877" height="497" key="GridCell.Tab.0.center" timestamp="1615158150933">
+    <state width="1877" height="497" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615182999525" />
+    <state width="1877" height="497" key="GridCell.Tab.0.center" timestamp="1615182999525">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399096" />
-    <state width="1877" height="497" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615158150933" />
-    <state width="1877" height="497" key="GridCell.Tab.0.left" timestamp="1615158150933">
+    <state width="1877" height="497" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615182999525" />
+    <state width="1877" height="497" key="GridCell.Tab.0.left" timestamp="1615182999524">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399096" />
-    <state width="1877" height="497" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615158150933" />
-    <state width="1877" height="497" key="GridCell.Tab.0.right" timestamp="1615158150933">
+    <state width="1877" height="497" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615182999524" />
+    <state width="1877" height="497" key="GridCell.Tab.0.right" timestamp="1615182999525">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399097" />
-    <state width="1877" height="497" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615158150933" />
+    <state width="1877" height="497" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615182999525" />
     <state x="129" y="54" key="MergeDialog" timestamp="1614714882430">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

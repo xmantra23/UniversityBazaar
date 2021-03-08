@@ -5,10 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import org.samir.universitybazaar.Models.Club;
-import org.samir.universitybazaar.Models.Post;
-
 import java.util.ArrayList;
 
 /**
@@ -22,6 +21,136 @@ public class ClubDAO {
     public ClubDAO(Context context){
         this.context = context;
         databaseHelper = new DatabaseHelper(context);
+    }
+
+    //add member to a club
+    public boolean addMemberToClub(int clubId, String memberId){
+        boolean status = false;
+        if(databaseHelper != null){
+            SQLiteDatabase db = null;
+            try {
+                db = databaseHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put("clubId", clubId);
+                values.put("memberId", memberId);
+
+                Log.d("test", "values: " + clubId + " " + memberId);
+                long tableId = db.insert("club_members",null,values); //add a new member in the club
+                if(tableId != -1){
+                    //insert was successful
+                    status = true;
+                }
+            } catch (SQLException e) {
+                //error inserting in database
+                e.printStackTrace();
+            }finally {
+                db.close();
+            }
+        }
+        Log.d("test", "values: " + clubId + " " + memberId);
+        return status;
+
+    }
+
+    //add member to a club
+    public boolean removeMemberFromClub(int clubId, String memberId){
+        boolean status = false;
+        if(databaseHelper != null){
+            SQLiteDatabase db = null;
+            try {
+                db = databaseHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                String[] args = {String.valueOf(clubId),memberId};
+                int affectedRows = db.delete("club_members","clubId=? and memberId=?",args);
+                if(affectedRows > 0){
+                    //delete successful
+                    status = true;
+                }
+            } catch (SQLException e) {
+                //error inserting in database
+                e.printStackTrace();
+            }finally {
+                db.close();
+            }
+        }
+        return status;
+
+    }
+
+    //increment memberCount in clubs tables
+    public boolean incrementMemberCount(Club club){
+        boolean status = false;
+        if(databaseHelper != null){
+            SQLiteDatabase db = databaseHelper.getWritableDatabase();
+            try {
+                ContentValues values = new ContentValues();
+                if(club != null){
+                    values.put("memberCount",club.getMemberCount() + 1); //increment memberCount by 1
+                    String[] args = {club.get_id()+""}; //selection criteria for updating the row.
+                    int count = db.update("clubs",values,"_id=?",args); //update memberCount in clubs table where _id == clubId
+                    if(count > 0){
+                        //update was successful.
+                        status = true;
+                    }
+                }
+            }catch(SQLException e){
+                e.printStackTrace();
+            }finally {
+                db.close();
+            }
+        }
+        return status;
+    }
+
+    //decrement memberCount in clubs tables
+    public boolean decrementMemberCount(Club club){
+        boolean status = false;
+        if(databaseHelper != null){
+            SQLiteDatabase db = databaseHelper.getWritableDatabase();
+            try {
+                ContentValues values = new ContentValues();
+                if(club != null){
+                    int memberCount = club.getMemberCount() - 1;//decrement member count by 1
+                    if(memberCount < 0){
+                        memberCount = 0;
+                    }
+                    values.put("memberCount",memberCount); //decrement memberCount by 1
+                    String[] args = {club.get_id()+""}; //selection criteria for updating the row.
+                    int count = db.update("clubs",values,"_id=?",args); //update memberCount in clubs table where _id == clubId
+                    if(count > 0){
+                        //update was successful.
+                        status = true;
+                    }
+                }
+            }catch(SQLException e){
+                e.printStackTrace();
+            }finally {
+                db.close();
+            }
+        }
+        return status;
+    }
+
+    //check if a user is a member of a club
+    public boolean verifyMembership(int clubId,String memberId){
+        SQLiteDatabase db = null;
+        boolean result = false;
+        try{
+            db = databaseHelper.getReadableDatabase();
+            String[] args = {String.valueOf(clubId),memberId};
+            Cursor cursor = db.query("club_members",null,"clubId=? and memberId=?",args,null,null,null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    //the user with memberId is subscribed to the club with the clubId
+                    result = true;
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            db.close();
+            return result;
+        }
     }
 
     //adds a club to the clubs table
@@ -41,6 +170,7 @@ public class ClubDAO {
 
                 long clubId = db.insert("clubs",null,values);
                 db.close();
+
                 if(clubId != -1){ //insert was successful
                     return true;
                 }else{ //insert failed.
@@ -59,6 +189,54 @@ public class ClubDAO {
             return false;
         }
     }
+
+
+    //get a club with the corresponding clubId in the club_members table.
+    public Club getClubByClubId(int clubId){
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "clubId",
+                    "memberId",
+            };
+
+            String[] args = new String[]{
+                    clubId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+
+            //retrieve the club from the clubs table whose _id == clubId
+            Cursor cursor = db.query("clubs", columns, "clubId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                    String title = cursor.getString(cursor.getColumnIndex("title"));
+                    String shortDescription = cursor.getString(cursor.getColumnIndex("shortDescription"));
+                    String longDescription = cursor.getString(cursor.getColumnIndex("longDescription"));
+                    String ownerName = cursor.getString(cursor.getColumnIndex("ownerName"));
+                    String ownerId = cursor.getString(cursor.getColumnIndex("ownerId"));
+                    String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                    int memberCount = cursor.getInt(cursor.getColumnIndex("memberCount"));
+
+                    Club club = new Club(_id,title,shortDescription,longDescription,ownerName,ownerId,createdDate,memberCount);
+                    return club;
+                }
+                db.close();
+                cursor.close();
+                return null;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
 
     /**
      * @author Samir Shrestha
@@ -127,4 +305,5 @@ public class ClubDAO {
             return null; //error return null
         }
     }
+
 }
