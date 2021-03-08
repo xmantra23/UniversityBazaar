@@ -1,9 +1,8 @@
-package org.samir.universitybazaar.Profile;
+package org.samir.universitybazaar.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,6 +23,11 @@ import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
+
+/**
+ * @author ,Yifei Lu
+ * @Description This class allow user to edit the profile and update it.
+ */
 
 public class EditProfileActivity extends AppCompatActivity {
 

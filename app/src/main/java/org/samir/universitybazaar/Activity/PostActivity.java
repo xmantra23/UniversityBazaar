@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.samir.universitybazaar.Adapter.CommentAdapter;
+import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Comment;
@@ -65,22 +66,25 @@ public class PostActivity extends AppCompatActivity {
                 txtCreatedDate.setText(post.getCreatedDate());
 
                 handleListeners(); // handle edit, delete  and add comment button clicks.
-
-
-                //this is just for testing. Need to get actual comments from the database in the future.
-                // for example like  we can do ArrayList<Comment> comments = db.getCommentsByPostId(postId);
-                ArrayList<Comment> comments = new ArrayList<>();
-                comments = db.getCommentsByPostId(post_id); //get comments by post_id
-
-                //initializing the recycler view which will display all the comments in this post.
-                adapter = new CommentAdapter(this);
-                adapter.setComments(comments);
-                commentsRecView.setAdapter(adapter);
-                commentsRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
-
+                initCommentAdapter(post);
             }
         }
+    }
 
+    public void initCommentAdapter(Post post){
+        //this is just for testing. Need to get actual comments from the database in the future.
+        // for example like  we can do ArrayList<Comment> comments = db.getCommentsByPostId(postId);
+        ArrayList<Comment> comments = new ArrayList<>();
+        CommentDAO commentDAO = new CommentDAO(PostActivity.this);
+        comments = commentDAO.getCommentsByPostId(post_id); //get comments by post_id
+
+        //initializing the recycler view which will display all the comments in this post.
+        adapter = new CommentAdapter(this);
+        adapter.setComments(comments);
+        adapter.setCreatorId(post.getCreatorId());
+        adapter.setPostId(post.getId());
+        commentsRecView.setAdapter(adapter);
+        commentsRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
     }
 
     private void handleListeners() {

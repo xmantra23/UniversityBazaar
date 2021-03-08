@@ -6,8 +6,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.samir.universitybazaar.Authentication.LoginActivity;
@@ -26,20 +24,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author Minyi Lu
- * @Description This class displays a comment input page
+ * @author Lu yifei
+ * @Description This class displays a reply input page
  */
-
-public class CommentActivity extends AppCompatActivity {
+public class CommentReplyActivity extends AppCompatActivity {
     private UserSession userSession;
     private DatabaseHelper db;
-    private EditText edtTxtComment;
-    private Button btnComment;
+    private EditText edtTxtReply;
+    private Button btnReply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comment);
+        setContentView(R.layout.activity_comment_reply);
 
         userSession = new UserSession(this);
         db = new DatabaseHelper(this);
@@ -50,22 +47,29 @@ public class CommentActivity extends AppCompatActivity {
 
     //initializes all the elements in the layout file.
     private void initViews(){
-        edtTxtComment = findViewById(R.id.edtTxtComment);
-        btnComment = findViewById(R.id.btnComment);
+        edtTxtReply = findViewById(R.id.edtTxtReply);
+        btnReply = findViewById(R.id.btnReply);
     }
 
     private void handleListeners() {
-        btnComment.setOnClickListener(v->{
+        btnReply.setOnClickListener(v->{
             int post_id = getIntent().getIntExtra(Constants.POST_ID,-1);
+            int comment_id = getIntent().getIntExtra(Constants.Comment_ID,-1);
             User user = userSession.isUserLoggedIn(); //get current logged in user from the session.
             if(user != null) { //if user is logged in.
-                //get comment and build comment object
+                //get reply comment
+                CommentDAO commentDAO = new CommentDAO(CommentReplyActivity.this);
+                Comment replyComment = commentDAO.getComment(comment_id);
+
+                //build comment object
                 Comment comment = new Comment();
                 comment.setPostId(post_id);
-                comment.setCommentText(edtTxtComment.getText().toString());
+                comment.setCommentReceiverId(replyComment.getCommentOwnerId());
+                comment.setCommentReceiverName(replyComment.getCommentOwnerName());
+                comment.setCommentText(edtTxtReply.getText().toString());
 
                 //get the profile of the current logged in user from the database.
-                ProfileDAO profileDAO = new ProfileDAO(CommentActivity.this);
+                ProfileDAO profileDAO = new ProfileDAO(CommentReplyActivity.this);
                 Profile profile = profileDAO.getProfile(user.getMemberId());
                 String commentOwnerName = profile.getFullName();
 
@@ -83,24 +87,23 @@ public class CommentActivity extends AppCompatActivity {
                 String commentDate = df.format(date);
                 comment.setCommentDate(commentDate);
 
-                CommentDAO commentDAO = new CommentDAO(CommentActivity.this);
                 if(commentDAO.addComment(comment)){ //insert successful
-                    Toast.makeText(this, "Comment successfully.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Reply successfully.", Toast.LENGTH_LONG).show();
                     //Redirect to PostActivity
-                    Intent intent = new Intent(CommentActivity.this,PostActivity.class);
+                    Intent intent = new Intent(CommentReplyActivity.this,PostActivity.class);
                     intent.putExtra(Constants.POST_ID,post_id);
                     startActivity(intent);
                 }else{ //insert failed
                     Toast.makeText(this, "Error. Please try again.", Toast.LENGTH_LONG).show();
                     //Redirect to PostActivity
-                    Intent intent = new Intent(CommentActivity.this,PostActivity.class);
+                    Intent intent = new Intent(CommentReplyActivity.this,PostActivity.class);
                     intent.putExtra(Constants.POST_ID,post_id);
                     startActivity(intent);
                 }
             }else{ //user is not logged in. Redirect to the login page.
                 Toast.makeText(this, "You are not logged in.", Toast.LENGTH_LONG).show();
                 //Redirect to LoginActivity
-                Intent intent = new Intent(CommentActivity.this, LoginActivity.class);
+                Intent intent = new Intent(CommentReplyActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

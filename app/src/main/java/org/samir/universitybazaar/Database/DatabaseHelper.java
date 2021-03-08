@@ -80,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static void createCommentsTable(SQLiteDatabase db) {
         String createCommentsTable = "CREATE TABLE comments (_id INTEGER PRIMARY KEY AUTOINCREMENT,postId INTEGER NOT NULL" +
                 " ,commentText TEXT NOT NULL, commentOwnerName TEXT NOT NULL, " +
-                "commentOwnerId TEXT NOT NULL, commentDate TEXT NOT NULL)";
+                "commentOwnerId TEXT NOT NULL, commentReceiverName TEXT, commentReceiverId TEXT, commentDate TEXT NOT NULL)";
         db.execSQL(createCommentsTable);
     }
 
@@ -530,7 +530,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @return
      */
     public User getUserByMemberId(String memberId) {
-        try (SQLiteDatabase db = getReadableDatabase(); Cursor cursor = db.query("users", null, "member_id=?", new String[]{memberId}, null, null, null)) {
+        try (SQLiteDatabase db = getReadableDatabase();
+             Cursor cursor = db.query("users", null, "member_id=?", new String[]{memberId}, null, null, null)) {
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     User user = new User();
@@ -577,104 +578,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-
-    /**
-     * @author Minyi Lu
-     * @description This method adds a new comment to the comments table.
-     */
-    public boolean addComment(Comment comment){
-        SQLiteDatabase db = null;
-        try {
-            db = this.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put("postId", comment.getPostId());
-            values.put("commentText", comment.getCommentText());
-            values.put("commentOwnerName", comment.getCommentOwnerName());
-            values.put("commentOwnerId", comment.getCommentOwnerId());
-            values.put("commentDate", comment.getCommentDate());
-
-            long userId = db.insert("comments",null,values);
-            db.close();
-            if(userId != -1){ //insert was successful
-                return true;
-            }else{ //insert failed.
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            db.close();
-            return false;
-        }finally {
-            db.close();
-        }
-    }
-
-    /**
-     * @author minyi lu
-     * @discription this method gets comments by post_id
-     */
-    public ArrayList<Comment> getCommentsByPostId(int post_id){
-        ArrayList<Comment> comments = new ArrayList<>();
-        SQLiteDatabase db = null;
-        try {
-            db = this.getReadableDatabase();
-            String[] columns = new String[]{
-                    "_id",
-                    "postId",
-                    "commentText",
-                    "commentOwnerName",
-                    "commentOwnerId",
-                    "commentDate"
-            };
-            String[] args = new String[]{
-                    post_id + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
-            };
-            //get all comments by post_id in comments table
-            Cursor cursor = db.query("comments", columns, "postId=?", args, null, null, null);
-            if (cursor != null){
-                if(cursor.moveToFirst()){
-                    boolean isLast = false;
-                    while (!isLast){ //continue until travel all comments
-                        Comment comment = new Comment();
-                        int _id = cursor.getInt(cursor.getColumnIndex("_id"));
-                        int postId = cursor.getInt(cursor.getColumnIndex("postId"));
-                        String commentText = cursor.getString(cursor.getColumnIndex("commentText"));
-                        String commentOwnerName = cursor.getString(cursor.getColumnIndex("commentOwnerName"));
-                        String commentOwnerId = cursor.getString(cursor.getColumnIndex("commentOwnerId"));
-                        String commentDate = cursor.getString(cursor.getColumnIndex("commentDate"));
-
-                        comment.set_id(_id);
-                        comment.setPostId(postId);
-                        comment.setCommentText(commentText);
-                        comment.setCommentOwnerName(commentOwnerName);
-                        comment.setCommentOwnerId(commentOwnerId);
-                        comment.setCommentDate(commentDate);
-
-                        comments.add(comment);
-
-                        if (cursor.isLast()){
-                            isLast = true;
-                        } else {
-                            cursor.moveToNext();
-                        }
-                    }
-
-
-                }
-            } else {
-                db.close();
-                cursor.close();
-                return null;
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-            db.close();
-            return null;
-        }
-
-        return comments;
     }
 
 }

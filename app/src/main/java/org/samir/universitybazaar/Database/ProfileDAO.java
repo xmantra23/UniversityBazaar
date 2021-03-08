@@ -10,14 +10,20 @@ import android.widget.Button;
 
 import org.samir.universitybazaar.Models.Profile;
 
+/**
+ * @author Lu yifei
+ * @discription this class define the database operation of profile
+ */
 public class ProfileDAO {
     private DatabaseHelper dbHelper;
     public ProfileDAO(Context context){
         dbHelper=new DatabaseHelper(context);
     }
 
-
-    // update the profile with provide data(find this profile with memberId)
+    /**
+     * @author Lu yifei
+     * @discription this method update profile with profile object
+     */
     public Boolean updateProfile(Profile profile) {
         try {
             SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -34,10 +40,12 @@ public class ProfileDAO {
             e.printStackTrace();
             return false;
         }
-
     }
 
-    //find a profile with provided memberId
+    /**
+     * @author Lu yifei
+     * @discription this method get profile by profile id
+     */
     public Profile getProfile(String member_id) {
         try {
             SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -91,6 +99,10 @@ public class ProfileDAO {
         return null;
     }
 
+    /**
+     * @author Lu yifei
+     * @discription this method get avatar with profile id
+     */
     public String getAvatar(String member_id){
         try{
             SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -119,7 +131,11 @@ public class ProfileDAO {
 
     }
 
-    //save avatar to database
+
+    /**
+     * @author Lu yifei
+     * @discription this method update avatar with profile id and new avatar
+     */
     public Boolean updateAvatar(String member_id, String avatar){
         try{
             SQLiteDatabase db = dbHelper.getWritableDatabase();

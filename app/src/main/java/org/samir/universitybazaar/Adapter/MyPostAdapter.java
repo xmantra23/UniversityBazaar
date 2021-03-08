@@ -52,7 +52,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.ViewHolder
         //clicking on any post in the list should navigate to the PostActivity page for that post.
         holder.parent.setOnClickListener(v->{
             Intent intent = new Intent(context, PostActivity.class);
-            //pass the postId to the PostActivity page. This will allow us to retrieve all the details of the clicked post inside the PostActivity page.
+            //pass the postId and creatorId to the PostActivity page. This will allow us to retrieve all the details of the clicked post inside the PostActivity page.
             intent.putExtra(Constants.POST_ID,posts.get(position).getId());
             context.startActivity(intent);
         });
