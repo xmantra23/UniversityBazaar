@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
+import org.samir.universitybazaar.Activity.MyClubsActivity;
+import org.samir.universitybazaar.Activity.MySubscriptionsActivity;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Activity.MyPostsActivity;
 import org.samir.universitybazaar.Profile.ViewProfileActivity;
@@ -45,12 +47,19 @@ public class HomeFragment extends Fragment {
     }
 
     private void handleListeners(View view) {
+        //navigate to myclubsactivity and show all clubs that the user has created.
         manageClubArrow.setOnClickListener(v -> {
-            // TODO: 2/18/2021 handle club arrow pressed
+            Intent intent = new Intent(getActivity(), MyClubsActivity.class);
+            startActivity(intent);
         });
+
+        //navigate to MySubscriptionsActivity and show all the clubs that the user is subscribed to.
         manageSubArrow.setOnClickListener(v -> {
-            // TODO: 2/18/2021 handle subscription arrow pressed
+            Intent intent = new Intent(getActivity(), MySubscriptionsActivity.class);
+            startActivity(intent);
         });
+
+        //navigate to mypostsactivity and show all posts that the user has created.
         managePostArrow.setOnClickListener(v->{
             Intent intent = new Intent(getActivity(), MyPostsActivity.class);
             startActivity(intent);

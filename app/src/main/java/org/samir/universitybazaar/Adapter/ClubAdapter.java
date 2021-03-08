@@ -50,11 +50,14 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
         UserSession session = new UserSession(context);
         ClubDAO cb = new ClubDAO(context);
         User user = session.isUserLoggedIn();
+
+        //show, leave, join or hide the text on the clubs CardView based on if the user is owner, subscribed or unsubscribed.
         if(user != null){
             String userId = user.getMemberId();
             boolean isMember = cb.verifyMembership(clubs.get(position).get_id(),userId); //check if the user is a member of this club.
-            if(userId.equals(clubs.get(position).getOwnerId())){
-                //user owns this club. hide join button.
+            boolean isOwner = userId.equals(clubs.get(position).getOwnerId());
+            if(isOwner){
+                //user owns this club so  hide join button.
                 holder.txtJoin.setVisibility(View.GONE);
             }else{
                 //user is a regular user.
@@ -70,15 +73,16 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
                             cb.decrementMemberCount(clubs.get(position));
                             Toast.makeText(context, "Unsubscribed Successfully", Toast.LENGTH_LONG).show();
 
-                            //update UI after pressing JOIN
-                            notifyDataSetChanged();
+                            //redirect to homepage
+                            Intent intent = new Intent(context,HomeActivity.class);
+                            context.startActivity(intent);
                         }else{
                             //couldn't remove member from club.
                             Toast.makeText(context, "Error. Couldn't Unsubscribe", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }else{
-                    //add new member to club.
+                    //add a new member to club.
                     holder.txtJoin.setText("JOIN");
                     holder.txtJoin.setTextColor(context.getResources().getColor(R.color.blue));
                     holder.txtJoin.setVisibility(View.VISIBLE);
@@ -89,8 +93,9 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
                             cb.incrementMemberCount(clubs.get(position));
                             Toast.makeText(context, "Subscribed Successfully", Toast.LENGTH_LONG).show();
 
-                            //update UI after pressing leave.
-                            notifyDataSetChanged();
+                            //navigate to homepage
+                            Intent intent = new Intent(context,HomeActivity.class);
+                            context.startActivity(intent);
 
                         }else{
                             //couldn't add member to a club.
@@ -100,15 +105,18 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
                     });
                 }
             }
+            //clicking on any post in the list should navigate to the ClubActivity page for that Club but we must verify if the user is
+            //already subscribed to the club or not. If the user is not subscribed then we cannot let the user visit that club.
+            holder.parent.setOnClickListener(v->{
+                if(isOwner || isMember){
+                    // TODO: 3/8/2021 navigate to the clubs activity page.
+                }else{
+                    Toast.makeText(context, "You are not subscribed to this club.", Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
-        //clicking on any post in the list should navigate to the ClubActivity page for that Club.
-        holder.parent.setOnClickListener(v->{
-//            Intent intent = new Intent(context, PostActivity.class);
-//            //pass the postId to the PostActivity page. This will allow us to retrieve all the details of the clicked post inside the PostActivity page.
-//            intent.putExtra(Constants.POST_ID,posts.get(position).getId());
-//            context.startActivity(intent);
-        });
+
     }
 
     @Override

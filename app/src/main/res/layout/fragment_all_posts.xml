@@ -30,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/postRecView"
                 android:textAlignment="center"
-                android:layout_below="@+id/txtTitle"/>
+                android:layout_below="@+id/txtTitle"
+                android:layout_marginBottom="45dp"/>
 
         </RelativeLayout>
     </ScrollView>

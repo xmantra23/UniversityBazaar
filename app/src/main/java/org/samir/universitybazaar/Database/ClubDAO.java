@@ -23,6 +23,135 @@ public class ClubDAO {
         databaseHelper = new DatabaseHelper(context);
     }
 
+    //retrieve all the subscribed clubs from clubs_subscriptions view
+    public ArrayList<Club> getSubscribedClubsByMemberId(String memberId){
+        ArrayList<Club> clubs = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "clubId",
+                    "title",
+                    "shortDescription",
+                    "longDescription",
+                    "ownerName",
+                    "ownerId",
+                    "createdDate",
+                    "memberCount"
+            };
+            String[] args = {memberId};
+
+            //retrieve all the clubs that the member has subscribed by using the memberId from the clubs_subscriptions view
+            Cursor cursor = db.query("club_subscriptions", columns, "memberId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+                        Club club = new Club();
+                        int clubId = cursor.getInt(cursor.getColumnIndex("clubId"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String shortDescription = cursor.getString(cursor.getColumnIndex("shortDescription"));
+                        String longDescription = cursor.getString(cursor.getColumnIndex("longDescription"));
+                        String ownerName = cursor.getString(cursor.getColumnIndex("ownerName"));
+                        String ownerId = cursor.getString(cursor.getColumnIndex("ownerId"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        int memberCount = cursor.getInt(cursor.getColumnIndex("memberCount"));
+
+                        club.set_id(clubId);
+                        club.setTitle(title);
+                        club.setShortDescription(shortDescription);
+                        club.setLongDescription(longDescription);
+                        club.setOwnerName(ownerName);
+                        club.setOwnerId(ownerId);
+                        club.setCreatedDate(createdDate);
+                        club.setMemberCount(memberCount);
+
+                        clubs.add(club);
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return clubs; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
+
+    //retrieve all clubs created my a member with the given memberId
+    public ArrayList<Club> getClubsByMemberId(String memberId){
+        ArrayList<Club> clubs = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "shortDescription",
+                    "longDescription",
+                    "ownerName",
+                    "ownerId",
+                    "createdDate",
+                    "memberCount"
+            };
+            String[] args = {memberId};
+
+            //retrieve all the clubs in the clubs table with ownerId == memberId
+            Cursor cursor = db.query("clubs", columns, "ownerId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        //get the each row of data about clubs from the database.
+                        int clubId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String shortDescription = cursor.getString(cursor.getColumnIndex("shortDescription"));
+                        String longDescription = cursor.getString(cursor.getColumnIndex("longDescription"));
+                        String ownerName = cursor.getString(cursor.getColumnIndex("ownerName"));
+                        String ownerId = cursor.getString(cursor.getColumnIndex("ownerId"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        int memberCount = cursor.getInt(cursor.getColumnIndex("memberCount"));
+
+                        //create a new club with all the above retrieved data.
+                        Club club = new Club(clubId,title,shortDescription,longDescription,ownerName,ownerId,createdDate,memberCount);
+                        clubs.add(club);//add club to the clubs arraylist.
+
+                        //stop if last row of data has been read else continue to the next row.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return clubs; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
     //add member to a club
     public boolean addMemberToClub(int clubId, String memberId){
         boolean status = false;

@@ -48,8 +48,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createCommentsTable(db); //create a comments table for user posts in the database.
         createClubsTable(db); //create a clubs table in the database;
         createMembershipTable(db); //create club_members table in the database.
+        createSubscriptionsView(db); //create club_subscriptions view in the database. This is the aggregate of clubs and clubs_members view.
     }
 
+    /**
+     * @author Samir Shrestha
+     * @description this method creates club_subscriptions view which aggregates the data from clubs and clubs_members table using an inner join.
+     */
+    private void createSubscriptionsView(SQLiteDatabase db){
+        String createSubscriptionsView = "CREATE VIEW club_subscriptions AS SELECT clubs._id as clubId,clubs.title,clubs.shortDescription,clubs.longDescription,clubs.ownerName,"
+                +"clubs.ownerId,clubs.createdDate,clubs.memberCount,club_members.memberID as memberId FROM clubs INNER JOIN club_members ON clubs._id = club_members.clubId;";
+        db.execSQL(createSubscriptionsView);
+    }
 
     /**
      * @author Samir Shrestha
