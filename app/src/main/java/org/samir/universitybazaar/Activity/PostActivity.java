@@ -157,8 +157,11 @@ public class PostActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 PostDAO postDAO = new PostDAO(PostActivity.this);
                 PostActivity.DeletePost deletePost = new PostActivity.DeletePost(postDAO, post_id);
-                Thread thread = new Thread(deletePost);
-                thread.start();
+                PostActivity.DeleteComment deleteComment = new PostActivity.DeleteComment(postDAO, post_id);
+                Thread thread1 = new Thread(deletePost);
+                thread1.start();
+                Thread thread2 = new Thread(deleteComment);
+                thread2.start();
                 Toast.makeText(PostActivity.this, "Delete Post Successfully!", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(PostActivity.this, HomeActivity.class);
@@ -199,6 +202,35 @@ public class PostActivity extends AppCompatActivity {
                     public void run() {
                         txtDeletePostWarning.setVisibility(View.VISIBLE);
                         txtDeletePostWarning.setText("Delete post failed. Please try again!");
+                    }
+                });
+            }
+        }
+
+    }
+
+
+
+    /**
+     * @author Jingwen Ma
+     * @Description Handles background process to delete the comment
+     */
+    private class DeleteComment implements Runnable{
+        private PostDAO postDAO;
+        private int post_id;
+        public DeleteComment(PostDAO postDAO,int post_id){
+            this.postDAO = postDAO;
+            this.post_id = post_id;
+        }
+
+        @Override
+        public void run() {
+            if (!postDAO.deleteComment(post_id)) {
+                //database operation err
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
                     }
                 });
             }

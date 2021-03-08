@@ -51,4 +51,21 @@ public class PostDAO {
             return false;
         }
     }
+
+    /**
+     * @author Jingwen Ma
+     * @param post_id
+     * @description Delete the comment by postId
+     */
+    public Boolean deleteComment(int post_id) {
+        try {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            db.delete("comment", "postId = '"+post_id+"'", null);
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
