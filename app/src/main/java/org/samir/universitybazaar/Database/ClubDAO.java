@@ -25,6 +25,55 @@ public class ClubDAO {
         databaseHelper = new DatabaseHelper(context);
     }
 
+    //get all the notices for a given club with clubId
+    public ArrayList<ClubNotice> getClubNotices(int clubId){
+        ArrayList<ClubNotice> notices = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{
+                    clubId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+
+            //retrieve the notice from the club_notice table whose clubId is the provided clubId in the argument.
+            Cursor cursor = db.query("club_notice", null, "clubId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+                        int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+
+                        ClubNotice notice = new ClubNotice(_id,clubId,title,description,creatorId,createdDate);
+                        notices.add(notice); // add notice to build the notices arraylist.
+
+                        //stop if last row of data has been read else continue to the next row.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return notices;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
 
     //add a notice to a club
     public boolean addNoticeInClub(ClubNotice notice){

@@ -1,27 +1,37 @@
 package org.samir.universitybazaar.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.TextView;
 
+import org.samir.universitybazaar.Adapter.ClubNoticeAdapter;
+import org.samir.universitybazaar.Adapter.CommentAdapter;
 import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Club;
+import org.samir.universitybazaar.Models.ClubNotice;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Utility.Utils;
+
+import java.util.ArrayList;
 
 public class ClubActivity extends AppCompatActivity {
     private TextView txtClubTitle,txtClubDescription,txtCreatorName,txtCreatedDate;
     private TextView txtPost,txtEdit,txtDelete;
     private TextView txtViewAllNotice,txtViewAllPosts;
     private RecyclerView noticeRecView,postRecView;
+    private ClubNoticeAdapter adapter;
+    private ClubDAO cb;
+    private int clubId;
 
     private UserSession session;
     private User user;
@@ -39,9 +49,9 @@ public class ClubActivity extends AppCompatActivity {
 
             Intent intent = getIntent(); //receiving the intent from the caller activity.
             if(intent != null){
-                int clubId = intent.getIntExtra(Constants.CLUB_ID,-1);//get the clubId from the calling intent.
+                clubId = intent.getIntExtra(Constants.CLUB_ID,-1);//get the clubId from the calling intent.
                 if(clubId != -1){//checking for valid clubId
-                    ClubDAO cb = new ClubDAO(this);
+                    cb = new ClubDAO(this);
                     Club club = cb.getClubById(clubId); //get the club with the clubId from the database.
                     if(club != null){
                         initializeUI(club); //set all the text fields in the club UI.
@@ -58,6 +68,36 @@ public class ClubActivity extends AppCompatActivity {
 
         }
 
+        handleRecViews(); //populate announcements and posts inside clubs activity.
+
+    }
+
+    private void handleRecViews() {
+        //initializing the recycler view which will display all the announcements in this clubs.
+        adapter = new ClubNoticeAdapter(this);
+
+        //get the top three notices for this club and display it in the clubs activity.
+        ArrayList<ClubNotice> notices = cb.getClubNotices(clubId);
+        if(notices != null){
+            adapter.setNotices(getTopThreeNotices(notices));
+            noticeRecView.setAdapter(adapter);
+            noticeRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
+        }
+
+    }
+
+    //gets the latest three values added to the notices arraylist.
+    private ArrayList<ClubNotice> getTopThreeNotices(ArrayList <ClubNotice> notices){
+        int totalNotices = notices.size();
+        if(totalNotices < 3){
+            return notices;
+        }else{
+            ArrayList<ClubNotice> topThreeNotices = new ArrayList<>();
+            for(int i = totalNotices - 3; i <totalNotices ; i++){
+                topThreeNotices.add(notices.get(i));
+            }
+            return topThreeNotices;
+        }
     }
 
     private void initializeUI(Club club) {

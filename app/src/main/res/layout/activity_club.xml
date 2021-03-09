@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtPost"
                 android:text="Post"
+                android:textSize="20sp"
                 android:layout_alignParentStart="true"
                 android:textColor="#8BC34A"/>
 
@@ -131,18 +132,13 @@
             android:layout_marginTop="16dp"
             />
 
-        <View android:background="#6E6666"
-            android:layout_width = "match_parent"
-            android:layout_height="0.5dp"
-            android:id="@+id/line2"
-            android:layout_below="@id/noticeRecView"
-            android:layout_marginTop="20dp"/>
+
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/postRelLayout"
-            android:layout_below="@+id/line2">
+            android:layout_below="@+id/noticeRecView">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
