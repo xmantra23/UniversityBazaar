@@ -27,6 +27,10 @@ import org.samir.universitybazaar.Utility.Utils;
 
 import java.util.ArrayList;
 
+/**
+ * @author samir shrestha
+ * displays the clubs details with all the announcements and posts.
+ */
 public class ClubActivity extends AppCompatActivity {
     private TextView txtClubTitle,txtClubDescription,txtCreatorName,txtCreatedDate;
     private TextView txtPost,txtEdit,txtDelete;
@@ -146,7 +150,7 @@ public class ClubActivity extends AppCompatActivity {
         txtEdit.setOnClickListener(v->{
             //// TODO: 3/8/2021 handle editing post. only admin should be allowed to edit
         });
-        txtEdit.setOnClickListener(v->{
+        txtDelete.setOnClickListener(v->{
             // TODO: 3/8/2021 handle delete post. only admin should be allowed to delete.
         });
 
