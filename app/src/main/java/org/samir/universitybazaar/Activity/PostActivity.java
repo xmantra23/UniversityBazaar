@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import org.samir.universitybazaar.Adapter.CommentAdapter;
+import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Comment;
@@ -29,6 +31,7 @@ public class PostActivity extends AppCompatActivity {
     private CommentAdapter adapter;
     private DatabaseHelper db;
     private UserSession userSession;
+    private int post_id;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class PostActivity extends AppCompatActivity {
         initViews();
 
         //get the postId of the post that the user clicked on before navigating to this activity.
-        int post_id = getIntent().getIntExtra(Constants.POST_ID,-1);
+        post_id = getIntent().getIntExtra(Constants.POST_ID,-1);
 
         db = new DatabaseHelper(this);
         userSession = new UserSession(this);
@@ -63,34 +66,25 @@ public class PostActivity extends AppCompatActivity {
                 txtCreatedDate.setText(post.getCreatedDate());
 
                 handleListeners(); // handle edit, delete  and add comment button clicks.
-
-
-                //this is just for testing. Need to get actual comments from the database in the future.
-                // for example like  we can do ArrayList<Comment> comments = db.getCommentsByPostId(postId);
-                ArrayList<Comment> comments = new ArrayList<>();
-                Comment comment1 = new Comment(1,post.getId(),"This is first test comment","Samir Shrestha","1000795680","08/12/2020");
-                Comment comment2 = new Comment(2,post.getId(),"This is second test comment","Samir Shrestha","1000795680","08/12/2020");
-                Comment comment3 = new Comment(3,post.getId(),"This is third test comment","Samir Shrestha","1000795680","08/12/2020");
-                Comment comment4 = new Comment(4,post.getId(),"This is fourth test comment","Samir Shrestha","1000795680","08/12/2020");
-                Comment comment5 = new Comment(5,post.getId(),"This is fifth test comment","Samir Shrestha","1000795680","08/12/2020");
-                Comment comment6 = new Comment(5,post.getId(),"This is sixth test comment","Samir Shrestha","1000795680","08/12/2020");
-
-                comments.add(comment1);
-                comments.add(comment2);
-                comments.add(comment3);
-                comments.add(comment4);
-                comments.add(comment5);
-                comments.add(comment6);
-
-                //initializing the recycler view which will display all the comments in this post.
-                adapter = new CommentAdapter(this);
-                adapter.setComments(comments);
-                commentsRecView.setAdapter(adapter);
-                commentsRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
-
+                initCommentAdapter(post);
             }
         }
+    }
 
+    public void initCommentAdapter(Post post){
+        //this is just for testing. Need to get actual comments from the database in the future.
+        // for example like  we can do ArrayList<Comment> comments = db.getCommentsByPostId(postId);
+        ArrayList<Comment> comments = new ArrayList<>();
+        CommentDAO commentDAO = new CommentDAO(PostActivity.this);
+        comments = commentDAO.getCommentsByPostId(post_id); //get comments by post_id
+
+        //initializing the recycler view which will display all the comments in this post.
+        adapter = new CommentAdapter(this);
+        adapter.setComments(comments);
+        adapter.setCreatorId(post.getCreatorId());
+        adapter.setPostId(post.getId());
+        commentsRecView.setAdapter(adapter);
+        commentsRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
     }
 
     private void handleListeners() {
@@ -103,8 +97,10 @@ public class PostActivity extends AppCompatActivity {
         });
         
         txtAddComment.setOnClickListener(v->{
-            //need to create a new activity page which will allow a user to post a new comment and then afterwards navigate back to the post activity.
-            // TODO: 2/20/2021 Navigate to PostCommentActivity 
+            //redirect to activity_comment
+            Intent intent = new Intent(PostActivity.this,CommentActivity.class);
+            intent.putExtra(Constants.POST_ID, post_id);
+            startActivity(intent);
         });
     }
 
@@ -119,5 +115,12 @@ public class PostActivity extends AppCompatActivity {
         txtCreatedDate = findViewById(R.id.txtCreatedDate);
         txtAddComment = findViewById(R.id.txtAddComment);
         commentsRecView = findViewById(R.id.commentsRecView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PostActivity.this,HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
