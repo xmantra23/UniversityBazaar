@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Profile;
+package org.samir.universitybazaar.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Database.ProfileDAO;
-import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Models.Profile;
 
-
+/**
+ * @author Yifei Lu
+ * @Description This class allow user to view the profile.
+ */
 public class ViewProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "ViewProfileActivity";

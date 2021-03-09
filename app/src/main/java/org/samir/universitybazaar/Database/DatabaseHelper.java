@@ -11,6 +11,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import org.samir.universitybazaar.Models.Comment;
 import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
@@ -79,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static void createCommentsTable(SQLiteDatabase db) {
         String createCommentsTable = "CREATE TABLE comments (_id INTEGER PRIMARY KEY AUTOINCREMENT,postId INTEGER NOT NULL" +
                 " ,commentText TEXT NOT NULL, commentOwnerName TEXT NOT NULL, " +
-                "commentOwnerId TEXT NOT NULL, commentDate TEXT NOT NULL)";
+                "commentOwnerId TEXT NOT NULL, commentReceiverName TEXT, commentReceiverId TEXT, commentDate TEXT NOT NULL)";
         db.execSQL(createCommentsTable);
     }
 
@@ -529,7 +530,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @return
      */
     public User getUserByMemberId(String memberId) {
-        try (SQLiteDatabase db = getReadableDatabase(); Cursor cursor = db.query("users", null, "member_id=?", new String[]{memberId}, null, null, null)) {
+        try (SQLiteDatabase db = getReadableDatabase();
+             Cursor cursor = db.query("users", null, "member_id=?", new String[]{memberId}, null, null, null)) {
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     User user = new User();

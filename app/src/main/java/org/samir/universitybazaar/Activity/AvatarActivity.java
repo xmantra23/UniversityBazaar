@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Profile;
+package org.samir.universitybazaar.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +9,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 
+/**
+ * @author Samir Shrestha,Yifei Lu
+ * @Description This class displays a list of avatar for user to select.
+ */
 public class AvatarActivity extends AppCompatActivity {
     private User user;
     private TextView txtWarning;
@@ -59,7 +61,7 @@ public class AvatarActivity extends AppCompatActivity {
 
     private void initListeners() {
         back2List.setOnClickListener(v->{
-            Intent intent = new Intent(this,AvatarChangeActivity.class);
+            Intent intent = new Intent(this, AvatarChangeActivity.class);
             startActivity(intent);
         });
 
@@ -69,7 +71,7 @@ public class AvatarActivity extends AppCompatActivity {
             AvatarActivity.SaveAvatar saveAvatar = new AvatarActivity.SaveAvatar(user.getMemberId(),avatar);
             Thread thread = new Thread(saveAvatar);
             thread.start(); //update background task started.
-            Intent intent = new Intent(this,EditProfileActivity.class);
+            Intent intent = new Intent(this, EditProfileActivity.class);
             startActivity(intent);
         });
     }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CommentReplyActivity">
+
+    <TextView
+        android:id="@+id/txtReply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Reply"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtTxtReply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="30dp"
+        android:hint="Please type your reply here."
+        android:inputType="textMultiLine"
+        android:maxLength="200"
+        android:maxLines="5"
+        android:minLines="1" />
+
+    <RelativeLayout
+        android:id="@+id/btnRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioRelLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="259dp"
+        android:gravity="center">
+
+
+        <Button
+            android:id="@+id/btnReply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/btnCancel"
+            android:backgroundTint="#8BC34A"
+            android:text="Reply" />
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

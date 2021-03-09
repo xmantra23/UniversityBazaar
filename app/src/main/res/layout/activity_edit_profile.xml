@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Profile.EditProfileActivity">
+    tools:context=".Activity.EditProfileActivity">
 
     <TextView
         android:id="@+id/updateProfile"
