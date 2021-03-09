@@ -84,6 +84,13 @@ public class ClubActivity extends AppCompatActivity {
             intent.putExtra(Constants.CLUB_ID,clubId);
             startActivity(intent);
         });
+
+        //navigate to ClubPostsActivity which displays all the member posts made within a club.
+        txtViewAllPosts.setOnClickListener(v->{
+            Intent intent = new Intent(ClubActivity.this, ClubPostsActivity.class);
+            intent.putExtra(Constants.CLUB_ID,clubId);
+            startActivity(intent);
+        });
     }
 
     private void handleRecViews() {

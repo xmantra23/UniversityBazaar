@@ -31,49 +31,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="organized layout files into sub folders.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubNoticesActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_club_notices.xml" afterDir="false" />
+    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="organized layout files into sub folders and finished all notices activity.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubPostsActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_club_posts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/AvatarActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Avatar/AvatarActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/AvatarChangeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Avatar/AvatarChangeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/ClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/CreateClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/CreateClubActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/CreateClubNoticeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/CreateClubNoticeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/CreatePostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Posts/CreatePostActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/EditProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Profile/EditProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/HomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/MyClubsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/MyClubsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/MyPostsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Posts/MyPostsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/MySubscriptionsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/MySubscriptionsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/PostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Posts/PostActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/PostInClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/PostInClubActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/ViewProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Profile/ViewProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/MyPostAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/MyPostAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Authentication/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Authentication/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Fragments/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_avatar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_avatar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_avatar_change.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_avatar_change.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_club.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_club.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_club_notice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_club_notice.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_post.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_clubs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_clubs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_posts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_posts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_subscriptions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_subscriptions.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_post.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_post_in_club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_post_in_club.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -403,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615267461730</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="organized layout files into sub folders and finished all notices activity.">
+      <created>1615329832069</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1615329832069</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,7 +425,8 @@
     <MESSAGE value="finished create club notice." />
     <MESSAGE value="finished displaying top 3 announcements in club page." />
     <MESSAGE value="finished displaying top 3 posts in club activity." />
-    <option name="LAST_COMMIT_MESSAGE" value="finished displaying top 3 posts in club activity." />
+    <MESSAGE value="organized layout files into sub folders and finished all notices activity." />
+    <option name="LAST_COMMIT_MESSAGE" value="organized layout files into sub folders and finished all notices activity." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
