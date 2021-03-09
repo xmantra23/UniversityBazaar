@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -17,13 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.PostDAO;
-import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Post;
-import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
-import org.samir.universitybazaar.Profile.EditProfileActivity;
-import org.samir.universitybazaar.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 

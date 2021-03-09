@@ -17,19 +17,16 @@ import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.PostDAO;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.Fragments.AllPostsFragment;
 import org.samir.universitybazaar.Models.Comment;
 import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.User;
-import org.samir.universitybazaar.Profile.EditProfileActivity;
-import org.samir.universitybazaar.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
 /**
- * @author Samir Shrestha
+ * @author Samir Shrestha and Ma Jingwen
  * @Description This class displays a single post when a users clicks on a post from the list of post items.
  */
 public class PostActivity extends AppCompatActivity {
