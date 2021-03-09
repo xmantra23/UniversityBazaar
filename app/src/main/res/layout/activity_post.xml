@@ -10,6 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,11 +84,23 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun."
                 android:text="02/19/2020"/>
         </RelativeLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDeletePostWarning"
+            android:text="Warning"
+            android:layout_below="@+id/footerRelLayout"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:textColor="@color/design_default_color_error"
+            android:visibility="gone"
+            />
+
         <View android:background="#6E6666"
             android:layout_width = "match_parent"
             android:layout_height="0.5dp"
             android:id="@+id/line1"
-            android:layout_below="@id/footerRelLayout"
+            android:layout_below="@id/txtDeletePostWarning"
             android:layout_marginTop="20dp"/>
 
         <TextView
