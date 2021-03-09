@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    tools:context=".Activity.CreateClubNoticeActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtAnnouncement"
+        android:text="New Announcement"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleRelLayout"
+        android:layout_below="@+id/txtAnnouncement"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignBaseline="@id/edtTxtTitle"
+            android:id="@+id/txtTitle"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtTxtTitle"
+            android:hint="Please enter your title"
+            android:maxLength="25"
+            android:layout_toEndOf="@+id/txtTitle"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/descRelLayout"
+        android:layout_below="@+id/titleRelLayout"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDesc"
+            android:textStyle="bold"
+            android:text="Description: "
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:minLines="5"
+            android:hint="Please enter a description."
+            android:gravity="top"
+            android:id="@+id/edtTxtDesc"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRelLayout"
+        android:layout_below="@+id/descRelLayout"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/btnCancel"
+            android:backgroundTint="#F44336"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post"
+            android:id="@+id/btnPost"
+            android:layout_toEndOf="@+id/btnCancel"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginStart="15dp"/>
+    </RelativeLayout>
+</RelativeLayout>

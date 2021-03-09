@@ -49,6 +49,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createClubsTable(db); //create a clubs table in the database;
         createMembershipTable(db); //create club_members table in the database.
         createSubscriptionsView(db); //create club_subscriptions view in the database. This is the aggregate of clubs and clubs_members view.
+        createClubNoticeTable(db); //creates a table club_notice table that holds all the notice/announcements for clubs.
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description this method creates club_notice table. This table is used to keep track of all the notices within clubs.
+     */
+    private void createClubNoticeTable(SQLiteDatabase db){
+        String createClubNoticeTable = "CREATE TABLE club_notice (_id INTEGER PRIMARY KEY AUTOINCREMENT,clubId INTEGER NOT NULL," +
+                "title TEXT NOT NULL,description TEXT NOT NULL,creatorId TEXT NOT NULL,createdDate TEXT NOT NULL)";
+        db.execSQL(createClubNoticeTable);
     }
 
     /**

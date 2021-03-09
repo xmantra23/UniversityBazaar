@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import org.samir.universitybazaar.Models.Club;
+import org.samir.universitybazaar.Models.ClubNotice;
+
 import java.util.ArrayList;
 
 /**
@@ -23,6 +25,41 @@ public class ClubDAO {
         databaseHelper = new DatabaseHelper(context);
     }
 
+
+    //add a notice to a club
+    public boolean addNoticeInClub(ClubNotice notice){
+        if(databaseHelper != null){
+            SQLiteDatabase db = null;
+            try {
+                db = databaseHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put("clubId",notice.getClubId());
+                values.put("title", notice.getTitle());
+                values.put("description", notice.getDescription());
+                values.put("creatorId", notice.getCreatorId());
+                values.put("createdDate", notice.getCreatedDate());
+
+                long rowId = db.insert("club_notice",null,values);
+                db.close();
+
+                if(rowId != -1){ //insert was successful
+                    return true;
+                }else{ //insert failed.
+                    return false;
+                }
+            } catch (SQLException e) {
+                //error inserting in database
+                e.printStackTrace();
+                db.close();
+                return false;
+            }finally {
+                db.close();
+            }
+        }else{
+            //couldn't connect to the database
+            return false;
+        }
+    }
     //retrieve all the subscribed clubs from clubs_subscriptions view
     public ArrayList<Club> getSubscribedClubsByMemberId(String memberId){
         ArrayList<Club> clubs = new ArrayList<>();

@@ -15,7 +15,6 @@ import com.google.android.material.card.MaterialCardView;
 
 import org.samir.universitybazaar.Activity.ClubActivity;
 import org.samir.universitybazaar.Activity.HomeActivity;
-import org.samir.universitybazaar.Activity.PostActivity;
 import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Club;

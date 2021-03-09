@@ -25,6 +25,7 @@ public class ClubActivity extends AppCompatActivity {
 
     private UserSession session;
     private User user;
+    private boolean isOwner = false; // flag to check if user owns this club.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class ClubActivity extends AppCompatActivity {
         session = new UserSession(this); //get the current session data.
         user = session.isUserLoggedIn(); //get the logged in user.
         if(user != null){ //check if user is logged in before doing anything.
-            boolean isOwner = false; // flag to check if user own this club.
+
             Intent intent = getIntent(); //receiving the intent from the caller activity.
             if(intent != null){
                 int clubId = intent.getIntExtra(Constants.CLUB_ID,-1);//get the clubId from the calling intent.
@@ -65,6 +66,11 @@ public class ClubActivity extends AppCompatActivity {
         txtCreatorName.setText("Admin: " + club.getOwnerName());
         txtCreatedDate.setText("Formed: " + club.getCreatedDate());
         txtPost.setOnClickListener(v->{
+            if(isOwner){
+                Intent intent = new Intent(ClubActivity.this,CreateClubNoticeActivity.class);
+                intent.putExtra(Constants.CLUB_ID,club.get_id());
+                startActivity(intent);
+            }
             // TODO: 3/8/2021 navigate to create announcement or create post based on if user is admin or a regular member.
         });
         txtEdit.setOnClickListener(v->{
