@@ -1,19 +1,16 @@
 package org.samir.universitybazaar.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
-import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.Models.ClubNotice;
 import org.samir.universitybazaar.Models.ClubPost;
 import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;

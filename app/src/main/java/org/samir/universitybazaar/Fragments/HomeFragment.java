@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import org.samir.universitybazaar.Activity.MyClubsActivity;
 import org.samir.universitybazaar.Activity.MySubscriptionsActivity;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Activity.MyPostsActivity;
-import org.samir.universitybazaar.Profile.ViewProfileActivity;
+import org.samir.universitybazaar.Activity.ViewProfileActivity;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 

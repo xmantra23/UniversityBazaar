@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Profile;
+package org.samir.universitybazaar.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 
