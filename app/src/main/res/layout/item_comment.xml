@@ -24,32 +24,38 @@
             android:text="02/19/2020"
             />
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:focusable="true"
-            android:clickable="true"
-            android:id="@+id/btnReply"
-            android:text="Reply"
-            android:layout_marginStart="130dp"
-            android:layout_toEndOf="@+id/txtCommentDate"
-            android:textColor="#2196F3"
+            android:layout_alignParentEnd="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:clickable="true"
+                android:id="@+id/btnReply"
+                android:text="Reply"
+                android:layout_marginStart="130dp"
+                android:textColor="#2196F3"
 
-             />
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="true"
-            android:clickable="true"
-            android:id="@+id/btnDelete"
-            android:layout_toEndOf="@+id/btnReply"
-            android:layout_marginStart="5dp"
-            android:textColor="#FF5722"
-            android:text="Delete"
-            android:layout_alignParentEnd="true"
-            android:visibility="gone"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:clickable="true"
+                android:id="@+id/btnDelete"
+                android:layout_toEndOf="@+id/btnReply"
+                android:layout_marginStart="10dp"
+                android:textColor="#FF5722"
+                android:text="Delete"
+                android:visibility="visible"
+                />
+
+        </RelativeLayout>
+
+
 
     </RelativeLayout>
 
@@ -57,7 +63,7 @@
         android:id="@+id/cmtContentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@id/cmtHeaderLayout">
 
 

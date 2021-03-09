@@ -116,4 +116,11 @@ public class PostActivity extends AppCompatActivity {
         txtAddComment = findViewById(R.id.txtAddComment);
         commentsRecView = findViewById(R.id.commentsRecView);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PostActivity.this,HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 }

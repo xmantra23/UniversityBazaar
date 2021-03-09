@@ -31,8 +31,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="finished displaying top 3 posts in club activity.">
+    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="modified sdk path in local.properties">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/PostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/PostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Authentication/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Authentication/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_comment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_comment.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614711187906</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="modified sdk path in local.properties">
+      <created>1615303791373</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1615303791373</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -326,7 +346,9 @@
     <MESSAGE value="Removed max length 20 words restriction in activity_reset1.xml security questions field. Fixed indentation issue in the UI." />
     <MESSAGE value="Fixed UI issues in activity_view_profile.xml layout page. Fixed some alignment issues." />
     <MESSAGE value="Made some minor UI changes in the homepage." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made some minor UI changes in the homepage." />
+    <MESSAGE value="finished displaying top 3 posts in club activity." />
+    <MESSAGE value="modified sdk path in local.properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified sdk path in local.properties" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
@@ -334,11 +356,11 @@
     </state>
     <state x="200" y="110" key="#PSD/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612968874586" />
     <state x="1647" y="-155" key="#PSD/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676393981" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1612902655178">
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1615305052945">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612883820550" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612902655178" />
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615305052945" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager" timestamp="1612983384788">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -368,9 +390,10 @@
     </state>
     <state width="1323" height="310" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613404774488" />
     <state width="1877" height="499" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1614709313796" />
-    <state x="1827" y="-148" key="SettingsEditor" timestamp="1613676152646">
-      <screen x="1366" y="-312" width="1920" height="1040" />
+    <state x="328" y="17" key="SettingsEditor" timestamp="1615303552141">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="328" y="17" key="SettingsEditor/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1615303552141" />
     <state x="1827" y="-148" key="SettingsEditor/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676152646" />
     <state x="1753" y="-175" key="Vcs.Push.Dialog.v2" timestamp="1613678823358">
       <screen x="1366" y="-312" width="1920" height="1040" />
