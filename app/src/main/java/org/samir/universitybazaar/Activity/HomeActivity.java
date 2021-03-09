@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +16,8 @@ import android.widget.TextView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
+import org.samir.universitybazaar.Activity.Clubs.CreateClubActivity;
+import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Fragments.AllClubsFragment;
@@ -107,12 +108,12 @@ public class HomeActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.newPost:
                         //Redirect to the create a new post activity. This lets users create a new post.
-                        Intent intent = new Intent(HomeActivity.this,CreatePostActivity.class);
+                        Intent intent = new Intent(HomeActivity.this, CreatePostActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.newClub:
                         // Redirect to the create a new club activity. This lets users create a new club.
-                        Intent intent2 = new Intent(HomeActivity.this,CreateClubActivity.class);
+                        Intent intent2 = new Intent(HomeActivity.this, CreateClubActivity.class);
                         startActivity(intent2);
                         break;
                     case R.id.sellItem:

@@ -1,20 +1,18 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Clubs;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.TextView;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
+import org.samir.universitybazaar.Activity.MainActivity;
 import org.samir.universitybazaar.Adapter.ClubNoticeAdapter;
 import org.samir.universitybazaar.Adapter.ClubPostsAdapter;
-import org.samir.universitybazaar.Adapter.CommentAdapter;
 import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Club;
@@ -54,7 +52,6 @@ public class ClubActivity extends AppCompatActivity {
         session = new UserSession(this); //get the current session data.
         user = session.isUserLoggedIn(); //get the logged in user.
         if(user != null){ //check if user is logged in before doing anything.
-
             Intent intent = getIntent(); //receiving the intent from the caller activity.
             if(intent != null){
                 clubId = intent.getIntExtra(Constants.CLUB_ID,-1);//get the clubId from the calling intent.
@@ -75,9 +72,18 @@ public class ClubActivity extends AppCompatActivity {
             }
 
         }
-
+        handleListeners();// handle all listeners for the text button the activity.
         handleRecViews(); //populate announcements and posts inside clubs activity.
 
+    }
+
+    private void handleListeners() {
+        //navigate to ClubNoticesActivity which displays all the announcements for this club.
+        txtViewAllNotice.setOnClickListener(v->{
+            Intent intent = new Intent(ClubActivity.this, ClubNoticesActivity.class);
+            intent.putExtra(Constants.CLUB_ID,clubId);
+            startActivity(intent);
+        });
     }
 
     private void handleRecViews() {
@@ -142,7 +148,7 @@ public class ClubActivity extends AppCompatActivity {
                 intent.putExtra(Constants.CLUB_ID,club.get_id());
                 startActivity(intent);
             }else{
-                Intent intent = new Intent(ClubActivity.this,PostInClubActivity.class);
+                Intent intent = new Intent(ClubActivity.this, PostInClubActivity.class);
                 intent.putExtra(Constants.CLUB_ID,club.get_id());
                 startActivity(intent);
             }
@@ -172,7 +178,8 @@ public class ClubActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(ClubActivity.this,HomeActivity.class);
+        //navigate to HomeActivity if the user presses back button.
+        Intent intent = new Intent(ClubActivity.this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

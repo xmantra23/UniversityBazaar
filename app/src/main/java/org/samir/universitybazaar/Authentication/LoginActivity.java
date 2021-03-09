@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.samir.universitybazaar.Activity.MainActivity;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.R;
@@ -102,4 +103,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 }

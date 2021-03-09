@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Clubs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Authentication.LoginActivity;
 import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
@@ -74,7 +75,7 @@ public class CreateClubActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(this, "Error. Couldn't create club", Toast.LENGTH_LONG).show();
             }
-            Intent intent = new Intent(CreateClubActivity.this,HomeActivity.class);
+            Intent intent = new Intent(CreateClubActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 

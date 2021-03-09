@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Avatar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.samir.universitybazaar.Activity.Profile.EditProfileActivity;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.User;
@@ -67,7 +68,7 @@ public class AvatarActivity extends AppCompatActivity {
             AvatarActivity.SaveAvatar saveAvatar = new AvatarActivity.SaveAvatar(user.getMemberId(),avatar);
             Thread thread = new Thread(saveAvatar);
             thread.start(); //update background task started.
-            Intent intent = new Intent(this,EditProfileActivity.class);
+            Intent intent = new Intent(this, EditProfileActivity.class);
             startActivity(intent);
         });
     }

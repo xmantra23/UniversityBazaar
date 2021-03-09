@@ -15,11 +15,11 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
-import org.samir.universitybazaar.Activity.MyClubsActivity;
-import org.samir.universitybazaar.Activity.MySubscriptionsActivity;
+import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
+import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.Activity.MyPostsActivity;
-import org.samir.universitybazaar.Activity.ViewProfileActivity;
+import org.samir.universitybazaar.Activity.Posts.MyPostsActivity;
+import org.samir.universitybazaar.Activity.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 

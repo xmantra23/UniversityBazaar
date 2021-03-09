@@ -14,7 +14,7 @@ import com.google.android.material.card.MaterialCardView;
 
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Models.Post;
-import org.samir.universitybazaar.Activity.PostActivity;
+import org.samir.universitybazaar.Activity.Posts.PostActivity;
 import org.samir.universitybazaar.R;
 
 import java.util.ArrayList;
