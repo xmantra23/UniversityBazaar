@@ -16,11 +16,13 @@
         <activity android:name=".Activity.MyPostsActivity" />
         <activity android:name=".Activity.CreatePostActivity" />
         <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".Activity.CommentActivity" />
+        <activity android:name=".Activity.CommentReplyActivity" />
         <activity android:name=".Authentication.LoginActivity" />
-        <activity android:name=".Profile.AvatarActivity" />
-        <activity android:name=".Profile.AvatarChangeActivity" />
-        <activity android:name=".Profile.ViewProfileActivity" />
-        <activity android:name=".Profile.EditProfileActivity" />
+        <activity android:name=".Activity.AvatarActivity" />
+        <activity android:name=".Activity.AvatarChangeActivity" />
+        <activity android:name=".Activity.ViewProfileActivity" />
+        <activity android:name=".Activity.EditProfileActivity" />
         <activity android:name=".Authentication.RegisterActivity" />
         <activity android:name=".Authentication.Reset1Activity" />
         <activity android:name=".Authentication.Reset2Activity" />
