@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,11 +13,13 @@ import android.widget.Adapter;
 import android.widget.TextView;
 
 import org.samir.universitybazaar.Adapter.ClubNoticeAdapter;
+import org.samir.universitybazaar.Adapter.ClubPostsAdapter;
 import org.samir.universitybazaar.Adapter.CommentAdapter;
 import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.Models.ClubNotice;
+import org.samir.universitybazaar.Models.ClubPost;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
@@ -29,7 +32,8 @@ public class ClubActivity extends AppCompatActivity {
     private TextView txtPost,txtEdit,txtDelete;
     private TextView txtViewAllNotice,txtViewAllPosts;
     private RecyclerView noticeRecView,postRecView;
-    private ClubNoticeAdapter adapter;
+    private ClubNoticeAdapter clubNoticeAdapter;
+    private ClubPostsAdapter clubPostsAdapter;
     private ClubDAO cb;
     private int clubId;
 
@@ -74,14 +78,23 @@ public class ClubActivity extends AppCompatActivity {
 
     private void handleRecViews() {
         //initializing the recycler view which will display all the announcements in this clubs.
-        adapter = new ClubNoticeAdapter(this);
+        clubNoticeAdapter = new ClubNoticeAdapter(this);
+        clubPostsAdapter = new ClubPostsAdapter(this);
 
         //get the top three notices for this club and display it in the clubs activity.
         ArrayList<ClubNotice> notices = cb.getClubNotices(clubId);
         if(notices != null){
-            adapter.setNotices(getTopThreeNotices(notices));
-            noticeRecView.setAdapter(adapter);
+            clubNoticeAdapter.setNotices(getTopThreeNotices(notices));
+            noticeRecView.setAdapter(clubNoticeAdapter);
             noticeRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
+        }
+
+        //get the top three posts for this club and display it in the clubs activity.
+        ArrayList<ClubPost> clubPosts = cb.getClubPosts(clubId);
+        if(clubPosts != null){
+            clubPostsAdapter.setClubPosts(getTopThreePosts(clubPosts));
+            postRecView.setAdapter(clubPostsAdapter);
+            postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
         }
 
     }
@@ -100,6 +113,20 @@ public class ClubActivity extends AppCompatActivity {
         }
     }
 
+    //gets the latest three values added to the clubPosts arraylist.
+    private ArrayList<ClubPost> getTopThreePosts(ArrayList <ClubPost> clubPosts){
+        int totalPosts = clubPosts.size();
+        if(totalPosts < 3){
+            return clubPosts;
+        }else{
+            ArrayList<ClubPost> topThreePosts = new ArrayList<>();
+            for(int i = totalPosts - 3; i <totalPosts ; i++){
+                topThreePosts.add(clubPosts.get(i));
+            }
+            return topThreePosts;
+        }
+    }
+
     private void initializeUI(Club club) {
         txtClubTitle.setText(club.getTitle());
         txtClubDescription.setText(club.getLongDescription());
@@ -110,8 +137,11 @@ public class ClubActivity extends AppCompatActivity {
                 Intent intent = new Intent(ClubActivity.this,CreateClubNoticeActivity.class);
                 intent.putExtra(Constants.CLUB_ID,club.get_id());
                 startActivity(intent);
+            }else{
+                Intent intent = new Intent(ClubActivity.this,PostInClubActivity.class);
+                intent.putExtra(Constants.CLUB_ID,club.get_id());
+                startActivity(intent);
             }
-            // TODO: 3/8/2021 navigate to create announcement or create post based on if user is admin or a regular member.
         });
         txtEdit.setOnClickListener(v->{
             //// TODO: 3/8/2021 handle editing post. only admin should be allowed to edit
@@ -133,6 +163,13 @@ public class ClubActivity extends AppCompatActivity {
         txtViewAllNotice = findViewById(R.id.txtViewAllNotice);
         txtViewAllPosts = findViewById(R.id.txtViewAllPosts);
         noticeRecView = findViewById(R.id.noticeRecView);
-        postRecView = findViewById(R.id.postRecView);
+        postRecView = findViewById(R.id.postsRecView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ClubActivity.this,HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

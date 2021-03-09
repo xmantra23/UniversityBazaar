@@ -9,6 +9,7 @@ import android.util.Log;
 
 import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.Models.ClubNotice;
+import org.samir.universitybazaar.Models.ClubPost;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,92 @@ public class ClubDAO {
     public ClubDAO(Context context){
         this.context = context;
         databaseHelper = new DatabaseHelper(context);
+    }
+
+    //add post in a club
+    public boolean addPostInClub(ClubPost clubPost){
+        if(databaseHelper != null){
+            SQLiteDatabase db = null;
+            try {
+                db = databaseHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put("clubId",clubPost.getClubId());
+                values.put("title", clubPost.getTitle());
+                values.put("description", clubPost.getDescription());
+                values.put("creatorName",clubPost.getCreatorName());
+                values.put("creatorId", clubPost.getCreatorId());
+                values.put("createdDate", clubPost.getCreatedDate());
+
+                long rowId = db.insert("club_posts",null,values);
+                db.close();
+
+                if(rowId != -1){ //insert was successful
+                    return true;
+                }else{ //insert failed.
+                    return false;
+                }
+            } catch (SQLException e) {
+                //error inserting in database
+                e.printStackTrace();
+                db.close();
+                return false;
+            }finally {
+                db.close();
+            }
+        }else{
+            //couldn't connect to the database
+            return false;
+        }
+    }
+
+    //get all the posts for a given club with clubId
+    public ArrayList<ClubPost> getClubPosts(int clubId){
+        ArrayList<ClubPost> clubPosts = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{
+                    clubId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+
+            //retrieve the posts from the club_posts table whose clubId is the provided clubId in the argument.
+            Cursor cursor = db.query("club_posts", null, "clubId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+                        int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+
+                        ClubPost clubPost = new ClubPost(_id,clubId,title,description,creatorName,creatorId,createdDate);
+                        clubPosts.add(clubPost); // add posts to build the clubpost arraylist containing all the posts.
+
+                        //stop if last row of data has been read else continue to the next row.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return clubPosts;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
     }
 
     //get all the notices for a given club with clubId

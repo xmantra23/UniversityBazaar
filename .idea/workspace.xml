@@ -31,9 +31,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="finished create club notice.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubNoticeAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_club_notice.xml" afterDir="false" />
+    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="finished displaying top 3 announcements in club page.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/PostInClubActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubPostsAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Models/ClubPost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_post_in_club.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_club_post.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -44,9 +47,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/ClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/ClubActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_club.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -360,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615257272349</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="finished displaying top 3 announcements in club page.">
+      <created>1615261207572</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1615261207572</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -399,7 +412,8 @@
     <MESSAGE value="completed all basic functionality for join, unjoin, display all clubs, display subscribed clubs and display my clubs." />
     <MESSAGE value="finished ClubActivity" />
     <MESSAGE value="finished create club notice." />
-    <option name="LAST_COMMIT_MESSAGE" value="finished create club notice." />
+    <MESSAGE value="finished displaying top 3 announcements in club page." />
+    <option name="LAST_COMMIT_MESSAGE" value="finished displaying top 3 announcements in club page." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
@@ -407,20 +421,20 @@
     </state>
     <state x="200" y="110" key="#PSD/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612968874586" />
     <state x="1647" y="-155" key="#PSD/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676393981" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1615254963269">
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1615266745315">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612883820550" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615254963269" />
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615266745315" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager" timestamp="1612983384788">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612969140283" />
     <state x="1495" y="-181" width="1662" height="778" key="AVDManager/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612983384788" />
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog" timestamp="1615257407125">
+    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog" timestamp="1615261740800">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
-    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615257407125" />
+    <state x="1906" y="-38" key="AndroidCreateResourceFileDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615261740800" />
     <state x="2170" y="-7" key="AndroidCreateXmlResourceDialog" timestamp="1615182930671">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -433,30 +447,30 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="2006" y="-38" key="Downloadable.Font.Dialog.Size/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612969925141" />
-    <state x="2106" y="-53" key="FileChooserDialogImpl" timestamp="1615260560418">
+    <state x="2106" y="-53" key="FileChooserDialogImpl" timestamp="1615265423225">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
-    <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615260560418" />
-    <state width="1877" height="497" key="GridCell.Tab.0.bottom" timestamp="1615259704308">
+    <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615265423225" />
+    <state width="1877" height="497" key="GridCell.Tab.0.bottom" timestamp="1615266380525">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399097" />
-    <state width="1877" height="497" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615259704308" />
-    <state width="1877" height="497" key="GridCell.Tab.0.center" timestamp="1615259704308">
+    <state width="1877" height="497" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615266380525" />
+    <state width="1877" height="497" key="GridCell.Tab.0.center" timestamp="1615266380524">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399096" />
-    <state width="1877" height="497" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615259704308" />
-    <state width="1877" height="497" key="GridCell.Tab.0.left" timestamp="1615259704307">
+    <state width="1877" height="497" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615266380524" />
+    <state width="1877" height="497" key="GridCell.Tab.0.left" timestamp="1615266380524">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399096" />
-    <state width="1877" height="497" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615259704307" />
-    <state width="1877" height="497" key="GridCell.Tab.0.right" timestamp="1615259704308">
+    <state width="1877" height="497" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615266380524" />
+    <state width="1877" height="497" key="GridCell.Tab.0.right" timestamp="1615266380525">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399097" />
-    <state width="1877" height="497" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615259704308" />
+    <state width="1877" height="497" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615266380525" />
     <state x="1906" y="-50" key="IDE.errors.dialog" timestamp="1615245568731">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
