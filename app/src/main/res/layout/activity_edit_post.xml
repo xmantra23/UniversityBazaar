@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.EditPostActivity">
+
+    <TextView
+        android:id="@+id/txtUpdatePost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:text="Edit Post"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateTitleLayout"
+        android:layout_below="@+id/txtUpdatePost"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/txtUpdateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title:"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/updateTxtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/txtUpdateTitle"
+            android:hint="Enter a title for new post."
+            android:inputType="textPersonName" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateDescLayout"
+        android:layout_below="@+id/updateTitleLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/txtUpdateDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/updateTxtDesc"
+            android:layout_below="@+id/txtUpdateDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter details about your new post."
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:maxLines="50"
+            android:gravity="start"
+            android:layout_marginEnd="20dp"
+            />
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/txtUpdateCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category:"
+        android:layout_below="@+id/updateDescLayout"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioRelLayout"
+        android:layout_below="@id/txtUpdateCategory"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp">
+
+        <RadioGroup
+            android:id="@+id/categoryRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/jobRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Job Posting" />
+
+            <RadioButton
+                android:id="@+id/newsRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="News" />
+
+            <RadioButton
+                android:id="@+id/otherRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:checked="true"
+                android:text="Other" />
+
+        </RadioGroup>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtUpdatePostWarning"
+        android:text="Warning"
+        android:layout_below="@+id/radioRelLayout"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="@color/design_default_color_error"
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRelLayout"
+        android:layout_below="@+id/txtUpdatePostWarning"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnCancelEditPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:backgroundTint="#F44336"
+            />
+
+        <Button
+            android:id="@+id/btnSaveEditPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/btnCancelEditPost"
+            android:layout_marginStart="60dp"
+            android:text="Save"
+            android:backgroundTint="#8BC34A"/>
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

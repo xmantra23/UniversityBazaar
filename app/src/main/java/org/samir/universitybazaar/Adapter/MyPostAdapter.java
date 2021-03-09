@@ -25,8 +25,10 @@ import java.util.ArrayList;
  */
 public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.ViewHolder> {
 
+
     private ArrayList<Post> posts = new ArrayList<>(); //this will hold all our post objects.
     private Context context; //parent activity of that will use this adapter. In our case it is MyPostActivity.
+    private String activity_type;
 
     public MyPostAdapter(Context context){
         this.context = context;
@@ -54,6 +56,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.ViewHolder
             Intent intent = new Intent(context, PostActivity.class);
             //pass the postId to the PostActivity page. This will allow us to retrieve all the details of the clicked post inside the PostActivity page.
             intent.putExtra(Constants.POST_ID,posts.get(position).getId());
+            intent.putExtra(Constants.ACTIVITY_NAME,activity_type);
             context.startActivity(intent);
         });
     }
