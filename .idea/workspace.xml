@@ -31,15 +31,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="Made some minor UI changes in the homepage.">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" afterDir="false" />
+    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="finished displaying top 3 posts in club activity.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +67,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="developer" />
+        <entry key="$PROJECT_DIR$" value="feature/clubs" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -384,10 +377,10 @@
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612881219136" />
     <state x="1753" y="-175" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613678823358" />
-    <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613675884178">
-      <screen x="1366" y="-312" width="1920" height="1040" />
+    <state x="547" y="303" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615303189619">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="547" y="303" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613405818199" />
+    <state x="547" y="303" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1615303189619" />
     <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613675884178" />
     <state x="2029" y="-80" key="git4idea.branch.GitSmartOperationDialog" timestamp="1612982684489">
       <screen x="1366" y="-312" width="1920" height="1040" />
