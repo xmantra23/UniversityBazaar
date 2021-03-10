@@ -71,10 +71,12 @@ public class CommentOnNoticeActivity extends AppCompatActivity {
                 ClubNoticeComment c = new ClubNoticeComment(noticeId,comment,commentOwnerId,commentOwnerName,createdDate,adminId);
                 if(cb.addNoticeComment(c)){
                     Toast.makeText(this,"Successfully Commented.",Toast.LENGTH_SHORT).show();
-                    Intent intent2 = new Intent(CommentOnNoticeActivity.this, HomeActivity.class);
-//                    intent.putExtra(Constants.NOTICE_ID,noticeId); //passing the notice id
-//                    intent.putExtra(Constants.OWNER_ID,adminId);//passing the creator id
-//                    intent.putExtra(Constants.CLUB_ID,clubId); //passing the club id
+
+                    //navigate back to the notification details page.
+                    Intent intent2 = new Intent(CommentOnNoticeActivity.this, NoticeActivity.class);
+                    intent2.putExtra(Constants.NOTICE_ID,noticeId); //passing the notice id
+                    intent2.putExtra(Constants.OWNER_ID,adminId);//passing the creator id
+                    intent2.putExtra(Constants.CLUB_ID,clubId); //passing the club id
                     startActivity(intent2);
                 }else{
                     Toast.makeText(this, "Error. Couldn't Comment", Toast.LENGTH_SHORT).show();

@@ -27,6 +27,7 @@ public class NoticeActivity extends AppCompatActivity {
     private TextView txtNoticeTitle,txtNoticeDescription,txtEdit,txtDelete,txtCreatedDate,txtAddCommentButton;
     private RecyclerView commentsRecView;
     private ClubDAO cb;
+    private int clubId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,7 @@ public class NoticeActivity extends AppCompatActivity {
             handleRecViews();
 
             //handle button clicks
-            int clubId = intent.getIntExtra(Constants.CLUB_ID,-1); //getting the club id so that we can get the admin id.
+            clubId = intent.getIntExtra(Constants.CLUB_ID,-1); //getting the club id so that we can get the admin id.
             handleListeners(noticeId,ownerId,user.getMemberId(),clubId);
         }else{
             //if user is not logged in then navigate to the login page.
@@ -115,5 +116,13 @@ public class NoticeActivity extends AppCompatActivity {
         txtCreatedDate = findViewById(R.id.txtCreatedDate);
         txtAddCommentButton = findViewById(R.id.txtAddComment);
         commentsRecView = findViewById(R.id.commentsRecView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(NoticeActivity.this,ClubActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(Constants.CLUB_ID,clubId);
+        startActivity(intent);
     }
 }
