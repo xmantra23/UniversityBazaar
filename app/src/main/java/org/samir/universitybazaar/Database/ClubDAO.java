@@ -603,4 +603,46 @@ public class ClubDAO {
         }
     }
 
+
+
+    //get a Notice with the corresponding noticeId in the club_notice table. Returns null if notice with the noticeId found.
+    public ClubNotice getClubNoticeById(int noticeId){
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{
+                    noticeId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+
+            //retrieve the notice from the club_notice table whose _id == noticeId
+            Cursor cursor = db.query("club_notice", null, "_id=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                    int clubId = cursor.getInt(cursor.getColumnIndex("clubId"));
+                    String title = cursor.getString(cursor.getColumnIndex("title"));
+                    String description = cursor.getString(cursor.getColumnIndex("description"));
+                    String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                    String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+
+                    ClubNotice notice = new ClubNotice(_id,clubId,title,description,creatorId,createdDate);
+                    return notice;
+                }
+                db.close();
+                cursor.close();
+                return null;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+
 }

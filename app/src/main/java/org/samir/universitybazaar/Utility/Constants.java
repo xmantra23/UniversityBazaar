@@ -8,4 +8,6 @@ public class Constants {
     public static final String POST_ID = "post_id";
     public static final String ACTIVITY_NAME = "activity_name";
     public static final String CLUB_ID = "club_id";
+    public static final String NOTICE_ID = "notice_id";
+    public static final String OWNER_ID = "owner_id";
 }
