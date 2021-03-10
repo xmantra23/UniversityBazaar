@@ -71,12 +71,13 @@ public class PostInClubActivity extends AppCompatActivity {
 
             String creatorId = user.getMemberId();
             String createdDate = Utils.getCurrentDate();
-            ClubPost clubPost = new ClubPost(clubId,title,description,creatorName,creatorId,createdDate);
+            String adminId = cb.getClubAdminId(clubId);
+            ClubPost clubPost = new ClubPost(clubId,title,description,creatorName,creatorId,createdDate,adminId);
             if(cb.addPostInClub(clubPost)){
                 //add was successful, display success
                 Toast.makeText(this, "Posted Successfully", Toast.LENGTH_SHORT).show();
             }else{
-                //add failed. dispaly error.
+                //add failed. display error.
                 Toast.makeText(this, "Error. Couldn't post", Toast.LENGTH_SHORT).show();
             }
 

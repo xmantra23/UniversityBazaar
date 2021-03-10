@@ -41,10 +41,10 @@ public class ClubPostActivity extends AppCompatActivity {
             Intent intent = getIntent();
             int postId = intent.getIntExtra(Constants.CLUB_POST_ID,-1);
             String ownerId = intent.getStringExtra(Constants.OWNER_ID);
-            int clubId = intent.getIntExtra(Constants.CLUB_ID,-1);
+            String adminId = intent.getStringExtra(Constants.CLUB_ADMIN_ID);
 
             //initialize UI with the data retrieved from the database
-            initializeUI(postId,ownerId,user.getMemberId(),clubId);
+            initializeUI(postId,ownerId,user.getMemberId(),adminId);
 
             //initialize recycler view
             handleRecViews();
@@ -68,13 +68,12 @@ public class ClubPostActivity extends AppCompatActivity {
         // TODO: 3/9/2021 initialize the recycler view to display all the oomments here.
     }
 
-    private void initializeUI(int postId,String ownerId, String memberId, int clubId) {
+    private void initializeUI(int postId,String ownerId, String memberId, String adminId) {
         ClubDAO cb = new ClubDAO(this);
 
         boolean isAdmin = false;
         boolean isOwner = false;
         //verify if the current user is an admin. admin can delete and edit any post in the club.
-        String adminId = cb.getClubAdminId(clubId);
         if(adminId.equals(memberId)){
             //user is admin
             isAdmin = true;

@@ -47,8 +47,8 @@ public class ClubPostsAdapter extends RecyclerView.Adapter<ClubPostsAdapter.View
         holder.parent.setOnClickListener(v->{
             Intent intent = new Intent(context, ClubPostActivity.class);
             intent.putExtra(Constants.CLUB_POST_ID,clubPosts.get(position).get_id()); //passing the post id
-            intent.putExtra(Constants.OWNER_ID,clubPosts.get(position).getCreatorId());//passing the creator id
-            intent.putExtra(Constants.CLUB_ID,clubPosts.get(position).getClubId()); //passing the club id
+            intent.putExtra(Constants.OWNER_ID,clubPosts.get(position).getCreatorId());//passing the creator/owner id.
+            intent.putExtra(Constants.CLUB_ADMIN_ID,clubPosts.get(position).getAdminId());//passing the club admin id
             context.startActivity(intent);
         });
     }

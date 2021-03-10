@@ -32,26 +32,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="finished NoticeActivity page.&#10;&#10;Now user navigates to the detailed notice when they click on a notice in club page.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubPostActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_club_post.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubPostActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/ClubPostActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/PostInClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/PostInClubActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubPostsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubPostsAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/DatabaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Models/ClubPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Models/ClubPost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Utility/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Utility/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Utility/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Utility/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_club_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_club_post.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +83,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/clubs-v2" />
+        <entry key="$PROJECT_DIR$" value="developer" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -455,11 +449,11 @@
     </state>
     <state x="200" y="110" key="#PSD/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612968874586" />
     <state x="1647" y="-155" key="#PSD/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676393981" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1615329729566">
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1615393810017">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612883820550" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615329729566" />
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615393810017" />
     <state x="1848" y="132" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1615328008558">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -489,26 +483,26 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615265423225" />
-    <state width="1877" height="497" key="GridCell.Tab.0.bottom" timestamp="1615351668705">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1615394517504">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399097" />
-    <state width="1877" height="497" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615351668705" />
-    <state width="1877" height="497" key="GridCell.Tab.0.center" timestamp="1615351668705">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615394517504" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1615394517504">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399096" />
-    <state width="1877" height="497" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615351668705" />
-    <state width="1877" height="497" key="GridCell.Tab.0.left" timestamp="1615351668704">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615394517504" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1615394517504">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399096" />
-    <state width="1877" height="497" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615351668704" />
-    <state width="1877" height="497" key="GridCell.Tab.0.right" timestamp="1615351668705">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615394517504" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1615394517504">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state width="1323" height="309" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714399097" />
-    <state width="1877" height="497" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615351668705" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615394517504" />
     <state x="1906" y="-50" key="IDE.errors.dialog" timestamp="1615327521054">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>

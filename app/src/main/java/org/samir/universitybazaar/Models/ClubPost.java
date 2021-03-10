@@ -13,7 +13,10 @@ public class ClubPost {
     private String creatorId;
     private String createdDate;
 
-    public ClubPost(int _id, int clubId, String title, String description, String creatorName, String creatorId, String createdDate) {
+
+    private String adminId;
+
+    public ClubPost(int _id, int clubId, String title, String description, String creatorName, String creatorId, String createdDate,String adminId) {
         this._id = _id;
         this.clubId = clubId;
         this.title = title;
@@ -21,9 +24,10 @@ public class ClubPost {
         this.creatorName = creatorName;
         this.creatorId = creatorId;
         this.createdDate = createdDate;
+        this.adminId = adminId;
     }
 
-    public ClubPost(int clubId, String title, String description, String creatorName, String creatorId, String createdDate) {
+    public ClubPost(int clubId, String title, String description, String creatorName, String creatorId, String createdDate,String adminId) {
         this._id = -1;
         this.clubId = clubId;
         this.title = title;
@@ -31,7 +35,17 @@ public class ClubPost {
         this.creatorName = creatorName;
         this.creatorId = creatorId;
         this.createdDate = createdDate;
+        this.adminId = adminId;
     }
+
+    public String getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(String adminId) {
+        this.adminId = adminId;
+    }
+
 
     public int get_id() {
         return _id;

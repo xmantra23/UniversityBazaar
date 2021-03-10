@@ -59,7 +59,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     private void createClubPostsTable(SQLiteDatabase db){
         String createClubPostsTable = "CREATE TABLE club_posts (_id INTEGER PRIMARY KEY AUTOINCREMENT,clubId INTEGER NOT NULL," +
-                "title TEXT NOT NULL,description TEXT NOT NULL,creatorName TEXT NOT NULL, creatorId TEXT NOT NULL,createdDate TEXT NOT NULL)";
+                "title TEXT NOT NULL,description TEXT NOT NULL,creatorName TEXT NOT NULL, creatorId TEXT NOT NULL," +
+                "createdDate TEXT NOT NULL,adminId TEXT NOT NULL)";
         db.execSQL(createClubPostsTable);
     }
 

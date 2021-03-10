@@ -39,6 +39,7 @@ public class ClubDAO {
                 values.put("creatorName",clubPost.getCreatorName());
                 values.put("creatorId", clubPost.getCreatorId());
                 values.put("createdDate", clubPost.getCreatedDate());
+                values.put("adminId",clubPost.getAdminId());
 
                 long rowId = db.insert("club_posts",null,values);
                 db.close();
@@ -85,8 +86,9 @@ public class ClubDAO {
                         String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
                         String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
                         String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String adminId = cursor.getString(cursor.getColumnIndex("adminId"));
 
-                        ClubPost clubPost = new ClubPost(_id,clubId,title,description,creatorName,creatorId,createdDate);
+                        ClubPost clubPost = new ClubPost(_id,clubId,title,description,creatorName,creatorId,createdDate,adminId);
                         clubPosts.add(clubPost); // add posts to build the clubpost arraylist containing all the posts.
 
                         //stop if last row of data has been read else continue to the next row.
@@ -665,8 +667,9 @@ public class ClubDAO {
                     String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
                     String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
                     String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                    String adminId = cursor.getString(cursor.getColumnIndex("adminId"));
 
-                    ClubPost post = new ClubPost(_id,clubId,title,description,creatorName,creatorId,createdDate);
+                    ClubPost post = new ClubPost(_id,clubId,title,description,creatorName,creatorId,createdDate,adminId);
                     return post;
                 }
                 db.close();
