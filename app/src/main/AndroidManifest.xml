@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
-        <activity android:name=".Activity.Clubs.NoticeActivity"></activity>
+        <activity android:name=".Activity.Clubs.ClubPostActivity"></activity>
+        <activity android:name=".Activity.Clubs.NoticeActivity" />
         <activity android:name=".Activity.Clubs.ClubPostsActivity" />
         <activity android:name=".Activity.Clubs.ClubNoticesActivity" />
         <activity android:name=".Activity.Clubs.PostInClubActivity" />

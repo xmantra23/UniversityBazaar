@@ -644,5 +644,80 @@ public class ClubDAO {
         }
     }
 
+    //get a post with the corresponding postId in the club_posts table. Returns null if post with the given postId is not found.
+    public ClubPost getClubPostById(int postId){
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{
+                    postId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+
+            //retrieve the post from the club_posts table whose _id == postId
+            Cursor cursor = db.query("club_posts", null, "_id=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                    int clubId = cursor.getInt(cursor.getColumnIndex("clubId"));
+                    String title = cursor.getString(cursor.getColumnIndex("title"));
+                    String description = cursor.getString(cursor.getColumnIndex("description"));
+                    String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                    String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                    String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+
+                    ClubPost post = new ClubPost(_id,clubId,title,description,creatorName,creatorId,createdDate);
+                    return post;
+                }
+                db.close();
+                cursor.close();
+                return null;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+
+    //get club admin id.
+    public String getClubAdminId(int clubId){
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{
+                    clubId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+            String[] cols = new String[]{"ownerId"};
+
+            //retrieve the club from the clubs table whose _id == clubId
+            Cursor cursor = db.query("clubs", null, "_id=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    String ownerId = cursor.getString(cursor.getColumnIndex("ownerId"));
+                    return ownerId;
+                }
+                db.close();
+                cursor.close();
+                return null;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+
 
 }

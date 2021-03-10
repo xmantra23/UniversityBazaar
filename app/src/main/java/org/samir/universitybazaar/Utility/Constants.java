@@ -10,4 +10,5 @@ public class Constants {
     public static final String CLUB_ID = "club_id";
     public static final String NOTICE_ID = "notice_id";
     public static final String OWNER_ID = "owner_id";
+    public static final String CLUB_POST_ID = "club_post_id";
 }

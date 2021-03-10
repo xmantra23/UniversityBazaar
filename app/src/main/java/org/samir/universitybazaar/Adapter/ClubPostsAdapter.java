@@ -1,16 +1,22 @@
 package org.samir.universitybazaar.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.samir.universitybazaar.Activity.Clubs.ClubPostActivity;
+import org.samir.universitybazaar.Activity.Clubs.NoticeActivity;
 import org.samir.universitybazaar.Models.ClubPost;
 import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 //adapter for club posts items.
@@ -36,6 +42,15 @@ public class ClubPostsAdapter extends RecyclerView.Adapter<ClubPostsAdapter.View
         holder.txtTitle.setText(clubPosts.get(position).getTitle());
         holder.txtUserName.setText("Posted By: " + clubPosts.get(position).getCreatorName());
         holder.txtPostDate.setText(clubPosts.get(position).getCreatedDate());
+
+        //handle user clicks to the post items within the clubs page.
+        holder.parent.setOnClickListener(v->{
+            Intent intent = new Intent(context, ClubPostActivity.class);
+            intent.putExtra(Constants.CLUB_POST_ID,clubPosts.get(position).get_id()); //passing the post id
+            intent.putExtra(Constants.OWNER_ID,clubPosts.get(position).getCreatorId());//passing the creator id
+            intent.putExtra(Constants.CLUB_ID,clubPosts.get(position).getClubId()); //passing the club id
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -50,9 +65,11 @@ public class ClubPostsAdapter extends RecyclerView.Adapter<ClubPostsAdapter.View
 
     //helper class for the adapter. This class allows the adapter to access all the elements inside the item_club_post.xml layout file.
     public class ViewHolder extends RecyclerView.ViewHolder{
+        private RelativeLayout parent;
         private TextView txtTitle,txtUserName,txtPostDate;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            parent = itemView.findViewById(R.id.parent);
             txtTitle = itemView.findViewById(R.id.txtTitle);
             txtUserName = itemView.findViewById(R.id.txtUserName);
             txtPostDate= itemView.findViewById(R.id.txtPostDate);

@@ -1,5 +1,7 @@
 package org.samir.universitybazaar.Utility;
 
+import org.samir.universitybazaar.Database.ClubDAO;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,8 +23,9 @@ public class Utils {
         return df.format(date);
     }
 
-    //check if a user owns a club
+    //check if a user owns a club or a post
     public static boolean isOwner(String creatorId,String memberId){
         return creatorId.equals(memberId);
     }
+
 }
