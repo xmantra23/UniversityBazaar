@@ -37,7 +37,6 @@
                 android:text="Reply"
                 android:layout_marginStart="130dp"
                 android:textColor="#2196F3"
-
                 />
 
             <TextView
@@ -50,7 +49,7 @@
                 android:layout_marginStart="10dp"
                 android:textColor="#FF5722"
                 android:text="Delete"
-                android:visibility="visible"
+                android:visibility="gone"
                 />
 
         </RelativeLayout>
