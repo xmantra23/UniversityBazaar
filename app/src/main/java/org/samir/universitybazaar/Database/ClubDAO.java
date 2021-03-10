@@ -9,6 +9,7 @@ import android.util.Log;
 
 import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.Models.ClubNotice;
+import org.samir.universitybazaar.Models.ClubNoticeComment;
 import org.samir.universitybazaar.Models.ClubPost;
 
 import java.util.ArrayList;
@@ -718,6 +719,41 @@ public class ClubDAO {
             e.printStackTrace();
             db.close();
             return null;
+        }
+    }
+
+    //adds a comments to the club_notice_comments table
+    public boolean addNoticeComment(ClubNoticeComment cn){
+        if(databaseHelper != null){
+            SQLiteDatabase db = null;
+            try {
+                db = databaseHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put("noticeId", cn.getNoticeId());
+                values.put("commentText", cn.getCommentText());
+                values.put("commentOwnerId", cn.getCommentOwnerId());
+                values.put("commentOwnerName", cn.getCommentOwnerName());
+                values.put("commentDate", cn.getCommentDate());
+                values.put("adminId", cn.getAdminId());
+                long clubId = db.insert("club_notice_comments",null,values);
+                db.close();
+
+                if(clubId != -1){ //insert was successful
+                    return true;
+                }else{ //insert failed.
+                    return false;
+                }
+            } catch (SQLException e) {
+                //error inserting in database
+                e.printStackTrace();
+                db.close();
+                return false;
+            }finally {
+                db.close();
+            }
+        }else{
+            //couldn't connect to the database
+            return false;
         }
     }
 

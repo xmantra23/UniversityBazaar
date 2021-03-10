@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,12 +26,13 @@ import org.samir.universitybazaar.Utility.Utils;
 public class NoticeActivity extends AppCompatActivity {
     private TextView txtNoticeTitle,txtNoticeDescription,txtEdit,txtDelete,txtCreatedDate,txtAddCommentButton;
     private RecyclerView commentsRecView;
+    private ClubDAO cb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
         initViews();
-
+        cb = new ClubDAO(this);
         //get the current logged in user
         UserSession session = new UserSession(this);
         User user = session.isUserLoggedIn();
@@ -40,6 +42,7 @@ public class NoticeActivity extends AppCompatActivity {
             int noticeId = intent.getIntExtra(Constants.NOTICE_ID,-1);
             String ownerId = intent.getStringExtra(Constants.OWNER_ID);
 
+            Log.d("noticeactivity", "onCreate: " + noticeId + " " + ownerId + " " + user.getMemberId());
             //initialize UI with the data retrieved from the database
             initializeUI(noticeId,ownerId,user.getMemberId());
 
@@ -47,7 +50,8 @@ public class NoticeActivity extends AppCompatActivity {
             handleRecViews();
 
             //handle button clicks
-            handleListeners();
+            int clubId = intent.getIntExtra(Constants.CLUB_ID,-1); //getting the club id so that we can get the admin id.
+            handleListeners(noticeId,ownerId,user.getMemberId(),clubId);
         }else{
             //if user is not logged in then navigate to the login page.
             Toast.makeText(this, "Please Login.", Toast.LENGTH_SHORT).show();
@@ -73,7 +77,6 @@ public class NoticeActivity extends AppCompatActivity {
 
         if(noticeId != -1){
             //noticeId is valid. Use this to get the ClubNotice object from the database that contains all the details for this activity.
-            ClubDAO cb = new ClubDAO(this);
             ClubNotice notice = cb.getClubNoticeById(noticeId);
 
             if(notice != null){ //check if we actually got a ClubNotice object from database query or it is just null.
@@ -86,8 +89,17 @@ public class NoticeActivity extends AppCompatActivity {
         }
     }
 
-    private void handleListeners() {
+    private void handleListeners(int noticeId,String ownerId, String memberId,int clubId) {
         //handle edit, delete and comment button clicks.
+
+        txtAddCommentButton.setOnClickListener(v->{
+            Intent intent = new Intent(NoticeActivity.this,CommentOnNoticeActivity.class);
+            String adminId = cb.getClubAdminId(clubId);
+            intent.putExtra(Constants.CLUB_ADMIN_ID,adminId);
+            intent.putExtra(Constants.NOTICE_ID,noticeId);
+            intent.putExtra(Constants.CLUB_ID,clubId);
+            startActivity(intent);
+        });
     }
 
     private void handleRecViews() {

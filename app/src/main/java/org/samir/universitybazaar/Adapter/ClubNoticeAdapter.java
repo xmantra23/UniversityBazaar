@@ -48,6 +48,7 @@ public class ClubNoticeAdapter extends RecyclerView.Adapter<ClubNoticeAdapter.Vi
             Intent intent = new Intent(context, NoticeActivity.class);
             intent.putExtra(Constants.NOTICE_ID,notices.get(position).get_id()); //passing the notice id
             intent.putExtra(Constants.OWNER_ID,notices.get(position).getCreatorId());//passing the creator id
+            intent.putExtra(Constants.CLUB_ID,notices.get(position).getClubId()); //passing the club id
             context.startActivity(intent);
         });
     }
