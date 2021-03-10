@@ -60,7 +60,7 @@ public class PostDAO {
     public Boolean deleteComment(int post_id) {
         try {
             SQLiteDatabase db = dbHelper.getWritableDatabase();
-            db.delete("comment", "postId = '"+post_id+"'", null);
+            db.delete("comments", "postId = '"+post_id+"'", null);
             db.close();
             return true;
         }catch(SQLException e) {
