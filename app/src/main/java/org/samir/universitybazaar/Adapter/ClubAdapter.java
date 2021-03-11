@@ -75,6 +75,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
 
                             //redirect to homepage
                             Intent intent = new Intent(context,HomeActivity.class);
+                            intent.putExtra(Constants.ACTIVITY_NAME,"group");
                             context.startActivity(intent);
                         }else{
                             //couldn't remove member from club.
@@ -95,6 +96,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
 
                             //navigate to homepage
                             Intent intent = new Intent(context,HomeActivity.class);
+                            intent.putExtra(Constants.ACTIVITY_NAME,"group");
                             context.startActivity(intent);
 
                         }else{

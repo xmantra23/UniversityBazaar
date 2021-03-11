@@ -95,4 +95,6 @@ public class AllPostsFragment extends Fragment {
             return false;
         });
     }
+
+
 }

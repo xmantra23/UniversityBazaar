@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,6 +37,7 @@ import org.samir.universitybazaar.Utility.Constants;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private static final String TAG = "HomeActivity";
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private MaterialToolbar toolbar;
@@ -144,12 +146,12 @@ public class HomeActivity extends AppCompatActivity {
         */
          if(activity_type == null){
             transaction.replace(R.id.container, new HomeFragment()); //container is defined as a fragment inside this activity.
-        }else if(activity_type.equals("post")){
+        }else if(activity_type.equals(Constants.POST)){
             transaction.replace(R.id.container, new AllPostsFragment()); //load all posts fragment in home activity.
-        }else if(activity_type.equals("home")){
+        }else if(activity_type.equals(Constants.HOME)){
             transaction.replace(R.id.container, new HomeFragment()); //load home fragment in home activity.
-        }else if(activity_type.equals("group")){
-             transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs fragment in home activity.
+        }else if(activity_type.equals(Constants.GROUP)){
+             transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs/groups fragment in home activity.
          }
 
 
@@ -180,5 +182,12 @@ public class HomeActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

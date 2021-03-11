@@ -187,7 +187,7 @@ public class ClubActivity extends AppCompatActivity {
     public void onBackPressed() {
         //navigate to HomeActivity if the user presses back button.
         Intent intent = new Intent(ClubActivity.this, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(Constants.ACTIVITY_NAME,Constants.GROUP);
         startActivity(intent);
     }
 }
