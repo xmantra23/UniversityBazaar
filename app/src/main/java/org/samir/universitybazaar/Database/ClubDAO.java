@@ -757,6 +757,56 @@ public class ClubDAO {
         }
     }
 
+    //get all the comments for a given notice within a club
+    public ArrayList<ClubNoticeComment> getClubNoticeComments(int noticeId){
+        ArrayList<ClubNoticeComment> noticeComments = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{
+                    noticeId + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+
+            //retrieve the comments from the club_notice_comments table whose noticeId is the provided noticeId in the argument.
+            Cursor cursor = db.query("club_notice_comments", null, "noticeId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+                        int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String commentText = cursor.getString(cursor.getColumnIndex("commentText"));
+                        String commentOwnerId = cursor.getString(cursor.getColumnIndex("commentOwnerId"));
+                        String commentOwnerName = cursor.getString(cursor.getColumnIndex("commentOwnerName"));
+                        String commentDate = cursor.getString(cursor.getColumnIndex("commentDate"));
+                        String adminId = cursor.getString(cursor.getColumnIndex("adminId"));
+
+                        ClubNoticeComment comment = new ClubNoticeComment(_id,noticeId,commentText,commentOwnerId,commentOwnerName,commentDate,adminId);
+                        noticeComments.add(comment); // add comments to build the noticeComments array list containing all the comments for a notice.
+
+                        //stop if last row of data has been read else continue to the next row.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return noticeComments;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
 
 
 }

@@ -1,6 +1,7 @@
 package org.samir.universitybazaar.Activity.Clubs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -10,14 +11,18 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.samir.universitybazaar.Adapter.ClubNoticeCommentAdapter;
 import org.samir.universitybazaar.Authentication.LoginActivity;
 import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.ClubNotice;
+import org.samir.universitybazaar.Models.ClubNoticeComment;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Utility.Utils;
+
+import java.util.ArrayList;
 
 /**
  * @author samir shrestha
@@ -26,6 +31,7 @@ import org.samir.universitybazaar.Utility.Utils;
 public class NoticeActivity extends AppCompatActivity {
     private TextView txtNoticeTitle,txtNoticeDescription,txtEdit,txtDelete,txtCreatedDate,txtAddCommentButton;
     private RecyclerView commentsRecView;
+    private ClubNoticeCommentAdapter adapter;
     private ClubDAO cb;
     private int clubId;
     @Override
@@ -48,7 +54,7 @@ public class NoticeActivity extends AppCompatActivity {
             initializeUI(noticeId,ownerId,user.getMemberId());
 
             //initialize recycler view
-            handleRecViews();
+            handleRecViews(noticeId);
 
             //handle button clicks
             clubId = intent.getIntExtra(Constants.CLUB_ID,-1); //getting the club id so that we can get the admin id.
@@ -103,8 +109,15 @@ public class NoticeActivity extends AppCompatActivity {
         });
     }
 
-    private void handleRecViews() {
+    private void handleRecViews(int noticeId) {
         //display all the comments for this notice.
+        ArrayList<ClubNoticeComment> noticeComments = cb.getClubNoticeComments(noticeId);
+        adapter = new ClubNoticeCommentAdapter(NoticeActivity.this);
+        if(noticeComments != null){
+            adapter.setNoticeComments(noticeComments);
+            commentsRecView.setAdapter(adapter);
+            commentsRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
+        }
     }
 
     private void initViews() {

@@ -31,7 +31,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="finished posting comments on notices">
+    <list default="true" id="1ad2c80c-4680-47fe-85d7-933a661da6ba" name="Default Changelist" comment="comment on notice is working now.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Adapter/ClubNoticeCommentAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -39,8 +40,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/CommentOnNoticeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/CommentOnNoticeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/NoticeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Activity/Clubs/NoticeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/samir/universitybazaar/Database/ClubDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +95,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="8XV7N16401000010" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-08T15:12:43.779Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_6P_API_27" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-10T23:22:45.156Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../../Applications/Android-SDK" />
@@ -407,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615412055016</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="comment on notice is working now.">
+      <created>1615412887941</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1615412887941</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -424,7 +433,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Completed user registration." />
     <MESSAGE value="Registration and Login working.&#10;After login redirects to test page." />
     <MESSAGE value="corrected database name typo." />
     <MESSAGE value="Added comments." />
@@ -449,7 +457,8 @@
     <MESSAGE value="finished all member posts activity." />
     <MESSAGE value="finished NoticeActivity page.&#10;&#10;Now user navigates to the detailed notice when they click on a notice in club page." />
     <MESSAGE value="finished posting comments on notices" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished posting comments on notices" />
+    <MESSAGE value="comment on notice is working now." />
+    <option name="LAST_COMMIT_MESSAGE" value="comment on notice is working now." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1647" y="-155" key="#PSD" timestamp="1613676393981">
@@ -457,11 +466,11 @@
     </state>
     <state x="200" y="110" key="#PSD/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612968874586" />
     <state x="1647" y="-155" key="#PSD/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613676393981" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1615410556579">
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser" timestamp="1615434435941">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1612883820550" />
-    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615410556579" />
+    <state x="2052" y="-212" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615434435941" />
     <state x="1848" y="132" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1615328008558">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -487,10 +496,10 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="2006" y="-38" key="Downloadable.Font.Dialog.Size/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612969925141" />
-    <state x="2106" y="-53" key="FileChooserDialogImpl" timestamp="1615411096330">
+    <state x="2106" y="-53" key="FileChooserDialogImpl" timestamp="1615412801480">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
-    <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615411096330" />
+    <state x="2106" y="-53" key="FileChooserDialogImpl/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615412801480" />
     <state width="1877" height="497" key="GridCell.Tab.0.bottom" timestamp="1615412761143">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -515,10 +524,11 @@
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="1906" y="-50" key="IDE.errors.dialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615327521054" />
-    <state x="129" y="54" key="MergeDialog" timestamp="1614714882430">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1547" y="-235" key="MergeDialog" timestamp="1615432590905">
+      <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="129" y="54" key="MergeDialog/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1614714882430" />
+    <state x="1547" y="-235" key="MergeDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615432590905" />
     <state x="1827" y="-148" key="SettingsEditor" timestamp="1613676152646">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
@@ -533,11 +543,11 @@
     </state>
     <state x="547" y="303" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1613405818199" />
     <state x="2135" y="121" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1613675884178" />
-    <state x="472" y="153" key="git4idea.branch.GitSmartOperationDialog" timestamp="1615142336801">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="2029" y="-80" key="git4idea.branch.GitSmartOperationDialog" timestamp="1615432562799">
+      <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
     <state x="472" y="153" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1615142336801" />
-    <state x="2029" y="-80" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1612982684489" />
+    <state x="2029" y="-80" key="git4idea.branch.GitSmartOperationDialog/0.0.1366.728/1366.-312.1920.1040@1366.-312.1920.1040" timestamp="1615432562799" />
     <state x="1955" y="-95" key="git4idea.merge.GitMergeDialog" timestamp="1612974890155">
       <screen x="1366" y="-312" width="1920" height="1040" />
     </state>
