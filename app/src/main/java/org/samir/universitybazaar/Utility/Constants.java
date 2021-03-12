@@ -10,4 +10,12 @@ public class Constants {
 
     public static final String CREATOR_ID = "creator_id";
     public static final String Comment_ID = "comment_id";
+    public static final String CLUB_ID = "club_id";
+    public static final String NOTICE_ID = "notice_id";
+    public static final String OWNER_ID = "owner_id";
+    public static final String CLUB_POST_ID = "club_post_id";
+    public static final String CLUB_ADMIN_ID = "club_admin_id";
+    public static final String HOME = "home";
+    public static final String GROUP = "group";
+    public static final String POST = "post";
 }

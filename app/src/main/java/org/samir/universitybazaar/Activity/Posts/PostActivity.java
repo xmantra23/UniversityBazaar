@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Posts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.samir.universitybazaar.Activity.CommentActivity;
+import org.samir.universitybazaar.Activity.EditPostActivity;
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Adapter.CommentAdapter;
 import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
@@ -100,7 +103,7 @@ public class PostActivity extends AppCompatActivity {
         
         txtAddComment.setOnClickListener(v->{
             //redirect to activity_comment
-            Intent intent = new Intent(PostActivity.this,CommentActivity.class);
+            Intent intent = new Intent(PostActivity.this, CommentActivity.class);
             intent.putExtra(Constants.POST_ID, post_id);
             startActivity(intent);
         });
@@ -108,9 +111,9 @@ public class PostActivity extends AppCompatActivity {
 
     //initialize all the views in the activity_post.xml layout file.
     private void initViews() {
-        txtPostTitle = findViewById(R.id.txtPostTitle);
+        txtPostTitle = findViewById(R.id.txtClubTitle);
         txtPostCategory = findViewById(R.id.txtPostCategory);
-        txtPostDescription = findViewById(R.id.txtPostDescription);
+        txtPostDescription = findViewById(R.id.txtClubDescription);
         txtEdit = findViewById(R.id.txtEdit);
         txtDelete = findViewById(R.id.txtDelete);
         txtCreatorName = findViewById(R.id.txtCreatorName);

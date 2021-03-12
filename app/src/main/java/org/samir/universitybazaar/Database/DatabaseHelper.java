@@ -34,6 +34,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.context = context;
     }
 
+    //only need to use this when updating the database version.
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "onCreate: started"); //just for logs.
@@ -41,13 +47,79 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createUserProfileTable(db); //creates user_profiles table in database.
         createPostTable(db);//create a post table in the database;
         createCommentsTable(db); //create a comments table for user posts in the database.
+        createClubsTable(db); //create a clubs table in the database;
+        createMembershipTable(db); //create club_members table in the database.
+        createSubscriptionsView(db); //create club_subscriptions view in the database. This is the aggregate of clubs and clubs_members view.
+        createClubNoticeTable(db); //creates a table club_notice table that holds all the notice/announcements for clubs.
+        createClubPostsTable(db); //creates a table club_posts that holds all the posts made within a given club.
+        createClubNoticeCommentsTable(db); //creates club_notice_comments for user comments made inside a club notice in the database.
     }
 
-    //only need to use this when updating the database version.
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    /**
+     * @author Samir Shrestha
+     * @description this creates club_notice_comments for user comments made inside a club notice in the database.
+     */
+    private void createClubNoticeCommentsTable(SQLiteDatabase db) {
+        String createClubNoticeCommentsTable = "CREATE TABLE club_notice_comments (_id INTEGER PRIMARY KEY AUTOINCREMENT,noticeId INTEGER NOT NULL" +
+                " ,commentText TEXT NOT NULL, commentOwnerId TEXT NOT NULL, " +
+                "commentOwnerName TEXT NOT NULL, commentDate TEXT NOT NULL, adminId TEXT NOT NULL)";
+        db.execSQL(createClubNoticeCommentsTable);
     }
+
+    /**
+     * @author Samir Shrestha
+     * @description this method creates club_posts table. This table is used to keep track of all the posts within clubs.
+     */
+    private void createClubPostsTable(SQLiteDatabase db){
+        String createClubPostsTable = "CREATE TABLE club_posts (_id INTEGER PRIMARY KEY AUTOINCREMENT,clubId INTEGER NOT NULL," +
+                "title TEXT NOT NULL,description TEXT NOT NULL,creatorName TEXT NOT NULL, creatorId TEXT NOT NULL," +
+                "createdDate TEXT NOT NULL,adminId TEXT NOT NULL)";
+        db.execSQL(createClubPostsTable);
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description this method creates club_notice table. This table is used to keep track of all the notices within clubs.
+     */
+    private void createClubNoticeTable(SQLiteDatabase db){
+        String createClubNoticeTable = "CREATE TABLE club_notice (_id INTEGER PRIMARY KEY AUTOINCREMENT,clubId INTEGER NOT NULL," +
+                "title TEXT NOT NULL,description TEXT NOT NULL,creatorId TEXT NOT NULL,createdDate TEXT NOT NULL)";
+        db.execSQL(createClubNoticeTable);
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description this method creates club_subscriptions view which aggregates the data from clubs and clubs_members table using an inner join.
+     */
+    private void createSubscriptionsView(SQLiteDatabase db){
+        String createSubscriptionsView = "CREATE VIEW club_subscriptions AS SELECT clubs._id as clubId,clubs.title,clubs.shortDescription,clubs.longDescription,clubs.ownerName,"
+                +"clubs.ownerId,clubs.createdDate,clubs.memberCount,club_members.memberID as memberId FROM clubs INNER JOIN club_members ON clubs._id = club_members.clubId;";
+        db.execSQL(createSubscriptionsView);
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description this method creates club_members table. This table is used to keep track of membership.
+     */
+    private void createMembershipTable(SQLiteDatabase db){
+        String createClubsTable = "CREATE TABLE club_members (_id INTEGER PRIMARY KEY AUTOINCREMENT,clubId INTEGER NOT NULL," +
+                "memberID TEXT NOT NULL)";
+        db.execSQL(createClubsTable);
+    }
+
+
+    /**
+     * @author samir shrestha
+     * @description this method creates a clubs table in the database
+     */
+    private void createClubsTable(SQLiteDatabase db) {
+        String createClubsTable = "CREATE TABLE clubs (_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL" +
+                " ,shortDescription TEXT NOT NULL, longDescription TEXT NOT NULL, " +
+                "ownerName TEXT NOT NULL, ownerId TEXT NOT NULL,createdDate TEXT NOT NULL,memberCount INTEGER NOT NULL)";
+        db.execSQL(createClubsTable);
+    }
+
+
 
     /**
      * @author samir shrestha
@@ -153,10 +225,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             profile_values.put("email",user.getEmail());
 
             long profileId = db.insert("user_profiles",null,profile_values);
-            userId = db.insert("users", null, values);
             db.close();
-            return true;
-        } catch (SQLException e) {
+            if(userId != -1)
+                //insert was successful.
+                return true;
+            else
+                //insert failed.
+                return false;
+        }catch (SQLException e) {
             e.printStackTrace();
             db.close();
             return false;

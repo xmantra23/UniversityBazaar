@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.samir.universitybazaar.Activity.CommentReplyActivity;
-import org.samir.universitybazaar.Activity.EditProfileActivity;
-import org.samir.universitybazaar.Activity.PostActivity;
-import org.samir.universitybazaar.Activity.ViewProfileActivity;
+import org.samir.universitybazaar.Activity.Profile.EditProfileActivity;
+import org.samir.universitybazaar.Activity.Posts.PostActivity;
+import org.samir.universitybazaar.Activity.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;
@@ -124,7 +124,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         private TextView txtComment,txtUserName,txtCommentDate,btnReply,btnDelete,txtReplyName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtComment = itemView.findViewById(R.id.txtComment);
+            txtComment = itemView.findViewById(R.id.txtAnnouncement);
             txtUserName = itemView.findViewById(R.id.txtUserName);
             txtCommentDate = itemView.findViewById(R.id.txtCommentDate);
             btnReply = itemView.findViewById(R.id.btnReply);

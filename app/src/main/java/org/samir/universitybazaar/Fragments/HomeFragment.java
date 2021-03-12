@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,9 +16,11 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
+import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
+import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.Activity.MyPostsActivity;
-import org.samir.universitybazaar.Activity.ViewProfileActivity;
+import org.samir.universitybazaar.Activity.Posts.MyPostsActivity;
+import org.samir.universitybazaar.Activity.Profile.ViewProfileActivity;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
@@ -44,12 +47,19 @@ public class HomeFragment extends Fragment {
     }
 
     private void handleListeners(View view) {
+        //navigate to myclubsactivity and show all clubs that the user has created.
         manageClubArrow.setOnClickListener(v -> {
-            // TODO: 2/18/2021 handle club arrow pressed
+            Intent intent = new Intent(getActivity(), MyClubsActivity.class);
+            startActivity(intent);
         });
+
+        //navigate to MySubscriptionsActivity and show all the clubs that the user is subscribed to.
         manageSubArrow.setOnClickListener(v -> {
-            // TODO: 2/18/2021 handle subscription arrow pressed
+            Intent intent = new Intent(getActivity(), MySubscriptionsActivity.class);
+            startActivity(intent);
         });
+
+        //navigate to mypostsactivity and show all posts that the user has created.
         managePostArrow.setOnClickListener(v->{
             Intent intent = new Intent(getActivity(), MyPostsActivity.class);
             startActivity(intent);
@@ -98,18 +108,20 @@ public class HomeFragment extends Fragment {
         //if group icon is pressed then navigate to home activity but send "group" as the activity name.
         //This will be used later in the HomeActivity to load the appropriate fragment in the body of the activity based on the activity name.
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
             switch(item.getItemId()){
                 case R.id.home:
                     //In homepage. No action required.
                     break;
                 case R.id.post:
                     //Navigate to HomeActivity but send "post" as the activity name so that AllPostsFragment can be loaded into the HomeActivity.
-                    Intent intent = new Intent(getActivity(), HomeActivity.class);
                     intent.putExtra(Constants.ACTIVITY_NAME,"post");
                     startActivity(intent);
                     break;
                 case R.id.group:
-                    //TODO: 2/18/2021 redirect to all clubs activity
+                    //Navigate to HomeActivity but send "group" as the activity name so that AllClubsFragment can be loaded into the HomeActivity.
+                    intent.putExtra(Constants.ACTIVITY_NAME,"group");
+                    startActivity(intent);
                     break;
                 case R.id.market:
                     // TODO: 2/18/2021 redirect to the markeplace activity
