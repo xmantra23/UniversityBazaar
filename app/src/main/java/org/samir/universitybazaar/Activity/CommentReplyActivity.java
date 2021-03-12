@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.samir.universitybazaar.Activity.Posts.PostActivity;
 import org.samir.universitybazaar.Authentication.LoginActivity;
 import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
@@ -18,6 +19,7 @@ import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
+
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -90,7 +92,7 @@ public class CommentReplyActivity extends AppCompatActivity {
                 if(commentDAO.addComment(comment)){ //insert successful
                     Toast.makeText(this, "Reply successfully.", Toast.LENGTH_LONG).show();
                     //Redirect to PostActivity
-                    Intent intent = new Intent(CommentReplyActivity.this,PostActivity.class);
+                    Intent intent = new Intent(CommentReplyActivity.this, PostActivity.class);
                     intent.putExtra(Constants.POST_ID,post_id);
                     startActivity(intent);
                 }else{ //insert failed

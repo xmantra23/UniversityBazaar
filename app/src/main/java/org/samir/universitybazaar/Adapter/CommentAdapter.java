@@ -124,7 +124,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         private TextView txtComment,txtUserName,txtCommentDate,btnReply,btnDelete,txtReplyName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtComment = itemView.findViewById(R.id.txtAnnouncement);
+            txtComment = itemView.findViewById(R.id.txtComment);
             txtUserName = itemView.findViewById(R.id.txtUserName);
             txtCommentDate = itemView.findViewById(R.id.txtCommentDate);
             btnReply = itemView.findViewById(R.id.btnReply);
