@@ -19,6 +19,10 @@ import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
+/**
+ * @author Samir Shrestha
+ * Adapter class which displays all the announcements made inside a club as a list in the clubs page.
+ */
 public class ClubNoticeAdapter extends RecyclerView.Adapter<ClubNoticeAdapter.ViewHolder> {
     private ArrayList<ClubNotice> notices; //this will hold all the notices for a particular club.
 

@@ -18,10 +18,7 @@ import java.util.Date;
  */
 public class Utils {
 
-    /**
-     * @author Samir Shrestha
-     * @return returns the current system date in mm/dd/yyyy format as a string.
-     */
+    // returns the current system date in mm/dd/yyyy format as a string.
     public static String getCurrentDate(){
         //Getting the current system date and formatting it to mm/dd/yyyy format.
         Date date = new Date();
@@ -29,7 +26,7 @@ public class Utils {
         return df.format(date);
     }
 
-    //check if a user owns a club or a post
+    //check if a user owns a club or a post by checking their creatorId with the current logged in users memberId.
     public static boolean isOwner(String creatorId,String memberId){
         return creatorId.equals(memberId);
     }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 /**
  * @author samir shrestha
- * @description this activity displays all the announcements for a given club
+ * @description this activity displays all the announcements for a given club inside the club activity page
  */
 public class ClubNoticesActivity extends AppCompatActivity {
     private RecyclerView noticesRecView;//lists all the announcements for the club

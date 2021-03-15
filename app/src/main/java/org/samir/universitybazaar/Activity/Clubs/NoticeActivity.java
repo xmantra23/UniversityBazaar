@@ -32,8 +32,8 @@ public class NoticeActivity extends AppCompatActivity {
     private TextView txtNoticeTitle,txtNoticeDescription,txtEdit,txtDelete,txtCreatedDate,txtAddCommentButton;
     private RecyclerView commentsRecView;
     private ClubNoticeCommentAdapter adapter;
-    private ClubDAO cb;
-    private int clubId;
+    private ClubDAO cb; //database handle
+    private int clubId; //clubId of the club from which this noticeactivity was started.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +131,7 @@ public class NoticeActivity extends AppCompatActivity {
         commentsRecView = findViewById(R.id.commentsRecView);
     }
 
+    //goes back to clubactivity page if user clicks on back button.
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(NoticeActivity.this,ClubActivity.class);

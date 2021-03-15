@@ -19,6 +19,10 @@ import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Utils;
 
+/**
+ * @author samir shrestha
+ * This activity allows users to create a new club.
+ */
 public class CreateClubActivity extends AppCompatActivity {
 
     private EditText edtTxtTitle,edtTxtShortDesc,edtTxtLongDesc;

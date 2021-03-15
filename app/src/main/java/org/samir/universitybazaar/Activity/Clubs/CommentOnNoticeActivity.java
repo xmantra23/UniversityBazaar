@@ -22,6 +22,10 @@ import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Utility.Utils;
 
+/**
+ * @author Samir Shrestha
+ * This activity allows a user to comment on an announcement made by the admin in the clubs page.
+ */
 public class CommentOnNoticeActivity extends AppCompatActivity {
     private EditText edtTxtComment;
     private Button btnComment;
@@ -31,12 +35,14 @@ public class CommentOnNoticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
         initViews();
-        cb = new ClubDAO(CommentOnNoticeActivity.this);
-        //get the logged in user
-        User user = Utils.getLoggedInUser(this);
+        cb = new ClubDAO(CommentOnNoticeActivity.this);//for database access
+
+        User user = Utils.getLoggedInUser(this);//get the logged in user
         if(user != null){
+            //user is logged in. proceed to comment functionality
             handleListeners(user);
         }else{
+            //redirect to login page if the user is not logged in.
             Toast.makeText(this, "Please Login", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -70,6 +76,7 @@ public class CommentOnNoticeActivity extends AppCompatActivity {
             if(isValidData){
                 ClubNoticeComment c = new ClubNoticeComment(noticeId,comment,commentOwnerId,commentOwnerName,createdDate,adminId);
                 if(cb.addNoticeComment(c)){
+                    //comment was successfully added in the database.
                     Toast.makeText(this,"Successfully Commented.",Toast.LENGTH_SHORT).show();
 
                     //navigate back to the notification details page.
@@ -79,15 +86,17 @@ public class CommentOnNoticeActivity extends AppCompatActivity {
                     intent2.putExtra(Constants.CLUB_ID,clubId); //passing the club id
                     startActivity(intent2);
                 }else{
+                    //comment failed
                     Toast.makeText(this, "Error. Couldn't Comment", Toast.LENGTH_SHORT).show();
                 }
             }else{
+                //comment failed. invalid data provided.
                 Toast.makeText(this, "Error. Couldn't Comment", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    //utility method to check if all the fields are valid and there are not empty or null fields.
+    //utility method to check if all the fields are valid and there are no empty or null fields.
     private boolean checkAllFields(int noticeId,String commentOwnerId,String commentOwnerName,String createdDate,String adminId,String comment){
         if(noticeId != -1 && commentOwnerId != null && commentOwnerName != null && createdDate != null && adminId != null & !comment.equals("")){
             return true;

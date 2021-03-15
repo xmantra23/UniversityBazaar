@@ -19,7 +19,11 @@ import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
-//adapter for club posts items.
+/**
+ * @author samir shrestha
+ * adapter for club posts items.Displays all the posts made by other users inside a clubs as a well formatted list.
+ */
+
 public class ClubPostsAdapter extends RecyclerView.Adapter<ClubPostsAdapter.ViewHolder>{
     private ArrayList<ClubPost> clubPosts;
     private Context context;

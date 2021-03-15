@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.samir.universitybazaar.Activity.CommentActivity;
-import org.samir.universitybazaar.Activity.EditPostActivity;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Adapter.CommentAdapter;
 import org.samir.universitybazaar.Database.CommentDAO;

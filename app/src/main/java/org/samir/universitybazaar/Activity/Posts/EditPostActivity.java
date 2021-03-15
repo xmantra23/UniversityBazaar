@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Posts;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.samir.universitybazaar.Activity.Posts.PostActivity;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.PostDAO;
 import org.samir.universitybazaar.Database.UserSession;

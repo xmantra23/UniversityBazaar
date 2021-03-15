@@ -33,7 +33,7 @@ public class ClubPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_club_post);
         initViews();
 
-        //get the curretn logged in user
+        //get the current logged in user
         UserSession session = new UserSession(this);
         User user = session.isUserLoggedIn();
         if(user != null){

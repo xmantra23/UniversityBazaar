@@ -24,6 +24,10 @@ import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
+/**
+ * @author Samir Shrestha
+ * adapter class which displays the list of different clubs in the allclubs and myclubs activity page.
+ */
 public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
     private ArrayList<Club> clubs = new ArrayList<>();
     private Context context;

@@ -33,10 +33,12 @@ public class MyClubsActivity extends AppCompatActivity {
         clubRecView = findViewById(R.id.clubRecView);
         adapter = new ClubAdapter(this);
 
-        ClubDAO db = new ClubDAO(this);
-        UserSession userSession = new UserSession(this);
+        ClubDAO db = new ClubDAO(this);//access database
 
+        //get current logged in user.
+        UserSession userSession = new UserSession(this);
         User user = userSession.isUserLoggedIn();
+
         if(user != null){ //user is logged in.
             ArrayList<Club> clubs = new ArrayList<>();
             clubs = db.getClubsByMemberId(user.getMemberId()); //get all the clubs whose creatorId matches the logged in users memberId.

@@ -18,13 +18,17 @@ import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Utility.Utils;
 
+/**
+ * @author Samir Shrestha
+ * this activity allows normal users to add a post inside a club activity page.
+ */
 public class PostInClubActivity extends AppCompatActivity {
 
     private EditText edtTxtTitle ,edtTxtDescription;
     private Button btnCancel,btnPost;
     private UserSession session;
-    private User user;
-    private ClubDAO cb;
+    private User user;//will hold the current logged in user object. null if user not logged in.
+    private ClubDAO cb;//database handle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,9 +73,12 @@ public class PostInClubActivity extends AppCompatActivity {
             Profile profile = db.getProfile(user.getMemberId());
             String creatorName = profile.getFullName();
 
+            //get all the details about the new post so that we can create a ClubPost object to pass to the database.
             String creatorId = user.getMemberId();
             String createdDate = Utils.getCurrentDate();
             String adminId = cb.getClubAdminId(clubId);
+
+            //create a clubpost object
             ClubPost clubPost = new ClubPost(clubId,title,description,creatorName,creatorId,createdDate,adminId);
             if(cb.addPostInClub(clubPost)){
                 //add was successful, display success

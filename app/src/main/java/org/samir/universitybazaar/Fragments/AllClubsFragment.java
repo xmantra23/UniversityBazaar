@@ -27,6 +27,10 @@ import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
+/**
+ * @author Samir Shrestha
+ * //displays all the clubs in the system as a list inside the homeactivity page.
+ */
 public class AllClubsFragment extends Fragment {
 
     private BottomNavigationView bottomNavigationView; //The bottom navigation icons.

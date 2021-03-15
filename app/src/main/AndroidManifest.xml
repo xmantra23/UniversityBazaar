@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
-        <activity android:name=".Activity.EditPostActivity" />
+        <activity android:name=".Activity.Posts.EditPostActivity" />
         <activity android:name=".Activity.Clubs.CommentOnNoticeActivity"></activity>
         <activity android:name=".Activity.Clubs.ClubPostActivity" />
         <activity android:name=".Activity.Clubs.NoticeActivity" />
@@ -27,8 +27,8 @@
         <activity android:name=".Activity.Posts.MyPostsActivity" />
         <activity android:name=".Activity.Posts.CreatePostActivity" />
         <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.CommentActivity" />
-        <activity android:name=".Activity.CommentReplyActivity" />
+        <activity android:name=".Activity.Posts.CommentActivity" />
+        <activity android:name=".Activity.Posts.CommentReplyActivity" />
         <activity android:name=".Authentication.LoginActivity" />
         <activity android:name=".Activity.Avatar.AvatarActivity" />
         <activity android:name=".Activity.Avatar.AvatarChangeActivity" />

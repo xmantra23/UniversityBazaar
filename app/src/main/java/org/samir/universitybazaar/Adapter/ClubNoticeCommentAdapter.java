@@ -14,6 +14,10 @@ import org.samir.universitybazaar.R;
 
 import java.util.ArrayList;
 
+/**
+ * @author samir shrestha
+ * adpater class which displays the list of comments inside an announcement when a user clicks on it.
+ */
 public class ClubNoticeCommentAdapter extends RecyclerView.Adapter<ClubNoticeCommentAdapter.ViewHolder> {
     private ArrayList<ClubNoticeComment> noticeComments;
     private Context context;

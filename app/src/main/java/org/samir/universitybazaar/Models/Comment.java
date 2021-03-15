@@ -2,7 +2,7 @@ package org.samir.universitybazaar.Models;
 
 /**
  * @author Samir Shrestha
- * @description A DTO (data transfer object) class that holds data about a comment.
+ * @description A DTO (data transfer object) class that holds data about a comment for a user post.
  */
 public class Comment {
     private int _id;

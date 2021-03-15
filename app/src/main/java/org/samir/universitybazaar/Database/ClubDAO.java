@@ -165,7 +165,7 @@ public class ClubDAO {
     }
 
 
-    //add a notice to a club
+    //add a notice/announcement to a club
     public boolean addNoticeInClub(ClubNotice notice){
         if(databaseHelper != null){
             SQLiteDatabase db = null;
@@ -199,6 +199,7 @@ public class ClubDAO {
             return false;
         }
     }
+
     //retrieve all the subscribed clubs from clubs_subscriptions view
     public ArrayList<Club> getSubscribedClubsByMemberId(String memberId){
         ArrayList<Club> clubs = new ArrayList<>();
@@ -538,10 +539,7 @@ public class ClubDAO {
     }
 
 
-    /**
-     * @author Samir Shrestha
-     * @description This method returns all the clubs in the system.
-     */
+    //This method returns all the clubs in the system.
     public ArrayList<Club> getAllClubs(){
         ArrayList<Club> clubs = new ArrayList<>();
         SQLiteDatabase db = null;
@@ -688,8 +686,7 @@ public class ClubDAO {
         }
     }
 
-
-    //get club admin id.
+    //get club admin id i.e. the id of the person who created this club.
     public String getClubAdminId(int clubId){
         SQLiteDatabase db = null;
         try {

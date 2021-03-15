@@ -34,7 +34,7 @@ import org.samir.universitybazaar.Utility.Constants;
 public class HomeFragment extends Fragment {
     private BottomNavigationView bottomNavigationView;
     private ImageView manageClubArrow,manageSubArrow,managePostArrow,manageSaleArrow,managePurchaseArrow,manageLoanArrow;
-    private TextView txtProfile,txtLogout;
+    private TextView txtProfile,txtLogout,txtMessages;
 
     @Nullable
     @Override
@@ -85,6 +85,11 @@ public class HomeFragment extends Fragment {
             UserSession userSession = new UserSession(getContext());
             userSession.signOutUser();
         });
+        
+        //handle messages
+        txtMessages.setOnClickListener(v->{
+            // TODO: 3/15/2021 handle all functionality related to reading and sending messages.
+        });
     }
 
     private void initViews(View view) {
@@ -97,6 +102,7 @@ public class HomeFragment extends Fragment {
         manageLoanArrow = view.findViewById(R.id.manageLoanArrow);
         txtProfile = view.findViewById(R.id.txtProfile);
         txtLogout = view.findViewById(R.id.txtLogout);
+        txtMessages = view.findViewById(R.id.txtMessages);
     }
 
     //handles the bottom navigation view icon presses.
