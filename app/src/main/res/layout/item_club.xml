@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    android:layout_margin="5dp"
+    android:id="@+id/parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chess Club"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:id="@+id/txtClubTitle"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is the best chess club in UTA"
+            android:id="@+id/txtShortDesc"
+            android:layout_below="@+id/txtClubTitle"
+            android:layout_marginTop="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/infoRelLayout"
+            android:layout_below="@+id/txtShortDesc"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Members: 55"
+                android:id="@+id/txtTotalMembers"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JOIN"
+                android:textColor="#009688"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/txtJoin"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

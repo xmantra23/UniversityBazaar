@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.PostActivity"
+    tools:context=".Activity.Posts.PostActivity"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -17,8 +17,11 @@ import android.widget.TextView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
+import org.samir.universitybazaar.Activity.Clubs.CreateClubActivity;
+import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
+import org.samir.universitybazaar.Fragments.AllClubsFragment;
 import org.samir.universitybazaar.Fragments.AllPostsFragment;
 import org.samir.universitybazaar.Fragments.HomeFragment;
 import org.samir.universitybazaar.Models.Profile;
@@ -34,6 +37,7 @@ import org.samir.universitybazaar.Utility.Constants;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private static final String TAG = "HomeActivity";
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private MaterialToolbar toolbar;
@@ -106,11 +110,13 @@ public class HomeActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.newPost:
                         //Redirect to the create a new post activity. This lets users create a new post.
-                        Intent intent = new Intent(HomeActivity.this,CreatePostActivity.class);
+                        Intent intent = new Intent(HomeActivity.this, CreatePostActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.newClub:
-                        // TODO: 2/18/2021 Redirect to new club activity
+                        // Redirect to the create a new club activity. This lets users create a new club.
+                        Intent intent2 = new Intent(HomeActivity.this, CreateClubActivity.class);
+                        startActivity(intent2);
                         break;
                     case R.id.sellItem:
                         // TODO: 2/18/2021 Redirect to sell item activity
@@ -140,11 +146,14 @@ public class HomeActivity extends AppCompatActivity {
         */
          if(activity_type == null){
             transaction.replace(R.id.container, new HomeFragment()); //container is defined as a fragment inside this activity.
-        }else if(activity_type.equals("post")){
+        }else if(activity_type.equals(Constants.POST)){
             transaction.replace(R.id.container, new AllPostsFragment()); //load all posts fragment in home activity.
-        }else if(activity_type.equals("home")){
+        }else if(activity_type.equals(Constants.HOME)){
             transaction.replace(R.id.container, new HomeFragment()); //load home fragment in home activity.
-        }
+        }else if(activity_type.equals(Constants.GROUP)){
+             transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs/groups fragment in home activity.
+         }
+
 
         transaction.commit();//finalizes loading the fragment.
     }
@@ -173,5 +182,12 @@ public class HomeActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

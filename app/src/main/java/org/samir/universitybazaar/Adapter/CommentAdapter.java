@@ -11,10 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.samir.universitybazaar.Activity.CommentReplyActivity;
-import org.samir.universitybazaar.Activity.EditProfileActivity;
-import org.samir.universitybazaar.Activity.PostActivity;
-import org.samir.universitybazaar.Activity.ViewProfileActivity;
+import org.samir.universitybazaar.Activity.Posts.CommentReplyActivity;
+import org.samir.universitybazaar.Activity.Posts.PostActivity;
 import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Database.UserSession;

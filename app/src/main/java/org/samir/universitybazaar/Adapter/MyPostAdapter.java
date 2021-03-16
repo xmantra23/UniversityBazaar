@@ -14,7 +14,7 @@ import com.google.android.material.card.MaterialCardView;
 
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Models.Post;
-import org.samir.universitybazaar.Activity.PostActivity;
+import org.samir.universitybazaar.Activity.Posts.PostActivity;
 import org.samir.universitybazaar.R;
 
 import java.util.ArrayList;
@@ -80,7 +80,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.ViewHolder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
-            txtPostTitle = itemView.findViewById(R.id.txtPostTitle);
+            txtPostTitle = itemView.findViewById(R.id.txtClubTitle);
             txtPostCategory = itemView.findViewById(R.id.txtPostCategory);
             txtDate = itemView.findViewById(R.id.txtDate);
             txtUserName = itemView.findViewById(R.id.txtUserName);

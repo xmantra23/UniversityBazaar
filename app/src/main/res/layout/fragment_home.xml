@@ -17,15 +17,26 @@
             android:id="@+id/txtProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_alignParentStart="true"
             android:layout_marginStart="2dp"
             android:text="PROFILE"
             android:textColor="#3F51B5" />
 
         <TextView
+            android:id="@+id/txtMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:text="MESSAGES(0)"
+            android:textColor="#3F51B5" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LOGOUT"
+            android:textSize="20sp"
             android:id="@+id/txtLogout"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="20dp"

@@ -23,13 +23,13 @@
                 android:text="Free Pizza @ ERB 123"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:id="@+id/txtPostTitle"/>
+                android:id="@+id/txtClubTitle"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(News)"
                 android:layout_marginStart="5dp"
-                android:layout_toEndOf="@+id/txtPostTitle"
+                android:layout_toEndOf="@+id/txtClubTitle"
                 android:id="@+id/txtPostCategory"/>
 
         </RelativeLayout>
@@ -37,7 +37,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/footerRelLayout"
+            android:id="@+id/infoRelLayout"
             android:layout_below="@+id/titleRelLayout"
             android:layout_marginTop="15dp">
 

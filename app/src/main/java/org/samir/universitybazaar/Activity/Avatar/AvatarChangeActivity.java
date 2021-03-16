@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Avatar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +8,11 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.samir.universitybazaar.Activity.Profile.EditProfileActivity;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 
-/**
- * @author Samir Shrestha,Yifei Lu
- * @Description This class help user to save the avatar they select.
- */
 public class AvatarChangeActivity extends AppCompatActivity implements View.OnClickListener {
     private User user;
     private Button back2Profile;
@@ -75,7 +72,7 @@ public class AvatarChangeActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this, AvatarActivity.class);
+        Intent intent = new Intent(this,AvatarActivity.class);
         switch (v.getId()){
             case R.id.bear:
                 intent.putExtra("image","bear");

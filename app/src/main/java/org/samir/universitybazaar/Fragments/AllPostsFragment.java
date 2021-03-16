@@ -79,10 +79,12 @@ public class AllPostsFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.post:
-                    // TODO: 2/18/2021 redirect to all posts activity
+                    // In allposts activity. No action required.
                     break;
                 case R.id.group:
-                    //TODO: 2/18/2021 redirect to all clubs activity
+                    Intent intent2 = new Intent(getActivity(), HomeActivity.class);
+                    intent2.putExtra(Constants.ACTIVITY_NAME,"group");  //sending signal that HomeFragment should be loaded in the HomeActivity's fragment.
+                    startActivity(intent2);
                     break;
                 case R.id.market:
                     // TODO: 2/18/2021 redirect to the markeplace activity
@@ -93,4 +95,6 @@ public class AllPostsFragment extends Fragment {
             return false;
         });
     }
+
+
 }

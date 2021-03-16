@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Posts;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.samir.universitybazaar.Authentication.LoginActivity;
@@ -87,7 +85,7 @@ public class CommentActivity extends AppCompatActivity {
                 if(commentDAO.addComment(comment)){ //insert successful
                     Toast.makeText(this, "Comment successfully.", Toast.LENGTH_LONG).show();
                     //Redirect to PostActivity
-                    Intent intent = new Intent(CommentActivity.this,PostActivity.class);
+                    Intent intent = new Intent(CommentActivity.this, PostActivity.class);
                     intent.putExtra(Constants.POST_ID,post_id);
                     startActivity(intent);
                 }else{ //insert failed

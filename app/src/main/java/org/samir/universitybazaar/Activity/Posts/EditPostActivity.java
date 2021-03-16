@@ -1,4 +1,4 @@
-package org.samir.universitybazaar.Activity;
+package org.samir.universitybazaar.Activity.Posts;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -21,6 +21,7 @@ import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
+
 
 /**
  * @author Jingwen Ma
