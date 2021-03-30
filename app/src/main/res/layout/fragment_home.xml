@@ -212,21 +212,30 @@
             android:layout_alignParentEnd="true"
             android:src="@drawable/ic_arrow"
             android:layout_marginTop="5dp"/>
+
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/txtAdvertise"
-        android:layout_below="@+id/loanedRelLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="ADVERTISING SPACE"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:textSize="50sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:background="@color/teal_700"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/AdvertisementRelLayout"
+        android:layout_below="@+id/loanedRelLayout"
+        android:layout_marginTop="10dp">
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/advertisement"
+            android:layout_width="match_parent"
+            android:layout_height="230dp" />
+
+        <LinearLayout
+            android:id="@+id/point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/advertisement"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+    </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

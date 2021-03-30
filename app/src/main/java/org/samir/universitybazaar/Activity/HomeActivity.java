@@ -5,13 +5,20 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -19,6 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.samir.universitybazaar.Activity.Clubs.CreateClubActivity;
 import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
+import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Fragments.AllClubsFragment;
@@ -28,6 +36,9 @@ import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Samir Shrestha
@@ -80,7 +91,6 @@ public class HomeActivity extends AppCompatActivity {
                 userName.setText(userProfile.getMemberId());
             userEmail.setText(userProfile.getEmail());//display the users email in the navigation drawer.
         }
-
     }
 
     //initializes all the views in the layout file.
@@ -91,8 +101,6 @@ public class HomeActivity extends AppCompatActivity {
         //this toolbar replaces the default system provided toolbar. This toolbar will contain a hamburger icon, pressing which will release the above
         //navigation view which contains the header and the menu.
         toolbar = findViewById(R.id.toolbar);
-
-
     }
 
     private void createToggleMenu(){
@@ -190,4 +198,5 @@ public class HomeActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
 }
