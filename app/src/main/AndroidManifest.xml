@@ -23,6 +23,7 @@
         <activity android:name=".Activity.Clubs.MySubscriptionsActivity" />
         <activity android:name=".Activity.Clubs.MyClubsActivity" />
         <activity android:name=".Activity.Clubs.CreateClubActivity" />
+        <activity android:name=".Activity.Clubs.EditClubActivity" />
         <activity android:name=".Activity.Posts.PostActivity" />
         <activity android:name=".Activity.Posts.MyPostsActivity" />
         <activity android:name=".Activity.Posts.CreatePostActivity" />
