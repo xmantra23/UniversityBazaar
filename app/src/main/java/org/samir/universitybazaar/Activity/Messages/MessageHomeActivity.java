@@ -2,6 +2,7 @@ package org.samir.universitybazaar.Activity.Messages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -28,8 +29,10 @@ public class MessageHomeActivity extends AppCompatActivity {
             // TODO: 4/5/2021 handle clicking sent messages button
         });
 
+        //navigate to activity that allows user to select what type of message are they trying to send.
         btnNewMessage.setOnClickListener(v->{
-            // TODO: 4/5/2021 handle clicking new message button
+            Intent intent = new Intent(MessageHomeActivity.this,MessageTypeActivity.class);
+            startActivity(intent);
         });
 
     }
