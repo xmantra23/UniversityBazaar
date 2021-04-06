@@ -2,6 +2,7 @@ package org.samir.universitybazaar.Activity.Messages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -20,7 +21,8 @@ public class MessageTypeActivity extends AppCompatActivity {
 
     private void handleListeners() {
         btnMember.setOnClickListener(v->{
-            // TODO: 4/5/2021 navigate to search user activity 
+            Intent intent = new Intent(MessageTypeActivity.this,SearchMemberActivity.class);
+            startActivity(intent);
         });
         
         btnClubMembers.setOnClickListener(v->{
