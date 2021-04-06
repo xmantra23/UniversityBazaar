@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Messages.NewMessageActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNewMessage"
+        android:text="New Message"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <View android:background="#050505"
+        android:layout_width = "match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/line1"
+        android:layout_below="@id/txtNewMessage"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subject:"
+        android:id="@+id/txtSubject"
+        android:textStyle="bold"
+        android:layout_below="@+id/line1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please type your subject."
+        android:id="@+id/edtTxtSubject"
+        android:layout_below="@+id/txtSubject"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Body:"
+        android:id="@+id/txtMessageBody"
+        android:layout_below="@+id/edtTxtSubject"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please type your message here."
+        android:minLines="4"
+        android:id="@+id/edtTxtMessageBody"
+        android:layout_below="@+id/txtMessageBody"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtMessageBody"
+        android:id="@+id/txtReceiverName"
+        android:text="Send to: Samir Shrestha"
+        android:layout_marginRight="10dp"
+        android:textStyle="bold"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:id="@+id/btnSendMessage"
+        android:layout_below="@+id/txtReceiverName"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Send"
+        app:backgroundTint="#2697F1"
+        app:cornerRadius="20dp"
+         />
+    <Button
+        android:id="@+id/btnCancelMessage"
+        android:layout_below="@+id/btnSendMessage"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Cancel"
+        app:backgroundTint="#D84848"
+        app:cornerRadius="20dp"
+        />
+
+
+
+
+</RelativeLayout>

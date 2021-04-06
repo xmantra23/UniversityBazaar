@@ -2,6 +2,7 @@ package org.samir.universitybazaar.Adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.samir.universitybazaar.Activity.Messages.NewMessageActivity;
 import org.samir.universitybazaar.Models.Member;
 import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
@@ -39,12 +42,19 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //initialize the fields in the item_member.xml layout file
-        holder.txtMemberName.setText("Member Name: "+ members.get(position).getMemberName());
-        holder.txtMemberId.setText("Member ID: " + members.get(position).getMemberId());
+        String memberName = members.get(position).getMemberName();
+        String memberId = members.get(position).getMemberId();
+        holder.txtMemberName.setText("Member Name: "+ memberName);
+        holder.txtMemberId.setText("Member ID: " + memberId);
 
-        //handle clicking on the member item
+        //handle clicking on the individual member item in the search page.
         holder.parent.setOnClickListener(v->{
-            // TODO: 4/5/2021 navigate to the new message activity
+            Intent intent = new Intent(context, NewMessageActivity.class);
+            //need to pass memberId and memberName  and message type to the NewMessageActivity
+            intent.putExtra(Constants.MEMBER_ID,memberId);
+            intent.putExtra(Constants.MEMBER_NAME,memberName);
+            intent.putExtra(Constants.MESSAGE_TYPE,Constants.SINGLE_MESSAGE); //need to specify that we are trying to send a message to a single member.
+            context.startActivity(intent);
         });
     }
 

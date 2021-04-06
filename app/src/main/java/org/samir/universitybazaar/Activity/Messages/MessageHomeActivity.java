@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.R;
 
 public class MessageHomeActivity extends AppCompatActivity {
@@ -41,5 +42,13 @@ public class MessageHomeActivity extends AppCompatActivity {
         btnInbox = findViewById(R.id.btnInbox);
         btnSentMessages = findViewById(R.id.btnSentMessages);
         btnNewMessage = findViewById(R.id.btnNewMessage);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //navigate to the HomePage if user presses back button
+        Intent intent = new Intent(MessageHomeActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
