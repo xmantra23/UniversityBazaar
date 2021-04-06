@@ -1,12 +1,15 @@
 package org.samir.universitybazaar.Database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.Models.ClubPost;
 import org.samir.universitybazaar.Models.Member;
+import org.samir.universitybazaar.Models.Message;
 
 import java.util.ArrayList;
 
@@ -63,6 +66,44 @@ public class MessageDAO {
             e.printStackTrace();
             db.close();
             return null;
+        }
+    }
+
+    //adds a message to the messages table
+    public boolean addSingleMessage(Message message){
+        if(databaseHelper != null){
+            SQLiteDatabase db = null;
+            try {
+                db = databaseHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put("subject",message.getSubject());
+                values.put("message",message.getMessage());
+                values.put("senderId",message.getSenderId());
+                values.put("senderName",message.getSenderName());
+                values.put("receiverId", message.getReceiverId());
+                values.put("receiverName", message.getReceiverName());
+                values.put("messageDate",message.getMessageDate());
+                values.put("readStatus",message.getReadStatus());
+
+                long messageId = db.insert("messages",null,values);
+                db.close();
+
+                if(messageId != -1){ //insert was successful
+                    return true;
+                }else{ //insert failed.
+                    return false;
+                }
+            } catch (SQLException e) {
+                //error inserting in database
+                e.printStackTrace();
+                db.close();
+                return false;
+            }finally {
+                db.close();
+            }
+        }else{
+            //couldn't connect to the database
+            return false;
         }
     }
 
