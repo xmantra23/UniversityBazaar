@@ -278,5 +278,29 @@ public class MessageDAO {
         return count;
     }
 
+    public boolean markMessageRead(int messageId){
+        boolean status = false;
+        if(databaseHelper != null){
+            SQLiteDatabase db = databaseHelper.getWritableDatabase();
+            try {
+                ContentValues values = new ContentValues();
+                if(messageId != -1){
+                    values.put("readStatus",1); //change readStatus to 1 (message has been read)
+                    String[] args = {messageId+""}; //selection criteria for updating the row.
+                    int count = db.update("messages",values,"_id=?",args); //update readStatus in messages table where _id == messageId
+                    if(count > 0){
+                        //update was successful.
+                        status = true;
+                    }
+                }
+            }catch(SQLException e){
+                e.printStackTrace();
+            }finally {
+                db.close();
+            }
+        }
+        return status;
+    }
+
 
 }
