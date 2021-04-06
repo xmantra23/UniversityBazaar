@@ -24,6 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
 import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
+import org.samir.universitybazaar.Activity.Messages.MessageHomeActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Activity.Posts.MyPostsActivity;
@@ -125,9 +126,10 @@ public class HomeFragment extends Fragment {
             userSession.signOutUser();
         });
         
-        //handle messages
+        //navigate to message home activity. displays the three buttons for the message actions.
         txtMessages.setOnClickListener(v->{
-            // TODO: 3/15/2021 handle all functionality related to reading and sending messages.
+            Intent intent = new Intent(getActivity(), MessageHomeActivity.class);
+            startActivity(intent);
         });
     }
 

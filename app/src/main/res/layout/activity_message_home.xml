@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Messages.MessageHomeActivity">
+
+    <Button
+        android:id="@+id/btnInbox"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:text="Inbox"
+        app:backgroundTint="#2697F1"
+        app:cornerRadius="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSentMessages"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Sent Messages"
+        app:backgroundTint="#2697F1"
+        app:cornerRadius="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnInbox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnInbox"
+        app:layout_constraintTop_toBottomOf="@+id/btnInbox" />
+
+    <Button
+        android:id="@+id/btnNewMessage"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="New message"
+        app:backgroundTint="#2697F1"
+        app:cornerRadius="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSentMessages"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnSentMessages"
+        app:layout_constraintTop_toBottomOf="@+id/btnSentMessages" />
+</androidx.constraintlayout.widget.ConstraintLayout>
