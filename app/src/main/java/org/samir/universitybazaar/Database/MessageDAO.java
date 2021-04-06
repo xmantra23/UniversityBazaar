@@ -253,5 +253,30 @@ public class MessageDAO {
         }
     }
 
+    public int getUnreadMessagesCount(String receiverId){
+        int count = 0;
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{receiverId,"0"};
+
+            //retrieve the messages from the messages table whose receiverId is the provided receiverId  and readStatus = 0 (not read)
+            Cursor cursor = db.query("messages", null, "receiverId=? AND readStatus=?", args, null, null, null);
+            if(cursor != null){
+                count = cursor.getCount();
+                db.close();
+                cursor.close();
+            }else{
+                db.close();
+                cursor.close();
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+        }
+        return count;
+    }
+
 
 }

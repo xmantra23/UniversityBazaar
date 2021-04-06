@@ -2,6 +2,7 @@ package org.samir.universitybazaar.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,11 @@ public class InboxMessageAdapter extends RecyclerView.Adapter<InboxMessageAdapte
         String senderName = messages.get(position).getSenderName();
         String messageDate = messages.get(position).getMessageDate();
         holder.txtSubject.setText(subject);
+        if(messages.get(position).getReadStatus() == 0){
+            holder.txtSubject.setTypeface(null, Typeface.BOLD);
+        }else{
+            holder.txtSubject.setTypeface(null, Typeface.NORMAL);
+        }
         holder.txtSenderName.setText("Sent By: " + senderName);
         holder.txtReceivedDate.setText(messageDate);
 
