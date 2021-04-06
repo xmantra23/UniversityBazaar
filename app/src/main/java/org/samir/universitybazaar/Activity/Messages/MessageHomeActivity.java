@@ -23,7 +23,8 @@ public class MessageHomeActivity extends AppCompatActivity {
 
     private void handleListeners() {
         btnInbox.setOnClickListener(v->{
-            // TODO: 4/5/2021 handle clicking inbox button
+            Intent intent = new Intent(MessageHomeActivity.this,InboxActivity.class);
+            startActivity(intent);
         });
 
         btnSentMessages.setOnClickListener(v->{

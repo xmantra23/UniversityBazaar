@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import org.samir.universitybazaar.Models.Club;
+import org.samir.universitybazaar.Models.ClubNotice;
 import org.samir.universitybazaar.Models.ClubPost;
 import org.samir.universitybazaar.Models.Member;
 import org.samir.universitybazaar.Models.Message;
@@ -106,5 +107,57 @@ public class MessageDAO {
             return false;
         }
     }
+
+
+    //retrieve all the messages from the messages table whose receiver id matches the provided argument receiverId.
+    public ArrayList<Message> getInboxMessages(String receiverId){
+        ArrayList<Message> messages = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{receiverId};
+
+            //retrieve the messages from the messages table whose receiverId is the provided receiverId  in the argument.
+            Cursor cursor = db.query("messages", null, "receiverId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+                        int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String subject = cursor.getString(cursor.getColumnIndex("subject"));
+                        String message = cursor.getString(cursor.getColumnIndex("message"));
+                        String senderId = cursor.getString(cursor.getColumnIndex("senderId"));
+                        String senderName = cursor.getString(cursor.getColumnIndex("senderName"));
+                        String receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
+                        String messageDate = cursor.getString(cursor.getColumnIndex("messageDate"));
+                        int readStatus = cursor.getInt(cursor.getColumnIndex("readStatus"));
+
+                        Message inboxMessage = new Message(_id,subject,message,senderId,senderName,receiverId,receiverName,messageDate,readStatus);
+                        messages.add(inboxMessage); // collecting all the messages.
+
+                        //stop if last row of data has been read else continue to the next row.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return messages;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
 
 }
