@@ -54,6 +54,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createClubPostsTable(db); //creates a table club_posts that holds all the posts made within a given club.
         createClubNoticeCommentsTable(db); //creates club_notice_comments for user comments made inside a club notice in the database.
         createMessagesTable(db); //creates a messages table in the database. stores all the messages.
+        createSentMessagesTable(db); //stores sent messages. similar to messages table but only to be used for getting sent messages.
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description stores sent messages. similar to messages table but only to be used for getting sent messages.
+     */
+
+    private void createSentMessagesTable(SQLiteDatabase db) {
+        String createSentMessagesTable = "CREATE TABLE sent_messages (_id INTEGER PRIMARY KEY AUTOINCREMENT,subject TEXT NOT NULL" +
+                " ,message TEXT NOT NULL, senderId TEXT NOT NULL, senderName TEXT NOT NULL,receiverId TEXT, " +
+                "receiverName TEXT NOT NULL, messageDate TEXT NOT NULL)";
+        db.execSQL(createSentMessagesTable);
     }
 
     /**

@@ -2,11 +2,13 @@ package org.samir.universitybazaar.Activity.Messages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
+import org.samir.universitybazaar.Adapter.SentMessagesAdapter;
 import org.samir.universitybazaar.R;
 
 public class MessageHomeActivity extends AppCompatActivity {
@@ -28,7 +30,8 @@ public class MessageHomeActivity extends AppCompatActivity {
         });
 
         btnSentMessages.setOnClickListener(v->{
-            // TODO: 4/5/2021 handle clicking sent messages button
+            Intent intent = new Intent(MessageHomeActivity.this, SentMessagesActivity.class);
+            startActivity(intent);
         });
 
         //navigate to activity that allows user to select what type of message are they trying to send.

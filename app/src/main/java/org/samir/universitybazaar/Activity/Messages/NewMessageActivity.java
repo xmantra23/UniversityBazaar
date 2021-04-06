@@ -78,7 +78,7 @@ public class NewMessageActivity extends AppCompatActivity {
             Message message = new Message(subject,messageBody,senderId,senderName,receiverId,receiverName,messageDate,0);
             if(db.addSingleMessage(message)){
                 Toast.makeText(this, "Message successfully send.", Toast.LENGTH_SHORT).show();
-
+                db.addToSentMessages(message,Constants.SINGLE_MESSAGE); //adding to the sent_messages table and signifying that it is a single message.
                 //after sending the message navigate to the MessageHomeActivity
                 Intent intent = new Intent(NewMessageActivity.this,MessageHomeActivity.class);
                 startActivity(intent);

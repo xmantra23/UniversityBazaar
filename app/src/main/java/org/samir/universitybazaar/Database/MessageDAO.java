@@ -11,6 +11,7 @@ import org.samir.universitybazaar.Models.ClubNotice;
 import org.samir.universitybazaar.Models.ClubPost;
 import org.samir.universitybazaar.Models.Member;
 import org.samir.universitybazaar.Models.Message;
+import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
@@ -135,6 +136,99 @@ public class MessageDAO {
 
                         Message inboxMessage = new Message(_id,subject,message,senderId,senderName,receiverId,receiverName,messageDate,readStatus);
                         messages.add(inboxMessage); // collecting all the messages.
+
+                        //stop if last row of data has been read else continue to the next row.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return messages;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+    //adds a message to the sent_messages table
+    public boolean addToSentMessages(Message message,String messageType){
+        if(databaseHelper != null){
+            SQLiteDatabase db = null;
+            try {
+                db = databaseHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put("subject",message.getSubject());
+                values.put("message",message.getMessage());
+                values.put("senderId",message.getSenderId());
+                values.put("senderName",message.getSenderName());
+
+                //only a single message or club message should have a receiverId. Incase of single it is the memberId of the receiving
+                //user. Incase of clubs it is the clubId.
+                if(messageType.equals(Constants.SINGLE_MESSAGE) || messageType.equals(Constants.CLUB_MESSAGE)){
+                    values.put("receiverId", message.getReceiverId());
+                }else{
+                    values.put("receiverId","none");
+                }
+                values.put("receiverName", message.getReceiverName());
+                values.put("messageDate",message.getMessageDate());
+
+                long messageId = db.insert("sent_messages",null,values);
+                db.close();
+
+                if(messageId != -1){ //insert was successful
+                    return true;
+                }else{ //insert failed.
+                    return false;
+                }
+            } catch (SQLException e) {
+                //error inserting in database
+                e.printStackTrace();
+                db.close();
+                return false;
+            }finally {
+                db.close();
+            }
+        }else{
+            //couldn't connect to the database
+            return false;
+        }
+    }
+
+    //retrieve all the messages from the sent_messages table whose receiver id matches the provided argument receiverId.
+    public ArrayList<Message> getSentMessages(String senderId){
+        ArrayList<Message> messages = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+
+            String[] args = new String[]{senderId};
+
+            //retrieve the messages from the messages table whose receiverId is the provided receiverId  in the argument.
+            Cursor cursor = db.query("sent_messages", null, "senderId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+                        int _id = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String subject = cursor.getString(cursor.getColumnIndex("subject"));
+                        String message = cursor.getString(cursor.getColumnIndex("message"));
+                        String senderName = cursor.getString(cursor.getColumnIndex("senderName"));
+                        String receiverId = cursor.getString(cursor.getColumnIndex("receiverId"));
+                        String receiverName = cursor.getString(cursor.getColumnIndex("receiverName"));
+                        String messageDate = cursor.getString(cursor.getColumnIndex("messageDate"));
+
+                        Message sentMessage = new Message(_id,subject,message,senderId,senderName,receiverId,receiverName,messageDate,0);
+                        messages.add(sentMessage); // collecting all the messages.
 
                         //stop if last row of data has been read else continue to the next row.
                         if(cursor.isLast()){
