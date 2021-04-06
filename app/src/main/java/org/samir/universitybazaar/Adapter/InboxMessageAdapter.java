@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.samir.universitybazaar.Activity.Messages.InboxMessageActivity;
 import org.samir.universitybazaar.Activity.Messages.NewMessageActivity;
 import org.samir.universitybazaar.Models.Message;
 import org.samir.universitybazaar.R;
@@ -55,7 +56,9 @@ public class InboxMessageAdapter extends RecyclerView.Adapter<InboxMessageAdapte
 
         //handle clicking on the individual message on the inbox page.
         holder.parent.setOnClickListener(v->{
-
+            Intent intent = new Intent(context, InboxMessageActivity.class);
+            intent.putExtra(Constants.MESSAGE,messages.get(position)); //passing the message object to the next activity.
+            context.startActivity(intent);
         });
     }
 

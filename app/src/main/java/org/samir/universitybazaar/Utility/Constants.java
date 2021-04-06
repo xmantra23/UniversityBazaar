@@ -24,4 +24,5 @@ public class Constants {
     public static final String SINGLE_MESSAGE = "single";
     public static final String CLUB_MESSAGE = "club_message";
     public static final String ALL_MESSAGE = "all_message";
+    public static final String MESSAGE = "message";
 }
