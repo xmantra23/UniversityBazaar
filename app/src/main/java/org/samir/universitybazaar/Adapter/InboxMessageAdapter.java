@@ -46,6 +46,8 @@ public class InboxMessageAdapter extends RecyclerView.Adapter<InboxMessageAdapte
         String senderName = messages.get(position).getSenderName();
         String messageDate = messages.get(position).getMessageDate();
         holder.txtSubject.setText(subject);
+
+        //if the message has not been read then make the subject bold.
         if(messages.get(position).getReadStatus() == 0){
             holder.txtSubject.setTypeface(null, Typeface.BOLD);
         }else{

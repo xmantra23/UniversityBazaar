@@ -1,6 +1,7 @@
 package org.samir.universitybazaar.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.samir.universitybazaar.Activity.Messages.InboxMessageActivity;
+import org.samir.universitybazaar.Activity.Messages.SentMessageDetailsActivity;
 import org.samir.universitybazaar.Models.Message;
 import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
@@ -43,7 +47,9 @@ public class SentMessagesAdapter extends  RecyclerView.Adapter<SentMessagesAdapt
 
         //handle clicking on the individual message on the sent messages page.
         holder.parent.setOnClickListener(v->{
-
+            Intent intent = new Intent(context, SentMessageDetailsActivity.class);
+            intent.putExtra(Constants.MESSAGE,messages.get(position)); //passing the message object to the next activity.
+            context.startActivity(intent);
         });
 
     }
