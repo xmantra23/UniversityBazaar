@@ -24,7 +24,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\samir_000\AppData\Local\Temp\baseline_keyboard_arrow_right_24.xml" />
+                                                <entry key="imagePath" value="C:\Users\samir_000\AppData\Local\Temp\baseline_attach_money_24.xml" />
                                                 <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
@@ -36,7 +36,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="file:/$PROJECT_DIR$/../../../../../Applications/Android-SDK/icons/material/materialicons/keyboard_arrow_right/baseline_keyboard_arrow_right_24.xml" />
+                                                <entry key="url" value="file:/$PROJECT_DIR$/../../../../../Applications/Android-SDK/icons/material/materialicons/attach_money/baseline_attach_money_24.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -68,7 +68,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_arrow" />
+                                      <entry key="outputName" value="ic_sell" />
                                     </map>
                                   </option>
                                 </PersistentState>
