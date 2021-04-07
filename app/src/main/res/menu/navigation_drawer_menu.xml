@@ -2,14 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="Create New Post"
-        android:id="@+id/newPost"/>
+        android:id="@+id/newPost"
+        android:icon="@drawable/ic_post"/>
     <item
         android:title="Create New Club"
-        android:id="@+id/newClub"/>
+        android:id="@+id/newClub"
+        android:icon="@drawable/ic_group"/>
     <item
         android:title="Sell An Item"
-        android:id="@+id/sellItem"/>
+        android:id="@+id/sellItem"
+        android:icon="@drawable/ic_sell"/>
     <item
         android:title="Loan An Item"
-        android:id="@+id/loanItem"/>
+        android:id="@+id/loanItem"
+        android:icon="@drawable/ic_loan"/>
+    <item
+        android:title="Search Posts"
+        android:id="@+id/searchPosts"
+        android:icon="@drawable/ic_search" />
+    <item
+        android:title="Search Clubs"
+        android:id="@+id/searchClubs"
+        android:icon="@drawable/ic_search"/>
+    <item
+        android:title="Search Market"
+        android:id="@+id/searchMarket"
+        android:icon="@drawable/ic_search"/>
 </menu>
