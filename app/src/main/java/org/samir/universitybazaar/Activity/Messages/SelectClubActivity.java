@@ -29,8 +29,10 @@ public class SelectClubActivity extends AppCompatActivity {
         ClubDAO db = new ClubDAO(this);
         User user = Utils.getLoggedInUser(this);
         ArrayList<Club> clubs = db.getClubsByMemberId(user.getMemberId());
-        adapter.setClubs(clubs);
-        clubsRecView.setAdapter(adapter);
-        clubsRecView.setLayoutManager(new GridLayoutManager(this,2));
+        if(clubs != null){
+            adapter.setClubs(clubs);
+            clubsRecView.setAdapter(adapter);
+            clubsRecView.setLayoutManager(new GridLayoutManager(this,2));
+        }
     }
 }

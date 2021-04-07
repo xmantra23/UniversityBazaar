@@ -1,18 +1,22 @@
 package org.samir.universitybazaar.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
+import org.samir.universitybazaar.Activity.Messages.NewMessageActivity;
 import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
@@ -36,7 +40,20 @@ public class SelectClubAdapter extends RecyclerView.Adapter<SelectClubAdapter.Vi
         holder.txtClubName.setText(clubs.get(position).getTitle());
 
         holder.parent.setOnClickListener(v->{
-            //handle clicking the club.
+            //only proceed to sending message if the clubs has at-least 1 member.
+            if(clubs.get(position).getMemberCount() == 0){
+                Toast.makeText(context, "This club has no members.", Toast.LENGTH_SHORT).show();
+            }else{
+                //navigate to new message activity and pass the clubid, clubname and type of message that we are trying to send.
+                Intent intent = new Intent(context, NewMessageActivity.class);
+                intent.putExtra(Constants.MEMBER_NAME,clubs.get(position).getTitle());
+                //pass the club id as string
+                String clubId = String.valueOf(clubs.get(position).get_id());
+                intent.putExtra(Constants.MEMBER_ID,clubId);
+                intent.putExtra(Constants.MESSAGE_TYPE,Constants.CLUB_MESSAGE);
+                context.startActivity(intent);
+            }
+
         });
     }
 

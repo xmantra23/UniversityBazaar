@@ -344,4 +344,47 @@ public class MessageDAO {
     }
 
 
+    public ArrayList<String> getAllClubMembersId(int clubId){
+        ArrayList<String> memberIds = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = databaseHelper.getReadableDatabase();
+            String[] args = new String[]{String.valueOf(clubId)};
+            String[] cols = new String[]{"memberId"};
+            //retrieve the member id from the club_members table whose club id matches the provided clubId.
+            Cursor cursor = db.query("club_members", cols, "clubId=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+                        String memberId = cursor.getString(cursor.getColumnIndex("memberID"));
+                        memberIds.add(memberId); // add memberId to the memberIds array list
+
+                        //stop if last row of data has been read else continue to the next row.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return memberIds;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+
+    }
+
+
+
+
 }
