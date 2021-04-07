@@ -87,7 +87,11 @@ public class AllPostsFragment extends Fragment {
                     startActivity(intent2);
                     break;
                 case R.id.market:
-                    // TODO: 2/18/2021 redirect to the markeplace activity
+                    // You need to first implement a MarketFragment that displays all the sale and rent items and then
+                    // redirect to the  HomeActivity but you need to pass the activity name as "market"
+                    // inside the intent.putExtra.
+                    // so you need to do intent.putExtra(Constants.ACTIVITY_NAME,"market");
+                    // See line 78 and line 86 in this page.
                     break;
                 default:
                     break;

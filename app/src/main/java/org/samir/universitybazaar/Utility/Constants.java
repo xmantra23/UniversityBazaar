@@ -18,6 +18,7 @@ public class Constants {
     public static final String HOME = "home";
     public static final String GROUP = "group";
     public static final String POST = "post";
+    public static final String MARKET = "market";
     public static final String MEMBER_NAME = "member_name";
     public static final String MEMBER_ID = "member_id";
     public static final String MESSAGE_TYPE = "message_type";
