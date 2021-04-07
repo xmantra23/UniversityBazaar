@@ -11,8 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
+        <activity android:name=".Activity.Messages.SelectClubActivity"></activity>
+        <activity android:name=".Activity.Messages.SentMessageDetailsActivity" />
+        <activity android:name=".Activity.Messages.InboxMessageActivity" />
+        <activity android:name=".Activity.Messages.SentMessagesActivity" />
+        <activity android:name=".Activity.Messages.InboxActivity" />
+        <activity android:name=".Activity.Messages.NewMessageActivity" />
+        <activity android:name=".Activity.Messages.SearchMemberActivity" />
+        <activity android:name=".Activity.Messages.MessageTypeActivity" />
+        <activity android:name=".Activity.Messages.MessageHomeActivity" />
         <activity android:name=".Activity.Posts.EditPostActivity" />
-        <activity android:name=".Activity.Clubs.CommentOnNoticeActivity"></activity>
+        <activity android:name=".Activity.Clubs.CommentOnNoticeActivity" />
         <activity android:name=".Activity.Clubs.ClubPostActivity" />
         <activity android:name=".Activity.Clubs.NoticeActivity" />
         <activity android:name=".Activity.Clubs.ClubPostsActivity" />
@@ -23,6 +32,7 @@
         <activity android:name=".Activity.Clubs.MySubscriptionsActivity" />
         <activity android:name=".Activity.Clubs.MyClubsActivity" />
         <activity android:name=".Activity.Clubs.CreateClubActivity" />
+        <activity android:name=".Activity.Clubs.EditClubActivity" />
         <activity android:name=".Activity.Posts.PostActivity" />
         <activity android:name=".Activity.Posts.MyPostsActivity" />
         <activity android:name=".Activity.Posts.CreatePostActivity" />

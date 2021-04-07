@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.MainActivity;
+import org.samir.universitybazaar.Activity.Posts.PostActivity;
 import org.samir.universitybazaar.Adapter.ClubNoticeAdapter;
 import org.samir.universitybazaar.Adapter.ClubPostsAdapter;
 import org.samir.universitybazaar.Database.ClubDAO;
+import org.samir.universitybazaar.Database.PostDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.Models.ClubNotice;
@@ -161,10 +166,28 @@ public class ClubActivity extends AppCompatActivity {
             }
         });
         txtEdit.setOnClickListener(v->{
-            //// TODO: 3/8/2021 handle editing post. only admin should be allowed to edit
+            /**
+             * @author minyi lu
+             * @discription open edit clue page
+             */
+            if (isOwner){
+                Intent intent = new Intent(ClubActivity.this,EditClubActivity.class);
+                intent.putExtra(Constants.CLUB_ID,club.get_id());
+                startActivity(intent);
+            } else {
+                Toast.makeText(ClubActivity.this, "Sorry, you are not the owner of this club!", Toast.LENGTH_LONG).show();
+            }
         });
         txtDelete.setOnClickListener(v->{
-            // TODO: 3/8/2021 handle delete post. only admin should be allowed to delete.
+            /**
+             * @author minyi lu
+             * @discription delete club
+             */
+            if (isOwner){
+                handleDeleteClub();
+            } else {
+                Toast.makeText(ClubActivity.this, "Sorry, you are not the owner of this club!", Toast.LENGTH_LONG).show();
+            }
         });
 
     }
@@ -189,5 +212,45 @@ public class ClubActivity extends AppCompatActivity {
         Intent intent = new Intent(ClubActivity.this, HomeActivity.class);
         intent.putExtra(Constants.ACTIVITY_NAME,Constants.GROUP);
         startActivity(intent);
+    }
+
+    /**
+     * @author minyi
+     * @discription open normalDialog and delete club
+     */
+    private void handleDeleteClub(){
+        AlertDialog.Builder normalDialog = new AlertDialog.Builder(ClubActivity.this);
+        normalDialog.setTitle("Delete");
+        normalDialog.setMessage("Are your sure you want to delete ?");
+        //Delete the post and back
+        normalDialog.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ClubDAO cb = new ClubDAO(ClubActivity.this);
+                boolean flag = cb.deleteClub(clubId);
+                if (flag){
+                    Toast.makeText(ClubActivity.this, "Delete Club Successfully!", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(ClubActivity.this, MyClubsActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(ClubActivity.this, "Delete Club failed!", Toast.LENGTH_LONG).show();
+                }
+
+
+
+            }
+        });
+        //Stay on the current page
+        normalDialog.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ClubActivity.this, "Cancel", Toast.LENGTH_LONG).show();
+                    }
+                });
+        normalDialog.show();
     }
 }

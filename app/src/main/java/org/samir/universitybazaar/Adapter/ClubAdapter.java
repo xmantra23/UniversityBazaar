@@ -1,5 +1,6 @@
 package org.samir.universitybazaar.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -119,6 +120,11 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
                     Intent intent = new Intent(context, ClubActivity.class);
                     intent.putExtra(Constants.CLUB_ID,clubs.get(position).get_id());
                     context.startActivity(intent);
+                    if (context instanceof Activity) {
+                        // finish activity
+                        Activity activity = (Activity) context;
+                        activity.finish();
+                    }
                 }else{
                     Toast.makeText(context, "You are not subscribed to this club.", Toast.LENGTH_LONG).show();
                 }

@@ -538,6 +538,27 @@ public class ClubDAO {
         }
     }
 
+    /**
+     * @author minyi lu
+     * @param club
+     * @description Update the club information by club id
+     */
+    public boolean updateClub(Club club){
+        try {
+            SQLiteDatabase db = databaseHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("title",club.getTitle());
+            values.put("shortDescription",club.getShortDescription());
+            values.put("longDescription",club.getLongDescription());
+            db.update("clubs", values, "_id = '"+club.get_id()+"'", null );
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     //This method returns all the clubs in the system.
     public ArrayList<Club> getAllClubs(){
@@ -801,6 +822,26 @@ public class ClubDAO {
             e.printStackTrace();
             db.close();
             return null;
+        }
+    }
+
+    /**
+     * @author Minyi Lu
+     * @Description Delete club by club id
+     */
+    public boolean deleteClub(int club_id){
+        try {
+            SQLiteDatabase db = databaseHelper.getWritableDatabase();
+            //4 tables include club id, delete them all
+            db.delete("clubs", "_id = '"+club_id+"'", null);
+            db.delete("club_posts", "clubid = '"+club_id+"'", null);
+            db.delete("club_notice", "clubid = '"+club_id+"'", null);
+            db.delete("club_members", "clubid = '"+club_id+"'", null);
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

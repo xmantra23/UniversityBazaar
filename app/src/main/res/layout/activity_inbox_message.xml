@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Messages.InboxMessageActivity"
+    android:layout_margin="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtSubject"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="This is the subject of the message"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/txtMessageBody"
+        android:layout_below="@+id/txtSubject"
+        android:text="This is the body of a very very long text message. This is a very long Text message. This is a very long Text message. This is a very long Text message. This is a very long Text message. This is a very long Text message. This is a very long Text message. This is a very long Text message."/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/senderRelLayout"
+        android:layout_below="@+id/txtMessageBody"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSenderName"
+            android:textSize="12sp"
+            android:text="Send By: Samir Shrestha"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtReceivedDate"
+            android:text="08/12/2016"
+            android:textSize="12sp"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnReply"
+        android:layout_width="250dp"
+        android:layout_below="@id/senderRelLayout"
+        android:layout_height="wrap_content"
+        android:text="Reply"
+        android:layout_marginTop="40dp"
+        app:backgroundTint="#0394F4"
+        android:layout_centerHorizontal="true"
+        app:cornerRadius="18dp" />
+
+</RelativeLayout>
