@@ -27,7 +27,8 @@ public class MessageTypeActivity extends AppCompatActivity {
         });
         
         btnClubMembers.setOnClickListener(v->{
-            // TODO: 4/5/2021 navigate to club selecting activity
+            Intent intent = new Intent(MessageTypeActivity.this,SelectClubActivity.class);
+            startActivity(intent);
         });
         
         btnAllUsers.setOnClickListener(v->{

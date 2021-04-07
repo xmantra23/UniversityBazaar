@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
-        <activity android:name=".Activity.Messages.SentMessageDetailsActivity"></activity>
+        <activity android:name=".Activity.Messages.SelectClubActivity"></activity>
+        <activity android:name=".Activity.Messages.SentMessageDetailsActivity" />
         <activity android:name=".Activity.Messages.InboxMessageActivity" />
         <activity android:name=".Activity.Messages.SentMessagesActivity" />
         <activity android:name=".Activity.Messages.InboxActivity" />
