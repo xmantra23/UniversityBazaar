@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import org.samir.universitybazaar.R;
+import org.samir.universitybazaar.Utility.Constants;
 
 public class MessageTypeActivity extends AppCompatActivity {
     private Button btnMember, btnClubMembers, btnAllUsers;
@@ -26,11 +27,15 @@ public class MessageTypeActivity extends AppCompatActivity {
         });
         
         btnClubMembers.setOnClickListener(v->{
-            // TODO: 4/5/2021 navigate to club selecting activity 
+            // TODO: 4/5/2021 navigate to club selecting activity
         });
         
         btnAllUsers.setOnClickListener(v->{
-            // TODO: 4/5/2021 navigate to  new message activty. 
+            Intent intent = new Intent(MessageTypeActivity.this,NewMessageActivity.class);
+            intent.putExtra(Constants.MEMBER_NAME,"All Users");
+            intent.putExtra(Constants.MEMBER_ID,-1);
+            intent.putExtra(Constants.MESSAGE_TYPE,Constants.ALL_MESSAGE);
+            startActivity(intent);
         });
     }
 

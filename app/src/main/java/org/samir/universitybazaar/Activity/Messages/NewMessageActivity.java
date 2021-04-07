@@ -17,6 +17,8 @@ import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Utility.Utils;
 
+import java.util.ArrayList;
+
 /**
  * @author Samir Shrestha
  * This is class displays a new message form which allows a user to send a new message to other members.
@@ -27,6 +29,7 @@ public class NewMessageActivity extends AppCompatActivity {
     private Button btnSendMessage,btnCancelMessage;
     private String messageType,memberName,memberId;
     private User user;
+    private MessageDAO db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,7 @@ public class NewMessageActivity extends AppCompatActivity {
     }
 
     private void handleSendingMessage() {
-        MessageDAO db = new MessageDAO(this);
+        db = new MessageDAO(this);
 
         //get all the data to construct the message object
         String messageDate = Utils.getCurrentDate();
@@ -71,8 +74,8 @@ public class NewMessageActivity extends AppCompatActivity {
         String senderId = user.getMemberId();
         String senderName = Utils.getUserFullName(this);
 
-        //handle sending a message to a single user.
         if(messageType.equals(Constants.SINGLE_MESSAGE)){
+            //handle sending a message to a single user.
             String receiverId = memberId;
             String receiverName = memberName;
             Message message = new Message(subject,messageBody,senderId,senderName,receiverId,receiverName,messageDate,0);
@@ -85,6 +88,32 @@ public class NewMessageActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(this, "Error couldn't send message.", Toast.LENGTH_SHORT).show();
             }
+        }else if(messageType.equals(Constants.ALL_MESSAGE)){
+            //send message to everybody in the system.
+            boolean success = true;
+            ArrayList<String> allMembersId = db.getAllUsersId(senderId);
+
+            //go through all users id and send message to everyone.
+            for(String receiverId : allMembersId){
+                Message message = new Message(subject,messageBody,senderId,senderName,receiverId,"user",messageDate,0);
+                if(!db.addSingleMessage(message)){
+                    success = false;
+                };
+            }
+
+            //records the sent message in the database in the sent_messages table.
+            Message sentMessage = new Message(subject,messageBody,senderId,senderName,"none","All Users",messageDate,0);
+            db.addToSentMessages(sentMessage,Constants.ALL_MESSAGE);
+
+            //see if messages were successfully sent to everyone or not.
+            if(success){
+                Toast.makeText(this, "Successfully Messaged All Users", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this,"Error sending to all users",Toast.LENGTH_SHORT).show();
+            }
+            //after sending the message navigate to the MessageHomeActivity
+            Intent intent = new Intent(NewMessageActivity.this,MessageHomeActivity.class);
+            startActivity(intent);
         }
 
     }

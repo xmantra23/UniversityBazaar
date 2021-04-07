@@ -621,7 +621,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     private static void createUserProfileTable(SQLiteDatabase db){
         String createUserProfileTable = "CREATE TABLE user_profiles (_id INTEGER PRIMARY KEY AUTOINCREMENT, member_id TEXT NOT NULL UNIQUE" +
-                " ,email TEXT NOT NULL UNIQUE, full_name TXET, gender TEXT, address TEXT , phone TEXT , dob TEXT, avatar TEXT)";
+                " ,email TEXT NOT NULL UNIQUE, full_name TEXT, gender TEXT, address TEXT , phone TEXT , dob TEXT, avatar TEXT)";
         db.execSQL(createUserProfileTable);
     }
 

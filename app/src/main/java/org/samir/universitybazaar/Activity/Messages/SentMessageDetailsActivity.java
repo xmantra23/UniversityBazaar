@@ -26,7 +26,7 @@ public class SentMessageDetailsActivity extends AppCompatActivity {
             //set all the details for the message in the activity.
             txtSubject.setText(message.getSubject());
             txtMessageBody.setText(message.getMessage());
-            txtReceiverName.setText("Send By: "+message.getReceiverName());
+            txtReceiverName.setText("Send To: "+message.getReceiverName());
             txtSentDate.setText(message.getMessageDate());
         }
     }
