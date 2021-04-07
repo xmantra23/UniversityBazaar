@@ -133,9 +133,11 @@ public class HomeActivity extends AppCompatActivity {
                         // TODO: 2/18/2021 Redirect to loan item activity
                         break;
                     case R.id.searchPosts:
+                        //To be completed by: Samir Shrestha for sprint 5
                         // TODO: 4/7/2021 Redirect to search posts activity.
                         break;
                     case R.id.searchClubs:
+                        //To be completed by: Samir Shrestha for sprint 5
                         // TODO: 4/7/2021 Redirect to search clubs activity.
                         break;
                     case R.id.searchMarket:
