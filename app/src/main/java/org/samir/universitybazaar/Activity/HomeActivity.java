@@ -160,6 +160,11 @@ public class HomeActivity extends AppCompatActivity {
             transaction.replace(R.id.container, new HomeFragment()); //load home fragment in home activity.
         }else if(activity_type.equals(Constants.GROUP)){
              transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs/groups fragment in home activity.
+        }else if (activity_type.equals(Constants.MARKET)){
+
+             //add you logic to navigate to MarketFragment here. You need to create this fragment similar to how I have
+             //created fragments for home, posts and clubs.
+             //this fragment needs to list show all the sale and rent items inside it.
          }
 
 

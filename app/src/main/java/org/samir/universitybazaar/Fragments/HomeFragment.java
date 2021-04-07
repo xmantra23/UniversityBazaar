@@ -24,12 +24,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
 import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
+import org.samir.universitybazaar.Activity.Messages.MessageHomeActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
+import org.samir.universitybazaar.Database.MessageDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Activity.Posts.MyPostsActivity;
 import org.samir.universitybazaar.Activity.Profile.ViewProfileActivity;
+import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
+import org.samir.universitybazaar.Utility.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,9 +129,10 @@ public class HomeFragment extends Fragment {
             userSession.signOutUser();
         });
         
-        //handle messages
+        //navigate to message home activity. displays the three buttons for the message actions.
         txtMessages.setOnClickListener(v->{
-            // TODO: 3/15/2021 handle all functionality related to reading and sending messages.
+            Intent intent = new Intent(getActivity(), MessageHomeActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -144,6 +149,17 @@ public class HomeFragment extends Fragment {
         txtMessages = view.findViewById(R.id.txtMessages);
         advertisement = view.findViewById(R.id.advertisement);
         point = view.findViewById(R.id.point);
+
+        /**
+         * @author Samir Shrestha
+         */
+        //get total number of unread message for this users and show it in the parenthesis inside the message text in the Home UI.
+        MessageDAO db = new MessageDAO(getContext());
+        User user = Utils.getLoggedInUser(getContext());
+        if(user != null && db != null){
+            int unreadMessageCount = db.getUnreadMessagesCount(user.getMemberId());
+            txtMessages.setText("MESSAGES (" + unreadMessageCount + ")");
+        }
 
         /**
          * @author:YIfei Lu
@@ -202,7 +218,11 @@ public class HomeFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.market:
-                    // TODO: 2/18/2021 redirect to the markeplace activity
+                    // You need to first implement a MarketFragment that displays all the sale and rent items and then
+                    // redirect to the  HomeActivity but you need to pass the activity name as "market"
+                    // inside the intent.putExtra.
+                    // so you need to do intent.putExtra(Constants.ACTIVITY_NAME,"market");
+                    // See line 212 and line 217 in this page.
                     break;
                 default:
                     break;

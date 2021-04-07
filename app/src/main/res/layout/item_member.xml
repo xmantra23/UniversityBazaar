@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:id="@+id/parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMemberName"
+        android:textSize="15sp"
+        android:text="Member Name: Samir Shrestha"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/txtMemberId"
+        android:layout_below="@id/txtMemberName"
+        android:text="Member ID (Last 4): 5680"/>
+
+
+    <View android:background="#6E6666"
+        android:layout_width = "match_parent"
+        android:layout_height="0.5dp"
+        android:id="@+id/line1"
+        android:layout_below="@id/txtMemberId"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>
