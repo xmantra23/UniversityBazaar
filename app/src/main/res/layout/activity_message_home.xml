@@ -6,55 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".Activity.Messages.MessageHomeActivity">
 
-    <TextView
-        android:id="@+id/textView2"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="Please pick an option."
-        android:textSize="25sp"
-        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236"
+        android:background="@drawable/border"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="60dp">
 
-    <Button
-        android:id="@+id/btnInbox"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Inbox"
-        app:backgroundTint="#2697F1"
-        app:cornerRadius="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <TextView
+            android:id="@+id/txtHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Please pick an option."
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnSentMessages"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Sent Messages"
-        app:backgroundTint="#2697F1"
-        app:cornerRadius="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnInbox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnInbox"
-        app:layout_constraintTop_toBottomOf="@+id/btnInbox" />
+        <Button
+            android:id="@+id/btnInbox"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtHeader"
+            android:layout_marginTop="44dp"
+            android:text="Inbox"
+            app:backgroundTint="#2697F1"
+            app:cornerRadius="18dp" />
 
-    <Button
-        android:id="@+id/btnNewMessage"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="New message"
-        app:backgroundTint="#2697F1"
-        app:cornerRadius="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnSentMessages"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnSentMessages"
-        app:layout_constraintTop_toBottomOf="@+id/btnSentMessages" />
+        <Button
+            android:id="@+id/btnSentMessages"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnInbox"
+            android:layout_marginTop="60dp"
+            android:text="Sent Messages"
+            app:backgroundTint="#2697F1"
+            app:cornerRadius="18dp" />
+
+        <Button
+            android:id="@+id/btnNewMessage"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSentMessages"
+            android:layout_marginTop="60dp"
+            android:text="New message"
+            app:backgroundTint="#2697F1"
+            app:cornerRadius="18dp" />
+
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
