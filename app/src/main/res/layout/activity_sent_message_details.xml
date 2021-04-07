@@ -13,6 +13,7 @@
         android:id="@+id/txtSubject"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
+        android:textSize="18sp"
         android:text="This is the subject of the message"/>
 
     <TextView
@@ -34,12 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtReceiverName"
+            android:textSize="12sp"
             android:text="Sent To: Samir Shrestha"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtSentDate"
+            android:textSize="12sp"
             android:text="08/12/2016"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>

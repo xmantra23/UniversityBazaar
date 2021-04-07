@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtSubject"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:text="This is a message from samir shrestha"/>
 
     <RelativeLayout
@@ -21,6 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="12sp"
             android:id="@+id/txtSenderName"
             android:text="Send By: Samir Shrestha"/>
 
@@ -28,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtReceivedDate"
+            android:textSize="12sp"
             android:text="04/19/2011"
             android:layout_alignParentEnd="true"/>
 

@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
 public class MessageTypeActivity extends AppCompatActivity {
-    private Button btnMember, btnClubMembers, btnAllUsers;
+    private Button btnMember, btnClubMembers, btnAllUsers ,btnHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +39,19 @@ public class MessageTypeActivity extends AppCompatActivity {
             intent.putExtra(Constants.MESSAGE_TYPE,Constants.ALL_MESSAGE);
             startActivity(intent);
         });
+
+
+        //navigate to home activity
+        btnHome.setOnClickListener(v->{
+            Intent intent = new Intent(MessageTypeActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void initializeUI() {
         btnMember = findViewById(R.id.btnMember);
         btnClubMembers = findViewById(R.id.btnClubMembers);
         btnAllUsers = findViewById(R.id.btnAllUsers);
+        btnHome = findViewById(R.id.btnHome);
     }
 }

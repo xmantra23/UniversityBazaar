@@ -7,19 +7,20 @@
     tools:context=".Activity.Messages.MessageHomeActivity">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236"
-        android:background="@drawable/border"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="60dp">
+        app:layout_constraintVertical_bias="0.236">
 
         <TextView
             android:id="@+id/txtHeader"
@@ -45,7 +46,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnInbox"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:text="Sent Messages"
             app:backgroundTint="#2697F1"
             app:cornerRadius="18dp" />
@@ -55,12 +56,33 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnSentMessages"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:text="New message"
             app:backgroundTint="#2697F1"
             app:cornerRadius="18dp" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/homeRelLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        android:background="@drawable/border"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Home page"
+            app:backgroundTint="#4CA550"
+            app:cornerRadius="18dp" />
 
     </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

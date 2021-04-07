@@ -12,7 +12,7 @@ import org.samir.universitybazaar.Adapter.SentMessagesAdapter;
 import org.samir.universitybazaar.R;
 
 public class MessageHomeActivity extends AppCompatActivity {
-    private Button btnInbox, btnSentMessages, btnNewMessage;
+    private Button btnInbox, btnSentMessages, btnNewMessage,btnHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +40,19 @@ public class MessageHomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //navigate to home activity
+        btnHome.setOnClickListener(v->{
+            Intent intent = new Intent(MessageHomeActivity.this,HomeActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void initializeUI() {
         btnInbox = findViewById(R.id.btnInbox);
         btnSentMessages = findViewById(R.id.btnSentMessages);
         btnNewMessage = findViewById(R.id.btnNewMessage);
+        btnHome = findViewById(R.id.btnHome);
     }
 
     @Override
