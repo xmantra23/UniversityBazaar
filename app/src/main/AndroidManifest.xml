@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
+        <activity android:name=".Activity.Sale.MySaleItemListActivity"></activity>
         <activity android:name=".Activity.Sale.SellItemActivity"></activity>
         <activity android:name=".Activity.Posts.EditPostActivity" />
         <activity android:name=".Activity.Clubs.CommentOnNoticeActivity" />

@@ -24,6 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
 import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
+import org.samir.universitybazaar.Activity.Sale.MySaleItemListActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Activity.Posts.MyPostsActivity;
@@ -104,6 +105,8 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
         manageSaleArrow.setOnClickListener(v->{
+            Intent intent = new Intent(getActivity(), MySaleItemListActivity.class);
+            startActivity(intent);
             // TODO: 2/18/2021 handle sale arrow pressed
         });
         managePurchaseArrow.setOnClickListener(v->{

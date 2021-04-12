@@ -67,6 +67,22 @@ public class Loan {
         this.price = price;
     }
 
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     private int _id;
     private String title;
     private String description;
@@ -75,4 +91,6 @@ public class Loan {
     private String createdDate;
     private String image;
     private String price;
+    private String day;
+    private String status;//仍在出租或者下架
 }

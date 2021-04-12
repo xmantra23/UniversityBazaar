@@ -9,6 +9,15 @@ public class Sell {
     private String createdDate;
     private String image;
     private String price;
+    private String status;//出售或者未出售
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getPrice() {
         return price;

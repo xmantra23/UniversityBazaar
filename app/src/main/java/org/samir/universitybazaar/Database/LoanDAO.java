@@ -28,6 +28,8 @@ public class LoanDAO {
                 values.put("creatorId", loan.getCreatorId());
                 values.put("createdDate", loan.getCreatedDate());
                 values.put("image", loan.getImage());
+                values.put("price", loan.getPrice());
+                values.put("status", "for sale");
 
                 long rowId = db.insert("loan",null,values);
                 db.close();
