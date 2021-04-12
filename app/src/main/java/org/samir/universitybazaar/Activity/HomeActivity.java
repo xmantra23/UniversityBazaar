@@ -26,6 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.samir.universitybazaar.Activity.Clubs.CreateClubActivity;
 import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
+import org.samir.universitybazaar.Activity.Sale.SellItemActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
@@ -128,6 +129,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.sellItem:
                         // TODO: 2/18/2021 Redirect to sell item activity
+                        Intent intent3 = new Intent(HomeActivity.this, SellItemActivity.class);
+                        startActivity(intent3);
                         break;
                     case R.id.loanItem:
                         // TODO: 2/18/2021 Redirect to loan item activity

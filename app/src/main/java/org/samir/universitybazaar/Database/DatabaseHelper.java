@@ -53,6 +53,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createClubNoticeTable(db); //creates a table club_notice table that holds all the notice/announcements for clubs.
         createClubPostsTable(db); //creates a table club_posts that holds all the posts made within a given club.
         createClubNoticeCommentsTable(db); //creates club_notice_comments for user comments made inside a club notice in the database.
+        createSellTable(db);
+        createLoanTable(db);
+    }
+
+    /**
+     * create a loan table
+     * @param db
+     */
+    private void createLoanTable(SQLiteDatabase db) {
+        String createLoanTable = "CREATE TABLE loan (_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL" +
+                " ,description TEXT NOT NULL, creatorId TEXT NOT NULL, " +
+                "creatorName TEXT NOT NULL, createdDate TEXT NOT NULL, image TEXT NOT NULL,"+
+                "price TEXT NOT NULL)";
+        db.execSQL(createLoanTable);
+    }
+
+    /**
+     * create a sell table
+     * @param db
+     */
+    private void createSellTable(SQLiteDatabase db) {
+        //creatorID is the memberID of the current logged in user.
+        String createSellTable = "CREATE TABLE sell (_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL" +
+                " ,description TEXT NOT NULL, creatorId TEXT NOT NULL, " +
+                "creatorName TEXT NOT NULL, createdDate TEXT NOT NULL, image TEXT NOT NULL,"+
+                "price TEXT NOT NULL)";
+        db.execSQL(createSellTable);
     }
 
     /**
