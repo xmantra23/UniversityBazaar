@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:id="@+id/parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTitle"
+        android:textSize="15sp"
+        android:text="This is just a sample comment"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cmtFooterRelLayout"
+        android:layout_below="@+id/txtTitle"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtUserName"
+            android:text="John doe"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPostDate"
+            android:text="02/19/2020"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+    <View android:background="#6E6666"
+        android:layout_width = "match_parent"
+        android:layout_height="0.5dp"
+        android:id="@+id/line1"
+        android:layout_below="@id/cmtFooterRelLayout"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

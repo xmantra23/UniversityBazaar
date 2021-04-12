@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.Profile.ViewProfileActivity">
+
+    <TextView
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="PROFILE"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/girl"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/viewTxtId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="#808080"
+                android:textSize="18sp"
+                android:text="1000795680"/>
+
+            <TextView
+                android:id="@+id/viewTxtEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="#808080"
+                android:textSize="12sp"
+                android:text="samir.shrestha1@yahoo.com"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TableLayout
+        android:layout_width="400dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1,2">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:text="Full Name: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/viewTxtName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:gravity="left"
+                android:text="NULL"/>
+
+        </TableRow>
+
+        <TableRow >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:text="Gender:" />
+
+            <TextView
+                android:id="@+id/viewTxtGender"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="NULL"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:text="Address:" />
+
+            <TextView
+                android:id="@+id/viewTxtAddress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="NULL"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:text="Phone:" />
+
+            <TextView
+                android:id="@+id/viewTxtPhone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:text="NULL"/>
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:text="DOB:" />
+
+            <TextView
+                android:id="@+id/viewTxtDOB"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:text="NULL"/>
+
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/profile2Home"
+            android:layout_height="60sp"
+            android:layout_width="150sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:textSize="18sp"
+            android:backgroundTint="#F44336"
+            android:text="cancel" />
+
+        <Button
+            android:id="@+id/updateProfile"
+            android:layout_height="60sp"
+            android:layout_width="150sp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:backgroundTint="#8BC34A"
+            android:text="Update" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,13 +1,8 @@
 package org.samir.universitybazaar.Authentication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.AsyncTaskLoader;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,12 +13,13 @@ import android.widget.Toast;
 
 import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.EmailService.EmailHelper;
-import org.samir.universitybazaar.EmailService.GMailSender;
-import org.samir.universitybazaar.MainActivity;
 import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
-import org.samir.universitybazaar.TestActivity;
 
+/**
+ * @author Samir Shrestha
+ * @description Allows a new user to register. navigates to the login activity once the users successfully registers.
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity"; //tag for logging. not important.
@@ -151,8 +147,8 @@ public class RegisterActivity extends AppCompatActivity {
                     });
                 }else{
                     //Registration successful.Send confirmation email, display success message and redirect to the login page.
-                    EmailHelper email = new EmailHelper(RegisterActivity.this);
-                    email.sendConfirmationEmail(user.getEmail(),user.getMemberId(),user.getPassword()); //send confirmation email.
+                    //EmailHelper email = new EmailHelper(RegisterActivity.this);
+                    //email.sendConfirmationEmail(user.getEmail(),user.getMemberId(),user.getPassword()); //send confirmation email.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -175,7 +171,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
 }

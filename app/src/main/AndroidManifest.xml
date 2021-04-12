@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.samir.universitybazaar">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,10 +11,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar">
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".Activity.Posts.EditPostActivity" />
+        <activity android:name=".Activity.Clubs.CommentOnNoticeActivity"></activity>
+        <activity android:name=".Activity.Clubs.ClubPostActivity" />
+        <activity android:name=".Activity.Clubs.NoticeActivity" />
+        <activity android:name=".Activity.Clubs.ClubPostsActivity" />
+        <activity android:name=".Activity.Clubs.ClubNoticesActivity" />
+        <activity android:name=".Activity.Clubs.PostInClubActivity" />
+        <activity android:name=".Activity.Clubs.CreateClubNoticeActivity" />
+        <activity android:name=".Activity.Clubs.ClubActivity" />
+        <activity android:name=".Activity.Clubs.MySubscriptionsActivity" />
+        <activity android:name=".Activity.Clubs.MyClubsActivity" />
+        <activity android:name=".Activity.Clubs.CreateClubActivity" />
+        <activity android:name=".Activity.Clubs.EditClubActivity" />
+        <activity android:name=".Activity.Posts.PostActivity" />
+        <activity android:name=".Activity.Posts.MyPostsActivity" />
+        <activity android:name=".Activity.Posts.CreatePostActivity" />
+        <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".Activity.Posts.CommentActivity" />
+        <activity android:name=".Activity.Posts.CommentReplyActivity" />
         <activity android:name=".Authentication.LoginActivity" />
+        <activity android:name=".Activity.Avatar.AvatarActivity" />
+        <activity android:name=".Activity.Avatar.AvatarChangeActivity" />
+        <activity android:name=".Activity.Profile.ViewProfileActivity" />
+        <activity android:name=".Activity.Profile.EditProfileActivity" />
         <activity android:name=".Authentication.RegisterActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Authentication.Reset1Activity" />
+        <activity android:name=".Authentication.Reset2Activity" />
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
