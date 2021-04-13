@@ -72,7 +72,7 @@ public class SellDAO {
                     "status"
             };
 
-            //retrieve all the post in the posts table.
+            //retrieve all the sale in the sells table.
             Cursor cursor = db.query("sell", columns, null, null, null, null, null);
             if(cursor != null){
                 if(cursor.moveToFirst()){
@@ -96,8 +96,7 @@ public class SellDAO {
                         sell.setCreatorId(creatorId);
                         sell.setCreatorName(creatorName);
                         sell.setCreatedDate(createdDate);
-                        sell.setImage(image);
-                        sell.setPrice(price);
+                         sell.setPrice(price);
                         sell.setStatus(status);
 
                         sells.add(sell); //add the sell to the sells arraylist.
@@ -145,7 +144,7 @@ public class SellDAO {
                     sellIdIn + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
             };
 
-            //retrieve the post from the posts table whose _id == postID
+            //retrieve the sell from the sells table whose _id == sellID
             Cursor cursor = db.query("sell", columns, "_id=?", args, null, null, null);
             if(cursor != null){
                 if(cursor.moveToFirst()){

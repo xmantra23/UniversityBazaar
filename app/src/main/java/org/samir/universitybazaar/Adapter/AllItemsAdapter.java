@@ -22,8 +22,8 @@ import org.samir.universitybazaar.Utility.Constants;
 import java.util.ArrayList;
 
 public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHolder> {
-    private ArrayList<Object> objs = new ArrayList<>(); //this will hold all our post objects.
-    private Context context; //parent activity of that will use this adapter. In our case it is MyPostActivity.
+    private ArrayList<Object> objs = new ArrayList<>(); //this will hold all our sell objects.
+    private Context context; //parent activity of that will use this adapter. In our case it is MySaleItemActivity.
     private String activity_type;
 
     public AllItemsAdapter(Context context) {
@@ -44,7 +44,8 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int objId = 1;
-        String objType = Constants.SELL_ID;
+        int objType = 1;
+
         Class cls = null;
         if (objs.get(position) instanceof Sell) {
             Sell o = (Sell) objs.get(position);
@@ -52,7 +53,7 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
             holder.txtSalePrice.setText(o.getPrice() + "$");
             holder.txtSaleDate.setText(o.getCreatedDate());
             holder.txtSaleStatus.setText(o.getStatus());
-            objType = Constants.SELL_ID;
+            objType = 1;
             objId = o.get_id();
             cls = SellDetailActivity.class;
         }else {
@@ -61,7 +62,7 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
             holder.txtSalePrice.setText(o.getPrice() + "$ per day");
             holder.txtSaleDate.setText(o.getCreatedDate());
             holder.txtSaleStatus.setText(o.getStatus());
-            objType = Constants.LOAN_ID;
+            objType = 2;
             objId = o.get_id();
             // to do cls
             cls = SellDetailActivity.class;
@@ -69,13 +70,15 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
 
        
 
-        //clicking on any post in the list should navigate to the PostActivity page for that post.
-        String finalObjType = objType;
+        //clicking on any sale in the list should navigate to the ItemDetailActivity  page for that sale
+        int finalObjType = objType;
         int finalObjId = objId;
         holder.parent.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemDetailActivity.class);
-            //pass the postId to the PostActivity page. This will allow us to retrieve all the details of the clicked post inside the PostActivity page.
-            intent.putExtra(finalObjType, finalObjId);
+            //pass the sellId the ItemDetailActivity page. This will allow us to retrieve all the details of the clicked detail inside the ItemDetailActivity page.
+            intent.putExtra("objId", finalObjId);
+            intent.putExtra("objType", finalObjType);
+
             intent.putExtra(Constants.ACTIVITY_NAME, activity_type);
             context.startActivity(intent);
         });

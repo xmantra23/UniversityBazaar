@@ -22,10 +22,11 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_below="@+id/postModifyRelLayout"
 
+            android:layout_marginTop="50dp"
             android:src="@drawable/ic_home" />
 
         <RelativeLayout
@@ -122,6 +123,47 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun." />
             android:layout_marginTop="345dp"
             android:background="#6E6666" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dayRelLayout"
+            android:layout_below="@+id/footerRelLayout"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/dayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Days:"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/edtTxtDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/dayText"
+                android:ems="5"
+                android:hint="number"
+                android:inputType="textPersonName" />
+            <TextView
+                android:id="@+id/unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:text="day"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:layout_toEndOf="@+id/edtTxtDay"
+                />
+        </RelativeLayout>
+
+
         <!--        <Button-->
         <!--            android:id="@+id/buy"-->
         <!--            android:layout_width="wrap_content"-->
@@ -135,7 +177,7 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun." />
             android:layout_height="wrap_content"
             android:layout_below="@id/footerRelLayout"
             android:layout_marginStart="145dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="95dp"
             android:backgroundTint="#8BC34A"
             android:text="Buy" />
 

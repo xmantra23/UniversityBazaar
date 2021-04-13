@@ -5,34 +5,30 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import org.samir.universitybazaar.Models.Loan;
+import org.samir.universitybazaar.Models.Exchange;
 import org.samir.universitybazaar.Models.Sell;
 
-public class LoanDAO {
-
+public class ExchangeDAO {
     private DatabaseHelper dbHelper;
 
-    public LoanDAO(Context context){
+    public ExchangeDAO(Context context){
         dbHelper = new DatabaseHelper(context);
     }
 
-    public boolean addLoan(Loan loan){
+    public boolean addExchange(Exchange exchange){
         if(dbHelper != null){
             SQLiteDatabase db = null;
             try {
                 db = dbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
-                values.put("title", loan.getTitle());
-                values.put("description", loan.getDescription());
-                values.put("creatorName", loan.getCreatorName());
-                values.put("creatorId", loan.getCreatorId());
-                values.put("createdDate", loan.getCreatedDate());
-                values.put("image", loan.getImage());
-                values.put("price", loan.getPrice());
-                values.put("status", "for loan");
-                values.put("day", "default");
+                values.put("sellerId",exchange.getSellerId());
+                values.put("customerId",exchange.getCustomerId());
+                values.put("itemId",exchange.getItemId());
+                values.put("type",exchange.getType());
+                values.put("price",exchange.getPrice());
+                values.put("exchangeDate",exchange.getExchangeDate());
 
-                long rowId = db.insert("loan",null,values);
+                long rowId = db.insert("exchange",null,values);
                 db.close();
 
                 if(rowId != -1){ //insert was successful

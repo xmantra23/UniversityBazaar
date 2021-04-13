@@ -25,6 +25,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 import org.samir.universitybazaar.Activity.Clubs.CreateClubActivity;
+import org.samir.universitybazaar.Activity.Loan.LoanItemActivity;
 import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
 import org.samir.universitybazaar.Activity.Sale.SellItemActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
@@ -135,6 +136,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.loanItem:
                         // TODO: 2/18/2021 Redirect to loan item activity
+                        Intent intent4 = new Intent(HomeActivity.this, LoanItemActivity.class);
+                        startActivity(intent4);
                         break;
                     default:
                         break;

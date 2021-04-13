@@ -55,6 +55,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createClubNoticeCommentsTable(db); //creates club_notice_comments for user comments made inside a club notice in the database.
         createSellTable(db);
         createLoanTable(db);
+        createExchangeTable(db);
+    }
+
+    /**
+     * 交易表
+     * @param db
+     */
+    private void createExchangeTable(SQLiteDatabase db) {
+        String createExchangeTable = "CREATE TABLE exchange (_id INTEGER PRIMARY KEY AUTOINCREMENT,sellerId INTEGER NOT NULL" +
+                " ,customerId INTEGER NOT NULL, itemId INTEGER NOT NULL, " +
+                "type TEXT NOT NULL,"+
+                "price TEXT NOT NULL, exchangeDate TEXT)";
+        db.execSQL(createExchangeTable);
     }
 
     /**

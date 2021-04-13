@@ -1,7 +1,4 @@
-package org.samir.universitybazaar.Activity.Sale;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+package org.samir.universitybazaar.Activity.Loan;
 
 import android.content.ContentUris;
 import android.content.Intent;
@@ -10,21 +7,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.samir.universitybazaar.Activity.HomeActivity;
-import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
 import org.samir.universitybazaar.Authentication.LoginActivity;
 import org.samir.universitybazaar.Database.DatabaseHelper;
+import org.samir.universitybazaar.Database.LoanDAO;
 import org.samir.universitybazaar.Database.SellDAO;
 import org.samir.universitybazaar.Database.UserSession;
-import org.samir.universitybazaar.Models.Post;
+import org.samir.universitybazaar.Models.Loan;
 import org.samir.universitybazaar.Models.Profile;
 import org.samir.universitybazaar.Models.Sell;
 import org.samir.universitybazaar.Models.User;
@@ -34,7 +30,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SellItemActivity extends AppCompatActivity {
+public class LoanItemActivity extends AppCompatActivity {
 
     private static final String TAG = "SELL_I";
     private EditText edtTxtTitle,edtTxtDescription;
@@ -44,16 +40,16 @@ public class SellItemActivity extends AppCompatActivity {
     private Button btnImgUpload;
     private String imagePath;
     private EditText edtTxtPrice;
-    private SellDAO sellDAO;
+    private LoanDAO loanDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sell_item);
+        setContentView(R.layout.activity_loan_item);
 
         userSession = new UserSession(this);
         db = new DatabaseHelper(this);
-        sellDAO = new SellDAO(this);
+        loanDAO = new LoanDAO(this);
         initViews();
         handleListeners();
     }
@@ -85,11 +81,11 @@ public class SellItemActivity extends AppCompatActivity {
             if(user != null){ //if user is logged in.
 
                 //get all the details user typed in the user interface and then create and build a sell object.
-                Sell sell = new Sell();
-                sell.setTitle(edtTxtTitle.getText().toString());
-                sell.setDescription(edtTxtDescription.getText().toString());
-                sell.setImage(this.imagePath);
-                sell.setPrice(edtTxtPrice.getText().toString());
+                Loan loan = new Loan();
+                loan.setTitle(edtTxtTitle.getText().toString());
+                loan.setDescription(edtTxtDescription.getText().toString());
+                loan.setImage(this.imagePath);
+                loan.setPrice(edtTxtPrice.getText().toString());
 
                 Profile profile = db.getProfile(user.getMemberId()); //get the profile of the current logged in user from the database.
                 String creatorName = profile.getFullName();
@@ -99,32 +95,32 @@ public class SellItemActivity extends AppCompatActivity {
                     creatorName = "User " + user.getMemberId().substring(6);
                 }
 
-                sell.setCreatorName(creatorName); //set the name of the user who created this sale.
-                sell.setCreatorId(user.getMemberId());//this will be used as the id to search for a given users sales in the database.
+                loan.setCreatorName(creatorName); //set the name of the user who created this sale.
+                loan.setCreatorId(user.getMemberId());//this will be used as the id to search for a given users sales in the database.
 
                 //Getting the current system date and formating it to mm/dd/yyyy format.
                 Date date = new Date();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String createdDate = df.format(date);
 
-                sell.setCreatedDate(createdDate);//setting the current system date as the sale created date.
-
+                loan.setCreatedDate(createdDate);//setting the current system date as the sale created date.
+                loan.setStatus("for loan");
                 //adding the new sale in the database.
-                if(sellDAO.addSell(sell)){ //insert successful
+                if(loanDAO.addLoan(loan)){ //insert successful
                     //Redirect to HomeActivity
-                    Intent intent = new Intent(SellItemActivity.this,HomeActivity.class);
+                    Intent intent = new Intent(LoanItemActivity.this,HomeActivity.class);
                     startActivity(intent);
-                    Toast.makeText(this, "Sale successfully created.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Loan successfully created.", Toast.LENGTH_LONG).show();
                 }else{ //insert failed
                     //Redirect to HomeActivity
-                    Intent intent = new Intent(SellItemActivity.this,HomeActivity.class);
+                    Intent intent = new Intent(LoanItemActivity.this,HomeActivity.class);
                     startActivity(intent);
                     Toast.makeText(this, "Error. Please try again.", Toast.LENGTH_LONG).show();
                 }
             }else{ //user is not logged in. Redirect to the login page.
                 Toast.makeText(this, "You are not logged in.", Toast.LENGTH_LONG).show();
                 //Redirect to LoginActivity
-                Intent intent = new Intent(SellItemActivity.this, LoginActivity.class);
+                Intent intent = new Intent(LoanItemActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

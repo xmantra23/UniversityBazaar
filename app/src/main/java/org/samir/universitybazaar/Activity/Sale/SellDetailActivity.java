@@ -51,11 +51,11 @@ public class SellDetailActivity extends AppCompatActivity {
         User user = userSession.isUserLoggedIn();
         if(user != null){ //user is logged in.
             String memberId = user.getMemberId(); //get the logged in users memberId.
-            Sell sell = dao.getSellById(sell_id); //get the post with the provided postId from the database.
+            Sell sell = dao.getSellById(sell_id); //get the sale with the provided sellId from the database.
 
-            if(sell != null){ // found a post with the provided postId.
+            if(sell != null){ // found a sale with the provided sellId.
 
-                //If the user didn't create this post then don't allow them to edit or delete this post.
+                //If the user didn't create this sale then don't allow them to edit or delete this sale.
                 if(!sell.getCreatorId().equals(memberId)){
                     txtEdit.setVisibility(View.GONE);
                     txtDelete.setVisibility(View.GONE);
@@ -70,7 +70,7 @@ public class SellDetailActivity extends AppCompatActivity {
                             REQUEST_EXTERNAL_STORAGE);
                 }
 
-                //initialize the layout with all the data from the retrieved post.
+                //initialize the layout with all the data from the retrieved sale.
                 txtPostTitle.setText(sell.getTitle());
                 Uri uri = Uri.fromFile(new File(sell.getImage()));
                 imageView.setImageURI(uri);
