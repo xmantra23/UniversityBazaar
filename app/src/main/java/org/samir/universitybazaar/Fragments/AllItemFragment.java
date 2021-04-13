@@ -15,30 +15,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
+import org.samir.universitybazaar.Adapter.AllItemsAdapter;
 import org.samir.universitybazaar.Adapter.MyPostAdapter;
+import org.samir.universitybazaar.Adapter.MySaleItemListAdapter;
 import org.samir.universitybazaar.Database.DatabaseHelper;
+import org.samir.universitybazaar.Database.SellDAO;
 import org.samir.universitybazaar.Models.Post;
+import org.samir.universitybazaar.Models.Sell;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
-/**
- * @author Samir Shrestha
- * @description This fragment displays all the posts inside the HomePage Activity.
- */
-
-public class AllPostsFragment extends Fragment {
+public class AllItemFragment extends Fragment {
 
     private BottomNavigationView bottomNavigationView; //The bottom navigation icons.
-    private RecyclerView postRecView; //lists all the posts items.
-    private MyPostAdapter adapter;
-    private DatabaseHelper db;
+    private RecyclerView itemRecView; //lists all the posts items.
+    private AllItemsAdapter adapter;
+    private SellDAO dao;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_all_posts,container,false);
+        View view = inflater.inflate(R.layout.fragment_market,container,false);
         initViews(view);
         initBottomNavView(view); //initialize and then handle the bottom icons.
         handleRecyclerView(view); //initialize and set all the data for the recycler view containing all the posts.
@@ -46,26 +45,30 @@ public class AllPostsFragment extends Fragment {
     }
 
     private void handleRecyclerView(View view) {
-        adapter = new MyPostAdapter(getActivity()); //create a new MyPostAdapter instance
+        adapter = new AllItemsAdapter(getActivity()); //create a new MyPostAdapter instance
 
-        db = new DatabaseHelper(getActivity());
-        ArrayList<Post> allPosts = db.getAllPosts(); //get all the posts in the posts table from the database.
+        dao = new SellDAO(getActivity());
 
-        adapter.setPosts(allPosts); //initialize all the posts for the adapter with the posts retrieved from the database.
+        ArrayList<Object> objects = new ArrayList<>();
+        ArrayList<Sell> allSell = dao.getAllSells(); //get all the posts in the posts table from the database.
+        objects.addAll(allSell);
+        //set another type to do
 
-        postRecView.setAdapter(adapter); //initialize the recycler view.
+        adapter.setObjs(objects); //initialize all the posts for the adapter with the posts retrieved from the database.
+
+        itemRecView.setAdapter(adapter); //initialize the recycler view.
         //set linear layout with vertical orientation. reverseLayout is true means the most recent posts is on the top of the list.
-        postRecView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,true));
+        itemRecView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,true));
     }
 
     private void initViews(View view) {
         bottomNavigationView = view.findViewById(R.id.bottomNavView);
-        postRecView = view.findViewById(R.id.postRecView);
+        itemRecView = view.findViewById(R.id.itemRecView);
     }
 
     //handles the bottom navigation view icon presses.
     private void initBottomNavView(View view) {
-        bottomNavigationView.setSelectedItemId(R.id.post); //highlight the posts icon in the bottom navigation view.
+        bottomNavigationView.setSelectedItemId(R.id.market); //highlight the posts icon in the bottom navigation view.
 
         //all cases will redirect to home activity but we are providing information about which icon was pressed in the intent.
         // for example if home icon is pressed navigate to home activity but also provide "home" as the activity name.
@@ -98,6 +101,5 @@ public class AllPostsFragment extends Fragment {
             return false;
         });
     }
-
 
 }

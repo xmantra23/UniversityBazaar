@@ -47,7 +47,7 @@ public class MySaleItemListAdapter extends RecyclerView.Adapter<MySaleItemListAd
 
         //set the data for all the fields in the item_post.xml layout file.
         holder.txtSaleItemTitle.setText(sells.get(position).getTitle());
-        holder.txtSaleUserName.setText(sells.get(position).getCreatorName());
+        holder.txtSalePrice.setText(sells.get(position).getPrice()+"$");
         holder.txtSaleDate.setText(sells.get(position).getCreatedDate());
         holder.txtSaleStatus.setText(sells.get(position).getStatus());
 
@@ -67,14 +67,14 @@ public class MySaleItemListAdapter extends RecyclerView.Adapter<MySaleItemListAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private final TextView txtSaleUserName, txtSaleItemTitle, txtSaleDate, txtSaleStatus;
+        private final TextView txtSalePrice, txtSaleItemTitle, txtSaleDate, txtSaleStatus;
         private MaterialCardView parent;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
             txtSaleItemTitle = itemView.findViewById(R.id.txtSaleItemTitle);
             txtSaleDate = itemView.findViewById(R.id.txtSaleDate);
-            txtSaleUserName = itemView.findViewById(R.id.txtSaleUserName);
+            txtSalePrice = itemView.findViewById(R.id.txtSalePrice);
             txtSaleStatus = itemView.findViewById(R.id.txtSaleStatus);
         }
     }

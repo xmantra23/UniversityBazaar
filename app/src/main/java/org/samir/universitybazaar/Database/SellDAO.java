@@ -55,6 +55,76 @@ public class SellDAO {
         }
     }
 
+    public ArrayList<Sell> getAllSells(){
+        ArrayList<Sell> sells = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status"
+            };
+
+            //retrieve all the post in the posts table.
+            Cursor cursor = db.query("sell", columns, null, null, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ // continues until all the retrieved rows have been iterated.
+                        Sell sell = new Sell();
+                        int sellId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        sell.set_id(sellId);
+                        sell.setTitle(title);
+                        sell.setDescription(description);
+                        sell.setCreatorId(creatorId);
+                        sell.setCreatorName(creatorName);
+                        sell.setCreatedDate(createdDate);
+                        sell.setImage(image);
+                        sell.setPrice(price);
+                        sell.setStatus(status);
+
+                        sells.add(sell); //add the sell to the sells arraylist.
+
+                        if(cursor.isLast()){ // we are at the last row of the dataset. no need to continue anymore.
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext(); //move to the next row in the dataset.
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return sells;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+
     public Sell getSellById(int sellIdIn){
         SQLiteDatabase db = null;
         try {

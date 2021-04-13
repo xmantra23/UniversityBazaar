@@ -14,6 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniversityBazaar"
         android:requestLegacyExternalStorage="true">
+
+        <activity android:name=".Activity.Sale.ItemDetailActivity"></activity>
         <activity android:name=".Activity.Sale.SellDetailActivity"></activity>
         <activity android:name=".Activity.Sale.MySaleItemListActivity" />
         <activity android:name=".Activity.Sale.SellItemActivity" />
