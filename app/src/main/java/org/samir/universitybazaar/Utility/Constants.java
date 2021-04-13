@@ -21,4 +21,11 @@ public class Constants {
     public static final String GROUP = "group";
     public static final String POST = "post";
     public static final String ITEM = "item";
+    public static final String MEMBER_NAME = "member_name";
+    public static final String MEMBER_ID = "member_id";
+    public static final String MESSAGE_TYPE = "message_type";
+    public static final String SINGLE_MESSAGE = "single";
+    public static final String CLUB_MESSAGE = "club_message";
+    public static final String ALL_MESSAGE = "all_message";
+    public static final String MESSAGE = "message";
 }

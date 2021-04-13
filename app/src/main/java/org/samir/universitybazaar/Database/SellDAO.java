@@ -55,6 +55,20 @@ public class SellDAO {
         }
     }
 
+    public Boolean updateSellStatus(Sell sell) {
+        try {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("status", sell.getStatus());
+            db.update("sell", values, "_id = '"+sell.get_id()+"'", null );
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public ArrayList<Sell> getAllSells(){
         ArrayList<Sell> sells = new ArrayList<>();
         SQLiteDatabase db = null;

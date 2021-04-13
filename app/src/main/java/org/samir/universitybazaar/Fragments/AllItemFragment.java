@@ -19,7 +19,9 @@ import org.samir.universitybazaar.Adapter.AllItemsAdapter;
 import org.samir.universitybazaar.Adapter.MyPostAdapter;
 import org.samir.universitybazaar.Adapter.MySaleItemListAdapter;
 import org.samir.universitybazaar.Database.DatabaseHelper;
+import org.samir.universitybazaar.Database.LoanDAO;
 import org.samir.universitybazaar.Database.SellDAO;
+import org.samir.universitybazaar.Models.Loan;
 import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.Sell;
 import org.samir.universitybazaar.R;
@@ -33,6 +35,7 @@ public class AllItemFragment extends Fragment {
     private RecyclerView itemRecView; //lists all the posts items.
     private AllItemsAdapter adapter;
     private SellDAO dao;
+    private LoanDAO dao1;
 
     @Nullable
     @Override
@@ -48,10 +51,13 @@ public class AllItemFragment extends Fragment {
         adapter = new AllItemsAdapter(getActivity()); //create a new MyPostAdapter instance
 
         dao = new SellDAO(getActivity());
+        dao1 = new LoanDAO(getActivity());
 
         ArrayList<Object> objects = new ArrayList<>();
         ArrayList<Sell> allSell = dao.getAllSells(); //get all the posts in the posts table from the database.
+        ArrayList<Loan> allLoan = dao1.getAllLoans();
         objects.addAll(allSell);
+        objects.addAll(allLoan);
         //set another type to do
 
         adapter.setObjs(objects); //initialize all the posts for the adapter with the posts retrieved from the database.
