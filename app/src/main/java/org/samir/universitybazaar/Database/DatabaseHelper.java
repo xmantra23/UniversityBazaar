@@ -78,7 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String createLoanTable = "CREATE TABLE loan (_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL" +
                 " ,description TEXT NOT NULL, creatorId TEXT NOT NULL, " +
                 "creatorName TEXT NOT NULL, createdDate TEXT NOT NULL, image TEXT,"+
-                "price TEXT NOT NULL, status TEXT, day TEXT NOT NULL)";
+                "price TEXT NOT NULL, status TEXT, day TEXT)";
         db.execSQL(createLoanTable);
     }
 

@@ -24,6 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
 import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
+import org.samir.universitybazaar.Activity.Loan.MyLoanItemListActivity;
 import org.samir.universitybazaar.Activity.Sale.MySaleItemListActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.UserSession;
@@ -114,6 +115,8 @@ public class HomeFragment extends Fragment {
         });
         manageLoanArrow.setOnClickListener(v->{
             // TODO: 2/18/2021 handle loan arrow pressed
+            Intent intent = new Intent(getActivity(), MyLoanItemListActivity.class);
+            startActivity(intent);
         });
 
         //profile button was pressed. navigate to ViewProfileActivity
