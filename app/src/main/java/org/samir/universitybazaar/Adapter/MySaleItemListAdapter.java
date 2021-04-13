@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 
 import org.samir.universitybazaar.Activity.Posts.PostActivity;
+import org.samir.universitybazaar.Activity.Sale.SellDetailActivity;
 import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.Sell;
 import org.samir.universitybazaar.R;
@@ -52,7 +53,7 @@ public class MySaleItemListAdapter extends RecyclerView.Adapter<MySaleItemListAd
 
         //clicking on any post in the list should navigate to the PostActivity page for that post.
         holder.parent.setOnClickListener(v->{
-            Intent intent = new Intent(context, PostActivity.class);
+            Intent intent = new Intent(context, SellDetailActivity.class);
             //pass the postId to the PostActivity page. This will allow us to retrieve all the details of the clicked post inside the PostActivity page.
             intent.putExtra(Constants.SELL_ID,sells.get(position).get_id());
             intent.putExtra(Constants.ACTIVITY_NAME,activity_type);

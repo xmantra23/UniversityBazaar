@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.Sell;
 
 import java.util.ArrayList;
@@ -53,6 +54,71 @@ public class SellDAO {
             return false;
         }
     }
+
+    public Sell getSellById(int sellIdIn){
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status"
+            };
+
+            String[] args = new String[]{
+                    sellIdIn + "" //doing this to convert int to string. selection arguments must be strings in the sql query.
+            };
+
+            //retrieve the post from the posts table whose _id == postID
+            Cursor cursor = db.query("sell", columns, "_id=?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    Sell sell = new Sell();
+                    int sellId = cursor.getInt(cursor.getColumnIndex("_id"));
+                    String title = cursor.getString(cursor.getColumnIndex("title"));
+                    String description = cursor.getString(cursor.getColumnIndex("description"));
+                    String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                    String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                    String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                    String image = cursor.getString(cursor.getColumnIndex("image"));
+                    String price = cursor.getString(cursor.getColumnIndex("price"));
+                    String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                    sell.set_id(sellId);
+                    sell.setTitle(title);
+                    sell.setDescription(description);
+                    sell.setCreatorId(creatorId);
+                    sell.setCreatorName(creatorName);
+                    sell.setCreatedDate(createdDate);
+                    sell.setImage(image);
+                    sell.setPrice(price);
+                    sell.setStatus(status);
+
+
+                    return sell;
+                }
+                db.close();
+                cursor.close();
+                return null;
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
 
     public ArrayList<Sell> getSellByMemberId(String memberId){
         ArrayList<Sell> sells = new ArrayList<>();

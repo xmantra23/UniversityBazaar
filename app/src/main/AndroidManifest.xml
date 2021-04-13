@@ -3,6 +3,8 @@
     package="org.samir.universitybazaar">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -10,9 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UniversityBazaar">
-        <activity android:name=".Activity.Sale.MySaleItemListActivity"></activity>
-        <activity android:name=".Activity.Sale.SellItemActivity"></activity>
+        android:theme="@style/Theme.UniversityBazaar"
+        android:requestLegacyExternalStorage="true">
+        <activity android:name=".Activity.Sale.SellDetailActivity"></activity>
+        <activity android:name=".Activity.Sale.MySaleItemListActivity" />
+        <activity android:name=".Activity.Sale.SellItemActivity" />
         <activity android:name=".Activity.Posts.EditPostActivity" />
         <activity android:name=".Activity.Clubs.CommentOnNoticeActivity" />
         <activity android:name=".Activity.Clubs.ClubPostActivity" />
