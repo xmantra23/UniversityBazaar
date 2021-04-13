@@ -82,6 +82,7 @@ public class EditClubActivity extends AppCompatActivity {
                 Toast.makeText(EditClubActivity.this, "Save Club Information Successfully!", Toast.LENGTH_LONG).show();
                 //navigate back to the ClubActivity
                 Intent intent = new Intent(EditClubActivity.this,ClubActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(Constants.CLUB_ID,club_id);
                 startActivity(intent);
             }else {

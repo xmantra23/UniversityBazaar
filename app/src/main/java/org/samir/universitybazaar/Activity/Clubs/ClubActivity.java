@@ -232,8 +232,9 @@ public class ClubActivity extends AppCompatActivity {
                     Toast.makeText(ClubActivity.this, "Delete Club Successfully!", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(ClubActivity.this, MyClubsActivity.class);
-                    intent.putExtra(Constants.ACTIVITY_NAME,"post");
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(ClubActivity.this, "Delete Club failed!", Toast.LENGTH_LONG).show();
                 }
