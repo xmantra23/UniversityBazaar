@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import java.io.File;
 
 public class ItemDetailActivity extends AppCompatActivity {
 
-    private TextView txtPostTitle,txtPostDescription,txtEdit, txtDelete, txtCreatorName, txtCreatedDate, priceText;
+    private TextView txtPostTitle, txtPostDescription, txtEdit, txtDelete, txtCreatorName, txtCreatedDate, priceText;
     private ImageView imageView;
     private int sell_id;
     private UserSession userSession;
@@ -31,7 +32,8 @@ public class ItemDetailActivity extends AppCompatActivity {
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE };
+            Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private Button btnBuy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +42,19 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         initViews();
 
-        sell_id = getIntent().getIntExtra(Constants.SELL_ID,-1);
+        sell_id = getIntent().getIntExtra(Constants.SELL_ID, -1);
         dao = new SellDAO(this);
         userSession = new UserSession(this);
 
         User user = userSession.isUserLoggedIn();
-        if(user != null){ //user is logged in.
+        if (user != null) { //user is logged in.
             String memberId = user.getMemberId(); //get the logged in users memberId.
             Sell sell = dao.getSellById(sell_id); //get the post with the provided postId from the database.
 
-            if(sell != null){ // found a post with the provided postId.
+            if (sell != null) { // found a post with the provided postId.
 
                 //If the user didn't create this post then don't allow them to edit or delete this post.
-                if(!sell.getCreatorId().equals(memberId)){
+                if (!sell.getCreatorId().equals(memberId)) {
                     txtEdit.setVisibility(View.GONE);
                     txtDelete.setVisibility(View.GONE);
                 }
@@ -67,6 +69,9 @@ public class ItemDetailActivity extends AppCompatActivity {
                 }
 
                 //initialize the layout with all the data from the retrieved post.
+                if (sell.getStatus().equals("sold out")) {
+                    btnBuy.setEnabled(false);
+                }
                 txtPostTitle.setText(sell.getTitle());
                 Uri uri = Uri.fromFile(new File(sell.getImage()));
                 imageView.setImageURI(uri);
@@ -89,6 +94,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         txtCreatedDate = findViewById(R.id.txtCreatedDate);
         imageView = findViewById(R.id.imageView);
         priceText = findViewById(R.id.priceText);
+        btnBuy = findViewById(R.id.btnBuy);
     }
 
 
