@@ -77,8 +77,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_toEndOf="@+id/priceText"
                 android:ems="5"
-                android:hint="price"
-                android:inputType="textPersonName" />
+                  android:inputType="textPersonName" />
             <TextView
                 android:id="@+id/priceUnit"
                 android:layout_width="wrap_content"
