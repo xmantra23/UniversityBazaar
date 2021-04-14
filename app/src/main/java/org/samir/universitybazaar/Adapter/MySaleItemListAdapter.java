@@ -44,7 +44,7 @@ public class MySaleItemListAdapter extends RecyclerView.Adapter<MySaleItemListAd
 
 
         holder.txtSaleItemTitle.setText(sells.get(position).getTitle());
-        holder.txtSalePrice.setText(sells.get(position).getPrice()+"$");
+        holder.txtSalePrice.setText("$"+sells.get(position).getPrice());
         holder.txtSaleDate.setText(sells.get(position).getCreatedDate());
         holder.txtSaleStatus.setText(sells.get(position).getStatus());
 

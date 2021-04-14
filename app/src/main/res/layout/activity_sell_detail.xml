@@ -61,13 +61,25 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:id="@+id/priceUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="0dp"
+                android:text="$"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                />
+            <TextView
                 android:id="@+id/priceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price:"
-                android:textStyle="bold"
                 android:layout_centerVertical="true"
-                android:textSize="20sp"/>
+                android:layout_marginLeft="50px"
+                android:text="Price"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/edtTxtPrice"
@@ -78,17 +90,6 @@
                 android:layout_toEndOf="@+id/priceText"
                 android:ems="5"
                   android:inputType="textPersonName" />
-            <TextView
-                android:id="@+id/priceUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:text="$"
-                android:textStyle="bold"
-                android:layout_centerVertical="true"
-                android:textSize="18sp"
-                android:layout_toEndOf="@+id/edtTxtPrice"
-                />
         </RelativeLayout>
 
         <TextView
