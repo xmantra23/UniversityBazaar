@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.samir.universitybazaar.Database.DatabaseHelper;
 import org.samir.universitybazaar.Activity.Loan.LoanDetailActivity;
 import org.samir.universitybazaar.Activity.Loan.MyLoanItemListActivity;
 import org.samir.universitybazaar.Database.LoanDAO;
@@ -26,6 +27,9 @@ import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class SellDetailActivity extends AppCompatActivity {
 
