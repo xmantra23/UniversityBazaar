@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Database.ExchangeDAO;
 import org.samir.universitybazaar.Database.LoanDAO;
 import org.samir.universitybazaar.Database.SellDAO;
@@ -163,7 +164,8 @@ public class ItemDetailActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Failure!", Toast.LENGTH_LONG).show();
             }
-
+            Intent intent1 = new Intent(this, HomeActivity.class);
+            startActivity(intent1);
         });
     }
 

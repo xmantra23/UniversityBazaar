@@ -89,6 +89,9 @@ public class AllClubsFragment extends Fragment {
                     break;
                 case R.id.group:
                     //In allclubs activity. No action required.
+                    Intent intent3 = new Intent(getActivity(), HomeActivity.class);
+                    intent3.putExtra(Constants.ACTIVITY_NAME,"group");
+                    startActivity(intent3);
                     break;
                 case R.id.market:
                     // You need to first implement a MarketFragment that displays all the sale and rent items and then
@@ -96,6 +99,9 @@ public class AllClubsFragment extends Fragment {
                     // inside the intent.putExtra.
                     // so you need to do intent.putExtra(Constants.ACTIVITY_NAME,"market");
                     // See line 82 and line 87 in this page.
+                    Intent intent4 = new Intent(getActivity(), HomeActivity.class);
+                    intent4.putExtra(Constants.ACTIVITY_NAME,"item");
+                    startActivity(intent4);
                     break;
                 default:
                     break;

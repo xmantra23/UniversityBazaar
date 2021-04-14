@@ -48,22 +48,22 @@ public class AllItemFragment extends Fragment {
     }
 
     private void handleRecyclerView(View view) {
-        adapter = new AllItemsAdapter(getActivity()); //create a new MyPostAdapter instance
+        adapter = new AllItemsAdapter(getActivity()); //create a new AllItemsAdapter instance
 
         dao = new SellDAO(getActivity());
         dao1 = new LoanDAO(getActivity());
 
         ArrayList<Object> objects = new ArrayList<>();
-        ArrayList<Sell> allSell = dao.getAllSells(); //get all the posts in the posts table from the database.
+        ArrayList<Sell> allSell = dao.getAllSells(); //get all the sells in the sells table from the database.
         ArrayList<Loan> allLoan = dao1.getAllLoans();
         objects.addAll(allSell);
         objects.addAll(allLoan);
         //set another type to do
 
-        adapter.setObjs(objects); //initialize all the posts for the adapter with the posts retrieved from the database.
+        adapter.setObjs(objects); //initialize all the sells for the adapter with the sells retrieved from the database.
 
         itemRecView.setAdapter(adapter); //initialize the recycler view.
-        //set linear layout with vertical orientation. reverseLayout is true means the most recent posts is on the top of the list.
+        //set linear layout with vertical orientation. reverseLayout is true means the most recent sells is on the top of the list.
         itemRecView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,true));
     }
 
@@ -74,7 +74,7 @@ public class AllItemFragment extends Fragment {
 
     //handles the bottom navigation view icon presses.
     private void initBottomNavView(View view) {
-        bottomNavigationView.setSelectedItemId(R.id.market); //highlight the posts icon in the bottom navigation view.
+        bottomNavigationView.setSelectedItemId(R.id.market); //highlight the market icon in the bottom navigation view.
 
         //all cases will redirect to home activity but we are providing information about which icon was pressed in the intent.
         // for example if home icon is pressed navigate to home activity but also provide "home" as the activity name.
@@ -96,7 +96,6 @@ public class AllItemFragment extends Fragment {
                     startActivity(intent2);
                     break;
                 case R.id.market:
-                    // TODO: 2/18/2021 redirect to the markeplace activity
                     Intent intent1 = new Intent(getActivity(), HomeActivity.class);
                     intent1.putExtra(Constants.ACTIVITY_NAME,"item");
                     startActivity(intent1);

@@ -214,7 +214,7 @@ public class LoanDAO {
                     "day"
             };
 
-            //retrieve all the sale in the sells table.
+            //retrieve all the loan in the loans table.
             Cursor cursor = db.query("loan", columns, null, null, null, null, null);
             if(cursor != null){
                 if(cursor.moveToFirst()){

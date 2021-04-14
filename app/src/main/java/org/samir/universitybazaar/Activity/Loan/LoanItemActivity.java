@@ -95,17 +95,17 @@ public class LoanItemActivity extends AppCompatActivity {
                     creatorName = "User " + user.getMemberId().substring(6);
                 }
 
-                loan.setCreatorName(creatorName); //set the name of the user who created this sale.
-                loan.setCreatorId(user.getMemberId());//this will be used as the id to search for a given users sales in the database.
+                loan.setCreatorName(creatorName); //set the name of the user who created this loan.
+                loan.setCreatorId(user.getMemberId());//this will be used as the id to search for a given users loans in the database.
 
                 //Getting the current system date and formating it to mm/dd/yyyy format.
                 Date date = new Date();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String createdDate = df.format(date);
 
-                loan.setCreatedDate(createdDate);//setting the current system date as the sale created date.
+                loan.setCreatedDate(createdDate);//setting the current system date as the loan created date.
                 loan.setStatus("for loan");
-                //adding the new sale in the database.
+                //adding the new loan in the database.
                 if(loanDAO.addLoan(loan)){ //insert successful
                     //Redirect to HomeActivity
                     Intent intent = new Intent(LoanItemActivity.this,HomeActivity.class);

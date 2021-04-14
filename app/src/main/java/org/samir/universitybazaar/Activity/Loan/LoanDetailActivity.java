@@ -47,11 +47,11 @@ public class LoanDetailActivity extends AppCompatActivity {
         User user = userSession.isUserLoggedIn();
         if(user != null){ //user is logged in.
             String memberId = user.getMemberId(); //get the logged in users memberId.
-            Loan loan = dao.getLoanById(loan_id); //get the sale with the provided loanId from the database.
+            Loan loan = dao.getLoanById(loan_id); //get the loan with the provided loanId from the database.
 
-            if(loan != null){ // found a sale with the provided loanId.
+            if(loan != null){ // found a loan with the provided loanId.
 
-                //If the user didn't create this sale then don't allow them to edit or delete this sale.
+                //If the user didn't create this loan then don't allow them to edit or delete this loan.
                 if(!loan.getCreatorId().equals(memberId)){
                     txtEdit.setVisibility(View.GONE);
                     txtDelete.setVisibility(View.GONE);
@@ -66,7 +66,7 @@ public class LoanDetailActivity extends AppCompatActivity {
                             REQUEST_EXTERNAL_STORAGE);
                 }
 
-                //initialize the layout with all the data from the retrieved sale.
+                //initialize the layout with all the data from the retrieved loan.
                 txtPostTitle.setText(loan.getTitle());
                 Uri uri = Uri.fromFile(new File(loan.getImage()));
                 imageView.setImageURI(uri);

@@ -92,5 +92,5 @@ public class Loan {
     private String image;
     private String price;
     private String day;
-    private String status;//仍在出租或者下架 for loan,
+    private String status;// for loan or rent out,
 }

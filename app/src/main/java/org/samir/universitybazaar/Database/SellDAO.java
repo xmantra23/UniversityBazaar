@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-
-import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.Sell;
 
 import java.util.ArrayList;

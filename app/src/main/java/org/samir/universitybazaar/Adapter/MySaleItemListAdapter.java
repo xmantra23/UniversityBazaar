@@ -11,10 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
-
-import org.samir.universitybazaar.Activity.Posts.PostActivity;
 import org.samir.universitybazaar.Activity.Sale.SellDetailActivity;
-import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Models.Sell;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
