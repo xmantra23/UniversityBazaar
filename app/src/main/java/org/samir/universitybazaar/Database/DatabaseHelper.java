@@ -56,6 +56,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createSellTable(db);
         createLoanTable(db);
         createExchangeTable(db);
+        createMessagesTable(db); //creates a messages table in the database. stores all the messages.
+        createSentMessagesTable(db); //stores sent messages. similar to messages table but only to be used for getting sent messages.
+
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description stores sent messages. similar to messages table but only to be used for getting sent messages.
+     */
+
+    private void createSentMessagesTable(SQLiteDatabase db) {
+        String createSentMessagesTable = "CREATE TABLE sent_messages (_id INTEGER PRIMARY KEY AUTOINCREMENT,subject TEXT NOT NULL" +
+                " ,message TEXT NOT NULL, senderId TEXT NOT NULL, senderName TEXT NOT NULL,receiverId TEXT, " +
+                "receiverName TEXT NOT NULL, messageDate TEXT NOT NULL)";
+        db.execSQL(createSentMessagesTable);
+    }
+
+    /**
+     * @author Samir Shrestha
+     * @description this creates a messages table which stores all the messages sent from one user to another.
+     */
+    private void createMessagesTable(SQLiteDatabase db){
+        String createMessagesTable = "CREATE TABLE messages (_id INTEGER PRIMARY KEY AUTOINCREMENT,subject TEXT NOT NULL" +
+                " ,message TEXT NOT NULL, senderId TEXT NOT NULL, senderName TEXT NOT NULL,receiverId TEXT NOT NULL, " +
+                "receiverName TEXT NOT NULL, messageDate TEXT NOT NULL, readStatus INTEGER NOT NULL)";
+        db.execSQL(createMessagesTable);
     }
 
     /**

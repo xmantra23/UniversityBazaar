@@ -24,7 +24,7 @@
         <activity android:name=".Activity.Messages.SelectClubActivity"></activity>
         <activity android:name=".Activity.Messages.SentMessagesActivity"></activity>
         <activity android:name=".Activity.Messages.SentMessageDetailsActivity"></activity>
-        
+
         <activity android:name=".Activity.Loan.LoanDetailActivity"></activity>
         <activity android:name=".Activity.Loan.MyLoanItemListActivity"></activity>
         <activity android:name=".Activity.Loan.LoanItemActivity"></activity>
