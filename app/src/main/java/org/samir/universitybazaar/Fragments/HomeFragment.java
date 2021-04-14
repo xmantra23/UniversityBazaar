@@ -25,13 +25,17 @@ import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
 import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
 import org.samir.universitybazaar.Activity.Loan.MyLoanItemListActivity;
+import org.samir.universitybazaar.Activity.Messages.MessageHomeActivity;
 import org.samir.universitybazaar.Activity.Sale.MySaleItemListActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
+import org.samir.universitybazaar.Database.MessageDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Activity.Posts.MyPostsActivity;
 import org.samir.universitybazaar.Activity.Profile.ViewProfileActivity;
+import org.samir.universitybazaar.Models.User;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
+import org.samir.universitybazaar.Utility.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,7 +137,8 @@ public class HomeFragment extends Fragment {
         
         //handle messages
         txtMessages.setOnClickListener(v->{
-            // TODO: 3/15/2021 handle all functionality related to reading and sending messages.
+            Intent intent = new Intent(getActivity(), MessageHomeActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -150,6 +155,17 @@ public class HomeFragment extends Fragment {
         txtMessages = view.findViewById(R.id.txtMessages);
         advertisement = view.findViewById(R.id.advertisement);
         point = view.findViewById(R.id.point);
+
+        /**
+         * @author Samir Shrestha
+         */
+        //get total number of unread message for this users and show it in the parenthesis inside the message text in the Home UI.
+        MessageDAO db = new MessageDAO(getContext());
+        User user = Utils.getLoggedInUser(getContext());
+        if(user != null && db != null){
+            int unreadMessageCount = db.getUnreadMessagesCount(user.getMemberId());
+            txtMessages.setText("MESSAGES (" + unreadMessageCount + ")");
+        }
 
         /**
          * @author:YIfei Lu
