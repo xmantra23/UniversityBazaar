@@ -28,8 +28,10 @@
         <activity android:name=".Activity.Loan.LoanDetailActivity"></activity>
         <activity android:name=".Activity.Loan.MyLoanItemListActivity"></activity>
         <activity android:name=".Activity.Loan.LoanItemActivity"></activity>
+        <activity android:name=".Activity.Loan.EditLoanActivity" />
         <activity android:name=".Activity.Sale.ItemDetailActivity"></activity>
         <activity android:name=".Activity.Sale.SellDetailActivity"></activity>
+        <activity android:name=".Activity.Sale.EditSaleActivity" />
         <activity android:name=".Activity.Sale.MySaleItemListActivity" />
         <activity android:name=".Activity.Sale.SellItemActivity" />
         <activity android:name=".Activity.Posts.EditPostActivity" />

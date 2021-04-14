@@ -280,4 +280,42 @@ public class LoanDAO {
         }
     }
 
+    /**
+     * @author Minyi Lu
+     * @Description edit loan by loan id
+     */
+    public Boolean updateLoan(Loan loan){
+        try {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("title",loan.getTitle());
+            values.put("description",loan.getDescription());
+            values.put("image",loan.getImage());
+            values.put("price",loan.getPrice());
+            db.update("loan", values, "_id = '"+loan.get_id()+"'", null );
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author Minyi Lu
+     * @Description Delete loan by sale id
+     */
+    public boolean deleteLoan(int loan_id){
+        try {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            //4 tables include club id, delete them all
+            db.delete("loan", "_id = '"+loan_id+"'", null);
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

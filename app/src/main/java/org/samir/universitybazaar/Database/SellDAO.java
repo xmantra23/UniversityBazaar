@@ -274,4 +274,42 @@ public class SellDAO {
         }
     }
 
+    /**
+     * @author Minyi Lu
+     * @Description edit sale by loan id
+     */
+    public boolean updateSale(Sell sell){
+        try {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("title",sell.getTitle());
+            values.put("description",sell.getDescription());
+            values.put("image",sell.getImage());
+            values.put("price",sell.getPrice());
+            db.update("sell", values, "_id = '"+sell.get_id()+"'", null );
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author Minyi Lu
+     * @Description Delete sale by loan id
+     */
+    public boolean deleteSale(int sell_id){
+        try {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            //4 tables include club id, delete them all
+            db.delete("sell", "_id = '"+sell_id+"'", null);
+            db.close();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
