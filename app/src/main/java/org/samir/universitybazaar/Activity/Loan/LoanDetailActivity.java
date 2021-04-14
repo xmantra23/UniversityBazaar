@@ -1,16 +1,24 @@
 package org.samir.universitybazaar.Activity.Loan;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import org.samir.universitybazaar.Activity.Clubs.ClubActivity;
+import org.samir.universitybazaar.Activity.Clubs.EditClubActivity;
+import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
+import org.samir.universitybazaar.Database.ClubDAO;
 import org.samir.universitybazaar.Database.LoanDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Loan;
@@ -76,6 +84,25 @@ public class LoanDetailActivity extends AppCompatActivity {
                 priceText.setText(loan.getPrice());
 
                 // handle edit, delete  and add comment button clicks.
+                /**
+                 * @author minyi lu
+                 * @discription open edit loan item page
+                 */
+                txtEdit.setOnClickListener(v->{
+                    System.out.println("edit");
+                    Intent intent = new Intent(LoanDetailActivity.this, EditLoanActivity.class);
+                    intent.putExtra(Constants.LOAN_ID,loan_id);
+                    startActivity(intent);
+                });
+                /**
+                 * @author minyi lu
+                 * @discription delete loan
+                 */
+                txtDelete.setOnClickListener(v->{
+                    handleDeleteLoan();
+
+                });
+
             }
         }
     }
@@ -89,6 +116,43 @@ public class LoanDetailActivity extends AppCompatActivity {
         txtCreatedDate = findViewById(R.id.txtCreatedDate);
         imageView = findViewById(R.id.imageView);
         priceText = findViewById(R.id.priceText);
+    }
+
+    private void handleDeleteLoan(){
+        System.out.println("delete");
+        AlertDialog.Builder normalDialog = new AlertDialog.Builder(LoanDetailActivity.this);
+        normalDialog.setTitle("Delete");
+        normalDialog.setMessage("Are your sure you want to delete ?");
+        //Delete the post and back
+        normalDialog.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                LoanDAO lo = new LoanDAO(LoanDetailActivity.this);
+                boolean flag = lo.deleteLoan(loan_id);
+                if (flag){
+                    Toast.makeText(LoanDetailActivity.this, "Delete Successfully!", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(LoanDetailActivity.this, MyLoanItemListActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(LoanDetailActivity.this, "Delete failed!", Toast.LENGTH_LONG).show();
+                }
+
+
+
+            }
+        });
+        //Stay on the current page
+        normalDialog.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(LoanDetailActivity.this, "Cancel", Toast.LENGTH_LONG).show();
+                    }
+                });
+        normalDialog.show();
     }
 
 

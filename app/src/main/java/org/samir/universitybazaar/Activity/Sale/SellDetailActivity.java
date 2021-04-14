@@ -4,14 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.samir.universitybazaar.Database.DatabaseHelper;
+import org.samir.universitybazaar.Activity.Loan.LoanDetailActivity;
+import org.samir.universitybazaar.Activity.Loan.MyLoanItemListActivity;
+import org.samir.universitybazaar.Database.LoanDAO;
 import org.samir.universitybazaar.Database.SellDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Models.Sell;
@@ -20,9 +26,6 @@ import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class SellDetailActivity extends AppCompatActivity {
 
@@ -80,6 +83,24 @@ public class SellDetailActivity extends AppCompatActivity {
                 priceText.setText(sell.getPrice());
 
                 // handle edit, delete  and add comment button clicks.
+                /**
+                 * @author minyi lu
+                 * @discription open edit sale item page
+                 */
+                txtEdit.setOnClickListener(v->{
+                    System.out.println("edit");
+                    Intent intent = new Intent(SellDetailActivity.this, EditSaleActivity.class);
+                    intent.putExtra(Constants.SELL_ID,sell_id);
+                    startActivity(intent);
+                });
+                /**
+                 * @author minyi lu
+                 * @discription delete sale
+                 */
+                txtDelete.setOnClickListener(v->{
+                    handleDeleteSell();
+
+                });
             }
         }
     }
@@ -95,5 +116,41 @@ public class SellDetailActivity extends AppCompatActivity {
         priceText = findViewById(R.id.priceText);
     }
 
+    private void handleDeleteSell(){
+        System.out.println("delete");
+        AlertDialog.Builder normalDialog = new AlertDialog.Builder(SellDetailActivity.this);
+        normalDialog.setTitle("Delete");
+        normalDialog.setMessage("Are your sure you want to delete ?");
+        //Delete the post and back
+        normalDialog.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SellDAO se = new SellDAO(SellDetailActivity.this);
+                boolean flag = se.deleteSale(sell_id);
+                if (flag){
+                    Toast.makeText(SellDetailActivity.this, "Delete Successfully!", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(SellDetailActivity.this, MySaleItemListActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(SellDetailActivity.this, "Delete failed!", Toast.LENGTH_LONG).show();
+                }
+
+
+
+            }
+        });
+        //Stay on the current page
+        normalDialog.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(SellDetailActivity.this, "Cancel", Toast.LENGTH_LONG).show();
+                    }
+                });
+        normalDialog.show();
+    }
 
 }
