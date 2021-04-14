@@ -89,11 +89,14 @@ public class AllItemFragment extends Fragment {
                     break;
                 case R.id.post:
                     // In allposts activity. No action required.
+                    Intent intent2 = new Intent(getActivity(), HomeActivity.class);
+                    intent2.putExtra(Constants.ACTIVITY_NAME,"post");  //sending signal that AllPostFragment should be loaded in the HomeActivity's fragment.
+                    startActivity(intent2);
                     break;
                 case R.id.group:
-                    Intent intent2 = new Intent(getActivity(), HomeActivity.class);
-                    intent2.putExtra(Constants.ACTIVITY_NAME,"group");  //sending signal that HomeFragment should be loaded in the HomeActivity's fragment.
-                    startActivity(intent2);
+                    Intent intent3 = new Intent(getActivity(), HomeActivity.class);
+                    intent3.putExtra(Constants.ACTIVITY_NAME,"group");  //sending signal that HomeFragment should be loaded in the HomeActivity's fragment.
+                    startActivity(intent3);
                     break;
                 case R.id.market:
                     Intent intent1 = new Intent(getActivity(), HomeActivity.class);

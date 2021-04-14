@@ -208,7 +208,6 @@ public class HomeFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.market:
-                    // TODO: 2/18/2021 redirect to the marketplace activity
                     intent.putExtra(Constants.ACTIVITY_NAME,"item");
                     startActivity(intent);
                     break;

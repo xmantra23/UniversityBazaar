@@ -27,7 +27,7 @@ public class MyLoanItemListAdapter extends RecyclerView.Adapter<MyLoanItemListAd
     }
 
     private ArrayList<Loan> loans = new ArrayList<>(); //this will hold all our loan objects.
-    private Context context; //parent activity of that will use this adapter. In our case it is MySaleActivity.
+    private Context context; //parent activity of that will use this adapter.
     private String activity_type;
 
     public MyLoanItemListAdapter(Context context){
@@ -50,10 +50,10 @@ public class MyLoanItemListAdapter extends RecyclerView.Adapter<MyLoanItemListAd
         holder.txtSaleDate.setText(loans.get(position).getCreatedDate());
         holder.txtSaleStatus.setText(loans.get(position).getStatus());
 
-        //clicking on any sale in the list should navigate to the loanDetailActivity page for that sale.
+        //clicking on any loan in the list should navigate to the loanDetailActivity page for that loan.
         holder.parent.setOnClickListener(v->{
             Intent intent = new Intent(context, LoanDetailActivity.class);
-            //pass the loanId to the loanDetailActivity page. This will allow us to retrieve all the details of the clicked sale inside the loanDetailActivity page.
+            //pass the loanId to the loanDetailActivity page. This will allow us to retrieve all the details of the clicked loan inside the loanDetailActivity page.
             intent.putExtra(Constants.LOAN_ID,loans.get(position).get_id());
             intent.putExtra(Constants.ACTIVITY_NAME,activity_type);
             context.startActivity(intent);

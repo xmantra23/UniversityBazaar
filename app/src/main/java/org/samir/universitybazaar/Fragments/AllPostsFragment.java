@@ -87,7 +87,6 @@ public class AllPostsFragment extends Fragment {
                     startActivity(intent2);
                     break;
                 case R.id.market:
-                    // TODO: 2/18/2021 redirect to the markeplace activity
                     Intent intent1 = new Intent(getActivity(), HomeActivity.class);
                     intent1.putExtra(Constants.ACTIVITY_NAME,"item");
                     startActivity(intent1);
