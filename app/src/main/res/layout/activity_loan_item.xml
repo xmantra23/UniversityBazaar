@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Loan.LoanItemActivity">
+
+    <TextView
+        android:id="@+id/txtNewPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="New Loan"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleRelLayout"
+        android:layout_below="@+id/txtNewPost"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title:"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/edtTxtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/txtTitle"
+            android:ems="5"
+            android:hint="Enter a title for a new sale."
+            android:inputType="textPersonName" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/descRelLayout"
+        android:layout_below="@+id/titleRelLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/txtShortDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/edtTxtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtShortDesc"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:hint="Enter details about your sale."
+            android:inputType="textMultiLine"
+            android:maxLines="50"
+            android:minLines="4" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgRelLayout"
+        android:layout_below="@+id/descRelLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/imageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Image:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnImgUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/imageText"
+            android:background="#FFFFFF"
+            android:text="UPLOAD"
+            app:backgroundTint="#2196F3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/priceRelLayout"
+        android:layout_below="@+id/imgRelLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price:"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/edtTxtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/priceText"
+            android:ems="5"
+            android:hint="price"
+            android:inputType="textPersonName" />
+        <TextView
+            android:id="@+id/priceUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:text="$ per day"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:layout_toEndOf="@+id/edtTxtPrice"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/btnRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/priceRelLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F44336"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/btnPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_toEndOf="@+id/btnCancel"
+            android:backgroundTint="#8BC34A"
+            android:text="Create" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

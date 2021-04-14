@@ -53,31 +53,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createClubNoticeTable(db); //creates a table club_notice table that holds all the notice/announcements for clubs.
         createClubPostsTable(db); //creates a table club_posts that holds all the posts made within a given club.
         createClubNoticeCommentsTable(db); //creates club_notice_comments for user comments made inside a club notice in the database.
-        createMessagesTable(db); //creates a messages table in the database. stores all the messages.
-        createSentMessagesTable(db); //stores sent messages. similar to messages table but only to be used for getting sent messages.
+        createSellTable(db);
+        createLoanTable(db);
+        createExchangeTable(db);
     }
 
     /**
-     * @author Samir Shrestha
-     * @description stores sent messages. similar to messages table but only to be used for getting sent messages.
+     * 交易表
+     * @param db
      */
-
-    private void createSentMessagesTable(SQLiteDatabase db) {
-        String createSentMessagesTable = "CREATE TABLE sent_messages (_id INTEGER PRIMARY KEY AUTOINCREMENT,subject TEXT NOT NULL" +
-                " ,message TEXT NOT NULL, senderId TEXT NOT NULL, senderName TEXT NOT NULL,receiverId TEXT, " +
-                "receiverName TEXT NOT NULL, messageDate TEXT NOT NULL)";
-        db.execSQL(createSentMessagesTable);
+    private void createExchangeTable(SQLiteDatabase db) {
+        String createExchangeTable = "CREATE TABLE exchange (_id INTEGER PRIMARY KEY AUTOINCREMENT,sellerId INTEGER NOT NULL" +
+                " ,customerId INTEGER NOT NULL, itemId INTEGER NOT NULL, " +
+                "type TEXT NOT NULL,"+
+                "price TEXT NOT NULL, exchangeDate TEXT)";
+        db.execSQL(createExchangeTable);
     }
 
     /**
-     * @author Samir Shrestha
-     * @description this creates a messages table which stores all the messages sent from one user to another.
+     * create a loan table
+     * @param db
      */
-    private void createMessagesTable(SQLiteDatabase db){
-        String createMessagesTable = "CREATE TABLE messages (_id INTEGER PRIMARY KEY AUTOINCREMENT,subject TEXT NOT NULL" +
-                " ,message TEXT NOT NULL, senderId TEXT NOT NULL, senderName TEXT NOT NULL,receiverId TEXT NOT NULL, " +
-                "receiverName TEXT NOT NULL, messageDate TEXT NOT NULL, readStatus INTEGER NOT NULL)";
-        db.execSQL(createMessagesTable);
+    private void createLoanTable(SQLiteDatabase db) {
+        String createLoanTable = "CREATE TABLE loan (_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL" +
+                " ,description TEXT NOT NULL, creatorId TEXT NOT NULL, " +
+                "creatorName TEXT NOT NULL, createdDate TEXT NOT NULL, image TEXT,"+
+                "price TEXT NOT NULL, status TEXT, day TEXT)";
+        db.execSQL(createLoanTable);
+    }
+
+    /**
+     * create a sell table
+     * @param db
+     */
+    private void createSellTable(SQLiteDatabase db) {
+        //creatorID is the memberID of the current logged in user.
+        String createSellTable = "CREATE TABLE sell (_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL" +
+                " ,description TEXT NOT NULL, creatorId TEXT NOT NULL, " +
+                "creatorName TEXT NOT NULL, createdDate TEXT NOT NULL, image TEXT NOT NULL,"+
+                "price TEXT NOT NULL, status TEXT)";
+        db.execSQL(createSellTable);
     }
 
     /**
@@ -621,7 +636,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     private static void createUserProfileTable(SQLiteDatabase db){
         String createUserProfileTable = "CREATE TABLE user_profiles (_id INTEGER PRIMARY KEY AUTOINCREMENT, member_id TEXT NOT NULL UNIQUE" +
-                " ,email TEXT NOT NULL UNIQUE, full_name TEXT, gender TEXT, address TEXT , phone TEXT , dob TEXT, avatar TEXT)";
+                " ,email TEXT NOT NULL UNIQUE, full_name TXET, gender TEXT, address TEXT , phone TEXT , dob TEXT, avatar TEXT)";
         db.execSQL(createUserProfileTable);
     }
 

@@ -6,6 +6,8 @@ package org.samir.universitybazaar.Utility;
  */
 public class Constants {
     public static final String POST_ID = "post_id";
+    public static final String SELL_ID = "sell_id";
+    public static final String LOAN_ID = "loan_id";
     public static final String ACTIVITY_NAME = "activity_name";
 
     public static final String CREATOR_ID = "creator_id";
@@ -18,7 +20,7 @@ public class Constants {
     public static final String HOME = "home";
     public static final String GROUP = "group";
     public static final String POST = "post";
-    public static final String MARKET = "market";
+    public static final String ITEM = "item";
     public static final String MEMBER_NAME = "member_name";
     public static final String MEMBER_ID = "member_id";
     public static final String MESSAGE_TYPE = "message_type";

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Sale.SellDetailActivity"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPostTitle"
+            android:text="Free Pizza @ ERB 123"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/postModifyRelLayout"
+            android:layout_below="@+id/txtPostTitle"
+            android:layout_marginTop="10dp"
+            android:gravity="end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtEdit"
+                android:text="Edit"
+                android:textColor="#2196F3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtDelete"
+                android:layout_toEndOf="@+id/txtEdit"
+                android:layout_marginStart="15dp"
+                android:textColor="#FF5722"
+                android:text="Delete"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/postModifyRelLayout"
+
+            android:src="@drawable/ic_home" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/priceRelLayout"
+            android:layout_below="@+id/imageView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/priceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price:"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/edtTxtPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/priceText"
+                android:ems="5"
+                  android:inputType="textPersonName" />
+            <TextView
+                android:id="@+id/priceUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:text="$"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:layout_toEndOf="@+id/edtTxtPrice"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtPostDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priceRelLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="20dp"
+            android:lineSpacingExtra="4.5dp"
+            android:text="Hello everyone. Just wanted to let you all know that there is free pizza
+at the ERB from 11:00am to 12:00pm. Don't forget to come and oh they also have free drinks
+too.Make sure you tell all your friends too. It's going to be a lot of fun." />
+
+        <RelativeLayout
+            android:id="@+id/footerRelLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtPostDescription"
+            android:layout_marginTop="36dp">
+
+            <TextView
+                android:id="@+id/txtCreatorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Posted by: Samir Shrestha" />
+
+            <TextView
+                android:id="@+id/txtCreatedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="02/19/2020" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDeletePostWarning"
+            android:text="Warning"
+            android:layout_below="@+id/footerRelLayout"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:textColor="@color/design_default_color_error"
+            android:visibility="gone"
+            />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/txtDeletePostWarning"
+            android:layout_marginTop="345dp"
+            android:background="#6E6666" />
+
+<!--        <Button-->
+<!--            android:id="@+id/buy"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/footerRelLayout"-->
+
+<!--            android:text="BUY" />-->
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
+

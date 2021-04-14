@@ -2,7 +2,6 @@ package org.samir.universitybazaar.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,32 +15,32 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
-import org.samir.universitybazaar.Adapter.ClubAdapter;
+import org.samir.universitybazaar.Adapter.AllItemsAdapter;
 import org.samir.universitybazaar.Adapter.MyPostAdapter;
-import org.samir.universitybazaar.Database.ClubDAO;
+import org.samir.universitybazaar.Adapter.MySaleItemListAdapter;
 import org.samir.universitybazaar.Database.DatabaseHelper;
-import org.samir.universitybazaar.Models.Club;
+import org.samir.universitybazaar.Database.LoanDAO;
+import org.samir.universitybazaar.Database.SellDAO;
+import org.samir.universitybazaar.Models.Loan;
 import org.samir.universitybazaar.Models.Post;
+import org.samir.universitybazaar.Models.Sell;
 import org.samir.universitybazaar.R;
 import org.samir.universitybazaar.Utility.Constants;
 
 import java.util.ArrayList;
 
-/**
- * @author Samir Shrestha
- * //displays all the clubs in the system as a list inside the homeactivity page.
- */
-public class AllClubsFragment extends Fragment {
+public class AllItemFragment extends Fragment {
 
     private BottomNavigationView bottomNavigationView; //The bottom navigation icons.
-    private RecyclerView clubsRecView; //lists all the club items.
-    private ClubAdapter adapter;
-    private ClubDAO db;
+    private RecyclerView itemRecView; //lists all the posts items.
+    private AllItemsAdapter adapter;
+    private SellDAO dao;
+    private LoanDAO dao1;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_all_clubs,container,false);
+        View view = inflater.inflate(R.layout.fragment_market,container,false);
         initViews(view);
         initBottomNavView(view); //initialize and then handle the bottom icons.
         handleRecyclerView(view); //initialize and set all the data for the recycler view containing all the posts.
@@ -49,27 +48,33 @@ public class AllClubsFragment extends Fragment {
     }
 
     private void handleRecyclerView(View view) {
-        adapter = new ClubAdapter(getActivity()); //create a new ClubAdapter instance
+        adapter = new AllItemsAdapter(getActivity()); //create a new AllItemsAdapter instance
 
-        db = new ClubDAO(getActivity());
+        dao = new SellDAO(getActivity());
+        dao1 = new LoanDAO(getActivity());
 
-        ArrayList<Club> allClubs = db.getAllClubs(); //get all the clubs in the clubs table from the database.
+        ArrayList<Object> objects = new ArrayList<>();
+        ArrayList<Sell> allSell = dao.getAllSells(); //get all the sells in the sells table from the database.
+        ArrayList<Loan> allLoan = dao1.getAllLoans();
+        objects.addAll(allSell);
+        objects.addAll(allLoan);
+        //set another type to do
 
-        adapter.setClubs(allClubs); //initialize all the clubs for the adapter with the posts retrieved from the database.
+        adapter.setObjs(objects); //initialize all the sells for the adapter with the sells retrieved from the database.
 
-        clubsRecView.setAdapter(adapter); //initialize the recycler view.
-        //set linear layout with vertical orientation. reverseLayout is true means the most recent clubs is on the top of the list.
-        clubsRecView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL,true));
+        itemRecView.setAdapter(adapter); //initialize the recycler view.
+        //set linear layout with vertical orientation. reverseLayout is true means the most recent sells is on the top of the list.
+        itemRecView.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,true));
     }
 
     private void initViews(View view) {
         bottomNavigationView = view.findViewById(R.id.bottomNavView);
-        clubsRecView = view.findViewById(R.id.clubsRecView);
+        itemRecView = view.findViewById(R.id.itemRecView);
     }
 
     //handles the bottom navigation view icon presses.
     private void initBottomNavView(View view) {
-        bottomNavigationView.setSelectedItemId(R.id.group); //highlight the clubs icon in the bottom navigation view.
+        bottomNavigationView.setSelectedItemId(R.id.market); //highlight the market icon in the bottom navigation view.
 
         //all cases will redirect to home activity but we are providing information about which icon was pressed in the intent.
         // for example if home icon is pressed navigate to home activity but also provide "home" as the activity name.
@@ -83,25 +88,20 @@ public class AllClubsFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.post:
+                    // In allposts activity. No action required.
                     Intent intent2 = new Intent(getActivity(), HomeActivity.class);
                     intent2.putExtra(Constants.ACTIVITY_NAME,"post");  //sending signal that AllPostFragment should be loaded in the HomeActivity's fragment.
                     startActivity(intent2);
                     break;
                 case R.id.group:
-                    //In allclubs activity. No action required.
                     Intent intent3 = new Intent(getActivity(), HomeActivity.class);
-                    intent3.putExtra(Constants.ACTIVITY_NAME,"group");
+                    intent3.putExtra(Constants.ACTIVITY_NAME,"group");  //sending signal that HomeFragment should be loaded in the HomeActivity's fragment.
                     startActivity(intent3);
                     break;
                 case R.id.market:
-                    // You need to first implement a MarketFragment that displays all the sale and rent items and then
-                    // redirect to the  HomeActivity but you need to pass the activity name as "market"
-                    // inside the intent.putExtra.
-                    // so you need to do intent.putExtra(Constants.ACTIVITY_NAME,"market");
-                    // See line 82 and line 87 in this page.
-                    Intent intent4 = new Intent(getActivity(), HomeActivity.class);
-                    intent4.putExtra(Constants.ACTIVITY_NAME,"item");
-                    startActivity(intent4);
+                    Intent intent1 = new Intent(getActivity(), HomeActivity.class);
+                    intent1.putExtra(Constants.ACTIVITY_NAME,"item");
+                    startActivity(intent1);
                     break;
                 default:
                     break;
@@ -109,5 +109,5 @@ public class AllClubsFragment extends Fragment {
             return false;
         });
     }
-}
 
+}
