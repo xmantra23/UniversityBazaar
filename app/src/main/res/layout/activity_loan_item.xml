@@ -116,10 +116,10 @@
             android:id="@+id/priceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price:"
-            android:textStyle="bold"
             android:layout_centerVertical="true"
-            android:textSize="20sp"/>
+            android:text="Price:  $"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtTxtPrice"
@@ -131,17 +131,17 @@
             android:ems="5"
             android:hint="price"
             android:inputType="textPersonName" />
+
         <TextView
             android:id="@+id/priceUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:text="$ per day"
-            android:textStyle="bold"
             android:layout_centerVertical="true"
-            android:textSize="18sp"
+            android:layout_marginStart="0dp"
             android:layout_toEndOf="@+id/edtTxtPrice"
-            />
+            android:text="per day"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 

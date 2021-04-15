@@ -35,23 +35,24 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/mySaleInfoRelLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mySaleInfoRelLayout"
             android:layout_below="@+id/titleRelLayout"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="25dp">
 
             <TextView
+                android:id="@+id/txtSalePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10$"
-                android:id="@+id/txtSalePrice"/>
+                android:text="$10" />
+
             <TextView
+                android:id="@+id/txtSaleDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="02/19/2020"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/txtSaleDate"/>
+                android:text="02/19/2020" />
         </RelativeLayout>
 
     </RelativeLayout>

@@ -50,7 +50,7 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
         if (objs.get(position) instanceof Sell) {
             Sell o = (Sell) objs.get(position);
             holder.txtSaleItemTitle.setText(o.getTitle());
-            holder.txtSalePrice.setText(o.getPrice() + "$");
+            holder.txtSalePrice.setText("$" + o.getPrice());
             holder.txtSaleDate.setText(o.getCreatedDate());
             holder.txtSaleStatus.setText(o.getStatus());
             objType = 1;
@@ -59,7 +59,7 @@ public class AllItemsAdapter extends RecyclerView.Adapter<AllItemsAdapter.ViewHo
         }else {
             Loan o = (Loan) objs.get(position);
             holder.txtSaleItemTitle.setText(o.getTitle());
-            holder.txtSalePrice.setText(o.getPrice() + "$ per day");
+            holder.txtSalePrice.setText("$"+o.getPrice() + " per day");
             holder.txtSaleDate.setText(o.getCreatedDate());
             holder.txtSaleStatus.setText(o.getStatus());
             objType = 2;

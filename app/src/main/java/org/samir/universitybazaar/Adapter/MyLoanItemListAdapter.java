@@ -46,7 +46,7 @@ public class MyLoanItemListAdapter extends RecyclerView.Adapter<MyLoanItemListAd
 
 
         holder.txtSaleItemTitle.setText(loans.get(position).getTitle());
-        holder.txtSalePrice.setText(loans.get(position).getPrice()+"$ per day");
+        holder.txtSalePrice.setText("$"+loans.get(position).getPrice()+" per day");
         holder.txtSaleDate.setText(loans.get(position).getCreatedDate());
         holder.txtSaleStatus.setText(loans.get(position).getStatus());
 

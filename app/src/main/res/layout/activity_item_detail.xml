@@ -9,7 +9,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="0dp"
+        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,9 +40,21 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:id="@+id/priceUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="0dp"
+                android:text="$"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                />
+            <TextView
                 android:id="@+id/priceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
                 android:text="Price:"
                 android:textStyle="bold"
                 android:layout_centerVertical="true"
@@ -55,17 +69,7 @@
                 android:layout_toEndOf="@+id/priceText"
                 android:ems="5"
                 android:inputType="textPersonName" />
-            <TextView
-                android:id="@+id/priceUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:text="$"
-                android:textStyle="bold"
-                android:layout_centerVertical="true"
-                android:textSize="18sp"
-                android:layout_toEndOf="@+id/edtTxtPrice"
-                />
+
         </RelativeLayout>
 
         <TextView
@@ -73,9 +77,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/priceRelLayout"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="29dp"
             android:layout_marginEnd="20dp"
+
             android:lineSpacingExtra="4.5dp"
             android:text="Hello everyone. Just wanted to let you all know that there is free pizza
 at the ERB from 11:00am to 12:00pm. Don't forget to come and oh they also have free drinks
@@ -85,6 +90,7 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun." />
             android:id="@+id/footerRelLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_below="@id/txtPostDescription"
             android:layout_marginTop="36dp">
 
@@ -92,6 +98,7 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun." />
                 android:id="@+id/txtCreatorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="Posted by: Samir Shrestha" />
 
             <TextView
@@ -122,22 +129,36 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun." />
             android:layout_marginTop="345dp"
             android:background="#6E6666" />
 
+
+        <!--        <Button-->
+        <!--            android:id="@+id/buy"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/footerRelLayout"-->
+
+        <!--            android:text="BUY" />-->
+
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/dayRelLayout"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/footerRelLayout"
+            android:layout_marginLeft="1dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="27dp">
 
             <TextView
                 android:id="@+id/dayText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Days:"
-                android:textStyle="bold"
+
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:textSize="20sp"/>
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:text="Duration:"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtTxtDay"
@@ -149,27 +170,19 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun." />
                 android:ems="5"
                 android:hint="number"
                 android:inputType="textPersonName" />
+
             <TextView
                 android:id="@+id/unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:text="day"
-                android:textStyle="bold"
                 android:layout_centerVertical="true"
-                android:textSize="18sp"
+                android:layout_marginStart="0dp"
                 android:layout_toEndOf="@+id/edtTxtDay"
-                />
+                android:text="day"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
-
-        <!--        <Button-->
-        <!--            android:id="@+id/buy"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_below="@id/footerRelLayout"-->
-
-        <!--            android:text="BUY" />-->
         <Button
             android:id="@+id/btnBuy"
             android:layout_width="wrap_content"
@@ -178,7 +191,7 @@ too.Make sure you tell all your friends too. It's going to be a lot of fun." />
             android:layout_marginStart="145dp"
             android:layout_marginTop="95dp"
             android:backgroundTint="#8BC34A"
-            android:text="Buy" />
+            android:text="Pay" />
 
 
     </RelativeLayout>
