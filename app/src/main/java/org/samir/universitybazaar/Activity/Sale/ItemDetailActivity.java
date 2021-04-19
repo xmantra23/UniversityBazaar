@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
+import org.samir.universitybazaar.Activity.pay.PayActivity;
 import org.samir.universitybazaar.Database.ExchangeDAO;
 import org.samir.universitybazaar.Database.LoanDAO;
 import org.samir.universitybazaar.Database.SellDAO;
@@ -120,52 +121,19 @@ public class ItemDetailActivity extends AppCompatActivity {
         }
 
         btnBuy.setOnClickListener(v -> {
-            int sellerId = 1;
-            if (inType == 1) {//sell
-                sellDAO = new SellDAO(this);
-                Sell sell = sellDAO.getSellById(inId);
-                sellerId = Integer.parseInt(sell.getCreatorId());
-            } else {
-                loanDAO = new LoanDAO(this);
-                Loan loan = loanDAO.getLoanById(inId);
-                sellerId = Integer.parseInt(loan.getCreatorId());
-            }
-            ExchangeDAO exchangeDAO = new ExchangeDAO(this);
-
-            Exchange exchange = new Exchange();
-            exchange.setCustomerId(user.getId());
-            exchange.setSellerId(sellerId);
-            Date date = new Date();
-            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-            String createdDate = df.format(date);
-            exchange.setExchangeDate(createdDate);
-            exchange.setItemId(inId);
-            exchange.setPrice(priceText.getText().toString());
+            String price = priceText.getText().toString();
             if(inType==2){
                 BigDecimal result = new BigDecimal(priceText.getText().toString()).multiply(new BigDecimal(edtTxtDay.getText().toString()));
-                exchange.setPrice(result.toString());
+                price = result.toString();
             }
-            exchange.setType(String.valueOf(inType));
-            boolean b = exchangeDAO.addExchange(exchange);
-            if (b) {
-                btnBuy.setEnabled(false);
-                if (inType == 1) {
-                    Sell updateSell = new Sell();
-                    updateSell.set_id(inId);
-                    updateSell.setStatus("sold out");
-                    sellDAO.updateSellStatus(updateSell);
-                } else {
-                    Loan updateLoan = new Loan();
-                    updateLoan.set_id(inId);
-                    updateLoan.setStatus("rent out");
-                    loanDAO.updateLoanStatus(updateLoan);
-                }
-                Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, "Failure!", Toast.LENGTH_LONG).show();
-            }
-            Intent intent1 = new Intent(this, HomeActivity.class);
-            startActivity(intent1);
+            Intent payIntent = new Intent(this, PayActivity.class);
+            //pass the sellId the ItemDetailActivity page. This will allow us to retrieve all the details of the clicked detail inside the ItemDetailActivity page.
+            payIntent.putExtra("objId", inId);
+            payIntent.putExtra("objType", inType);
+            payIntent.putExtra("objNum", edtTxtDay.getText().toString());
+            payIntent.putExtra("objPrice", price);
+
+            startActivity(payIntent);
         });
     }
 
