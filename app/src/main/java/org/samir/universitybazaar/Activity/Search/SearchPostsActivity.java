@@ -94,4 +94,32 @@ public class SearchPostsActivity extends AppCompatActivity {
         }
     }
 
+    public void onRadioButtonClicked(View view){
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch(view.getId()){
+            case R.id.radioTitle:
+                if(checked){
+                    edtTxtSearch.setHint("Enter post title.");
+                }
+                break;
+            case R.id.radioDescription:
+                if(checked){
+                    edtTxtSearch.setHint("Enter post description.");
+                }
+                break;
+            case R.id.radioDate:
+                if(checked){
+                    edtTxtSearch.setHint("Enter post date.");
+                }
+                break;
+            case R.id.radioAuthor:
+                if(checked){
+                    edtTxtSearch.setHint("Enter post author name.");
+                }
+                break;
+
+        }
+    }
+
 }

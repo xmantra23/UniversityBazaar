@@ -41,24 +41,28 @@
             android:layout_height="wrap_content"
             android:text="Title"
             android:checked="true"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:onClick="onRadioButtonClicked"/>
         <RadioButton
             android:id="@+id/radioDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:onClick="onRadioButtonClicked"/>
         <RadioButton
             android:id="@+id/radioDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:onClick="onRadioButtonClicked"/>
         <RadioButton
             android:id="@+id/radioAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Author" />
+            android:text="Author"
+            android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
     <View android:background="#080909"
