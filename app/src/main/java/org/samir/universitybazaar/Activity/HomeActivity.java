@@ -28,6 +28,7 @@ import org.samir.universitybazaar.Activity.Clubs.CreateClubActivity;
 import org.samir.universitybazaar.Activity.Loan.LoanItemActivity;
 import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
 import org.samir.universitybazaar.Activity.Sale.SellItemActivity;
+import org.samir.universitybazaar.Activity.Search.SearchClubsActivity;
 import org.samir.universitybazaar.Activity.Search.SearchPostsActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.ProfileDAO;
@@ -144,7 +145,9 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent5);
                         break;
                     case R.id.searchClubs:
-                        // TODO: 4/20/2021 navigate to search clubs activity 
+                        //Redirect to SearchPostsActivity
+                        Intent intent6 = new Intent(HomeActivity.this, SearchClubsActivity.class);
+                        startActivity(intent6);
                         break;
                     default:
                         break;
