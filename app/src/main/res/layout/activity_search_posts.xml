@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border"
+    android:layout_margin="5dp"
+    tools:context=".Activity.Search.SearchPostsActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Posts"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/txtHeader" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:id="@+id/edtTxtSearch"
+        android:layout_below="@+id/txtHeader"
+        android:hint="Enter post title."
+        android:background="@drawable/border"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchTypeRadioGroup"
+        android:layout_below="@id/edtTxtSearch"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:checked="true"
+            android:layout_marginRight="20dp"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton
+            android:id="@+id/radioDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:layout_marginRight="20dp"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton
+            android:id="@+id/radioDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_marginRight="20dp"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton
+            android:id="@+id/radioAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Author"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <View android:background="#080909"
+        android:layout_width = "match_parent"
+        android:layout_height="1dip"
+        android:id="@+id/line1"
+        android:layout_below="@id/searchTypeRadioGroup"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/postScrollView"
+        android:layout_below="@+id/line1"
+        android:layout_margin="5dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/postRecView"
+            android:layout_margin="10dp"/>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>
