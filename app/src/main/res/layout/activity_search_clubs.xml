@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/border"
-    android:layout_margin="5dp"
+    android:background="@drawable/border2"
+    android:layout_margin="0.5dp"
     tools:context=".Activity.Search.SearchClubsActivity">
 
     <TextView
@@ -17,6 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:textColor="#ffffff"
         android:id="@+id/txtHeader" />
     <EditText
         android:layout_width="match_parent"
@@ -24,8 +25,10 @@
         android:padding="5dp"
         android:id="@+id/edtTxtSearch"
         android:layout_below="@+id/txtHeader"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:hint="Enter club title."
-        android:background="@drawable/border"/>
+        android:background="@drawable/border2"/>
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -40,32 +43,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
+            android:textSize="18dp"
+            android:textColor="#ffffff"
             android:checked="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="15dp"
             android:onClick="onRadioButtonClicked"/>
         <RadioButton
             android:id="@+id/radioDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:text="Description"
-            android:layout_marginRight="20dp"
+            android:textSize="18dp"
+            android:layout_marginRight="15dp"
             android:onClick="onRadioButtonClicked"/>
         <RadioButton
             android:id="@+id/radioDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:text="Date"
-            android:layout_marginRight="20dp"
+            android:textSize="18dp"
+            android:layout_marginRight="15dp"
             android:onClick="onRadioButtonClicked"/>
         <RadioButton
             android:id="@+id/radioAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
             android:text="Admin"
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
-    <View android:background="#080909"
+    <View android:background="#E0E8E8"
         android:layout_width = "match_parent"
         android:layout_height="1dip"
         android:id="@+id/line1"
@@ -73,10 +84,11 @@
         />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="356dp"
+        android:layout_height="381dp"
         android:id="@+id/clubScrollView"
         android:layout_below="@+id/line1"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:paddingBottom="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="wrap_content"
@@ -90,11 +102,11 @@
         android:layout_below="@+id/clubScrollView"
         android:layout_width="351dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:text="Search"
         android:layout_centerHorizontal="true"
-        app:backgroundTint="#03A9F4"
+        app:backgroundTint="#4CAF50"
         android:onClick="onSearchButtonClicked"
         app:cornerRadius="18dp"/>
 

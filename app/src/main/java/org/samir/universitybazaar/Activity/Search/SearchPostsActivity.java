@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Adapter.MyPostAdapter;
 import org.samir.universitybazaar.Database.PostDAO;
 import org.samir.universitybazaar.Database.UserSession;
@@ -106,7 +108,7 @@ public class SearchPostsActivity extends AppCompatActivity {
                 break;
             case R.id.radioDate:
                 if(checked){
-                    edtTxtSearch.setHint("Enter post date.");
+                    edtTxtSearch.setHint("Enter post date (MM/DD/YYYY).");
                 }
                 break;
             case R.id.radioAuthor:
@@ -116,6 +118,13 @@ public class SearchPostsActivity extends AppCompatActivity {
                 break;
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SearchPostsActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 }

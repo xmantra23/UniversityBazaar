@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Adapter.ClubAdapter;
 import org.samir.universitybazaar.Adapter.MyPostAdapter;
 import org.samir.universitybazaar.Database.ClubDAO;
@@ -104,7 +106,7 @@ public class SearchClubsActivity extends AppCompatActivity {
                 break;
             case R.id.radioDate:
                 if(checked){
-                    edtTxtSearch.setHint("Enter club date.");
+                    edtTxtSearch.setHint("Enter club date (MM/DD/YYYY).");
                 }
                 break;
             case R.id.radioAdmin:
@@ -114,5 +116,12 @@ public class SearchClubsActivity extends AppCompatActivity {
                 break;
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SearchClubsActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
