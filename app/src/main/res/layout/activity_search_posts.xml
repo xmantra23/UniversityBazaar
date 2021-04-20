@@ -41,28 +41,24 @@
             android:layout_height="wrap_content"
             android:text="Title"
             android:checked="true"
-            android:layout_marginRight="20dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:layout_marginRight="20dp" />
         <RadioButton
             android:id="@+id/radioDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:layout_marginRight="20dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:layout_marginRight="20dp" />
         <RadioButton
             android:id="@+id/radioDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
-            android:layout_marginRight="20dp"
-            android:onClick="onRadioButtonClicked"/>
+            android:layout_marginRight="20dp" />
         <RadioButton
             android:id="@+id/radioAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Author"
-            android:onClick="onRadioButtonClicked"/>
+            android:text="Author" />
     </RadioGroup>
 
     <View android:background="#080909"
@@ -73,7 +69,7 @@
         />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="356dp"
         android:id="@+id/postScrollView"
         android:layout_below="@+id/line1"
         android:layout_margin="5dp">
@@ -84,6 +80,19 @@
             android:id="@+id/postRecView"
             android:layout_margin="10dp"/>
     </ScrollView>
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_below="@+id/postScrollView"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Search"
+        android:layout_centerHorizontal="true"
+        app:backgroundTint="#03A9F4"
+        android:onClick="onSearchButtonClicked"
+        app:cornerRadius="18dp"/>
 
 
 
