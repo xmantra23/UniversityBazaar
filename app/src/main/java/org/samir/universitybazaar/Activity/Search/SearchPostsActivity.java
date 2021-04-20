@@ -69,29 +69,25 @@ public class SearchPostsActivity extends AppCompatActivity {
         switch(searchTypeRadioGroup.getCheckedRadioButtonId()){
             case R.id.radioTitle:
                 posts = dao.getPostByTitle(searchTerm);
-                adapter.setPosts(posts);
-                postRecView.setAdapter(adapter);
-                postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
                 break;
             case R.id.radioDescription:
                 posts = dao.getPostByDescription(searchTerm);
-                adapter.setPosts(posts);
-                postRecView.setAdapter(adapter);
-                postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
                 break;
             case R.id.radioDate:
                 posts = dao.getPostByDate(searchTerm);
-                adapter.setPosts(posts);
-                postRecView.setAdapter(adapter);
-                postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
                 break;
             case R.id.radioAuthor:
                 posts = dao.getPostByAuthor(searchTerm);
-                adapter.setPosts(posts);
-                postRecView.setAdapter(adapter);
-                postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
                 break;
         }
+
+        if(posts != null){
+            if(posts.size() == 0)
+                Toast.makeText(this, "Couldn't find any matches.", Toast.LENGTH_SHORT).show();
+        }
+        adapter.setPosts(posts);
+        postRecView.setAdapter(adapter);
+        postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
     }
 
     public void onRadioButtonClicked(View view){
