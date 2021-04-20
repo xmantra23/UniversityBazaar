@@ -268,4 +268,136 @@ public class PostDAO {
             return null;
         }
     }
+
+    /**
+     * @author Samir Shrestha
+     */
+    public ArrayList<Post> getPostByDate(String date){
+        ArrayList<Post> posts = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        try {
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "category",
+            };
+
+            String[] args = new String[]{date+"%"};
+
+            //retrieve all the posts from the posts table where title == provided title in the argument
+            Cursor cursor = db.query("posts", columns, "createdDate LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ // continues until all the retrieved rows have been iterated.
+                        Post post = new Post();
+                        int postId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String category = cursor.getString(cursor.getColumnIndex("category"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+
+                        post.setId(postId);
+                        post.setTitle(title);
+                        post.setDescription(description);
+                        post.setCreatorId(creatorId);
+                        post.setCreatorName(creatorName);
+                        post.setCreatedDate(createdDate);
+                        post.setCategory(category);
+
+                        posts.add(post); //add the post to the posts arraylist.
+
+                        if(cursor.isLast()){ // we are at the last row of the dataset. no need to continue anymore.
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext(); //move to the next row in the dataset.
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return posts; //return all the posts we got for that memberId in the posts table.
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
+
+    /**
+     * @author Samir Shrestha
+     */
+    public ArrayList<Post> getPostByAuthor(String author){
+        ArrayList<Post> posts = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        try {
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "category",
+            };
+
+            String[] args = new String[]{author+"%"};
+
+            //retrieve all the posts from the posts table where title == provided title in the argument
+            Cursor cursor = db.query("posts", columns, "creatorName LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ // continues until all the retrieved rows have been iterated.
+                        Post post = new Post();
+                        int postId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String category = cursor.getString(cursor.getColumnIndex("category"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+
+                        post.setId(postId);
+                        post.setTitle(title);
+                        post.setDescription(description);
+                        post.setCreatorId(creatorId);
+                        post.setCreatorName(creatorName);
+                        post.setCreatedDate(createdDate);
+                        post.setCategory(category);
+
+                        posts.add(post); //add the post to the posts arraylist.
+
+                        if(cursor.isLast()){ // we are at the last row of the dataset. no need to continue anymore.
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext(); //move to the next row in the dataset.
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return posts; //return all the posts we got for that memberId in the posts table.
+            }else{
+                db.close();
+                cursor.close();
+                return null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null;
+        }
+    }
 }

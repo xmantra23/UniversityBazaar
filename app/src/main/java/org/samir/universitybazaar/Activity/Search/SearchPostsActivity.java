@@ -80,10 +80,17 @@ public class SearchPostsActivity extends AppCompatActivity {
                 postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
                 break;
             case R.id.radioDate:
-                Log.d("SearchPostActivity",searchTerm);
+                posts = dao.getPostByDate(searchTerm);
+                adapter.setPosts(posts);
+                postRecView.setAdapter(adapter);
+                postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
                 break;
             case R.id.radioAuthor:
-                Log.d("SearchPostActivity",searchTerm);
+                posts = dao.getPostByAuthor(searchTerm);
+                adapter.setPosts(posts);
+                postRecView.setAdapter(adapter);
+                postRecView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,true));
+                break;
         }
     }
 
