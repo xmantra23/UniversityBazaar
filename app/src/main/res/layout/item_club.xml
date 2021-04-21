@@ -5,18 +5,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp"
-    android:layout_margin="5dp"
-    android:id="@+id/parent">
+    android:id="@+id/parent"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="12dp"
+    android:backgroundTint="#000000">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chess Club"
+            android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="20sp"
             android:id="@+id/txtClubTitle"/>
@@ -24,6 +29,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:text="This is the best chess club in UTA"
             android:id="@+id/txtShortDesc"
             android:layout_below="@+id/txtClubTitle"
@@ -40,12 +46,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Members: 55"
+                android:textColor="#ffffff"
                 android:id="@+id/txtTotalMembers"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="JOIN"
-                android:textColor="#009688"
+                android:textColor="#FFEB3B"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/txtJoin"/>
         </RelativeLayout>
