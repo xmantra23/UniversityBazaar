@@ -15,6 +15,8 @@ import android.widget.Toast;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.MainActivity;
 import org.samir.universitybazaar.Activity.Posts.PostActivity;
+import org.samir.universitybazaar.Activity.Search.SearchClubsActivity;
+import org.samir.universitybazaar.Activity.Search.SearchPostsActivity;
 import org.samir.universitybazaar.Adapter.ClubNoticeAdapter;
 import org.samir.universitybazaar.Adapter.ClubPostsAdapter;
 import org.samir.universitybazaar.Database.ClubDAO;
@@ -47,12 +49,16 @@ public class ClubActivity extends AppCompatActivity {
     private UserSession session;
     private User user;
     private boolean isOwner = false; // flag to check if user owns this club.
+    private String activity_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club);
         initializeViews(); //initialize all the elements in activity_club.xml
+
+        //get the parent activity that called this activity
+        activity_name = getIntent().getStringExtra(Constants.ACTIVITY_NAME);
 
         session = new UserSession(this); //get the current session data.
         user = session.isUserLoggedIn(); //get the logged in user.
@@ -208,10 +214,18 @@ public class ClubActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        if(activity_name == null){
+            activity_name = "";
+        }
         //navigate to HomeActivity if the user presses back button.
-        Intent intent = new Intent(ClubActivity.this, HomeActivity.class);
-        intent.putExtra(Constants.ACTIVITY_NAME,Constants.GROUP);
-        startActivity(intent);
+        if(!activity_name.equals((new SearchClubsActivity()).getClass().getName())){
+            Intent intent = new Intent(ClubActivity.this, HomeActivity.class);
+            intent.putExtra(Constants.ACTIVITY_NAME,Constants.GROUP);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(ClubActivity.this, SearchClubsActivity.class);
+            startActivity(intent);
+        }
     }
 
     /**

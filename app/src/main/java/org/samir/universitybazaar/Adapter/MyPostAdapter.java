@@ -2,6 +2,7 @@ package org.samir.universitybazaar.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
+import org.samir.universitybazaar.Activity.Search.SearchPostsActivity;
 import org.samir.universitybazaar.Utility.Constants;
 import org.samir.universitybazaar.Models.Post;
 import org.samir.universitybazaar.Activity.Posts.PostActivity;
@@ -53,6 +55,7 @@ public class MyPostAdapter extends RecyclerView.Adapter<MyPostAdapter.ViewHolder
 
         //clicking on any post in the list should navigate to the PostActivity page for that post.
         holder.parent.setOnClickListener(v->{
+            activity_type = context.getClass().getName();
             Intent intent = new Intent(context, PostActivity.class);
             //pass the postId to the PostActivity page. This will allow us to retrieve all the details of the clicked post inside the PostActivity page.
             intent.putExtra(Constants.POST_ID,posts.get(position).getId());
