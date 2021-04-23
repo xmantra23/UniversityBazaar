@@ -13,7 +13,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.UniversityBazaar">
+        android:requestLegacyExternalStorage="true">
+        <activity android:name=".Activity.pay.PayActivity"></activity>
         <activity android:name=".Activity.Search.SearchClubsActivity"></activity>
         <activity android:name=".Activity.Search.SearchPostsActivity" />
         <activity android:name=".Activity.Messages.MessageHomeActivity" />
