@@ -318,4 +318,299 @@ public class LoanDAO {
         }
     }
 
+    /**
+     * @author minyi lu
+     * @Description get loan items by title
+     */
+    public ArrayList<Loan> getLoansByTitle(String loanTitle){
+        ArrayList<Loan> loans = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status",
+                    "day"
+            };
+            String[] args = {loanTitle+"%"};
+            //retrieve all the loans in the loan table
+            Cursor cursor = db.query("loan", columns, "title LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Loan loan = new Loan();
+                        int loanId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        loan.set_id(loanId);
+                        loan.setTitle(title);
+                        loan.setDescription(description);
+                        loan.setCreatorId(creatorId);
+                        loan.setCreatorName(creatorName);
+                        loan.setCreatedDate(createdDate);
+                        loan.setImage(image);
+                        loan.setPrice(price);
+                        loan.setStatus(status);
+
+                        loans.add(loan); //add the loan to the loans arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return loans; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
+    /**
+     * @author minyi lu
+     * @Description get loan items by Description
+     */
+    public ArrayList<Loan> getLoansByDescription(String in_description){
+        ArrayList<Loan> loans = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status",
+                    "day"
+            };
+            String[] args = {"%"+in_description+"%"};
+            //retrieve all the loans in the loan table
+            Cursor cursor = db.query("loan", columns, "description LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Loan loan = new Loan();
+                        int loanId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        loan.set_id(loanId);
+                        loan.setTitle(title);
+                        loan.setDescription(description);
+                        loan.setCreatorId(creatorId);
+                        loan.setCreatorName(creatorName);
+                        loan.setCreatedDate(createdDate);
+                        loan.setImage(image);
+                        loan.setPrice(price);
+                        loan.setStatus(status);
+
+                        loans.add(loan); //add the loan to the loans arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return loans; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
+    /**
+     * @author minyi lu
+     * @Description get loan items by Date
+     */
+    public ArrayList<Loan> getLoansByDate(String in_date){
+        ArrayList<Loan> loans = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status",
+                    "day"
+            };
+            String[] args = {in_date+"%"};
+            //retrieve all the loans in the loan table
+            Cursor cursor = db.query("loan", columns, "createdDate LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Loan loan = new Loan();
+                        int loanId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        loan.set_id(loanId);
+                        loan.setTitle(title);
+                        loan.setDescription(description);
+                        loan.setCreatorId(creatorId);
+                        loan.setCreatorName(creatorName);
+                        loan.setCreatedDate(createdDate);
+                        loan.setImage(image);
+                        loan.setPrice(price);
+                        loan.setStatus(status);
+
+                        loans.add(loan); //add the loan to the loans arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return loans; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
+    /**
+     * @author minyi lu
+     * @Description get loan items by owner
+     */
+    public ArrayList<Loan> getLoansByOwner(String owner){
+        ArrayList<Loan> loans = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status",
+                    "day"
+            };
+            String[] args = {"%"+owner+"%"};
+            //retrieve all the loans in the loan table
+            Cursor cursor = db.query("loan", columns, "creatorName LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Loan loan = new Loan();
+                        int loanId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        loan.set_id(loanId);
+                        loan.setTitle(title);
+                        loan.setDescription(description);
+                        loan.setCreatorId(creatorId);
+                        loan.setCreatorName(creatorName);
+                        loan.setCreatedDate(createdDate);
+                        loan.setImage(image);
+                        loan.setPrice(price);
+                        loan.setStatus(status);
+
+                        loans.add(loan); //add the loan to the loans arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return loans; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
 }

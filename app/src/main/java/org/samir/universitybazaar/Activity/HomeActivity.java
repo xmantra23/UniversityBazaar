@@ -29,6 +29,7 @@ import org.samir.universitybazaar.Activity.Loan.LoanItemActivity;
 import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
 import org.samir.universitybazaar.Activity.Sale.SellItemActivity;
 import org.samir.universitybazaar.Activity.Search.SearchClubsActivity;
+import org.samir.universitybazaar.Activity.Search.SearchMarketActivity;
 import org.samir.universitybazaar.Activity.Search.SearchPostsActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.ProfileDAO;
@@ -149,6 +150,10 @@ public class HomeActivity extends AppCompatActivity {
                         Intent intent6 = new Intent(HomeActivity.this, SearchClubsActivity.class);
                         startActivity(intent6);
                         break;
+                    case R.id.searchMarket:
+                        //redirect to SearchMarketActivity
+                        Intent intent7 = new Intent(HomeActivity.this, SearchMarketActivity.class);
+                        startActivity(intent7);
                     default:
                         break;
                 }

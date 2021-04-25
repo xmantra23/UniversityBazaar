@@ -19,6 +19,7 @@
         <activity android:name=".Activity.pay.PayActivity"></activity>
         <activity android:name=".Activity.Search.SearchClubsActivity"></activity>
         <activity android:name=".Activity.Search.SearchPostsActivity" />
+        <activity android:name=".Activity.Search.SearchMarketActivity" />
         <activity android:name=".Activity.Messages.MessageHomeActivity" />
         <activity android:name=".Activity.Messages.NewMessageActivity" />
         <activity android:name=".Activity.Messages.InboxMessageActivity" />

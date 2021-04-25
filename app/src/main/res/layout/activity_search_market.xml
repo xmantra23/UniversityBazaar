@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0.5dp"
+    android:background="@drawable/border"
+    android:textAlignment="textEnd"
+    tools:context=".Activity.Search.SearchMarketActivity">
+
+    <TextView
+        android:id="@+id/txtHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Search Market"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtTxtSearch"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txtHeader"
+        android:background="@drawable/border"
+        android:hint="Enter item title."
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="#000000" />
+
+    <RadioGroup
+        android:id="@+id/searchTypeRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtTxtSearch"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="Title"
+            android:textColor="#2196F3"
+            android:textColorHighlight="#FFFFFF"
+            android:textSize="18dp" />
+
+        <RadioButton
+            android:id="@+id/radioDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="Description"
+            android:textColor="#2196F3"
+            android:textColorHighlight="#FFFFFF"
+            android:textSize="18dp" />
+
+        <RadioButton
+            android:id="@+id/radioDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="Date"
+            android:textColor="#2196F3"
+            android:textSize="18dp" />
+
+        <RadioButton
+            android:id="@+id/radioOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Owner"
+            android:textColor="#2196F3"
+            android:textColorHighlight="#FFFFFF"
+            android:textSize="18dp" />
+    </RadioGroup>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_below="@id/searchTypeRadioGroup"
+        android:background="#EAEFEF" />
+
+    <ScrollView
+        android:id="@+id/itemScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="356dp"
+        android:layout_below="@+id/line1"
+        android:layout_margin="5dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemRecView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemScrollView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="onSearchButtonClicked"
+        android:text="Search"
+        app:backgroundTint="#4CAF50"
+        app:cornerRadius="18dp" />
+
+
+</RelativeLayout>
