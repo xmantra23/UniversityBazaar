@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import org.samir.universitybazaar.Models.Club;
 import org.samir.universitybazaar.Models.Sell;
 
 import java.util.ArrayList;
@@ -312,4 +314,295 @@ public class SellDAO {
         }
     }
 
+    /**
+     * @author minyi lu
+     * @Description get sell items by title
+     */
+    public ArrayList<Sell> getSellsByTitle(String sellTitle){
+        ArrayList<Sell> sells = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                "_id",
+                "title",
+                "description",
+                "creatorId",
+                "creatorName",
+                "createdDate",
+                "image",
+                "price",
+                "status"
+            };
+            String[] args = {sellTitle+"%"};
+            //retrieve all the sells in the sell table
+            Cursor cursor = db.query("sell", columns, "title LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Sell sell = new Sell();
+                        int sellId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        sell.set_id(sellId);
+                        sell.setTitle(title);
+                        sell.setDescription(description);
+                        sell.setCreatorId(creatorId);
+                        sell.setCreatorName(creatorName);
+                        sell.setCreatedDate(createdDate);
+                        sell.setImage(image);
+                        sell.setPrice(price);
+                        sell.setStatus(status);
+
+                        sells.add(sell); //add the sell to the sells arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return sells; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
+    /**
+     * @author minyi lu
+     * @Description get sell items by Description
+     */
+    public ArrayList<Sell> getSellsByDescription(String in_description){
+        ArrayList<Sell> sells = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status"
+            };
+            String[] args = {"%"+in_description+"%"};
+            //retrieve all the sells in the sell table
+            Cursor cursor = db.query("sell", columns, "description LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Sell sell = new Sell();
+                        int sellId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        sell.set_id(sellId);
+                        sell.setTitle(title);
+                        sell.setDescription(description);
+                        sell.setCreatorId(creatorId);
+                        sell.setCreatorName(creatorName);
+                        sell.setCreatedDate(createdDate);
+                        sell.setImage(image);
+                        sell.setPrice(price);
+                        sell.setStatus(status);
+
+                        sells.add(sell); //add the sell to the sells arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return sells; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
+    /**
+     * @author minyi lu
+     * @Description get sell items by date
+     */
+    public ArrayList<Sell> getSellsByDate(String in_date){
+        ArrayList<Sell> sells = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status"
+            };
+            String[] args = {in_date+"%"};
+            //retrieve all the sells in the sell table
+            Cursor cursor = db.query("sell", columns, "createdDate LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Sell sell = new Sell();
+                        int sellId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        sell.set_id(sellId);
+                        sell.setTitle(title);
+                        sell.setDescription(description);
+                        sell.setCreatorId(creatorId);
+                        sell.setCreatorName(creatorName);
+                        sell.setCreatedDate(createdDate);
+                        sell.setImage(image);
+                        sell.setPrice(price);
+                        sell.setStatus(status);
+
+                        sells.add(sell); //add the sell to the sells arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return sells; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
+
+    /**
+     * @author minyi lu
+     * @Description get sell items by owner
+     */
+    public ArrayList<Sell> getSellsByOwner(String owner){
+        ArrayList<Sell> sells = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            db = dbHelper.getReadableDatabase();
+            String[] columns = new String[]{
+                    "_id",
+                    "title",
+                    "description",
+                    "creatorId",
+                    "creatorName",
+                    "createdDate",
+                    "image",
+                    "price",
+                    "status"
+            };
+            String[] args = {"%"+owner+"%"};
+            //retrieve all the sells in the sell table
+            Cursor cursor = db.query("sell", columns, "creatorName LIKE ?", args, null, null, null);
+            if(cursor != null){
+                if(cursor.moveToFirst()){
+                    boolean isLast = false;
+                    while(!isLast){ //continue until there are no more rows to process in the dataset.
+
+                        Sell sell = new Sell();
+                        int sellId = cursor.getInt(cursor.getColumnIndex("_id"));
+                        String title = cursor.getString(cursor.getColumnIndex("title"));
+                        String description = cursor.getString(cursor.getColumnIndex("description"));
+                        String creatorId = cursor.getString(cursor.getColumnIndex("creatorId"));
+                        String creatorName = cursor.getString(cursor.getColumnIndex("creatorName"));
+                        String createdDate = cursor.getString(cursor.getColumnIndex("createdDate"));
+                        String image = cursor.getString(cursor.getColumnIndex("image"));
+                        String price = cursor.getString(cursor.getColumnIndex("price"));
+                        String status = cursor.getString(cursor.getColumnIndex("status"));
+
+
+                        sell.set_id(sellId);
+                        sell.setTitle(title);
+                        sell.setDescription(description);
+                        sell.setCreatorId(creatorId);
+                        sell.setCreatorName(creatorName);
+                        sell.setCreatedDate(createdDate);
+                        sell.setImage(image);
+                        sell.setPrice(price);
+                        sell.setStatus(status);
+
+                        sells.add(sell); //add the sell to the sells arraylist.
+                        if(cursor.isLast()){
+                            isLast = true;
+                        }else{
+                            cursor.moveToNext();
+                        }
+                    }
+                }
+                db.close();
+                cursor.close();
+                return sells; //return all the clubs
+            }else{
+                db.close();
+                cursor.close();
+                return null; //error return null
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            db.close();
+            return null; //error return null
+        }
+    }
 }
