@@ -32,6 +32,7 @@ import java.util.ArrayList;
 public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
     private ArrayList<Club> clubs = new ArrayList<>();
     private Context context;
+    private String activity_type;
 
     public ClubAdapter(Context context){
         this.context = context;
@@ -90,7 +91,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
                 }else{
                     //add a new member to club.
                     holder.txtJoin.setText("JOIN");
-                    holder.txtJoin.setTextColor(context.getResources().getColor(R.color.blue));
+                    holder.txtJoin.setTextColor(context.getResources().getColor(R.color.custom_yellow));
                     holder.txtJoin.setVisibility(View.VISIBLE);
                     holder.txtJoin.setOnClickListener(v->{
                         if(cb.addMemberToClub(clubs.get(position).get_id(),userId)){
@@ -116,9 +117,11 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder>{
             //already subscribed to the club or not. If the user is not subscribed then we cannot let the user visit that club.
             holder.parent.setOnClickListener(v->{
                 if(isOwner || isMember){
+                    activity_type = context.getClass().getName();
                     //start a new ClubActivity and pass the club id with the intent.
                     Intent intent = new Intent(context, ClubActivity.class);
                     intent.putExtra(Constants.CLUB_ID,clubs.get(position).get_id());
+                    intent.putExtra(Constants.ACTIVITY_NAME,activity_type);
                     context.startActivity(intent);
                     if (context instanceof Activity) {
                         // finish activity

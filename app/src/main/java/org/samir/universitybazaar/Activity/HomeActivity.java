@@ -25,11 +25,17 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 import org.samir.universitybazaar.Activity.Clubs.CreateClubActivity;
+import org.samir.universitybazaar.Activity.Loan.LoanItemActivity;
 import org.samir.universitybazaar.Activity.Posts.CreatePostActivity;
+import org.samir.universitybazaar.Activity.Sale.SellItemActivity;
+import org.samir.universitybazaar.Activity.Search.SearchClubsActivity;
+import org.samir.universitybazaar.Activity.Search.SearchMarketActivity;
+import org.samir.universitybazaar.Activity.Search.SearchPostsActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.ProfileDAO;
 import org.samir.universitybazaar.Database.UserSession;
 import org.samir.universitybazaar.Fragments.AllClubsFragment;
+import org.samir.universitybazaar.Fragments.AllItemFragment;
 import org.samir.universitybazaar.Fragments.AllPostsFragment;
 import org.samir.universitybazaar.Fragments.HomeFragment;
 import org.samir.universitybazaar.Models.Profile;
@@ -55,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
     private UserSession session;
     private ProfileDAO dao;
     private ImageView headerImage;
-    private TextView userName,userEmail;
+    private TextView userName, userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,14 +84,14 @@ public class HomeActivity extends AppCompatActivity {
         User user = session.isUserLoggedIn();
 
         //only update the toolbar header if the user is logged in. If the user is not logged in default values are set.
-        if(user != null){
+        if (user != null) {
             dao = new ProfileDAO(this);
             String userAvatar = dao.getAvatar(user.getMemberId());//getting avatar name from the database.
             Profile userProfile = dao.getProfile(user.getMemberId()); //get the profile details for the current logged in user.
-            if(userAvatar != null){ //only set image if user Avatar has been set i.e. the user has updated their profile with all the details.
+            if (userAvatar != null) { //only set image if user Avatar has been set i.e. the user has updated their profile with all the details.
                 setImage(userAvatar);
             }
-            if(userProfile.getFullName() != null) //user has set the full name.
+            if (userProfile.getFullName() != null) //user has set the full name.
                 userName.setText(userProfile.getFullName());
             else //user hasn't provided the full name so display the member id instead.
                 userName.setText(userProfile.getMemberId());
@@ -103,19 +109,19 @@ public class HomeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
     }
 
-    private void createToggleMenu(){
+    private void createToggleMenu() {
         setSupportActionBar(toolbar); //make the user provided toolbar the top toolbar.
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close); //this lets us toggle the menu.
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open, R.string.close); //this lets us toggle the menu.
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
 
-    private void handleMenuClicks(){
+    private void handleMenuClicks() {
         //setting onclick listeners for the menu items in the drawer toolbar.
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch(item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.newPost:
                         //Redirect to the create a new post activity. This lets users create a new post.
                         Intent intent = new Intent(HomeActivity.this, CreatePostActivity.class);
@@ -127,21 +133,27 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent2);
                         break;
                     case R.id.sellItem:
-                        // TODO: 2/18/2021 Redirect to sell item activity
+                        Intent intent3 = new Intent(HomeActivity.this, SellItemActivity.class);
+                        startActivity(intent3);
                         break;
                     case R.id.loanItem:
-                        // TODO: 2/18/2021 Redirect to loan item activity
+                        Intent intent4 = new Intent(HomeActivity.this, LoanItemActivity.class);
+                        startActivity(intent4);
                         break;
                     case R.id.searchPosts:
-                        //To be completed by: Samir Shrestha for sprint 5
-                        // TODO: 4/7/2021 Redirect to search posts activity.
+                        //Redirect to SearchPostsActivity
+                        Intent intent5 = new Intent(HomeActivity.this, SearchPostsActivity.class);
+                        startActivity(intent5);
                         break;
                     case R.id.searchClubs:
-                        //To be completed by: Samir Shrestha for sprint 5
-                        // TODO: 4/7/2021 Redirect to search clubs activity.
+                        //Redirect to SearchPostsActivity
+                        Intent intent6 = new Intent(HomeActivity.this, SearchClubsActivity.class);
+                        startActivity(intent6);
                         break;
                     case R.id.searchMarket:
-                        // TODO: 4/7/2021 Redirect to search market items activity.
+                        //redirect to SearchMarketActivity
+                        Intent intent7 = new Intent(HomeActivity.this, SearchMarketActivity.class);
+                        startActivity(intent7);
                     default:
                         break;
                 }
@@ -158,49 +170,55 @@ public class HomeActivity extends AppCompatActivity {
         String activity_type = getIntent().getStringExtra(Constants.ACTIVITY_NAME);
 
         /*
-        *load the correct fragment based on which icon was pressed. If the user has visited the homepage for the first time then
-        * this will be null so load a HomeFragment but if the user has pressed on any of the icons in the bottom navigation view then
-        * load the fragment corresponding to that icon in the body of the HomePage Activity.
-        */
-         if(activity_type == null){
+         *load the correct fragment based on which icon was pressed. If the user has visited the homepage for the first time then
+         * this will be null so load a HomeFragment but if the user has pressed on any of the icons in the bottom navigation view then
+         * load the fragment corresponding to that icon in the body of the HomePage Activity.
+         */
+        if (activity_type == null) {
             transaction.replace(R.id.container, new HomeFragment()); //container is defined as a fragment inside this activity.
-        }else if(activity_type.equals(Constants.POST)){
+        } else if (activity_type.equals(Constants.POST)) {
             transaction.replace(R.id.container, new AllPostsFragment()); //load all posts fragment in home activity.
-        }else if(activity_type.equals(Constants.HOME)){
+        } else if (activity_type.equals(Constants.HOME)) {
             transaction.replace(R.id.container, new HomeFragment()); //load home fragment in home activity.
-        }else if(activity_type.equals(Constants.GROUP)){
-             transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs/groups fragment in home activity.
-        }else if (activity_type.equals(Constants.MARKET)){
-
-             //add you logic to navigate to MarketFragment here. You need to create this fragment similar to how I have
-             //created fragments for home, posts and clubs.
-             //this fragment needs to list show all the sale and rent items inside it.
-         }
+        } else if (activity_type.equals(Constants.GROUP)) {
+            transaction.replace(R.id.container, new AllClubsFragment()); //load all clubs/groups fragment in home activity.
+        } else if (activity_type.equals(Constants.ITEM)) {
+            transaction.replace(R.id.container, new AllItemFragment()); //load all clubs/groups fragment in home activity.
+        }
 
 
         transaction.commit();//finalizes loading the fragment.
     }
 
     //helper method for setting the image of the avatar. can move this to a utils class in the future.
-    private void setImage(String avatar){
-        switch (avatar){
-            case "bear": headerImage.setImageResource(R.mipmap.bear);
+    private void setImage(String avatar) {
+        switch (avatar) {
+            case "bear":
+                headerImage.setImageResource(R.mipmap.bear);
                 break;
-            case "beauty": headerImage.setImageResource(R.mipmap.beauty);
+            case "beauty":
+                headerImage.setImageResource(R.mipmap.beauty);
                 break;
-            case "blue": headerImage.setImageResource(R.mipmap.blue);
+            case "blue":
+                headerImage.setImageResource(R.mipmap.blue);
                 break;
-            case "cool": headerImage.setImageResource(R.mipmap.cool);
+            case "cool":
+                headerImage.setImageResource(R.mipmap.cool);
                 break;
-            case "dog": headerImage.setImageResource(R.mipmap.dog);
+            case "dog":
+                headerImage.setImageResource(R.mipmap.dog);
                 break;
-            case "duck": headerImage.setImageResource(R.mipmap.duck);
+            case "duck":
+                headerImage.setImageResource(R.mipmap.duck);
                 break;
-            case "girl": headerImage.setImageResource(R.mipmap.girl);
+            case "girl":
+                headerImage.setImageResource(R.mipmap.girl);
                 break;
-            case "purple": headerImage.setImageResource(R.mipmap.purple);
+            case "purple":
+                headerImage.setImageResource(R.mipmap.purple);
                 break;
-            case "terrible": headerImage.setImageResource(R.mipmap.terrible);
+            case "terrible":
+                headerImage.setImageResource(R.mipmap.terrible);
                 break;
             default:
                 break;
@@ -209,7 +227,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
+        Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

@@ -24,7 +24,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.samir.universitybazaar.Activity.HomeActivity;
 import org.samir.universitybazaar.Activity.Clubs.MyClubsActivity;
 import org.samir.universitybazaar.Activity.Clubs.MySubscriptionsActivity;
+import org.samir.universitybazaar.Activity.Loan.MyLoanItemListActivity;
 import org.samir.universitybazaar.Activity.Messages.MessageHomeActivity;
+import org.samir.universitybazaar.Activity.Sale.MySaleItemListActivity;
 import org.samir.universitybazaar.Adapter.AdvertisementAdapter;
 import org.samir.universitybazaar.Database.MessageDAO;
 import org.samir.universitybazaar.Database.UserSession;
@@ -108,6 +110,8 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
         manageSaleArrow.setOnClickListener(v->{
+            Intent intent = new Intent(getActivity(), MySaleItemListActivity.class);
+            startActivity(intent);
             // TODO: 2/18/2021 handle sale arrow pressed
         });
         managePurchaseArrow.setOnClickListener(v->{
@@ -115,6 +119,8 @@ public class HomeFragment extends Fragment {
         });
         manageLoanArrow.setOnClickListener(v->{
             // TODO: 2/18/2021 handle loan arrow pressed
+            Intent intent = new Intent(getActivity(), MyLoanItemListActivity.class);
+            startActivity(intent);
         });
 
         //profile button was pressed. navigate to ViewProfileActivity
@@ -129,7 +135,7 @@ public class HomeFragment extends Fragment {
             userSession.signOutUser();
         });
         
-        //navigate to message home activity. displays the three buttons for the message actions.
+        //handle messages
         txtMessages.setOnClickListener(v->{
             Intent intent = new Intent(getActivity(), MessageHomeActivity.class);
             startActivity(intent);
@@ -218,11 +224,8 @@ public class HomeFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.market:
-                    // You need to first implement a MarketFragment that displays all the sale and rent items and then
-                    // redirect to the  HomeActivity but you need to pass the activity name as "market"
-                    // inside the intent.putExtra.
-                    // so you need to do intent.putExtra(Constants.ACTIVITY_NAME,"market");
-                    // See line 212 and line 217 in this page.
+                    intent.putExtra(Constants.ACTIVITY_NAME,"item");
+                    startActivity(intent);
                     break;
                 default:
                     break;

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.samir.universitybazaar.Activity.HomeActivity;
+import org.samir.universitybazaar.Activity.Search.SearchPostsActivity;
 import org.samir.universitybazaar.Adapter.CommentAdapter;
 import org.samir.universitybazaar.Database.CommentDAO;
 import org.samir.universitybazaar.Database.DatabaseHelper;
@@ -39,6 +40,7 @@ public class PostActivity extends AppCompatActivity {
     private UserSession userSession;
     private Post post;
     private int post_id;
+    private String activity_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,10 @@ public class PostActivity extends AppCompatActivity {
 
         //get the postId of the post that the user clicked on before navigating to this activity.
         post_id = getIntent().getIntExtra(Constants.POST_ID,-1);
+
+        //get the parent activity that called this activity
+        activity_name = getIntent().getStringExtra(Constants.ACTIVITY_NAME);
+
         db = new DatabaseHelper(this);
         userSession = new UserSession(this);
 
@@ -228,9 +234,16 @@ public class PostActivity extends AppCompatActivity {
   
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(PostActivity.this,HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        if(activity_name == null){
+            activity_name = "";
+        }
+        if(!activity_name.equals((new SearchPostsActivity()).getClass().getName())){
+            Intent intent = new Intent(PostActivity.this,HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else{
+            super.onBackPressed();
+        }
     }
 
 }

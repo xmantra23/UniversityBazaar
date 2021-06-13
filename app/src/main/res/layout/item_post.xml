@@ -4,14 +4,19 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
-    app:cardElevation="5dp"
-    android:layout_margin="5dp"
+    app:cardElevation="3dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="5dp"
+    android:backgroundTint="#000000"
     android:id="@+id/parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_marginTop="5dp"
+        android:padding="15dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,13 +26,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Free Pizza @ ERB 123"
+                android:textColor="#ffffff"
                 android:textStyle="bold"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:id="@+id/txtClubTitle"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(News)"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/txtClubTitle"
                 android:id="@+id/txtPostCategory"/>
@@ -45,11 +53,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Posted by: Samir Shrestha"
+                android:textColor="#ffffff"
                 android:id="@+id/txtUserName"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="02/19/2020"
+                android:textColor="#ffffff"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/txtDate"/>
         </RelativeLayout>
